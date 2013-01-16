@@ -1,0 +1,10 @@
+package com.teamBasics.framework;
+
+import com.teamBasics.framework.Graphics.ImageFormat;
+
+public interface Image {
+    public int getWidth();
+    public int getHeight();
+    public ImageFormat getFormat();
+    public void dispose();
+}
