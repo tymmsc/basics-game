@@ -13,11 +13,11 @@
 
     <application
         android:icon="@drawable/icon"
-        android:label="RobotGame" >
+        android:label="College TD" >
         <activity
             android:name=".SampleGame"
             android:configChanges="keyboard|keyboardHidden|orientation"
-            android:label="RobotGame"
+            android:label="CollegeTD"
             android:screenOrientation="landscape" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
