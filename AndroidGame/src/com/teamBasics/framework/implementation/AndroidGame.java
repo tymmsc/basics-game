@@ -26,7 +26,6 @@ public abstract class AndroidGame extends Activity implements Game {
 	FileIO fileIO;
 	Screen screen;
 	WakeLock wakeLock;
-	Thread thread = new Thread();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -53,12 +52,6 @@ public abstract class AndroidGame extends Activity implements Game {
 		audio = new AndroidAudio(this);
 		input = new AndroidInput(this, renderView, scaleX, scaleY);
 		screen = getInitScreen();
-		try {
-			thread.sleep(10000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		setContentView(renderView);
 
 		PowerManager powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);

@@ -44,6 +44,13 @@ public class LoadingScreen extends Screen {
 		// Assets.click = game.getAudio().createSound("explode.ogg");
 
 		game.setScreen(new MainMenuScreen(game));
+		Thread thread = new Thread();
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
