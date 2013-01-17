@@ -6,7 +6,7 @@ public class Enemy {
 
 	private int power, centerX, speedX, centerY;
 	private Background bg = GameScreen.getBg1();
-	private Robot robot = GameScreen.getRobot();
+	//private Robot robot = GameScreen.getRobot();
 
 	public Rect r = new Rect(0, 0, 0, 0);
 	public int health = 5;
@@ -15,7 +15,7 @@ public class Enemy {
 
 	// Behavioral Methods
 	public void update() {
-		follow();
+		//follow();
 		centerX += speedX;
 		speedX = bg.getSpeedX() * 5 + movementSpeed;
 		r.set(centerX - 25, centerY - 25, centerX + 25, centerY + 35);
@@ -34,7 +34,7 @@ public class Enemy {
 		}
 	}
 
-	public void follow() {
+	/*public void follow() {
 
 		if (centerX < -95 || centerX > 810) {
 			movementSpeed = 0;
@@ -53,7 +53,7 @@ public class Enemy {
 			}
 		}
 
-	}
+	}*/
 
 	public void die() {
 

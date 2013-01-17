@@ -18,7 +18,7 @@ public class Projectile {
 		r = new Rect(0, 0, 0, 0);
 	}
 
-	public void update() {
+	/*public void update() {
 		x += speedX;
 		r.set(x, y, x + 10, y + 5);
 		if (x > 800) {
@@ -28,9 +28,9 @@ public class Projectile {
 		if (x < 800) {
 			checkCollision();
 		}
-	}
+	}*/
 
-	private void checkCollision() {
+	/*private void checkCollision() {
 		if (Rect.intersects(r, GameScreen.hb.r)) {
 			visible = false;
 
@@ -56,7 +56,7 @@ public class Projectile {
 			}
 
 		}
-	}
+	}*/
 
 	public int getX() {
 		return x;

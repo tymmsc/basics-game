@@ -23,16 +23,16 @@ public class GameScreen extends Screen {
 	// Variable Setup
 
 	private static Background bg1, bg2;
-	private static Robot robot;
-	public static Heliboy hb, hb2;
+	//private static Robot robot;
+	//public static Heliboy hb, hb2;
 
-	private Image currentSprite, character, character2, character3, heliboy,
-			heliboy2, heliboy3, heliboy4, heliboy5;
-	private Animation anim, hanim;
+	//private Image currentSprite, character, character2, character3, heliboy,
+	//		heliboy2, heliboy3, heliboy4, heliboy5;
+	//private Animation anim, hanim;
 
 	private ArrayList<Tile> tilearray = new ArrayList<Tile>();
 
-	int livesLeft = 1;
+	int livesLeft = 20;
 	Paint paint, paint2;
 
 	public GameScreen(Game game) {
@@ -41,38 +41,37 @@ public class GameScreen extends Screen {
 		// Initialize game objects here
 
 		bg1 = new Background(0, 0);
-		bg2 = new Background(2160, 0);
-		robot = new Robot();
-		hb = new Heliboy(340, 360);
-		hb2 = new Heliboy(700, 360);
+	//	robot = new Robot();
+	//	hb = new Heliboy(340, 360);
+	//	hb2 = new Heliboy(700, 360);
 
-		character = Assets.character;
-		character2 = Assets.character2;
-		character3 = Assets.character3;
+	//	character = Assets.character;
+	//	character2 = Assets.character2;
+	//	character3 = Assets.character3;
 
-		heliboy = Assets.heliboy;
-		heliboy2 = Assets.heliboy2;
-		heliboy3 = Assets.heliboy3;
-		heliboy4 = Assets.heliboy4;
-		heliboy5 = Assets.heliboy5;
+	//	heliboy = Assets.heliboy;
+	//	heliboy2 = Assets.heliboy2;
+	//	heliboy3 = Assets.heliboy3;
+	//	heliboy4 = Assets.heliboy4;
+	//	heliboy5 = Assets.heliboy5;
 
-		anim = new Animation();
-		anim.addFrame(character, 1250);
-		anim.addFrame(character2, 50);
-		anim.addFrame(character3, 50);
-		anim.addFrame(character2, 50);
+	//	anim = new Animation();
+	//	anim.addFrame(character, 1250);
+	//	anim.addFrame(character2, 50);
+	//	anim.addFrame(character3, 50);
+	//	anim.addFrame(character2, 50);
 
-		hanim = new Animation();
-		hanim.addFrame(heliboy, 100);
-		hanim.addFrame(heliboy2, 100);
-		hanim.addFrame(heliboy3, 100);
-		hanim.addFrame(heliboy4, 100);
-		hanim.addFrame(heliboy5, 100);
-		hanim.addFrame(heliboy4, 100);
-		hanim.addFrame(heliboy3, 100);
-		hanim.addFrame(heliboy2, 100);
+	//	hanim = new Animation();
+	//	hanim.addFrame(heliboy, 100);
+	//	hanim.addFrame(heliboy2, 100);
+	//	hanim.addFrame(heliboy3, 100);
+	//	hanim.addFrame(heliboy4, 100);
+	//	hanim.addFrame(heliboy5, 100);
+	//	hanim.addFrame(heliboy4, 100);
+	//	hanim.addFrame(heliboy3, 100);
+	//	hanim.addFrame(heliboy2, 100);
 
-		currentSprite = anim.getImage();
+	//	currentSprite = anim.getImage();
 
 		loadMap();
 
@@ -81,13 +80,13 @@ public class GameScreen extends Screen {
 		paint.setTextSize(30);
 		paint.setTextAlign(Paint.Align.CENTER);
 		paint.setAntiAlias(true);
-		paint.setColor(Color.WHITE);
+		paint.setColor(Color.GRAY);
 
 		paint2 = new Paint();
 		paint2.setTextSize(100);
 		paint2.setTextAlign(Paint.Align.CENTER);
 		paint2.setAntiAlias(true);
-		paint2.setColor(Color.WHITE);
+		paint2.setColor(Color.CYAN);
 
 	}
 
@@ -166,60 +165,67 @@ public class GameScreen extends Screen {
 		int len = touchEvents.size();
 		for (int i = 0; i < len; i++) {
 			TouchEvent event = touchEvents.get(i);
+			// Handles Touch PRESS
 			if (event.type == TouchEvent.TOUCH_DOWN) {
 
-				if (inBounds(event, 0, 285, 65, 65)) {
-					robot.jump();
-					currentSprite = anim.getImage();
-					robot.setDucked(false);
-				}
+				// Makes robot jump and animates him
+				//if (inBounds(event, 0, 285, 65, 65)) {
+				//	robot.jump();
+				//	currentSprite = anim.getImage();
+				//	robot.setDucked(false);
+				//}
 
-				else if (inBounds(event, 0, 350, 65, 65)) {
+				//else if (inBounds(event, 0, 350, 65, 65)) {
 
-					if (robot.isDucked() == false && robot.isJumped() == false
-							&& robot.isReadyToFire()) {
-						robot.shoot();
-					}
-				}
+				// Makes robot shoot
+				//	if (robot.isDucked() == false && robot.isJumped() == false
+				//			&& robot.isReadyToFire()) {
+				//		robot.shoot();
+				//	}
+				//}
 
-				else if (inBounds(event, 0, 415, 65, 65)
-						&& robot.isJumped() == false) {
-					currentSprite = Assets.characterDown;
-					robot.setDucked(true);
-					robot.setSpeedX(0);
+				// Makes robot duck
+				//else if (inBounds(event, 0, 415, 65, 65)
+				//		&& robot.isJumped() == false) {
+				//	currentSprite = Assets.characterDown;
+				//	robot.setDucked(true);
+				//	robot.setSpeedX(0);
 
-				}
+				//}
 
-				if (event.x > 400) {
+				// Right thumb movement
+				//if (event.x > 400) {
 					// Move right.
-					robot.moveRight();
-					robot.setMovingRight(true);
+				//	robot.moveRight();
+				//	robot.setMovingRight(true);
 
-				}
+				//}
 
 			}
 
+			// Handles touch RELEASE
 			if (event.type == TouchEvent.TOUCH_UP) {
 
-				if (inBounds(event, 0, 415, 65, 65)) {
-					currentSprite = anim.getImage();
-					robot.setDucked(false);
+				//if (inBounds(event, 0, 415, 65, 65)) {
+				//	currentSprite = anim.getImage();
+				//	robot.setDucked(false);
 
-				}
+				//}
 
-				if (inBounds(event, 0, 0, 35, 35)) {
-					pause();
+				//if (inBounds(event, 0, 0, 35, 35)) {
+				//	pause();
 
-				}
+				//}
 
-				if (event.x > 400) {
+				//if (event.x > 400) {
 					// Move right.
-					robot.stopRight();
-				}
+				//	robot.stopRight();
+				//}
 			}
 
 		}
 
+		
 		// 2. Check miscellaneous events like death:
 
 		if (livesLeft == 0) {
@@ -229,33 +235,33 @@ public class GameScreen extends Screen {
 		// 3. Call individual update() methods here.
 		// This is where all the game updates happen.
 		// For example, robot.update();
-		robot.update();
-		if (robot.isJumped()) {
-			currentSprite = Assets.characterJump;
-		} else if (robot.isJumped() == false && robot.isDucked() == false) {
-			currentSprite = anim.getImage();
-		}
+		//robot.update();
+		//if (robot.isJumped()) {
+		//	currentSprite = Assets.characterJump;
+		//} else if (robot.isJumped() == false && robot.isDucked() == false) {
+		//	currentSprite = anim.getImage();
+		//}
 
-		ArrayList projectiles = robot.getProjectiles();
-		for (int i = 0; i < projectiles.size(); i++) {
-			Projectile p = (Projectile) projectiles.get(i);
-			if (p.isVisible() == true) {
-				p.update();
-			} else {
-				projectiles.remove(i);
-			}
-		}
+		//ArrayList projectiles = robot.getProjectiles();
+		//for (int i = 0; i < projectiles.size(); i++) {
+		//	Projectile p = (Projectile) projectiles.get(i);
+		//	if (p.isVisible() == true) {
+		//		p.update();
+		//	} else {
+		//		projectiles.remove(i);
+		//	}
+		//}
 
 		updateTiles();
-		hb.update();
-		hb2.update();
-		bg1.update();
-		bg2.update();
-		animate();
+		//hb.update();
+		//hb2.update();
+		//bg1.update();
+		//bg2.update();
+		//animate();
 
-		if (robot.getCenterY() > 500) {
-			state = GameState.GameOver;
-		}
+		//if (robot.getCenterY() > 500) {
+		//	state = GameState.GameOver;
+		//}
 	}
 
 	private boolean inBounds(TouchEvent event, int x, int y, int width,
@@ -302,7 +308,7 @@ public class GameScreen extends Screen {
 
 	}
 
-	private void updateTiles() {
+	private void updateTiles(){
 
 		for (int i = 0; i < tilearray.size(); i++) {
 			Tile t = (Tile) tilearray.get(i);
@@ -319,19 +325,19 @@ public class GameScreen extends Screen {
 		g.drawImage(Assets.background, bg2.getBgX(), bg2.getBgY());
 		paintTiles(g);
 
-		ArrayList projectiles = robot.getProjectiles();
-		for (int i = 0; i < projectiles.size(); i++) {
-			Projectile p = (Projectile) projectiles.get(i);
-			g.drawRect(p.getX(), p.getY(), 10, 5, Color.YELLOW);
-		}
+		//ArrayList projectiles = robot.getProjectiles();
+		//for (int i = 0; i < projectiles.size(); i++) {
+		//	Projectile p = (Projectile) projectiles.get(i);
+		//	g.drawRect(p.getX(), p.getY(), 10, 5, Color.YELLOW);
+		//}
 		// First draw the game elements.
 
-		g.drawImage(currentSprite, robot.getCenterX() - 61,
-				robot.getCenterY() - 63);
-		g.drawImage(hanim.getImage(), hb.getCenterX() - 48,
-				hb.getCenterY() - 48);
-		g.drawImage(hanim.getImage(), hb2.getCenterX() - 48,
-				hb2.getCenterY() - 48);
+		//g.drawImage(currentSprite, robot.getCenterX() - 61,
+		//		robot.getCenterY() - 63);
+		//g.drawImage(hanim.getImage(), hb.getCenterX() - 48,
+		//		hb.getCenterY() - 48);
+		//g.drawImage(hanim.getImage(), hb2.getCenterX() - 48,
+		//		hb2.getCenterY() - 48);
 
 		// Example:
 		// g.drawImage(Assets.background, 0, 0);
@@ -359,8 +365,8 @@ public class GameScreen extends Screen {
 	}
 
 	public void animate() {
-		anim.update(10);
-		hanim.update(50);
+	//	anim.update(10);
+	//	hanim.update(50);
 	}
 
 	private void nullify() {
@@ -370,20 +376,20 @@ public class GameScreen extends Screen {
 		paint = null;
 		bg1 = null;
 		bg2 = null;
-		robot = null;
-		hb = null;
-		hb2 = null;
-		currentSprite = null;
-		character = null;
-		character2 = null;
-		character3 = null;
-		heliboy = null;
-		heliboy2 = null;
-		heliboy3 = null;
-		heliboy4 = null;
-		heliboy5 = null;
-		anim = null;
-		hanim = null;
+		//robot = null;
+		//hb = null;
+		//hb2 = null;
+		//currentSprite = null;
+		//character = null;
+		//character2 = null;
+		//character3 = null;
+		//heliboy = null;
+		//heliboy2 = null;
+		//heliboy3 = null;
+		//heliboy4 = null;
+		//heliboy5 = null;
+		//anim = null;
+		//hanim = null;
 
 		// Call garbage collector to clean up memory.
 		System.gc();
@@ -393,8 +399,8 @@ public class GameScreen extends Screen {
 	private void drawReadyUI() {
 		Graphics g = game.getGraphics();
 
-		g.drawARGB(155, 0, 0, 0);
-		g.drawString("Tap to Start.", 400, 240, paint);
+		g.drawARGB(80, 0, 0, 0);
+		g.drawString("Tap to Start!", 400, 240, paint);
 
 	}
 
@@ -420,7 +426,7 @@ public class GameScreen extends Screen {
 		Graphics g = game.getGraphics();
 		g.drawRect(0, 0, 1281, 801, Color.BLACK);
 		g.drawString("GAME OVER.", 400, 240, paint2);
-		g.drawString("Tap to return.", 400, 290, paint);
+		g.drawString("Try Again!", 400, 290, paint);
 
 	}
 
@@ -463,9 +469,9 @@ public class GameScreen extends Screen {
 		return bg2;
 	}
 
-	public static Robot getRobot() {
+	//public static Robot getRobot() {
 		// TODO Auto-generated method stub
-		return robot;
-	}
+	//	return robot;
+	//}
 
 }

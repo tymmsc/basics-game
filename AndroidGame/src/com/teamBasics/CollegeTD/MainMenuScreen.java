@@ -22,7 +22,7 @@ public class MainMenuScreen extends Screen {
 			TouchEvent event = touchEvents.get(i);
 			if (event.type == TouchEvent.TOUCH_UP) {
 
-				if (inBounds(event, 50, 350, 250, 450)) {
+				if (inBounds(event, 495, 60, 25, 210)) {
 					game.setScreen(new GameScreen(game));
 				}
 
@@ -30,6 +30,7 @@ public class MainMenuScreen extends Screen {
 		}
 	}
 
+	// Check if keypress is within certain boundaries
 	private boolean inBounds(TouchEvent event, int x, int y, int width,
 			int height) {
 		if (event.x > x && event.x < x + width - 1 && event.y > y

@@ -14,19 +14,19 @@ public class LoadingScreen extends Screen {
 	@Override
 	public void update(float deltaTime) {
 		Graphics g = game.getGraphics();
-		Assets.menu = g.newImage("menu.png", ImageFormat.RGB565);
-		Assets.background = g.newImage("background.png", ImageFormat.RGB565);
-		Assets.character = g.newImage("character.png", ImageFormat.ARGB4444);
-		Assets.character2 = g.newImage("character2.png", ImageFormat.ARGB4444);
-		Assets.character3 = g.newImage("character3.png", ImageFormat.ARGB4444);
-		Assets.characterJump = g.newImage("jumped.png", ImageFormat.ARGB4444);
-		Assets.characterDown = g.newImage("down.png", ImageFormat.ARGB4444);
+		Assets.menu = g.newImage("mainMenu.png", ImageFormat.RGB565);
+		Assets.background = g.newImage("grass.png", ImageFormat.RGB565);
+		//Assets.character = g.newImage("character.png", ImageFormat.ARGB4444);
+		//Assets.character2 = g.newImage("character2.png", ImageFormat.ARGB4444);
+		//Assets.character3 = g.newImage("character3.png", ImageFormat.ARGB4444);
+		//Assets.characterJump = g.newImage("jumped.png", ImageFormat.ARGB4444);
+		//Assets.characterDown = g.newImage("down.png", ImageFormat.ARGB4444);
 
-		Assets.heliboy = g.newImage("heliboy.png", ImageFormat.ARGB4444);
-		Assets.heliboy2 = g.newImage("heliboy2.png", ImageFormat.ARGB4444);
-		Assets.heliboy3 = g.newImage("heliboy3.png", ImageFormat.ARGB4444);
-		Assets.heliboy4 = g.newImage("heliboy4.png", ImageFormat.ARGB4444);
-		Assets.heliboy5 = g.newImage("heliboy5.png", ImageFormat.ARGB4444);
+		//Assets.heliboy = g.newImage("heliboy.png", ImageFormat.ARGB4444);
+		//Assets.heliboy2 = g.newImage("heliboy2.png", ImageFormat.ARGB4444);
+		//Assets.heliboy3 = g.newImage("heliboy3.png", ImageFormat.ARGB4444);
+		//Assets.heliboy4 = g.newImage("heliboy4.png", ImageFormat.ARGB4444);
+		//Assets.heliboy5 = g.newImage("heliboy5.png", ImageFormat.ARGB4444);
 
 		Assets.tiledirt = g.newImage("tiledirt.png", ImageFormat.RGB565);
 		Assets.tilegrassTop = g
