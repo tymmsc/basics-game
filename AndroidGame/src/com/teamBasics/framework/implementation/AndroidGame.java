@@ -54,7 +54,7 @@ public abstract class AndroidGame extends Activity implements Game {
 		input = new AndroidInput(this, renderView, scaleX, scaleY);
 		screen = getInitScreen();
 		try {
-			thread.sleep(1000);
+			thread.sleep(10000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
