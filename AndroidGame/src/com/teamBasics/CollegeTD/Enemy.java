@@ -56,7 +56,8 @@ public class Enemy {
 	}*/
 
 	public void die() {
-
+		// Remove from screen
+		// Increase User Cash Value
 	}
 
 	public void attack() {

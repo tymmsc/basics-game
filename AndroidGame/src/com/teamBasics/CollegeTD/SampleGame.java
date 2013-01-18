@@ -13,7 +13,7 @@ import com.teamBasics.framework.implementation.AndroidGame;
 
 public class SampleGame extends AndroidGame {
 
-	public static String map;
+	public static String map, map2;
 	boolean firstTimeCreate = true;
 
 	@Override
@@ -24,8 +24,11 @@ public class SampleGame extends AndroidGame {
 			firstTimeCreate = false;
 		}
 
-		InputStream is = getResources().openRawResource(R.raw.map1);
-		map = convertStreamToString(is);
+		InputStream is1 = getResources().openRawResource(R.raw.map1);
+		map = convertStreamToString(is1);
+		
+		InputStream is2 = getResources().openRawResource(R.raw.map2);
+		map2 = convertStreamToString(is2);		
 
 		return new SplashLoadingScreen(this);
 

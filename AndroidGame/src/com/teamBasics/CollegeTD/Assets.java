@@ -7,8 +7,13 @@ import com.teamBasics.framework.Sound;
 
 public class Assets {
    
-    public static Image menu, splash, background, character, character2, character3, heliboy, heliboy2, heliboy3, heliboy4, heliboy5;
+    public static Image menu, splash, background; //character, character2, character3, heliboy, heliboy2, heliboy3, heliboy4, heliboy5;
     public static Image tiledirt, tilegrassTop, tilegrassBot, tilegrassLeft, tilegrassRight, characterJump, characterDown;
+    
+    // Walking dirt paths
+    public static Image dirtBottom, dirtLeft, dirtTop, dirtRight, dirtCenter;
+    public static Image dirtLBC, dirtLTC, dirtRBC, dirtRTC;
+    
     public static Image button;
     public static Sound click;
     public static Music theme;

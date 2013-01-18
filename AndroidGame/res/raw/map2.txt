@@ -1,0 +1,23 @@
+! Team Basics
+! CollegeTD Level0
+! Length = 20 tiles
+! Width = 12 tiles
+! # = Path Tile Legend 
+! 5 = Dirt Center
+! 8 = DirtTop
+! 2 = DirtBottom
+! 4 = DirtLeft
+! 6 = DirtRight 
+! 
+   555              
+   456              
+   456  788888889   
+   456  455222556   
+   456  456   456   
+   456  456   456   
+   456  456   456   
+   45588556   456   
+   12222223   456   
+              456   
+              456   
+              555   

@@ -4,7 +4,7 @@ import android.graphics.Rect;
 
 import com.teamBasics.framework.Image;
 
-public class Tile {
+public class BorderTile {
 
 	private int tileX, tileY, speedX;
 	public int type;
@@ -15,7 +15,7 @@ public class Tile {
 
 	private Rect r;
 
-	public Tile(int x, int y, int typeInt) {
+	public BorderTile(int x, int y, int typeInt) {
 		tileX = x * 40;
 		tileY = y * 40;
 

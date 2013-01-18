@@ -16,6 +16,7 @@ public final class R {
     }
     public static final class raw {
         public static final int map1=0x7f030000;
+        public static final int map2=0x7f030001;
     }
     public static final class string {
         public static final int app_name=0x7f040000;

@@ -22,15 +22,16 @@ public class GameScreen extends Screen {
 
 	// Variable Setup
 
-	private static Background bg1, bg2;
-	//private static Robot robot;
-	//public static Heliboy hb, hb2;
+	private static Background bg1;
+	// private static Robot robot;
+	// public static Heliboy hb, hb2;
 
-	//private Image currentSprite, character, character2, character3, heliboy,
-	//		heliboy2, heliboy3, heliboy4, heliboy5;
-	//private Animation anim, hanim;
+	// private Image currentSprite, character, character2, character3, heliboy,
+	// heliboy2, heliboy3, heliboy4, heliboy5;
+	// private Animation anim, hanim;
 
-	private ArrayList<Tile> tilearray = new ArrayList<Tile>();
+	private ArrayList<BorderTile> tilearray = new ArrayList<BorderTile>();
+	private ArrayList<PathTile> tilearray2 = new ArrayList<PathTile>();
 
 	int livesLeft = 20;
 	Paint paint, paint2;
@@ -41,39 +42,40 @@ public class GameScreen extends Screen {
 		// Initialize game objects here
 
 		bg1 = new Background(0, 0);
-	//	robot = new Robot();
-	//	hb = new Heliboy(340, 360);
-	//	hb2 = new Heliboy(700, 360);
+		// robot = new Robot();
+		// hb = new Heliboy(340, 360);
+		// hb2 = new Heliboy(700, 360);
 
-	//	character = Assets.character;
-	//	character2 = Assets.character2;
-	//	character3 = Assets.character3;
+		// character = Assets.character;
+		// character2 = Assets.character2;
+		// character3 = Assets.character3;
 
-	//	heliboy = Assets.heliboy;
-	//	heliboy2 = Assets.heliboy2;
-	//	heliboy3 = Assets.heliboy3;
-	//	heliboy4 = Assets.heliboy4;
-	//	heliboy5 = Assets.heliboy5;
+		// heliboy = Assets.heliboy;
+		// heliboy2 = Assets.heliboy2;
+		// heliboy3 = Assets.heliboy3;
+		// heliboy4 = Assets.heliboy4;
+		// heliboy5 = Assets.heliboy5;
 
-	//	anim = new Animation();
-	//	anim.addFrame(character, 1250);
-	//	anim.addFrame(character2, 50);
-	//	anim.addFrame(character3, 50);
-	//	anim.addFrame(character2, 50);
+		// anim = new Animation();
+		// anim.addFrame(character, 1250);
+		// anim.addFrame(character2, 50);
+		// anim.addFrame(character3, 50);
+		// anim.addFrame(character2, 50);
 
-	//	hanim = new Animation();
-	//	hanim.addFrame(heliboy, 100);
-	//	hanim.addFrame(heliboy2, 100);
-	//	hanim.addFrame(heliboy3, 100);
-	//	hanim.addFrame(heliboy4, 100);
-	//	hanim.addFrame(heliboy5, 100);
-	//	hanim.addFrame(heliboy4, 100);
-	//	hanim.addFrame(heliboy3, 100);
-	//	hanim.addFrame(heliboy2, 100);
+		// hanim = new Animation();
+		// hanim.addFrame(heliboy, 100);
+		// hanim.addFrame(heliboy2, 100);
+		// hanim.addFrame(heliboy3, 100);
+		// hanim.addFrame(heliboy4, 100);
+		// hanim.addFrame(heliboy5, 100);
+		// hanim.addFrame(heliboy4, 100);
+		// hanim.addFrame(heliboy3, 100);
+		// hanim.addFrame(heliboy2, 100);
 
-	//	currentSprite = anim.getImage();
+		// currentSprite = anim.getImage();
 
 		loadMap();
+		loadMap2();
 
 		// Defining a paint object
 		paint = new Paint();
@@ -90,6 +92,7 @@ public class GameScreen extends Screen {
 
 	}
 
+	// Load map border
 	private void loadMap() {
 		ArrayList lines = new ArrayList();
 		int width = 0;
@@ -118,8 +121,46 @@ public class GameScreen extends Screen {
 
 				if (i < line.length()) {
 					char ch = line.charAt(i);
-					Tile t = new Tile(i, j, Character.getNumericValue(ch));
+					BorderTile t = new BorderTile(i, j, Character.getNumericValue(ch));
 					tilearray.add(t);
+				}
+
+			}
+		}
+
+	}
+
+	// Load walkway-path
+	private void loadMap2() {
+		ArrayList lines = new ArrayList();
+		int width = 0;
+		int height = 0;
+
+		Scanner scanner = new Scanner(SampleGame.map2);
+		while (scanner.hasNextLine()) {
+			String line = scanner.nextLine();
+
+			// no more lines to read
+			if (line == null) {
+				break;
+			}
+
+			if (!line.startsWith("!")) {
+				lines.add(line);
+				width = Math.max(width, line.length());
+
+			}
+		}
+		height = lines.size();
+
+		for (int j = 0; j < 12; j++) {
+			String line = (String) lines.get(j);
+			for (int i = 0; i < width; i++) {
+
+				if (i < line.length()) {
+					char ch = line.charAt(i);
+					PathTile t = new PathTile(i, j, Character.getNumericValue(ch));
+					tilearray2.add(t);
 				}
 
 			}
@@ -169,63 +210,62 @@ public class GameScreen extends Screen {
 			if (event.type == TouchEvent.TOUCH_DOWN) {
 
 				// Makes robot jump and animates him
-				//if (inBounds(event, 0, 285, 65, 65)) {
-				//	robot.jump();
-				//	currentSprite = anim.getImage();
-				//	robot.setDucked(false);
-				//}
+				// if (inBounds(event, 0, 285, 65, 65)) {
+				// robot.jump();
+				// currentSprite = anim.getImage();
+				// robot.setDucked(false);
+				// }
 
-				//else if (inBounds(event, 0, 350, 65, 65)) {
+				// else if (inBounds(event, 0, 350, 65, 65)) {
 
 				// Makes robot shoot
-				//	if (robot.isDucked() == false && robot.isJumped() == false
-				//			&& robot.isReadyToFire()) {
-				//		robot.shoot();
-				//	}
-				//}
+				// if (robot.isDucked() == false && robot.isJumped() == false
+				// && robot.isReadyToFire()) {
+				// robot.shoot();
+				// }
+				// }
 
 				// Makes robot duck
-				//else if (inBounds(event, 0, 415, 65, 65)
-				//		&& robot.isJumped() == false) {
-				//	currentSprite = Assets.characterDown;
-				//	robot.setDucked(true);
-				//	robot.setSpeedX(0);
+				// else if (inBounds(event, 0, 415, 65, 65)
+				// && robot.isJumped() == false) {
+				// currentSprite = Assets.characterDown;
+				// robot.setDucked(true);
+				// robot.setSpeedX(0);
 
-				//}
+				// }
 
 				// Right thumb movement
-				//if (event.x > 400) {
-					// Move right.
-				//	robot.moveRight();
-				//	robot.setMovingRight(true);
+				// if (event.x > 400) {
+				// Move right.
+				// robot.moveRight();
+				// robot.setMovingRight(true);
 
-				//}
+				// }
 
 			}
 
 			// Handles touch RELEASE
 			if (event.type == TouchEvent.TOUCH_UP) {
 
-				//if (inBounds(event, 0, 415, 65, 65)) {
-				//	currentSprite = anim.getImage();
-				//	robot.setDucked(false);
+				// if (inBounds(event, 0, 415, 65, 65)) {
+				// currentSprite = anim.getImage();
+				// robot.setDucked(false);
 
-				//}
+				// }
 
-				//if (inBounds(event, 0, 0, 35, 35)) {
-				//	pause();
+				// if (inBounds(event, 0, 0, 35, 35)) {
+				// pause();
 
-				//}
+				// }
 
-				//if (event.x > 400) {
-					// Move right.
-				//	robot.stopRight();
-				//}
+				// if (event.x > 400) {
+				// Move right.
+				// robot.stopRight();
+				// }
 			}
 
 		}
 
-		
 		// 2. Check miscellaneous events like death:
 
 		if (livesLeft == 0) {
@@ -235,33 +275,35 @@ public class GameScreen extends Screen {
 		// 3. Call individual update() methods here.
 		// This is where all the game updates happen.
 		// For example, robot.update();
-		//robot.update();
-		//if (robot.isJumped()) {
-		//	currentSprite = Assets.characterJump;
-		//} else if (robot.isJumped() == false && robot.isDucked() == false) {
-		//	currentSprite = anim.getImage();
-		//}
+		// robot.update();
+		// if (robot.isJumped()) {
+		// currentSprite = Assets.characterJump;
+		// } else if (robot.isJumped() == false && robot.isDucked() == false) {
+		// currentSprite = anim.getImage();
+		// }
 
-		//ArrayList projectiles = robot.getProjectiles();
-		//for (int i = 0; i < projectiles.size(); i++) {
-		//	Projectile p = (Projectile) projectiles.get(i);
-		//	if (p.isVisible() == true) {
-		//		p.update();
-		//	} else {
-		//		projectiles.remove(i);
-		//	}
-		//}
+		// ArrayList projectiles = robot.getProjectiles();
+		// for (int i = 0; i < projectiles.size(); i++) {
+		// Projectile p = (Projectile) projectiles.get(i);
+		// if (p.isVisible() == true) {
+		// p.update();
+		// } else {
+		// projectiles.remove(i);
+		// }
+		// }
 
 		updateTiles();
-		//hb.update();
-		//hb2.update();
-		//bg1.update();
-		//bg2.update();
-		//animate();
+		updateTiles2();
+		
+		// hb.update();
+		// hb2.update();
+		// bg1.update();
+		// bg2.update();
+		// animate();
 
-		//if (robot.getCenterY() > 500) {
-		//	state = GameState.GameOver;
-		//}
+		// if (robot.getCenterY() > 500) {
+		// state = GameState.GameOver;
+		// }
 	}
 
 	private boolean inBounds(TouchEvent event, int x, int y, int width,
@@ -308,10 +350,19 @@ public class GameScreen extends Screen {
 
 	}
 
-	private void updateTiles(){
+	private void updateTiles() {
 
 		for (int i = 0; i < tilearray.size(); i++) {
-			Tile t = (Tile) tilearray.get(i);
+			BorderTile t = (BorderTile) tilearray.get(i);
+			t.update();
+		}
+
+	}
+	
+	private void updateTiles2() {
+
+		for (int i = 0; i < tilearray2.size(); i++) {
+			PathTile t = (PathTile) tilearray2.get(i);
 			t.update();
 		}
 
@@ -322,22 +373,23 @@ public class GameScreen extends Screen {
 		Graphics g = game.getGraphics();
 
 		g.drawImage(Assets.background, bg1.getBgX(), bg1.getBgY());
-		g.drawImage(Assets.background, bg2.getBgX(), bg2.getBgY());
+		// g.drawImage(Assets.background, bg2.getBgX(), bg2.getBgY());
 		paintTiles(g);
+		paintTiles2(g);
 
-		//ArrayList projectiles = robot.getProjectiles();
-		//for (int i = 0; i < projectiles.size(); i++) {
-		//	Projectile p = (Projectile) projectiles.get(i);
-		//	g.drawRect(p.getX(), p.getY(), 10, 5, Color.YELLOW);
-		//}
+		// ArrayList projectiles = robot.getProjectiles();
+		// for (int i = 0; i < projectiles.size(); i++) {
+		// Projectile p = (Projectile) projectiles.get(i);
+		// g.drawRect(p.getX(), p.getY(), 10, 5, Color.YELLOW);
+		// }
 		// First draw the game elements.
 
-		//g.drawImage(currentSprite, robot.getCenterX() - 61,
-		//		robot.getCenterY() - 63);
-		//g.drawImage(hanim.getImage(), hb.getCenterX() - 48,
-		//		hb.getCenterY() - 48);
-		//g.drawImage(hanim.getImage(), hb2.getCenterX() - 48,
-		//		hb2.getCenterY() - 48);
+		// g.drawImage(currentSprite, robot.getCenterX() - 61,
+		// robot.getCenterY() - 63);
+		// g.drawImage(hanim.getImage(), hb.getCenterX() - 48,
+		// hb.getCenterY() - 48);
+		// g.drawImage(hanim.getImage(), hb2.getCenterX() - 48,
+		// hb2.getCenterY() - 48);
 
 		// Example:
 		// g.drawImage(Assets.background, 0, 0);
@@ -357,16 +409,25 @@ public class GameScreen extends Screen {
 
 	private void paintTiles(Graphics g) {
 		for (int i = 0; i < tilearray.size(); i++) {
-			Tile t = (Tile) tilearray.get(i);
+			BorderTile t = (BorderTile) tilearray.get(i);
 			if (t.type != 0) {
 				g.drawImage(t.getTileImage(), t.getTileX(), t.getTileY());
 			}
 		}
 	}
 
+	private void paintTiles2(Graphics g) {
+		for (int i = 0; i < tilearray2.size(); i++) {
+			PathTile t = (PathTile) tilearray2.get(i);
+			if (t.type2 != 0) {
+				g.drawImage(t.getTileImage(), t.getTileX(), t.getTileY());
+			}
+		}
+	}
+
 	public void animate() {
-	//	anim.update(10);
-	//	hanim.update(50);
+		// anim.update(10);
+		// hanim.update(50);
 	}
 
 	private void nullify() {
@@ -375,21 +436,21 @@ public class GameScreen extends Screen {
 		// constructor.
 		paint = null;
 		bg1 = null;
-		bg2 = null;
-		//robot = null;
-		//hb = null;
-		//hb2 = null;
-		//currentSprite = null;
-		//character = null;
-		//character2 = null;
-		//character3 = null;
-		//heliboy = null;
-		//heliboy2 = null;
-		//heliboy3 = null;
-		//heliboy4 = null;
-		//heliboy5 = null;
-		//anim = null;
-		//hanim = null;
+		// bg2 = null;
+		// robot = null;
+		// hb = null;
+		// hb2 = null;
+		// currentSprite = null;
+		// character = null;
+		// character2 = null;
+		// character3 = null;
+		// heliboy = null;
+		// heliboy2 = null;
+		// heliboy3 = null;
+		// heliboy4 = null;
+		// heliboy5 = null;
+		// anim = null;
+		// hanim = null;
 
 		// Call garbage collector to clean up memory.
 		System.gc();
@@ -464,14 +525,14 @@ public class GameScreen extends Screen {
 		return bg1;
 	}
 
-	public static Background getBg2() {
-		// TODO Auto-generated method stub
-		return bg2;
-	}
+	// public static Background getBg2() {
+	// TODO Auto-generated method stub
+	// return bg2;
+	// }
 
-	//public static Robot getRobot() {
-		// TODO Auto-generated method stub
-	//	return robot;
-	//}
+	// public static Robot getRobot() {
+	// TODO Auto-generated method stub
+	// return robot;
+	// }
 
 }

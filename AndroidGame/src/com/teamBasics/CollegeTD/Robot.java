@@ -30,7 +30,7 @@ public class Robot {
 	public static Rect footright = new Rect(0, 0, 0, 0);
 
 	private Background bg1 = GameScreen.getBg1();
-	private Background bg2 = GameScreen.getBg2();
+	//private Background bg2 = GameScreen.getBg2();
 
 	private ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
 
@@ -42,7 +42,7 @@ public class Robot {
 		}
 		if (speedX == 0 || speedX < 0) {
 			bg1.setSpeedX(0);
-			bg2.setSpeedX(0);
+		//	bg2.setSpeedX(0);
 
 		}
 		if (centerX <= 200 && speedX > 0) {
@@ -50,7 +50,7 @@ public class Robot {
 		}
 		if (speedX > 0 && centerX > 200) {
 			bg1.setSpeedX(-MOVESPEED / 5);
-			bg2.setSpeedX(-MOVESPEED / 5);
+		//	bg2.setSpeedX(-MOVESPEED / 5);
 		}
 
 		// Updates Y Position
