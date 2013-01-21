@@ -2,12 +2,10 @@ package com.teamBasics.CollegeTD;
 
 import android.graphics.Rect;
 
-public class Enemy {
+public class EnemySpawn {
 
-	private int power, centerX, speedX, centerY;
+	private int power, posX, posY, speedX, centerY;
 	private Background bg = GameScreen.getBg1();
-	public static Rect rect = new Rect(0, 0, 0, 0);
-	public static Rect yellowRed = new Rect(0, 0, 0, 0);
 	//private Robot robot = GameScreen.getRobot();
 
 	public Rect r = new Rect(0, 0, 0, 0);
@@ -17,21 +15,16 @@ public class Enemy {
 
 	// Behavioral Methods
 	public void update() {
-		//follow();
-		centerX += speedX;
-		speedX = bg.getSpeedX() * 5 + movementSpeed;
-		r.set(centerX - 25, centerY - 25, centerX + 25, centerY + 35);
+		r.set(posX, posY, posX + 40, posY + 40);
 
-		if (Rect.intersects(r, Robot.yellowRed)) {
+		if (Rect.intersects(r, Enemy.yellowRed)) {
 			checkCollision();
 		}
 
 	}
 
 	private void checkCollision() {
-		if (Rect.intersects(r, Robot.rect) || Rect.intersects(r, Robot.rect2)
-				|| Rect.intersects(r, Robot.rect3)
-				|| Rect.intersects(r, Robot.rect4)) {
+		if (Rect.intersects(r, Enemy.rect)) {
 
 		}
 	}
@@ -74,14 +67,6 @@ public class Enemy {
 		return speedX;
 	}
 
-	public int getCenterX() {
-		return centerX;
-	}
-
-	public int getCenterY() {
-		return centerY;
-	}
-
 	public Background getBg() {
 		return bg;
 	}
@@ -92,14 +77,6 @@ public class Enemy {
 
 	public void setSpeedX(int speedX) {
 		this.speedX = speedX;
-	}
-
-	public void setCenterX(int centerX) {
-		this.centerX = centerX;
-	}
-
-	public void setCenterY(int centerY) {
-		this.centerY = centerY;
 	}
 
 	public void setBg(Background bg) {
