@@ -52,25 +52,13 @@ public class GameScreen extends Screen {
 
 		// heliboy = Assets.heliboy;
 		// heliboy2 = Assets.heliboy2;
-		// heliboy3 = Assets.heliboy3;
-		// heliboy4 = Assets.heliboy4;
-		// heliboy5 = Assets.heliboy5;
 
 		// anim = new Animation();
 		// anim.addFrame(character, 1250);
 		// anim.addFrame(character2, 50);
-		// anim.addFrame(character3, 50);
-		// anim.addFrame(character2, 50);
 
 		// hanim = new Animation();
 		// hanim.addFrame(heliboy, 100);
-		// hanim.addFrame(heliboy2, 100);
-		// hanim.addFrame(heliboy3, 100);
-		// hanim.addFrame(heliboy4, 100);
-		// hanim.addFrame(heliboy5, 100);
-		// hanim.addFrame(heliboy4, 100);
-		// hanim.addFrame(heliboy3, 100);
-		// hanim.addFrame(heliboy2, 100);
 
 		// currentSprite = anim.getImage();
 
