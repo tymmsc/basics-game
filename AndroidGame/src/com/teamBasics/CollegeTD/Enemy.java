@@ -4,8 +4,7 @@ import android.graphics.Rect;
 
 public class Enemy {
 
-	private int power, centerX, speedX, centerY;
-	private Background bg = GameScreen.getBg1();
+	private int posX, posY, speed;  					// add power later on
 	public static Rect rect = new Rect(0, 0, 0, 0);
 	public static Rect yellowRed = new Rect(0, 0, 0, 0);
 	//private Robot robot = GameScreen.getRobot();
@@ -18,13 +17,13 @@ public class Enemy {
 	// Behavioral Methods
 	public void update() {
 		//follow();
-		centerX += speedX;
-		speedX = bg.getSpeedX() * 5 + movementSpeed;
-		r.set(centerX - 25, centerY - 25, centerX + 25, centerY + 35);
+		//centerX += speedX;
+		// set collision box
+		r.set(posX, posY, posX + 40, posY + 40);
 
-		if (Rect.intersects(r, Robot.yellowRed)) {
-			checkCollision();
-		}
+		//if (Rect.intersects(r, Robot.yellowRed)) {
+		//	checkCollision();
+		//}
 
 	}
 
@@ -64,46 +63,6 @@ public class Enemy {
 
 	public void attack() {
 
-	}
-
-	public int getPower() {
-		return power;
-	}
-
-	public int getSpeedX() {
-		return speedX;
-	}
-
-	public int getCenterX() {
-		return centerX;
-	}
-
-	public int getCenterY() {
-		return centerY;
-	}
-
-	public Background getBg() {
-		return bg;
-	}
-
-	public void setPower(int power) {
-		this.power = power;
-	}
-
-	public void setSpeedX(int speedX) {
-		this.speedX = speedX;
-	}
-
-	public void setCenterX(int centerX) {
-		this.centerX = centerX;
-	}
-
-	public void setCenterY(int centerY) {
-		this.centerY = centerY;
-	}
-
-	public void setBg(Background bg) {
-		this.bg = bg;
 	}
 
 }

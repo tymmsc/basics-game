@@ -6,14 +6,18 @@ import com.teamBasics.framework.Image;
 
 public class PathTile {
 
-	private int tileX, tileY, speedX;
+	// Path tile positions
+	private int tileX, tileY; //speedX;
 	public int type2;
+	
+	// Image used for Path tiles
 	public Image tileImage2;
+	
+	// Used for collision detection
+	private Rect r;
 
 	//private Robot robot = GameScreen.getRobot();
-	private Background bg = GameScreen.getBg1();
-
-	private Rect r;
+	//private Background bg = GameScreen.getBg1();
 
 	public PathTile(int x, int y, int typeInt) {
 		tileX = x * 40;
@@ -23,6 +27,7 @@ public class PathTile {
 
 		r = new Rect();
 
+		// Center Tile
 		if (type2 == 5) {
 			tileImage2 = Assets.dirtCenter;
 			
@@ -54,8 +59,9 @@ public class PathTile {
 	}
 
 	public void update() {
-		speedX = bg.getSpeedX() * 5;
-		tileX += speedX;
+		//tileX += speedX;
+		
+		// Set collision box
 		r.set(tileX, tileY, tileX + 40, tileY + 40);
 
 		//if (Rect.intersects(r, Robot.yellowRed) && type != 0) {
