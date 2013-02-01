@@ -16,7 +16,7 @@ public class Assets {
     public static Image dirtBottom, dirtLeft, dirtTop, dirtRight, dirtCenter;
     public static Image dirtLBC, dirtLTC, dirtRBC, dirtRTC;
     
-    public static Image button;
+    //public static Image button;
     public static Sound click;
     public static Music theme;
    

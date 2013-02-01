@@ -42,8 +42,8 @@ public class BorderTile {
 	}
 
 	public void update() {
-		speedX = bg.getSpeedX() * 5;
-		tileX += speedX;
+		//speedX = bg.getSpeedX() * 5;
+		//tileX += speedX;
 		r.set(tileX, tileY, tileX + 40, tileY + 40);
 
 		//if (Rect.intersects(r, Robot.yellowRed) && type != 0) {

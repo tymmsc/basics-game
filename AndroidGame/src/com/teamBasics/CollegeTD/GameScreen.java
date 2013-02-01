@@ -103,7 +103,8 @@ public class GameScreen extends Screen {
 		}
 		height = lines.size();
 
-		for (int j = 0; j < 12; j++) {
+		// j = y value
+		for (int j = 0; j < height; j++) {
 			String line = (String) lines.get(j);
 			for (int i = 0; i < width; i++) {
 
@@ -141,7 +142,8 @@ public class GameScreen extends Screen {
 		}
 		height = lines.size();
 
-		for (int j = 0; j < 12; j++) {
+		// j = y value
+		for (int j = 0; j < height; j++) {
 			String line = (String) lines.get(j);
 			for (int i = 0; i < width; i++) {
 
@@ -360,7 +362,7 @@ public class GameScreen extends Screen {
 	public void paint(float deltaTime) {
 		Graphics g = game.getGraphics();
 
-		g.drawImage(Assets.background, bg1.getBgX(), bg1.getBgY());
+		g.drawImage(Assets.background, 0, 0);
 		// g.drawImage(Assets.background, bg2.getBgX(), bg2.getBgY());
 		paintTiles(g);
 		paintTiles2(g);
@@ -455,10 +457,10 @@ public class GameScreen extends Screen {
 
 	private void drawRunningUI() {
 		Graphics g = game.getGraphics();
-		g.drawImage(Assets.button, 0, 285, 0, 0, 65, 65);
-		g.drawImage(Assets.button, 0, 350, 0, 65, 65, 65);
-		g.drawImage(Assets.button, 0, 415, 0, 130, 65, 65);
-		g.drawImage(Assets.button, 0, 0, 0, 195, 35, 35);
+		//g.drawImage(Assets.button, 0, 285, 0, 0, 65, 65);
+		//g.drawImage(Assets.button, 0, 350, 0, 65, 65, 65);
+		//g.drawImage(Assets.button, 0, 415, 0, 130, 65, 65);
+		//g.drawImage(Assets.button, 0, 0, 0, 195, 35, 35);
 
 	}
 

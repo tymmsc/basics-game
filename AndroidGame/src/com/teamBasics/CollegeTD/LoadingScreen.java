@@ -22,14 +22,14 @@ public class LoadingScreen extends Screen {
 	public void update(float deltaTime) {
 		Graphics g = game.getGraphics();
 		Assets.menu = g.newImage("mainMenu.png", ImageFormat.RGB565);
-		Assets.background = g.newImage("grass.png", ImageFormat.RGB565);
+		Assets.background = g.newImage("GameScreen_Layout_example.png", ImageFormat.RGB565);
 		// Assets.character = g.newImage("character.png", ImageFormat.ARGB4444);
 		// Assets.heliboy = g.newImage("splash4_0.png", ImageFormat.ARGB4444);
 
 		// Splash Loading Animation
-		/*
-		 * Assets.splash0 = g.newImage("splash4_0.png", ImageFormat.RGB565);
-		 * Assets.splash1 = g.newImage("splash4_1.png", ImageFormat.RGB565);
+		Assets.splash0 = g.newImage("splash4_0.png", ImageFormat.RGB565);
+		
+		/* Assets.splash1 = g.newImage("splash4_1.png", ImageFormat.RGB565);
 		 * Assets.splash2 = g.newImage("splash4_2.png", ImageFormat.RGB565);
 		 * Assets.splash3 = g.newImage("splash4_3.png", ImageFormat.RGB565);
 		 * Assets.splash4 = g.newImage("splash4_4.png", ImageFormat.RGB565);
@@ -48,14 +48,10 @@ public class LoadingScreen extends Screen {
 
 		// Border outline
 		Assets.tiledirt = g.newImage("tiledirt.png", ImageFormat.RGB565);
-		Assets.tilegrassTop = g
-				.newImage("tilegrasstop.png", ImageFormat.RGB565);
-		Assets.tilegrassBot = g
-				.newImage("tilegrassbot.png", ImageFormat.RGB565);
-		Assets.tilegrassLeft = g.newImage("tilegrassleft.png",
-				ImageFormat.RGB565);
-		Assets.tilegrassRight = g.newImage("tilegrassright.png",
-				ImageFormat.RGB565);
+		Assets.tilegrassTop = g.newImage("tilegrasstop.png", ImageFormat.RGB565);
+		Assets.tilegrassBot = g.newImage("tilegrassbot.png", ImageFormat.RGB565);
+		Assets.tilegrassLeft = g.newImage("tilegrassleft.png", ImageFormat.RGB565);
+		Assets.tilegrassRight = g.newImage("tilegrassright.png", ImageFormat.RGB565);
 
 		// Dirt Path Walkways
 		Assets.dirtCenter = g.newImage("dirt_center.png", ImageFormat.RGB565);
@@ -70,13 +66,13 @@ public class LoadingScreen extends Screen {
 		Assets.dirtRBC = g.newImage("dirt_RBC.png", ImageFormat.RGB565);
 		Assets.dirtRTC = g.newImage("dirt_RTC.png", ImageFormat.RGB565);
 
-		Assets.button = g.newImage("button.jpg", ImageFormat.RGB565);
+		//Assets.button = g.newImage("button.jpg", ImageFormat.RGB565);
 
 		// This is how you would load a sound if you had one.
 		// Assets.click = game.getAudio().createSound("explode.ogg");
 
 		splash0T = Assets.splash0;
-		splash1T = Assets.splash1;
+		/*splash1T = Assets.splash1;
 		splash2T = Assets.splash2;
 		splash3T = Assets.splash3;
 		splash4T = Assets.splash4;
@@ -90,7 +86,7 @@ public class LoadingScreen extends Screen {
 		splash12T = Assets.splash12;
 		splash13T = Assets.splash13;
 		splash14T = Assets.splash14;
-		splash15T = Assets.splash15;
+		splash15T = Assets.splash15;*/
 
 		/*
 		 * for (int j = 0; j < 2000; j++) { for (int i = 0; i < 2000; i++) { if
