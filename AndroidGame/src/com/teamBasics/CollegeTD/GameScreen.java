@@ -62,8 +62,8 @@ public class GameScreen extends Screen {
 
 		// currentSprite = anim.getImage();
 
-		loadMap();
-		loadMap2();
+		loadMapBorder();
+		loadMapPath();
 
 		// Defining a paint object
 		paint = new Paint();
@@ -72,16 +72,17 @@ public class GameScreen extends Screen {
 		paint.setAntiAlias(true);
 		paint.setColor(Color.GRAY);
 
+		// Back button (options menu)
 		paint2 = new Paint();
 		paint2.setTextSize(100);
 		paint2.setTextAlign(Paint.Align.CENTER);
 		paint2.setAntiAlias(true);
-		paint2.setColor(Color.CYAN);
+		paint2.setColor(Color.BLACK);
 
 	}
 
 	// Load map border
-	private void loadMap() {
+	private void loadMapBorder() {
 		ArrayList lines = new ArrayList();
 		int width = 0;
 		int height = 0;
@@ -120,7 +121,7 @@ public class GameScreen extends Screen {
 	}
 
 	// Load walkway-path
-	private void loadMap2() {
+	private void loadMapPath() {
 		ArrayList lines = new ArrayList();
 		int width = 0;
 		int height = 0;
@@ -282,8 +283,8 @@ public class GameScreen extends Screen {
 		// }
 		// }
 
-		updateTiles();
-		updateTiles2();
+		updateBorderTiles();
+		updatePathTiles();
 		
 		// hb.update();
 		// hb2.update();
@@ -340,7 +341,7 @@ public class GameScreen extends Screen {
 
 	}
 
-	private void updateTiles() {
+	private void updateBorderTiles() {
 
 		for (int i = 0; i < tilearray.size(); i++) {
 			BorderTile t = (BorderTile) tilearray.get(i);
@@ -349,7 +350,7 @@ public class GameScreen extends Screen {
 
 	}
 	
-	private void updateTiles2() {
+	private void updatePathTiles() {
 
 		for (int i = 0; i < tilearray2.size(); i++) {
 			PathTile t = (PathTile) tilearray2.get(i);
@@ -364,8 +365,8 @@ public class GameScreen extends Screen {
 
 		g.drawImage(Assets.background, 0, 0);
 		// g.drawImage(Assets.background, bg2.getBgX(), bg2.getBgY());
-		paintTiles(g);
-		paintTiles2(g);
+		paintBorderTiles(g);
+		paintPathTiles(g);
 
 		// ArrayList projectiles = robot.getProjectiles();
 		// for (int i = 0; i < projectiles.size(); i++) {
@@ -397,7 +398,7 @@ public class GameScreen extends Screen {
 
 	}
 
-	private void paintTiles(Graphics g) {
+	private void paintBorderTiles(Graphics g) {
 		for (int i = 0; i < tilearray.size(); i++) {
 			BorderTile t = (BorderTile) tilearray.get(i);
 			if (t.type != 0) {
@@ -406,7 +407,7 @@ public class GameScreen extends Screen {
 		}
 	}
 
-	private void paintTiles2(Graphics g) {
+	private void paintPathTiles(Graphics g) {
 		for (int i = 0; i < tilearray2.size(); i++) {
 			PathTile t = (PathTile) tilearray2.get(i);
 			if (t.type2 != 0) {
@@ -426,19 +427,11 @@ public class GameScreen extends Screen {
 		// constructor.
 		paint = null;
 		bg1 = null;
-		// bg2 = null;
 		// robot = null;
 		// hb = null;
-		// hb2 = null;
 		// currentSprite = null;
 		// character = null;
-		// character2 = null;
-		// character3 = null;
 		// heliboy = null;
-		// heliboy2 = null;
-		// heliboy3 = null;
-		// heliboy4 = null;
-		// heliboy5 = null;
 		// anim = null;
 		// hanim = null;
 
@@ -514,15 +507,5 @@ public class GameScreen extends Screen {
 		// TODO Auto-generated method stub
 		return bg1;
 	}
-
-	// public static Background getBg2() {
-	// TODO Auto-generated method stub
-	// return bg2;
-	// }
-
-	// public static Robot getRobot() {
-	// TODO Auto-generated method stub
-	// return robot;
-	// }
 
 }
