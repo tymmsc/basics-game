@@ -30,8 +30,8 @@ public class GameScreen extends Screen {
 	// heliboy2, heliboy3, heliboy4, heliboy5;
 	// private Animation anim, hanim;
 
-	private ArrayList<BorderTile> tilearray = new ArrayList<BorderTile>();
-	private ArrayList<PathTile> tilearray2 = new ArrayList<PathTile>();
+	private ArrayList<BorderTile> tilearrayBorder = new ArrayList<BorderTile>();
+	private ArrayList<PathTile> tilearrayPath = new ArrayList<PathTile>();
 
 	int livesLeft = 20;
 	Paint paint, paint2;
@@ -77,7 +77,7 @@ public class GameScreen extends Screen {
 		paint2.setTextSize(100);
 		paint2.setTextAlign(Paint.Align.CENTER);
 		paint2.setAntiAlias(true);
-		paint2.setColor(Color.BLACK);
+		paint2.setColor(Color.LTGRAY);
 
 	}
 
@@ -87,7 +87,7 @@ public class GameScreen extends Screen {
 		int width = 0;
 		int height = 0;
 
-		Scanner scanner = new Scanner(SampleGame.map);
+		Scanner scanner = new Scanner(SampleGame.mapBorder);
 		while (scanner.hasNextLine()) {
 			String line = scanner.nextLine();
 
@@ -112,7 +112,7 @@ public class GameScreen extends Screen {
 				if (i < line.length()) {
 					char ch = line.charAt(i);
 					BorderTile t = new BorderTile(i, j, Character.getNumericValue(ch));
-					tilearray.add(t);
+					tilearrayBorder.add(t);
 				}
 
 			}
@@ -126,7 +126,7 @@ public class GameScreen extends Screen {
 		int width = 0;
 		int height = 0;
 
-		Scanner scanner = new Scanner(SampleGame.map2);
+		Scanner scanner = new Scanner(SampleGame.mapPath);
 		while (scanner.hasNextLine()) {
 			String line = scanner.nextLine();
 
@@ -151,7 +151,7 @@ public class GameScreen extends Screen {
 				if (i < line.length()) {
 					char ch = line.charAt(i);
 					PathTile t = new PathTile(i, j, Character.getNumericValue(ch));
-					tilearray2.add(t);
+					tilearrayPath.add(t);
 				}
 
 			}
@@ -343,8 +343,8 @@ public class GameScreen extends Screen {
 
 	private void updateBorderTiles() {
 
-		for (int i = 0; i < tilearray.size(); i++) {
-			BorderTile t = (BorderTile) tilearray.get(i);
+		for (int i = 0; i < tilearrayBorder.size(); i++) {
+			BorderTile t = (BorderTile) tilearrayBorder.get(i);
 			t.update();
 		}
 
@@ -352,8 +352,8 @@ public class GameScreen extends Screen {
 	
 	private void updatePathTiles() {
 
-		for (int i = 0; i < tilearray2.size(); i++) {
-			PathTile t = (PathTile) tilearray2.get(i);
+		for (int i = 0; i < tilearrayPath.size(); i++) {
+			PathTile t = (PathTile) tilearrayPath.get(i);
 			t.update();
 		}
 
@@ -399,8 +399,8 @@ public class GameScreen extends Screen {
 	}
 
 	private void paintBorderTiles(Graphics g) {
-		for (int i = 0; i < tilearray.size(); i++) {
-			BorderTile t = (BorderTile) tilearray.get(i);
+		for (int i = 0; i < tilearrayBorder.size(); i++) {
+			BorderTile t = (BorderTile) tilearrayBorder.get(i);
 			if (t.type != 0) {
 				g.drawImage(t.getTileImage(), t.getTileX(), t.getTileY());
 			}
@@ -408,8 +408,8 @@ public class GameScreen extends Screen {
 	}
 
 	private void paintPathTiles(Graphics g) {
-		for (int i = 0; i < tilearray2.size(); i++) {
-			PathTile t = (PathTile) tilearray2.get(i);
+		for (int i = 0; i < tilearrayPath.size(); i++) {
+			PathTile t = (PathTile) tilearrayPath.get(i);
 			if (t.type2 != 0) {
 				g.drawImage(t.getTileImage(), t.getTileX(), t.getTileY());
 			}

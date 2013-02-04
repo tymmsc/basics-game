@@ -22,10 +22,32 @@ public class MainMenuScreen extends Screen {
 			TouchEvent event = touchEvents.get(i);
 			if (event.type == TouchEvent.TOUCH_UP) {
 
+				// New Game Button
 				if (inBounds(event, 54, 204, 225, 50)) {
 					game.setScreen(new GameScreen(game));
 				}
 				
+				// Resume Game Button
+				else if (inBounds(event, 296, 204, 225, 50)) {
+					//android.os.Process.killProcess(android.os.Process.myPid());
+				}				
+				
+				// High Scores Button
+				else if (inBounds(event, 54, 286, 225, 50)) {
+					//android.os.Process.killProcess(android.os.Process.myPid());
+				}				
+				
+				// Options Button
+				else if (inBounds(event, 296, 286, 225, 50)) {
+					//android.os.Process.killProcess(android.os.Process.myPid());
+				}				
+				
+				// Credits Button
+				else if (inBounds(event, 54, 368, 225, 50)) {
+					//android.os.Process.killProcess(android.os.Process.myPid());
+				}
+				
+				// Exit Game Button
 				else if (inBounds(event, 296, 368, 225, 50)) {
 					android.os.Process.killProcess(android.os.Process.myPid());
 				}
