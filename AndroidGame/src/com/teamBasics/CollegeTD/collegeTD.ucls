@@ -1,0 +1,49 @@
+<class-diagram version="1.0.11" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true">  
+  <class id="1" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.CollegeTD.Assets" project="AndroidGame" 
+    file="/AndroidGame/src/com/teamBasics/CollegeTD/Assets.java" binary="false">    
+    <position height="-1" width="-1" x="880" y="399"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="2" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.CollegeTD.Enemy" project="AndroidGame" 
+    file="/AndroidGame/src/com/teamBasics/CollegeTD/Enemy.java" binary="false">    
+    <position height="-1" width="-1" x="112" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="3" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.CollegeTD.GameScreen" project="AndroidGame" 
+    file="/AndroidGame/src/com/teamBasics/CollegeTD/GameScreen.java" binary="false">    
+    <position height="-1" width="-1" x="608" y="358"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="4" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.CollegeTD.Tile" project="AndroidGame" 
+    file="/AndroidGame/src/com/teamBasics/CollegeTD/Tile.java" binary="false">    
+    <position height="-1" width="-1" x="1099" y="185"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="5" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.CollegeTD.Projectile" project="AndroidGame" 
+    file="/AndroidGame/src/com/teamBasics/CollegeTD/Projectile.java" binary="false">    
+    <position height="-1" width="-1" x="328" y="534"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true"/>    
+    <operations public="true" package="true" protected="true" private="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
