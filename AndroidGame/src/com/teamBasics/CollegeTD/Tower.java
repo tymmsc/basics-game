@@ -128,8 +128,4 @@ public class Tower {
 	public void setLevelup_cost(int levelup_cost) {
 		this.levelup_cost = levelup_cost;
 	}
-
-
-	
-	
 }

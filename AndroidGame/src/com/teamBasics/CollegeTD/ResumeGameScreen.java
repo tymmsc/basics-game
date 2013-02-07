@@ -1,8 +1,6 @@
 package com.teamBasics.CollegeTD;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -42,8 +40,7 @@ public class ResumeGameScreen extends Screen {
 		List<TouchEvent> touchEvents = game.getInput().getTouchEvents();
 	}
 
-	private boolean inBounds(TouchEvent event, int x, int y, int width,
-			int height) {
+	private boolean inBounds(TouchEvent event, int x, int y, int width, int height) {
 		if (event.x > x && event.x < x + width - 1 && event.y > y
 				&& event.y < y + height - 1)
 			return true;

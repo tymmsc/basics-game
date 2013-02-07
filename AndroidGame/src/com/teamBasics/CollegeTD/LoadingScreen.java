@@ -70,6 +70,16 @@ public class LoadingScreen extends Screen {
 		Assets.dirtLTC = g.newImage("dirt_LTC.png", ImageFormat.RGB565);
 		Assets.dirtRBC = g.newImage("dirt_RBC.png", ImageFormat.RGB565);
 		Assets.dirtRTC = g.newImage("dirt_RTC.png", ImageFormat.RGB565);
+		
+		// Tower Sprites
+		Assets.redditTower = g.newImage("reddit_tower.png", ImageFormat.RGB565);
+		Assets.pencilTower = g.newImage("pencil_tower.png", ImageFormat.RGB565);
+		Assets.starbucksTower = g.newImage("starbucks_tower.png", ImageFormat.RGB565);
+		
+		// Upgrade Sprites
+		Assets.sleepUp = g.newImage("sleep_upgrade.png", ImageFormat.RGB565);
+		Assets.socialUp = g.newImage("social_upgrade.png", ImageFormat.RGB565);
+
 
 		//Assets.button = g.newImage("button.jpg", ImageFormat.RGB565);
 

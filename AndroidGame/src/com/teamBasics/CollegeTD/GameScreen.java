@@ -430,11 +430,22 @@ public class GameScreen extends Screen {
 
 	private void drawRunningUI() {
 		Graphics g = game.getGraphics();
+		// Buttons.jpg from top to bottom
+		//(Image Image, int x, int y, int srcX, int srcY, int srcWidth, int srcHeight)
 		//g.drawImage(Assets.button, 0, 285, 0, 0, 65, 65);
 		//g.drawImage(Assets.button, 0, 350, 0, 65, 65, 65);
 		//g.drawImage(Assets.button, 0, 415, 0, 130, 65, 65);
 		//g.drawImage(Assets.button, 0, 0, 0, 195, 35, 35);
-
+		
+		// Tower sprites
+		g.drawImage(Assets.redditTower, 735, 49);
+		g.drawImage(Assets.pencilTower, 735, 115);
+		g.drawImage(Assets.starbucksTower, 735, 181);
+		
+		// Upgrade sprites
+		g.drawImage(Assets.sleepUp, 735, 245);
+		g.drawImage(Assets.socialUp, 735, 309);
+		
 	}
 
 	private void drawPausedUI() {

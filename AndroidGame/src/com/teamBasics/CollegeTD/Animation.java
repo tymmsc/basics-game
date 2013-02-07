@@ -32,12 +32,10 @@ public class Animation {
 			if (animTime >= totalDuration) {
 				animTime = animTime % totalDuration;
 				currentFrame = 0;
-
 			}
 
 			while (animTime > getFrame(currentFrame).endTime) {
 				currentFrame++;
-
 			}
 		}
 	}
