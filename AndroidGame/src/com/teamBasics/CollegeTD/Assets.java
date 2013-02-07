@@ -7,10 +7,14 @@ import com.teamBasics.framework.Sound;
 
 public class Assets {
    
-    public static Image menu, splash, background;
-    public static Image tiledirt, tilegrassTop, tilegrassBot, tilegrassLeft, tilegrassRight, characterJump, characterDown;
+    public static Image mainmenu, splash, gamescreen, menubackground;
+    public static Image optionsbackground, highscoresbackground, resumebackground, creditsbackground;
+    public static Image tiledirt, tilegrassTop, tilegrassBot, tilegrassLeft, tilegrassRight, 
+    					characterJump, characterDown;
  
-    public static Image splash0, splash1, splash2, splash3, splash4, splash5, splash6, splash7, splash8, splash9, splash10, splash11, splash12, splash13, splash14, splash15;
+    public static Image splash0, splash1, splash2, splash3, splash4, splash5, splash6, splash7, 
+    					splash8, splash9, splash10, splash11, splash12, splash13, splash14, splash15;
+    
     
     // Walking dirt paths
     public static Image dirtBottom, dirtLeft, dirtTop, dirtRight, dirtCenter;

@@ -29,22 +29,22 @@ public class MainMenuScreen extends Screen {
 				
 				// Resume Game Button
 				else if (inBounds(event, 296, 204, 225, 50)) {
-					//android.os.Process.killProcess(android.os.Process.myPid());
+					game.setScreen(new ResumeGameScreen(game));
 				}				
 				
 				// High Scores Button
 				else if (inBounds(event, 54, 286, 225, 50)) {
-					//android.os.Process.killProcess(android.os.Process.myPid());
+					game.setScreen(new HighScoreScreen(game));
 				}				
 				
 				// Options Button
 				else if (inBounds(event, 296, 286, 225, 50)) {
-					//android.os.Process.killProcess(android.os.Process.myPid());
+					game.setScreen(new OptionScreen(game));
 				}				
 				
 				// Credits Button
 				else if (inBounds(event, 54, 368, 225, 50)) {
-					//android.os.Process.killProcess(android.os.Process.myPid());
+					game.setScreen(new CreditsScreen(game));
 				}
 				
 				// Exit Game Button
@@ -68,7 +68,7 @@ public class MainMenuScreen extends Screen {
 	@Override
 	public void paint(float deltaTime) {
 		Graphics g = game.getGraphics();
-		g.drawImage(Assets.menu, 0, 0);
+		g.drawImage(Assets.mainmenu, 0, 0);
 	}
 
 	@Override

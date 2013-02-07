@@ -34,7 +34,7 @@ public class GameScreen extends Screen {
 	private ArrayList<PathTile> tilearrayPath = new ArrayList<PathTile>();
 
 	int livesLeft = 20;
-	Paint paint, paint2;
+	Paint paintInit, paintMenu;
 
 	public GameScreen(Game game) {
 		super(game);
@@ -42,16 +42,8 @@ public class GameScreen extends Screen {
 		// Initialize game objects here
 
 		bg1 = new Background(0, 0);
-		// robot = new Robot();
 		// hb = new Heliboy(340, 360);
-		// hb2 = new Heliboy(700, 360);
-
 		// character = Assets.character;
-		// character2 = Assets.character2;
-		// character3 = Assets.character3;
-
-		// heliboy = Assets.heliboy;
-		// heliboy2 = Assets.heliboy2;
 
 		// anim = new Animation();
 		// anim.addFrame(character, 1250);
@@ -59,25 +51,24 @@ public class GameScreen extends Screen {
 
 		// hanim = new Animation();
 		// hanim.addFrame(heliboy, 100);
-
 		// currentSprite = anim.getImage();
 
 		loadMapBorder();
 		loadMapPath();
 
 		// Defining a paint object
-		paint = new Paint();
-		paint.setTextSize(30);
-		paint.setTextAlign(Paint.Align.CENTER);
-		paint.setAntiAlias(true);
-		paint.setColor(Color.GRAY);
+		paintInit = new Paint();
+		paintInit.setTextSize(30);
+		paintInit.setTextAlign(Paint.Align.CENTER);
+		paintInit.setAntiAlias(true);
+		paintInit.setColor(Color.GRAY);
 
 		// Back button (options menu)
-		paint2 = new Paint();
-		paint2.setTextSize(100);
-		paint2.setTextAlign(Paint.Align.CENTER);
-		paint2.setAntiAlias(true);
-		paint2.setColor(Color.LTGRAY);
+		paintMenu = new Paint();
+		paintMenu.setTextSize(100);
+		paintMenu.setTextAlign(Paint.Align.CENTER);
+		paintMenu.setAntiAlias(true);
+		paintMenu.setColor(Color.LTGRAY);
 
 	}
 
@@ -99,7 +90,6 @@ public class GameScreen extends Screen {
 			if (!line.startsWith("!")) {
 				lines.add(line);
 				width = Math.max(width, line.length());
-
 			}
 		}
 		height = lines.size();
@@ -108,16 +98,13 @@ public class GameScreen extends Screen {
 		for (int j = 0; j < height; j++) {
 			String line = (String) lines.get(j);
 			for (int i = 0; i < width; i++) {
-
 				if (i < line.length()) {
 					char ch = line.charAt(i);
 					BorderTile t = new BorderTile(i, j, Character.getNumericValue(ch));
 					tilearrayBorder.add(t);
 				}
-
 			}
 		}
-
 	}
 
 	// Load walkway-path
@@ -129,7 +116,7 @@ public class GameScreen extends Screen {
 		Scanner scanner = new Scanner(SampleGame.mapPath);
 		while (scanner.hasNextLine()) {
 			String line = scanner.nextLine();
-
+			
 			// no more lines to read
 			if (line == null) {
 				break;
@@ -138,7 +125,6 @@ public class GameScreen extends Screen {
 			if (!line.startsWith("!")) {
 				lines.add(line);
 				width = Math.max(width, line.length());
-
 			}
 		}
 		height = lines.size();
@@ -153,7 +139,6 @@ public class GameScreen extends Screen {
 					PathTile t = new PathTile(i, j, Character.getNumericValue(ch));
 					tilearrayPath.add(t);
 				}
-
 			}
 		}
 
@@ -222,7 +207,6 @@ public class GameScreen extends Screen {
 				// currentSprite = Assets.characterDown;
 				// robot.setDucked(true);
 				// robot.setSpeedX(0);
-
 				// }
 
 				// Right thumb movement
@@ -230,7 +214,6 @@ public class GameScreen extends Screen {
 				// Move right.
 				// robot.moveRight();
 				// robot.setMovingRight(true);
-
 				// }
 
 			}
@@ -241,12 +224,10 @@ public class GameScreen extends Screen {
 				// if (inBounds(event, 0, 415, 65, 65)) {
 				// currentSprite = anim.getImage();
 				// robot.setDucked(false);
-
 				// }
 
 				// if (inBounds(event, 0, 0, 35, 35)) {
 				// pause();
-
 				// }
 
 				// if (event.x > 400) {
@@ -351,7 +332,6 @@ public class GameScreen extends Screen {
 	}
 	
 	private void updatePathTiles() {
-
 		for (int i = 0; i < tilearrayPath.size(); i++) {
 			PathTile t = (PathTile) tilearrayPath.get(i);
 			t.update();
@@ -363,7 +343,7 @@ public class GameScreen extends Screen {
 	public void paint(float deltaTime) {
 		Graphics g = game.getGraphics();
 
-		g.drawImage(Assets.background, 0, 0);
+		g.drawImage(Assets.gamescreen, 0, 0);
 		// g.drawImage(Assets.background, bg2.getBgX(), bg2.getBgY());
 		paintBorderTiles(g);
 		paintPathTiles(g);
@@ -425,7 +405,7 @@ public class GameScreen extends Screen {
 
 		// Set all variables to null. You will be recreating them in the
 		// constructor.
-		paint = null;
+		paintInit = null;
 		bg1 = null;
 		// robot = null;
 		// hb = null;
@@ -444,7 +424,7 @@ public class GameScreen extends Screen {
 		Graphics g = game.getGraphics();
 
 		g.drawARGB(80, 0, 0, 0);
-		g.drawString("Tap to Start!", 400, 240, paint);
+		g.drawString("Tap to Start!", 400, 240, paintInit);
 
 	}
 
@@ -461,16 +441,16 @@ public class GameScreen extends Screen {
 		Graphics g = game.getGraphics();
 		// Darken the entire screen so you can display the Paused screen.
 		g.drawARGB(155, 0, 0, 0);
-		g.drawString("Resume", 400, 165, paint2);
-		g.drawString("Menu", 400, 360, paint2);
+		g.drawString("Resume", 400, 165, paintMenu);
+		g.drawString("Menu", 400, 360, paintMenu);
 
 	}
 
 	private void drawGameOverUI() {
 		Graphics g = game.getGraphics();
 		g.drawRect(0, 0, 1281, 801, Color.BLACK);
-		g.drawString("GAME OVER.", 400, 240, paint2);
-		g.drawString("Try Again!", 400, 290, paint);
+		g.drawString("GAME OVER.", 400, 240, paintMenu);
+		g.drawString("Try Again!", 400, 290, paintInit);
 
 	}
 

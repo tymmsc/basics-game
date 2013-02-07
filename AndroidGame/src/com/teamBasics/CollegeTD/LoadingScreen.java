@@ -14,15 +14,20 @@ public class LoadingScreen extends Screen {
 	private Animation splashAnim;
 
 	public LoadingScreen(Game game) {
-
 		super(game);
 	}
 
 	@Override
 	public void update(float deltaTime) {
 		Graphics g = game.getGraphics();
-		Assets.menu = g.newImage("mainMenu_stare.png", ImageFormat.RGB565);
-		Assets.background = g.newImage("GameScreen_Layout_example.png", ImageFormat.RGB565);
+		Assets.mainmenu = g.newImage("mainMenu_stare.png", ImageFormat.RGB565);
+		Assets.gamescreen = g.newImage("GameScreen_Layout_example.png", ImageFormat.RGB565);
+		Assets.menubackground = g.newImage("menu_background.png", ImageFormat.RGB565);
+		Assets.optionsbackground = g.newImage("options_background.png", ImageFormat.RGB565);
+		Assets.highscoresbackground = g.newImage("highscores_background.png", ImageFormat.RGB565);
+		Assets.resumebackground = g.newImage("resume_background.png", ImageFormat.RGB565);
+		Assets.creditsbackground = g.newImage("credits_background.png", ImageFormat.RGB565);
+
 		// Assets.character = g.newImage("character.png", ImageFormat.ARGB4444);
 		// Assets.heliboy = g.newImage("splash4_0.png", ImageFormat.ARGB4444);
 
