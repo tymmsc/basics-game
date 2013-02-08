@@ -24,18 +24,13 @@ public class GameScreen extends Screen {
 	// Variable Setup
 
 	private static Background bg1;
-	// private static Robot robot;
-	// public static Heliboy hb, hb2;
-
-	// private Image currentSprite, character, character2, character3, heliboy,
-	// heliboy2, heliboy3, heliboy4, heliboy5;
-	// private Animation anim, hanim;
+	private String descriptionText = "";
 
 	private ArrayList<BorderTile> tilearrayBorder = new ArrayList<BorderTile>();
 	private ArrayList<PathTile> tilearrayPath = new ArrayList<PathTile>();
 
 	int livesLeft = 20;
-	Paint paintInit, paintMenu;
+	Paint paintInit, paintMenu, paintDescriptionText;
 
 	public GameScreen(Game game) {
 		super(game);
@@ -58,6 +53,7 @@ public class GameScreen extends Screen {
 		loadMapPath();
 
 		// Defining a paint object
+		// Start Text
 		paintInit = new Paint();
 		paintInit.setTextSize(30);
 		paintInit.setTextAlign(Paint.Align.CENTER);
@@ -70,6 +66,13 @@ public class GameScreen extends Screen {
 		paintMenu.setTextAlign(Paint.Align.CENTER);
 		paintMenu.setAntiAlias(true);
 		paintMenu.setColor(Color.LTGRAY);
+		
+		// Description Text
+		paintDescriptionText = new Paint();
+		paintDescriptionText.setTextSize(20);
+		paintDescriptionText.setTextAlign(Paint.Align.LEFT);
+		paintDescriptionText.setAntiAlias(true);
+		paintDescriptionText.setColor(Color.CYAN);
 
 	}
 
@@ -191,23 +194,28 @@ public class GameScreen extends Screen {
 				// Reddit Tower
 				if(inBounds(event, 735, 49, 40, 40)){
 					Assets.selectItem = Assets.redditTower;
+					descriptionText = "This is the reddit tower!";
 				}
 				// Pencil Tower
 				else if(inBounds(event, 735, 115, 40, 40)){
 					Assets.selectItem = Assets.pencilTower;
+					descriptionText = "This is the pencil tower!";
 				}
 				// Starbucks Tower
 				else if(inBounds(event, 735, 181, 40, 40)){
 					Assets.selectItem = Assets.starbucksTower;
+					descriptionText = "This is the starbucks tower!";
 				}
 				
 				// Sleep Upgrade
 				else if(inBounds(event, 735, 245, 40, 40)){
 					Assets.selectItem = Assets.sleepUp;
+					descriptionText = "This is the sleep upgrade!";
 				}
 				// Social Upgrade
 				else if(inBounds(event, 735, 309, 40, 40)){
 					Assets.selectItem = Assets.socialUp;
+					descriptionText = "This is the social upgrade!";
 				}
 
 			}
@@ -411,6 +419,7 @@ public class GameScreen extends Screen {
 
 	private void drawRunningUI() {
 		Graphics g = game.getGraphics();
+		
 		// Buttons.jpg from top to bottom
 		//(Image Image, int x, int y, int srcX, int srcY, int srcWidth, int srcHeight)
 		//g.drawImage(Assets.button, 0, 285, 0, 0, 65, 65);
@@ -427,47 +436,8 @@ public class GameScreen extends Screen {
 		g.drawImage(Assets.sleepUp, 735, 245);
 		g.drawImage(Assets.socialUp, 735, 309);
 		
-		g.drawImage(Assets.selectItem, 50, 423);
-		
-		/*List<TouchEvent> touchEvents = game.getInput().getTouchEvents();
-		int len = touchEvents.size();
-		for (int i = 0; i < len; i++) {
-			TouchEvent event = touchEvents.get(i);
-			// Handles Touch PRESS
-			if (event.type == TouchEvent.TOUCH_DOWN) {
-						
-				// Display Selected Item on touch_down(press)
-				
-				// Reddit Tower
-				if(inBounds(event, 735, 49, 40, 40)){
-					Assets.selectItem = Assets.redditTower;
-				}
-				// Pencil Tower
-				else if(inBounds(event, 735, 115, 40, 40)){
-					Assets.selectItem = Assets.pencilTower;
-				}
-				// Starbucks Tower
-				else if(inBounds(event, 735, 181, 40, 40)){
-					Assets.selectItem = Assets.starbucksTower;
-				}
-				
-				// Sleep Upgrade
-				else if(inBounds(event, 735, 245, 40, 40)){
-					Assets.selectItem = Assets.sleepUp;
-				}
-				// Social Upgrade
-				else if(inBounds(event, 735, 309, 40, 40)){
-					Assets.selectItem = Assets.socialUp;
-				}
-			}
-
-			// Handles touch RELEASE
-			if (event.type == TouchEvent.TOUCH_UP) {
-
-			}
-
-		}*/
-
+		g.drawImage(Assets.selectItem, 49, 423);
+		g.drawString(descriptionText, 160, 439, paintDescriptionText);
 		
 	}
 
