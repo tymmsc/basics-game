@@ -8,6 +8,7 @@ import android.graphics.Paint;
 import com.teamBasics.framework.Game;
 import com.teamBasics.framework.Graphics;
 import com.teamBasics.framework.Image;
+import com.teamBasics.framework.Graphics.ImageFormat;
 import com.teamBasics.framework.Input.TouchEvent;
 import com.teamBasics.framework.Screen;
 
@@ -33,11 +34,32 @@ public class OptionScreen extends Screen {
 		paint2.setAntiAlias(true);
 		paint2.setColor(Color.LTGRAY);
 
+		Assets.soundFX = Assets.soundFX_off;
 	}
 
 	@Override
 	public void update(float deltaTime) {
 		List<TouchEvent> touchEvents = game.getInput().getTouchEvents();
+		
+		// 1. All touch input is handled here:
+				int len = touchEvents.size();
+				for (int i = 0; i < len; i++) {
+					TouchEvent event = touchEvents.get(i);
+					// Handles Touch PRESS
+					if (event.type == TouchEvent.TOUCH_UP) {
+								
+						// Display Selected Item on touch_up(release)
+						// SoundFX button
+						if(inBounds(event, 100, 200, 250, 25)){
+							if(Assets.soundFX == Assets.soundFX_off){
+								Assets.soundFX = Assets.soundFX_on;
+							}
+							else{
+								Assets.soundFX = Assets.soundFX_off;
+							}
+						}			
+					}
+				}
 	}
 
 	private boolean inBounds(TouchEvent event, int x, int y, int width, int height) {
@@ -52,6 +74,7 @@ public class OptionScreen extends Screen {
 	public void paint(float deltaTime) {
 		Graphics g = game.getGraphics();
 		g.drawImage(Assets.optionsbackground, 0, 0);
+		g.drawImage(Assets.soundFX, 100, 200);
 	}
 
 

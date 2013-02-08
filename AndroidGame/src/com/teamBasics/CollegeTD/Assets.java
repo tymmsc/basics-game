@@ -28,6 +28,8 @@ public class Assets {
     public static Image redditTower, pencilTower, starbucksTower;
     public static Image sleepUp, socialUp, academicUp;
     
+    public static Image soundFX, soundFX_on, soundFX_off;
+    
     //public static Image button;
     public static Sound click;
     public static Music theme;
