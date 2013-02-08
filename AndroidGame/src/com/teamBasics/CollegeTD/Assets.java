@@ -24,6 +24,7 @@ public class Assets {
     public static Image dirtLBC, dirtLTC, dirtRBC, dirtRTC;
     
     // Tower Sprites
+    public static Image selectItem, description, option0, option1, option2;
     public static Image redditTower, pencilTower, starbucksTower;
     public static Image sleepUp, socialUp, academicUp;
     

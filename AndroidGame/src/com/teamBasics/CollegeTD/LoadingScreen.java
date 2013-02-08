@@ -27,6 +27,7 @@ public class LoadingScreen extends Screen {
 		Assets.highscoresbackground = g.newImage("highscores_background.png", ImageFormat.RGB565);
 		Assets.resumebackground = g.newImage("resume_background.png", ImageFormat.RGB565);
 		Assets.creditsbackground = g.newImage("credits_background.png", ImageFormat.RGB565);
+		Assets.selectItem = g.newImage("blank.png", ImageFormat.RGB565);
 
 		// Assets.character = g.newImage("character.png", ImageFormat.ARGB4444);
 		// Assets.heliboy = g.newImage("splash4_0.png", ImageFormat.ARGB4444);

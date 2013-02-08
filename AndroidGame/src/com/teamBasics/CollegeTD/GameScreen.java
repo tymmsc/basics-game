@@ -10,6 +10,7 @@ import android.graphics.Paint;
 import com.teamBasics.framework.Game;
 import com.teamBasics.framework.Graphics;
 import com.teamBasics.framework.Image;
+import com.teamBasics.framework.Graphics.ImageFormat;
 import com.teamBasics.framework.Input.TouchEvent;
 import com.teamBasics.framework.Screen;
 
@@ -175,7 +176,7 @@ public class GameScreen extends Screen {
 	}
 
 	private void updateRunning(List<TouchEvent> touchEvents, float deltaTime) {
-
+		Graphics sel = game.getGraphics();
 		// This is identical to the update() method from our Unit 2/3 game.
 
 		// 1. All touch input is handled here:
@@ -184,56 +185,36 @@ public class GameScreen extends Screen {
 			TouchEvent event = touchEvents.get(i);
 			// Handles Touch PRESS
 			if (event.type == TouchEvent.TOUCH_DOWN) {
-
-				// Makes robot jump and animates him
-				// if (inBounds(event, 0, 285, 65, 65)) {
-				// robot.jump();
-				// currentSprite = anim.getImage();
-				// robot.setDucked(false);
-				// }
-
-				// else if (inBounds(event, 0, 350, 65, 65)) {
-
-				// Makes robot shoot
-				// if (robot.isDucked() == false && robot.isJumped() == false
-				// && robot.isReadyToFire()) {
-				// robot.shoot();
-				// }
-				// }
-
-				// Makes robot duck
-				// else if (inBounds(event, 0, 415, 65, 65)
-				// && robot.isJumped() == false) {
-				// currentSprite = Assets.characterDown;
-				// robot.setDucked(true);
-				// robot.setSpeedX(0);
-				// }
-
-				// Right thumb movement
-				// if (event.x > 400) {
-				// Move right.
-				// robot.moveRight();
-				// robot.setMovingRight(true);
-				// }
+						
+				// Display Selected Item on touch_down(press)
+				
+				// Reddit Tower
+				if(inBounds(event, 735, 49, 40, 40)){
+					Assets.selectItem = Assets.redditTower;
+				}
+				// Pencil Tower
+				else if(inBounds(event, 735, 115, 40, 40)){
+					Assets.selectItem = Assets.pencilTower;
+				}
+				// Starbucks Tower
+				else if(inBounds(event, 735, 181, 40, 40)){
+					Assets.selectItem = Assets.starbucksTower;
+				}
+				
+				// Sleep Upgrade
+				else if(inBounds(event, 735, 245, 40, 40)){
+					Assets.selectItem = Assets.sleepUp;
+				}
+				// Social Upgrade
+				else if(inBounds(event, 735, 309, 40, 40)){
+					Assets.selectItem = Assets.socialUp;
+				}
 
 			}
 
 			// Handles touch RELEASE
 			if (event.type == TouchEvent.TOUCH_UP) {
 
-				// if (inBounds(event, 0, 415, 65, 65)) {
-				// currentSprite = anim.getImage();
-				// robot.setDucked(false);
-				// }
-
-				// if (inBounds(event, 0, 0, 35, 35)) {
-				// pause();
-				// }
-
-				// if (event.x > 400) {
-				// Move right.
-				// robot.stopRight();
-				// }
 			}
 
 		}
@@ -445,6 +426,48 @@ public class GameScreen extends Screen {
 		// Upgrade sprites
 		g.drawImage(Assets.sleepUp, 735, 245);
 		g.drawImage(Assets.socialUp, 735, 309);
+		
+		g.drawImage(Assets.selectItem, 50, 423);
+		
+		/*List<TouchEvent> touchEvents = game.getInput().getTouchEvents();
+		int len = touchEvents.size();
+		for (int i = 0; i < len; i++) {
+			TouchEvent event = touchEvents.get(i);
+			// Handles Touch PRESS
+			if (event.type == TouchEvent.TOUCH_DOWN) {
+						
+				// Display Selected Item on touch_down(press)
+				
+				// Reddit Tower
+				if(inBounds(event, 735, 49, 40, 40)){
+					Assets.selectItem = Assets.redditTower;
+				}
+				// Pencil Tower
+				else if(inBounds(event, 735, 115, 40, 40)){
+					Assets.selectItem = Assets.pencilTower;
+				}
+				// Starbucks Tower
+				else if(inBounds(event, 735, 181, 40, 40)){
+					Assets.selectItem = Assets.starbucksTower;
+				}
+				
+				// Sleep Upgrade
+				else if(inBounds(event, 735, 245, 40, 40)){
+					Assets.selectItem = Assets.sleepUp;
+				}
+				// Social Upgrade
+				else if(inBounds(event, 735, 309, 40, 40)){
+					Assets.selectItem = Assets.socialUp;
+				}
+			}
+
+			// Handles touch RELEASE
+			if (event.type == TouchEvent.TOUCH_UP) {
+
+			}
+
+		}*/
+
 		
 	}
 
