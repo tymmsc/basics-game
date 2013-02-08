@@ -25,12 +25,15 @@ public class GameScreen extends Screen {
 
 	private static Background bg1;
 	private String descriptionText = "";
+	private String scoreText = "0";
+	private String livesText = "20";
+	private String cashText = "$0";
 
 	private ArrayList<BorderTile> tilearrayBorder = new ArrayList<BorderTile>();
 	private ArrayList<PathTile> tilearrayPath = new ArrayList<PathTile>();
 
 	int livesLeft = 20;
-	Paint paintInit, paintMenu, paintDescriptionText;
+	Paint paintInit, paintMenu, paintDescriptionText, paintHUBText;
 
 	public GameScreen(Game game) {
 		super(game);
@@ -73,6 +76,13 @@ public class GameScreen extends Screen {
 		paintDescriptionText.setTextAlign(Paint.Align.LEFT);
 		paintDescriptionText.setAntiAlias(true);
 		paintDescriptionText.setColor(Color.CYAN);
+		
+		// HUB Text
+		paintHUBText = new Paint();
+		paintHUBText.setTextSize(20);
+		paintHUBText.setTextAlign(Paint.Align.RIGHT);
+		paintHUBText.setAntiAlias(true);
+		paintHUBText.setColor(Color.CYAN);
 
 	}
 
@@ -223,6 +233,9 @@ public class GameScreen extends Screen {
 			// Handles touch RELEASE
 			if (event.type == TouchEvent.TOUCH_UP) {
 
+				if(inBounds(event, 5, 1, 34, 33)){
+					pause();
+				}
 			}
 
 		}
@@ -438,7 +451,9 @@ public class GameScreen extends Screen {
 		
 		g.drawImage(Assets.selectItem, 49, 423);
 		g.drawString(descriptionText, 160, 439, paintDescriptionText);
-		
+		g.drawString(scoreText, 290, 26, paintHUBText);
+		g.drawString(livesText, 516, 26, paintHUBText);
+		g.drawString(cashText, 695, 26, paintHUBText);
 	}
 
 	private void drawPausedUI() {
