@@ -21,7 +21,7 @@ public class LoadingScreen extends Screen {
 	public void update(float deltaTime) {
 		Graphics g = game.getGraphics();
 		Assets.mainmenu = g.newImage("mainMenu_stare.png", ImageFormat.RGB565);
-		Assets.gamescreen = g.newImage("GameScreen_Layout_example.png", ImageFormat.RGB565);
+		Assets.gamescreen = g.newImage("GameScreen_Layout_example2.png", ImageFormat.RGB565);
 		Assets.menubackground = g.newImage("menu_background.png", ImageFormat.RGB565);
 		Assets.optionsbackground = g.newImage("options_background.png", ImageFormat.RGB565);
 		Assets.highscoresbackground = g.newImage("highscores_background.png", ImageFormat.RGB565);
