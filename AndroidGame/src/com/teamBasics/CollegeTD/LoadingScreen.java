@@ -62,17 +62,30 @@ public class LoadingScreen extends Screen {
 		Assets.tilegrassRight = g.newImage("tilegrassright.png", ImageFormat.RGB565);
 
 		// Dirt Path Walkways
-		Assets.dirtCenter = g.newImage("dirt_center.png", ImageFormat.RGB565);
+		Assets.dirtCenter = g.newImage("dirt_center20.PNG", ImageFormat.RGB565);
 
-		Assets.dirtTop = g.newImage("dirt_top.png", ImageFormat.RGB565);
-		Assets.dirtBottom = g.newImage("dirt_bottom.png", ImageFormat.RGB565);
-		Assets.dirtLeft = g.newImage("dirt_left.png", ImageFormat.RGB565);
-		Assets.dirtRight = g.newImage("dirt_right.png", ImageFormat.RGB565);
+		Assets.dirtTop = g.newImage("dirt_top20.png", ImageFormat.RGB565);
+		Assets.dirtBottom = g.newImage("dirt_bottom20.PNG", ImageFormat.RGB565);
+		Assets.dirtLeft = g.newImage("dirt_left20.PNG", ImageFormat.RGB565);
+		Assets.dirtRight = g.newImage("dirt_right20.png", ImageFormat.RGB565);
 
-		Assets.dirtLBC = g.newImage("dirt_LBC.png", ImageFormat.RGB565);
-		Assets.dirtLTC = g.newImage("dirt_LTC.png", ImageFormat.RGB565);
-		Assets.dirtRBC = g.newImage("dirt_RBC.png", ImageFormat.RGB565);
-		Assets.dirtRTC = g.newImage("dirt_RTC.png", ImageFormat.RGB565);
+		Assets.dirtLBC = g.newImage("dirt_LBC20.PNG", ImageFormat.RGB565);
+		Assets.dirtLTC = g.newImage("dirt_LTC20.PNG", ImageFormat.RGB565);
+		Assets.dirtRBC = g.newImage("dirt_RBC20.png", ImageFormat.RGB565);
+		Assets.dirtRTC = g.newImage("dirt_RTC20.png", ImageFormat.RGB565);
+		
+		// Stone Path Walkways
+		Assets.stoneCenter = g.newImage("stone_center20.PNG", ImageFormat.RGB565);
+
+		Assets.stoneTop = g.newImage("stone_top20.PNG", ImageFormat.RGB565);
+		Assets.stoneBottom = g.newImage("stone_bottom20.PNG", ImageFormat.RGB565);
+		Assets.stoneLeft = g.newImage("stone_left20.PNG", ImageFormat.RGB565);
+		Assets.stoneRight = g.newImage("stone_right20.PNG", ImageFormat.RGB565);
+
+		Assets.stoneLBC = g.newImage("stone_LBC20.PNG", ImageFormat.RGB565);
+		Assets.stoneLTC = g.newImage("stone_LTC20.PNG", ImageFormat.RGB565);
+		Assets.stoneRBC = g.newImage("stone_RBC20.PNG", ImageFormat.RGB565);
+		Assets.stoneRTC = g.newImage("stone_RTC20.PNG", ImageFormat.RGB565);
 		
 		// Tower Sprites
 		Assets.redditTower = g.newImage("reddit_tower.png", ImageFormat.RGB565);

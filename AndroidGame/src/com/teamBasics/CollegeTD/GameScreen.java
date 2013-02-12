@@ -150,7 +150,7 @@ public class GameScreen extends Screen {
 
 				if (i < line.length()) {
 					char ch = line.charAt(i);
-					PathTile t = new PathTile(i, j, Character.getNumericValue(ch));
+					PathTile t = new PathTile(i, j, ch);
 					tilearrayPath.add(t);
 				}
 			}
@@ -392,7 +392,7 @@ public class GameScreen extends Screen {
 	private void paintPathTiles(Graphics g) {
 		for (int i = 0; i < tilearrayPath.size(); i++) {
 			PathTile t = (PathTile) tilearrayPath.get(i);
-			if (t.type2 != 0) {
+			if (t.type2 != 'v') {
 				g.drawImage(t.getTileImage(), t.getTileX(), t.getTileY());
 			}
 		}

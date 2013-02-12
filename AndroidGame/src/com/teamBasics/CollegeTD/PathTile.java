@@ -8,7 +8,7 @@ public class PathTile {
 
 	// Path tile positions
 	private int tileX, tileY; //speedX;
-	public int type2;
+	public char type2;
 	
 	// Image used for Path tiles
 	public Image tileImage2;
@@ -16,44 +16,43 @@ public class PathTile {
 	// Used for collision detection
 	private Rect r;
 
-	//private Robot robot = GameScreen.getRobot();
-	//private Background bg = GameScreen.getBg1();
+	public PathTile(int x, int y, char typeChar) {
+		tileX = x * 20;
+		tileY = y * 20;
 
-	public PathTile(int x, int y, int typeInt) {
-		tileX = x * 40;
-		tileY = y * 40;
-
-		type2 = typeInt;
+		type2 = typeChar;
 
 		r = new Rect();
 
 		// Center Tile
-		if (type2 == 5) {
-			tileImage2 = Assets.dirtCenter;
+		if (type2 == 's') {
+			tileImage2 = Assets.stoneCenter;
 			
 		// Side Tiles
-		} else if (type2 == 8) {
+		} else if (type2 == 'w') {
 			tileImage2 = Assets.dirtTop;
-		} else if (type2 == 4) {
+		} else if (type2 == 'a') {
 			tileImage2 = Assets.dirtLeft;
 
-		} else if (type2 == 6) {
+		} else if (type2 == 'd') {
 			tileImage2 = Assets.dirtRight;
 
-		} else if (type2 == 2) {
+		} else if (type2 == 'x') {
 			tileImage2 = Assets.dirtBottom;
 			
 		// Corner Tiles
-		} else if (type2 == 1) {
+		} else if (type2 == 'z') {
 			tileImage2 = Assets.dirtLBC;
-		} else if (type2 == 7) {
+		} else if (type2 == 'q') {
 			tileImage2 = Assets.dirtLTC;
-		} else if (type2 == 3) {
+		} else if (type2 == 'c') {
 			tileImage2 = Assets.dirtRBC;
-		} else if (type2 == 9) {
+		} else if (type2 == 'e') {
 			tileImage2 = Assets.dirtRTC;
+		} else if (type2 == 'r') {
+			tileImage2 = Assets.dirtCenter;
 		} else {
-			type2 = 0;
+			type2 = 'v';
 		}
 
 	}
@@ -62,7 +61,7 @@ public class PathTile {
 		//tileX += speedX;
 		
 		// Set collision box
-		r.set(tileX, tileY, tileX + 40, tileY + 40);
+		r.set(tileX, tileY, tileX + 20, tileY + 20);
 
 		//if (Rect.intersects(r, Robot.yellowRed) && type != 0) {
 		//	checkVerticalCollision(Robot.rect, Robot.rect2);

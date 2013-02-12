@@ -22,6 +22,8 @@ public class Assets {
     // Path Tiles
     public static Image dirtBottom, dirtLeft, dirtTop, dirtRight, dirtCenter;
     public static Image dirtLBC, dirtLTC, dirtRBC, dirtRTC;
+    public static Image stoneBottom, stoneLeft, stoneTop, stoneRight, stoneCenter;
+    public static Image stoneLBC, stoneLTC, stoneRBC, stoneRTC;
     
     // Tower Sprites
     public static Image selectItem, description, option0, option1, option2;

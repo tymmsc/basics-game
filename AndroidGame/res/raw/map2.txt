@@ -1,21 +1,33 @@
 ! Team Basics
 ! CollegeTD Level0
-! Length = 20 tiles
-! Width = 12 tiles
+! Length = 40 tiles
+! Width = 24 tiles
+! Tiles = 20 pi x 20 pi
 ! # = Path Tile Legend 
-! 5 = Dirt Center
-! 8 = DirtTop
-! 2 = DirtBottom
-! 4 = DirtLeft
-! 6 = DirtRight 
-! y = 40-360 pixels (8 tiles)
-! x = 0-680 pixels (17 tiles)
-                 
-   55            
-   46            
-   46  788889    
-   46  452256    
-   458856  46    
-   122223  46    
-           46    
-           55    
+! s = Dirt Center
+! w = DirtTop
+! x = DirtBottom
+! a = DirtLeft
+! d = DirtRight
+! q = LTC, e = RTC
+! z = LBC, c = RBC 
+! y = 40-360 pixels (16 tiles)
+! x = 0-680 pixels (34 tiles)
+__________________________________
+__________________________________
+______ssss________________________
+______ssss________________________
+______assd________________________
+______assd________________________
+______assd____qwwwwwwwwwwe________
+______assd____assssssssssd________
+______assd____assssssssssd________
+______assd____assrxxxxrssd________
+______assrwwwwrssd____assd________
+______assssssssssd____assd________
+______assssssssssd____assd________
+______zxxxxxxxxxxc____assd________
+______________________assd________    
+______________________assd________
+______________________ssss________
+______________________ssss________
