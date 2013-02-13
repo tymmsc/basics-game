@@ -7,7 +7,7 @@ import com.teamBasics.framework.Image;
 public class PathTile {
 
 	// Path tile positions
-	private int tileX, tileY; //speedX;
+	private int tileX, tileY;
 	public char type2;
 	
 	// Image used for Path tiles

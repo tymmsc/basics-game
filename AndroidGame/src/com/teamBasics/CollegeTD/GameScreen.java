@@ -44,7 +44,6 @@ public class GameScreen extends Screen {
 		// Initialize game objects here
 
 		bg1 = new Background(0, 0);
-		a = new Assignment(180, 80);		//Adrian first enemy 
 		
 
 		// anim = new Animation();
@@ -58,6 +57,8 @@ public class GameScreen extends Screen {
 		loadMapBorder();
 		loadMapPath();
 
+		a = new Assignment(141, 41, tilearrayPath);		//Adrian first enemy 		
+		
 		// Defining a paint object
 		// Start Text
 		paintInit = new Paint();
@@ -466,8 +467,10 @@ public class GameScreen extends Screen {
 		g.drawString(livesText, 516, 26, paintHUBText);
 		g.drawString(cashText, 695, 26, paintHUBText);
 		
-		g.drawImage(Assets.assignment, a.getPosX(), a.getPosY()); //Adrian
-
+		if(a.isVisible()) {
+			g.drawImage(Assets.assignment, a.getPosX(), a.getPosY()); //Adrian	
+		}
+		
 	}
 
 	private void drawPausedUI() {
@@ -519,6 +522,14 @@ public class GameScreen extends Screen {
 	public static Background getBg1() {
 		// TODO Auto-generated method stub
 		return bg1;
+	}
+
+	public ArrayList<PathTile> getTilearrayPath() {
+		return tilearrayPath;
+	}
+
+	public void setTilearrayPath(ArrayList<PathTile> tilearrayPath) {
+		this.tilearrayPath = tilearrayPath;
 	}
 
 }

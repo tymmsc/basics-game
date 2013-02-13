@@ -6,7 +6,7 @@ import com.teamBasics.framework.Image;
 
 public class BorderTile {
 
-	private int tileX, tileY, speedX;
+	private int tileX, tileY;
 	public int type;
 	public Image tileImage;
 

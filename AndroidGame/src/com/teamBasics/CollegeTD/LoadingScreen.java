@@ -1,3 +1,9 @@
+/*
+ * This class associates all images in the assets class with the pictures in the assets
+ * folder. It also paints the splash loading screen
+ */
+
+
 package com.teamBasics.CollegeTD;
 
 import com.teamBasics.framework.Game;
@@ -91,11 +97,13 @@ public class LoadingScreen extends Screen {
 		Assets.redditTower = g.newImage("reddit_tower.png", ImageFormat.RGB565);
 		Assets.pencilTower = g.newImage("pencil_tower.png", ImageFormat.RGB565);
 		Assets.starbucksTower = g.newImage("starbucks_tower.png", ImageFormat.RGB565);
+
+		//Enemy Sprites
+		Assets.assignment = g.newImage("UFPD.png", ImageFormat.RGB565);	//Adrian
 		
 		// Upgrade Sprites
 		Assets.sleepUp = g.newImage("sleep_upgrade.png", ImageFormat.RGB565);
 		Assets.socialUp = g.newImage("social_upgrade.png", ImageFormat.RGB565);
-
 
 		//Assets.button = g.newImage("button.jpg", ImageFormat.RGB565);
 
