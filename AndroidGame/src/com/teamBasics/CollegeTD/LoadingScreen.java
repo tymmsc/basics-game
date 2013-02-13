@@ -99,7 +99,7 @@ public class LoadingScreen extends Screen {
 		Assets.starbucksTower = g.newImage("starbucks_tower.png", ImageFormat.RGB565);
 
 		//Enemy Sprites
-		Assets.assignment = g.newImage("UFPD.png", ImageFormat.RGB565);	//Adrian
+		Assets.assignment = g.newImage("assignment.png", ImageFormat.RGB565);	//Adrian
 		
 		// Upgrade Sprites
 		Assets.sleepUp = g.newImage("sleep_upgrade.png", ImageFormat.RGB565);

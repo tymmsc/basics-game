@@ -26,7 +26,8 @@ public class GameScreen extends Screen {
 	private static Background bg1;
 	private String descriptionText = "";
 	private String scoreText = "0";
-	private String livesText = "20";
+	private int lives = 20;
+	private String livesText;
 	private String cashText = "$0";
 
 	private ArrayList<BorderTile> tilearrayBorder = new ArrayList<BorderTile>();
@@ -464,11 +465,16 @@ public class GameScreen extends Screen {
 		g.drawImage(Assets.selectItem, 49, 423);
 		g.drawString(descriptionText, 160, 439, paintDescriptionText);
 		g.drawString(scoreText, 290, 26, paintHUBText);
+		livesText = "" + lives;
 		g.drawString(livesText, 516, 26, paintHUBText);
 		g.drawString(cashText, 695, 26, paintHUBText);
 		
 		if(a.isVisible()) {
 			g.drawImage(Assets.assignment, a.getPosX(), a.getPosY()); //Adrian	
+		}
+		else if(a.isKamakazi()) {
+			lives--;
+			a.setKamakazi(false);
 		}
 		
 	}

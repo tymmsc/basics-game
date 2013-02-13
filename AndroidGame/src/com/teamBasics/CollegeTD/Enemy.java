@@ -16,13 +16,15 @@ public class Enemy {
 	//private Robot robot = GameScreen.getRobot();		//later will need to get towers??
 	public Rect r = new Rect(0, 0, 0, 0);				//collision box
 	protected int health;
-	protected boolean visible;
+	protected boolean visible, kamakazi;			//kamakazi means enemy reached end of map
 	private ArrayList<PathTile> tilearrayPath;
+	
 	
 	public Enemy(int posX, int posY, ArrayList<PathTile> tilearrayPath) {
 		setPosX(posX);
 		setPosY(posY);
 		setVisible(true);
+		kamakazi = false;
 		this.tilearrayPath = tilearrayPath;
 	}
 	
@@ -30,24 +32,27 @@ public class Enemy {
 	public void update() {
 		int next_tileY, next_tileX;
 		if(posY+(size/2) >= 360 || posX+(size/2) >= 680) {
+			if(visible==true) {		//means its the first time through
+				kamakazi = true;
+			}
 			visible = false;
 			//die but don't add to user cash
 		}
 		else {
 			if(movementY > 0) {
 				next_tileY = posY+speed+size;	
-				next_tileX = posX;
+				next_tileX = posX+(size/2);
 			}
 			else if(movementY < 0) {
 				next_tileY = posY+speed-size;	
-				next_tileX = posX;
+				next_tileX = posX+(size/2);
 			}
 			else if(movementX < 0 ){
-				next_tileY = posY;
+				next_tileY = posY+(size/2);
 				next_tileX = posX+speed-size;			
 			}
 			else {
-				next_tileY = posY;
+				next_tileY = posY+(size/2);
 				next_tileX = posX+speed+size;
 			}
 			
@@ -188,4 +193,13 @@ public class Enemy {
 	public void setVisible(boolean visible) {
 		this.visible = visible;
 	}
+
+	public boolean isKamakazi() {
+		return kamakazi;
+	}
+
+	public void setKamakazi(boolean kamakazi) {
+		this.kamakazi = kamakazi;
+	}
+	
 }
