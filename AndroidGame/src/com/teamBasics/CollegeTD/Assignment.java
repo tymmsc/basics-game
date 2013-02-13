@@ -9,6 +9,6 @@ public class Assignment extends Enemy {
 		setHealth(5);
 		movementY = speed;
 		movementX = 0;
-		size = 40;
+		size = 20;
 	}
 }

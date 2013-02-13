@@ -29,7 +29,7 @@ public class Enemy {
 	// Behavioral Methods
 	public void update() {
 		int next_tileY, next_tileX;
-		if(posY+(size/2) >= 360) {
+		if(posY+(size/2) >= 360 || posX+(size/2) >= 680) {
 			visible = false;
 			//die but don't add to user cash
 		}
@@ -50,21 +50,22 @@ public class Enemy {
 				next_tileY = posY;
 				next_tileX = posX+speed+size;
 			}
-		
-			PathTile next = searchArray(next_tileX, next_tileY);
-			if(next == null) {
-				movementY=0;
-				movementX=0;
-				visible = false;
-			}
-			else if(next != null && next.type2 != 's') {
-				if(movementY != 0) {
+			
+			if(next_tileX <680 && next_tileY < 360) {
+				PathTile next = searchArray(next_tileX, next_tileY);
+				if(next == null) {
 					movementY=0;
-					movementX=horizantal_Search();
-				}
-				else {
-					movementY=vertical_Search();
 					movementX=0;
+				}
+				else if(next != null && next.type2 != 's') {
+					if(movementY != 0) {
+						movementY=0;
+						movementX=horizantal_Search();
+					}
+					else {
+						movementY=vertical_Search();
+						movementX=0;
+					}
 				}
 			}
 			posY+=movementY;
