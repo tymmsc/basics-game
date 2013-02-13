@@ -26,7 +26,7 @@ public class Enemy {
 		//}
 
 	}
-
+/*
 	private void checkCollision() {
 		if (Rect.intersects(r, Robot.rect) || Rect.intersects(r, Robot.rect2)
 				|| Rect.intersects(r, Robot.rect3)
@@ -34,7 +34,7 @@ public class Enemy {
 
 		}
 	}
-
+*/
 	/*public void follow() {
 
 		if (centerX < -95 || centerX > 810) {

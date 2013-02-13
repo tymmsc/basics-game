@@ -88,7 +88,7 @@ public class GameScreen extends Screen {
 
 	// Load map border
 	private void loadMapBorder() {
-		ArrayList lines = new ArrayList();
+		ArrayList<String> lines = new ArrayList<String>();
 		int width = 0;
 		int height = 0;
 
@@ -123,7 +123,7 @@ public class GameScreen extends Screen {
 
 	// Load walkway-path
 	private void loadMapPath() {
-		ArrayList lines = new ArrayList();
+		ArrayList<String> lines = new ArrayList<String>();
 		int width = 0;
 		int height = 0;
 
