@@ -30,6 +30,10 @@ public class Assets {
     public static Image redditTower, pencilTower, starbucksTower;
     public static Image sleepUp, socialUp, academicUp;
     
+    //Enemy Sprites
+    public static Image assignment;
+    
+    //Options Menu Sprites
     public static Image soundFX, soundFX_on, soundFX_off;
     
     //public static Image button;

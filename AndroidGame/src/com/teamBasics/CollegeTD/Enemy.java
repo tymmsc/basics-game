@@ -7,15 +7,16 @@ public class Enemy {
 	private int posX, posY, speed;  					// add power later on
 	public static Rect rect = new Rect(0, 0, 0, 0);
 	public static Rect yellowRed = new Rect(0, 0, 0, 0);
-	//private Robot robot = GameScreen.getRobot();
+	//private Robot robot = GameScreen.getRobot();		//later will need to get towers??
 
-	public Rect r = new Rect(0, 0, 0, 0);
+	public Rect r = new Rect(0, 0, 0, 0);				//collision box
 	public int health = 5;
 
-	private int movementSpeed;
-
+	
+	
 	// Behavioral Methods
 	public void update() {
+		posY += speed;
 		//follow();
 		//centerX += speedX;
 		// set collision box
@@ -63,6 +64,38 @@ public class Enemy {
 
 	public void attack() {
 
+	}
+
+	public int getPosX() {
+		return posX;
+	}
+
+	public void setPosX(int posX) {
+		this.posX = posX;
+	}
+
+	public int getPosY() {
+		return posY;
+	}
+
+	public void setPosY(int posY) {
+		this.posY = posY;
+	}
+
+	public int getSpeed() {
+		return speed;
+	}
+
+	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
+
+	public int getHealth() {
+		return health;
+	}
+
+	public void setHealth(int health) {
+		this.health = health;
 	}
 
 }

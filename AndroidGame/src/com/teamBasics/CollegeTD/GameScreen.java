@@ -35,14 +35,17 @@ public class GameScreen extends Screen {
 	int livesLeft = 20;
 	Paint paintInit, paintMenu, paintDescriptionText, paintHUBText;
 
+	//Enemies and Towers
+	private Assignment a;
+	
 	public GameScreen(Game game) {
 		super(game);
 
 		// Initialize game objects here
 
 		bg1 = new Background(0, 0);
-		// hb = new Heliboy(340, 360);
-		// character = Assets.character;
+		a = new Assignment(180, 80);		//Adrian first enemy 
+		
 
 		// anim = new Animation();
 		// anim.addFrame(character, 1250);
@@ -248,6 +251,9 @@ public class GameScreen extends Screen {
 
 		// 3. Call individual update() methods here.
 		// This is where all the game updates happen.
+
+		
+		
 		// For example, robot.update();
 		// robot.update();
 		// if (robot.isJumped()) {
@@ -268,6 +274,8 @@ public class GameScreen extends Screen {
 
 		updateBorderTiles();
 		updatePathTiles();
+		
+		a.update();		//Adrian	
 		
 		// hb.update();
 		// hb2.update();
@@ -364,6 +372,7 @@ public class GameScreen extends Screen {
 		// g.drawImage(hanim.getImage(), hb2.getCenterX() - 48,
 		// hb2.getCenterY() - 48);
 
+	
 		// Example:
 		// g.drawImage(Assets.background, 0, 0);
 		// g.drawImage(Assets.character, characterX, characterY);
@@ -375,9 +384,10 @@ public class GameScreen extends Screen {
 			drawRunningUI();
 		if (state == GameState.Paused)
 			drawPausedUI();
-		if (state == GameState.GameOver)
+		if (state == GameState.GameOver) {
 			drawGameOverUI();
-
+		}
+		
 	}
 
 	private void paintBorderTiles(Graphics g) {
@@ -409,6 +419,7 @@ public class GameScreen extends Screen {
 		// constructor.
 		paintInit = null;
 		bg1 = null;
+		a = null;			//Adrian
 		// robot = null;
 		// hb = null;
 		// currentSprite = null;
@@ -454,6 +465,9 @@ public class GameScreen extends Screen {
 		g.drawString(scoreText, 290, 26, paintHUBText);
 		g.drawString(livesText, 516, 26, paintHUBText);
 		g.drawString(cashText, 695, 26, paintHUBText);
+		
+		g.drawImage(Assets.assignment, a.getPosX(), a.getPosY()); //Adrian
+
 	}
 
 	private void drawPausedUI() {
