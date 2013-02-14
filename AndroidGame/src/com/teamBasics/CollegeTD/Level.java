@@ -21,24 +21,24 @@ public class Level {
 		ArrayList<Enemy> group1 = new ArrayList<Enemy>();
 		ArrayList<Enemy> group2 = new ArrayList<Enemy>();
 		
-		Assignment a = new Assignment(tilearrayPath);
 		Assignment b = new Assignment(tilearrayPath);
 		Assignment c = new Assignment(tilearrayPath);
 		Assignment d = new Assignment(tilearrayPath);
 		Assignment e = new Assignment(tilearrayPath);
-		group1.add(a);
+		Assignment f = new Assignment(tilearrayPath);
 		group1.add(b);
 		group1.add(c);
-		group2.add(d);
+		group1.add(d);
 		group2.add(e);
+		group2.add(f);
 		
 		for(int i=0; i<10; i++) {
-			Assignment f = new Assignment(tilearrayPath);
-			group1.add(f);
+			Assignment a = new Assignment(tilearrayPath);
+			group1.add(a);
 		}
 		for(int i=0; i<5; i++) {
-			Assignment f = new Assignment(tilearrayPath);
-			group2.add(f);
+			Assignment a = new Assignment(tilearrayPath);
+			group2.add(a);
 		}
 		
 		if(group1 != null && group2 != null) {
@@ -55,6 +55,7 @@ public class Level {
 		for(int i=0; i<level.size(); i++) {
 			if(!(level.get(i).isComplete())) {
 				waveToUpdate = level.get(i);
+				break;
 			}
 		}
 		if(waveToUpdate != null) {
