@@ -12,7 +12,7 @@ import android.graphics.Rect;
 
 public class EnemyWave {
 	//enemies is an arrayList of Groups of enemies
-	private ArrayList<ArrayList<Enemy>> enemies = new ArrayList<ArrayList<Enemy>>();
+	private ArrayList<ArrayList<Enemy>> enemies;
 	
 	//delay in terms of number of updates before starting to spawn this group
 	private ArrayList<Integer> delay;	
@@ -34,6 +34,10 @@ public class EnemyWave {
 	public EnemyWave() {
 		complete = false;
 		count = 0;
+		enemies = new ArrayList<ArrayList<Enemy>>();
+		delay = new ArrayList<Integer>();
+		delay_within = new ArrayList<Integer>();
+		internal_counter = new ArrayList<Integer>();
 	}
 	
 	public void addEnemyGroup(ArrayList<Enemy> enemy_group, Integer delay, Integer delay_within ) {
@@ -51,10 +55,10 @@ public class EnemyWave {
 		boolean allDead = true;
 		
 		for(int i=0; i<enemies.size(); i++) {
-			delay = (int) this.delay.get(i);
+			delay = this.delay.get(i).intValue();
 			if(delay <= count) {
-				delay_within = this.delay_within.get(i);
-				internal_count = this.internal_counter.get(i);
+				delay_within = this.delay_within.get(i).intValue();
+				internal_count = this.internal_counter.get(i).intValue();
 				group = enemies.get(i);
 				for(int j=0; j<group.size(); j++) {
 					if(group.get(j).isVisible()) {
@@ -72,7 +76,7 @@ public class EnemyWave {
 				if(reset_internal_count == false) {
 					internal_count++;					
 				}
-				internal_counter.set(i, internal_count);
+				internal_counter.set(i, Integer.valueOf(internal_count));
 			}
 		}
 		if(allDead) {

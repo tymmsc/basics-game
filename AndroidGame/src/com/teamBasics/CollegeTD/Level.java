@@ -8,7 +8,7 @@ import java.util.Scanner;
 import com.teamBasics.framework.Graphics;
 
 public class Level {
-	private ArrayList<EnemyWave> level;
+	private ArrayList<EnemyWave> level = new ArrayList<EnemyWave>();;
 	private ArrayList<BorderTile> tilearrayBorder;
 	private ArrayList<PathTile> tilearrayPath;
 
@@ -21,17 +21,31 @@ public class Level {
 		ArrayList<Enemy> group1 = new ArrayList<Enemy>();
 		ArrayList<Enemy> group2 = new ArrayList<Enemy>();
 		
+		Assignment a = new Assignment(tilearrayPath);
+		Assignment b = new Assignment(tilearrayPath);
+		Assignment c = new Assignment(tilearrayPath);
+		Assignment d = new Assignment(tilearrayPath);
+		Assignment e = new Assignment(tilearrayPath);
+		group1.add(a);
+		group1.add(b);
+		group1.add(c);
+		group2.add(d);
+		group2.add(e);
+		
 		for(int i=0; i<10; i++) {
-			Assignment a = new Assignment(tilearrayPath);
-			group1.add(a);
+			Assignment f = new Assignment(tilearrayPath);
+			group1.add(f);
 		}
 		for(int i=0; i<5; i++) {
-			Assignment a = new Assignment(tilearrayPath);
-			group2.add(a);
+			Assignment f = new Assignment(tilearrayPath);
+			group2.add(f);
 		}
-		wave1.addEnemyGroup(group1, 0, 1);
-		wave1.addEnemyGroup(group2, 200, 2);
-		level.add(wave1);
+		
+		if(group1 != null && group2 != null) {
+			wave1.addEnemyGroup(group1, Integer.valueOf(0), Integer.valueOf(8));
+			wave1.addEnemyGroup(group2, Integer.valueOf(200), Integer.valueOf(20));
+			level.add(wave1);
+		}	
 	}
 	
 	//Update 1 wave of the level at a time. Update the first wave you
