@@ -38,6 +38,7 @@ public class GameScreen extends Screen {
 
 	//Enemies and Towers
 	private Assignment a;
+	private Level level1;
 	
 	public GameScreen(Game game) {
 		super(game);
@@ -58,6 +59,7 @@ public class GameScreen extends Screen {
 		loadMapBorder();
 		loadMapPath();
 
+		level1 = new Level(tilearrayPath);
 		a = new Assignment(141, 41, tilearrayPath);		//Adrian first enemy 		
 		
 		// Defining a paint object
@@ -278,6 +280,7 @@ public class GameScreen extends Screen {
 		updatePathTiles();
 		
 		a.update();		//Adrian	
+		level1.update();
 		
 		// hb.update();
 		// hb2.update();
@@ -422,6 +425,7 @@ public class GameScreen extends Screen {
 		paintInit = null;
 		bg1 = null;
 		a = null;			//Adrian
+		level1 = null;
 		// robot = null;
 		// hb = null;
 		// currentSprite = null;
@@ -469,6 +473,7 @@ public class GameScreen extends Screen {
 		g.drawString(livesText, 516, 26, paintHUBText);
 		g.drawString(cashText, 695, 26, paintHUBText);
 		
+		level1.draw(g);
 		if(a.isVisible()) {
 			g.drawImage(Assets.assignment, a.getPosX(), a.getPosY()); //Adrian	
 		}

@@ -1,3 +1,6 @@
+//Probably not the best to be passing the whole map to this class,
+//but it will work temporarily until we come up with a better fix
+
 package com.teamBasics.CollegeTD;
 
 import java.util.ArrayList;
@@ -16,14 +19,14 @@ public class Enemy {
 	//private Robot robot = GameScreen.getRobot();		//later will need to get towers??
 	public Rect r = new Rect(0, 0, 0, 0);				//collision box
 	protected int health;
-	protected boolean visible, kamakazi;			//kamakazi means enemy reached end of map
+	protected boolean visible, kamakazi, dead;			//kamakazi means enemy reached end of map
 	private ArrayList<PathTile> tilearrayPath;
 	
 	
 	public Enemy(int posX, int posY, ArrayList<PathTile> tilearrayPath) {
 		setPosX(posX);
 		setPosY(posY);
-		setVisible(true);
+		setVisible(false);
 		kamakazi = false;
 		this.tilearrayPath = tilearrayPath;
 	}
@@ -36,9 +39,11 @@ public class Enemy {
 				kamakazi = true;
 			}
 			visible = false;
+			dead = true;
 			//die but don't add to user cash
 		}
 		else {
+			visible = true;
 			if(movementY > 0) {
 				next_tileY = posY+speed+size;	
 				next_tileX = posX+(size/2);
@@ -200,6 +205,14 @@ public class Enemy {
 
 	public void setKamakazi(boolean kamakazi) {
 		this.kamakazi = kamakazi;
+	}
+
+	public boolean isDead() {
+		return dead;
+	}
+
+	public void setDead(boolean dead) {
+		this.dead = dead;
 	}
 	
 }
