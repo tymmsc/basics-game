@@ -8,16 +8,30 @@ import java.util.Scanner;
 import com.teamBasics.framework.Graphics;
 
 public class Level {
+	//GamePlay Level Info
 	private ArrayList<EnemyWave> level = new ArrayList<EnemyWave>();;
-	private ArrayList<BorderTile> tilearrayBorder;
-	private ArrayList<PathTile> tilearrayPath;
-
+	private ArrayList<BorderTile> tilearrayBorder = new ArrayList<BorderTile>();
+	private ArrayList<PathTile> tilearrayPath = new ArrayList<PathTile>();
+	private ArrayList<Tower> towers = new ArrayList<Tower>();
+	private ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
+	
+	//User Info
 	private int livesLeft = 20;
-	//Later in the constructor this class can just be given the map number
-	//and it can generate the map itself. That way each level can have a
-	//different map
-	public Level(ArrayList<PathTile> tilearrayPath) {
+	private int cash = 200;
+	private int score = 0;
+	
+	//Will later be used to tell which map to load
+	private int level_number;
+	
+	//Later in the constructor this class can just be given the level number
+	//That way each level can have a different map
+	public Level() {
 		//Instantiation of 1 wave of enemies
+		level_number=1;
+		
+		loadMapBorder();
+		loadMapPath();
+				
 		EnemyWave wave1 = new EnemyWave();
 		EnemyGroup group1 = new EnemyGroup(0, 8);
 		EnemyGroup group2 = new EnemyGroup(200, 20);
@@ -36,6 +50,11 @@ public class Level {
 			wave1.addEnemyGroup(group2);
 			level.add(wave1);
 		}	
+	}
+	
+	//Adds a wave to the level
+	public void addWave(EnemyWave wave) {
+		level.add(wave);
 	}
 	
 	//Update 1 wave of the level at a time. Update the first wave you
@@ -68,9 +87,8 @@ public class Level {
 	}
 
 	//Will be used later on to load the map for each level
-	/*
 	// Load map border
-	private void loadMapBorder() {
+	public void loadMapBorder() {
 		ArrayList<String> lines = new ArrayList<String>();
 		int width = 0;
 		int height = 0;
@@ -106,7 +124,7 @@ public class Level {
 
 
 	// Load walkway-path
-	private void loadMapPath() {
+	public void loadMapPath() {
 		ArrayList<String> lines = new ArrayList<String>();
 		int width = 0;
 		int height = 0;
@@ -143,7 +161,7 @@ public class Level {
 	}
 	
 	
-	private void paintBorderTiles(Graphics g) {
+	public void paintBorderTiles(Graphics g) {
 		for (int i = 0; i < tilearrayBorder.size(); i++) {
 			BorderTile t = (BorderTile) tilearrayBorder.get(i);
 			if (t.type != 0) {
@@ -152,7 +170,7 @@ public class Level {
 		}
 	}
 
-	private void paintPathTiles(Graphics g) {
+	public void paintPathTiles(Graphics g) {
 		for (int i = 0; i < tilearrayPath.size(); i++) {
 			PathTile t = (PathTile) tilearrayPath.get(i);
 			if (t.type2 != 'v') {
@@ -162,7 +180,7 @@ public class Level {
 	}
 
 
-	private void updateBorderTiles() {
+	public void updateBorderTiles() {
 
 		for (int i = 0; i < tilearrayBorder.size(); i++) {
 			BorderTile t = (BorderTile) tilearrayBorder.get(i);
@@ -171,16 +189,13 @@ public class Level {
 
 	}
 	
-	private void updatePathTiles() {
+	public void updatePathTiles() {
 		for (int i = 0; i < tilearrayPath.size(); i++) {
 			PathTile t = (PathTile) tilearrayPath.get(i);
 			t.update();
 		}
 
 	}
-
-
-	*/	
 
 	public ArrayList<EnemyWave> getLevel() {
 		return level;
@@ -213,4 +228,45 @@ public class Level {
 	public void setLivesLeft(int livesLeft) {
 		this.livesLeft = livesLeft;
 	}
+
+	public ArrayList<Tower> getTowers() {
+		return towers;
+	}
+
+	public void setTowers(ArrayList<Tower> towers) {
+		this.towers = towers;
+	}
+
+	public ArrayList<Projectile> getProjectiles() {
+		return projectiles;
+	}
+
+	public void setProjectiles(ArrayList<Projectile> projectiles) {
+		this.projectiles = projectiles;
+	}
+
+	public int getCash() {
+		return cash;
+	}
+
+	public void setCash(int cash) {
+		this.cash = cash;
+	}
+
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+
+	public int getLevel_number() {
+		return level_number;
+	}
+
+	public void setLevel_number(int level_number) {
+		this.level_number = level_number;
+	}
+	
 }

@@ -27,9 +27,6 @@ public class GameScreen extends Screen {
 	private String livesText;
 	private String cashText = "$0";
 
-	private ArrayList<BorderTile> tilearrayBorder = new ArrayList<BorderTile>();
-	private ArrayList<PathTile> tilearrayPath = new ArrayList<PathTile>();
-
 	Paint paintInit, paintMenu, paintDescriptionText, paintHUBText;
 
 	//Levels
@@ -49,10 +46,8 @@ public class GameScreen extends Screen {
 		// hanim.addFrame(heliboy, 100);
 		// currentSprite = anim.getImage();
 
-		loadMapBorder();
-		loadMapPath();
-
-		level1 = new Level(tilearrayPath);
+		level1 = new Level();
+		CurrentLevel = level1;	
 		
 		// Defining a paint object
 		// Start Text
@@ -82,78 +77,6 @@ public class GameScreen extends Screen {
 		paintHUBText.setTextAlign(Paint.Align.RIGHT);
 		paintHUBText.setAntiAlias(true);
 		paintHUBText.setColor(Color.CYAN);
-
-	}
-
-	// Load map border
-	private void loadMapBorder() {
-		ArrayList<String> lines = new ArrayList<String>();
-		int width = 0;
-		int height = 0;
-
-		Scanner scanner = new Scanner(SampleGame.mapBorder);
-		while (scanner.hasNextLine()) {
-			String line = scanner.nextLine();
-
-			// no more lines to read
-			if (line == null) {
-				break;
-			}
-
-			if (!line.startsWith("!")) {
-				lines.add(line);
-				width = Math.max(width, line.length());
-			}
-		}
-		height = lines.size();
-
-		// j = y value
-		for (int j = 0; j < height; j++) {
-			String line = (String) lines.get(j);
-			for (int i = 0; i < width; i++) {
-				if (i < line.length()) {
-					char ch = line.charAt(i);
-					BorderTile t = new BorderTile(i, j, Character.getNumericValue(ch));
-					tilearrayBorder.add(t);
-				}
-			}
-		}
-	}
-
-	// Load walkway-path
-	private void loadMapPath() {
-		ArrayList<String> lines = new ArrayList<String>();
-		int width = 0;
-		int height = 0;
-
-		Scanner scanner = new Scanner(SampleGame.mapPath);
-		while (scanner.hasNextLine()) {
-			String line = scanner.nextLine();
-			
-			// no more lines to read
-			if (line == null) {
-				break;
-			}
-
-			if (!line.startsWith("!")) {
-				lines.add(line);
-				width = Math.max(width, line.length());
-			}
-		}
-		height = lines.size();
-
-		// j = y value
-		for (int j = 0; j < height; j++) {
-			String line = (String) lines.get(j);
-			for (int i = 0; i < width; i++) {
-
-				if (i < line.length()) {
-					char ch = line.charAt(i);
-					PathTile t = new PathTile(i, j, ch);
-					tilearrayPath.add(t);
-				}
-			}
-		}
 
 	}
 
@@ -241,7 +164,7 @@ public class GameScreen extends Screen {
 
 		// 2. Check miscellaneous events like death:
 
-		if (level1.getLivesLeft() == 0) {
+		if (CurrentLevel.getLivesLeft() == 0) {
 			state = GameState.GameOver;
 		}
 
@@ -268,20 +191,16 @@ public class GameScreen extends Screen {
 		// }
 		// }
 
-		updateBorderTiles();
-		updatePathTiles();
+		CurrentLevel.updateBorderTiles();
+		CurrentLevel.updatePathTiles();
 		
-		level1.update();
+		CurrentLevel.update();
 		
 		// hb.update();
 		// hb2.update();
 		// bg1.update();
 		// bg2.update();
 		// animate();
-
-		// if (robot.getCenterY() > 500) {
-		// state = GameState.GameOver;
-		// }
 	}
 
 	private boolean inBounds(TouchEvent event, int x, int y, int width,
@@ -328,31 +247,14 @@ public class GameScreen extends Screen {
 
 	}
 
-	private void updateBorderTiles() {
-
-		for (int i = 0; i < tilearrayBorder.size(); i++) {
-			BorderTile t = (BorderTile) tilearrayBorder.get(i);
-			t.update();
-		}
-
-	}
-	
-	private void updatePathTiles() {
-		for (int i = 0; i < tilearrayPath.size(); i++) {
-			PathTile t = (PathTile) tilearrayPath.get(i);
-			t.update();
-		}
-
-	}
-
 	@Override
 	public void paint(float deltaTime) {
 		Graphics g = game.getGraphics();
 
 		g.drawImage(Assets.gamescreen, 0, 0);
 		// g.drawImage(Assets.background, bg2.getBgX(), bg2.getBgY());
-		paintBorderTiles(g);
-		paintPathTiles(g);
+		CurrentLevel.paintBorderTiles(g);
+		CurrentLevel.paintPathTiles(g);
 
 		// ArrayList projectiles = robot.getProjectiles();
 		// for (int i = 0; i < projectiles.size(); i++) {
@@ -385,25 +287,6 @@ public class GameScreen extends Screen {
 		}
 		
 	}
-
-	private void paintBorderTiles(Graphics g) {
-		for (int i = 0; i < tilearrayBorder.size(); i++) {
-			BorderTile t = (BorderTile) tilearrayBorder.get(i);
-			if (t.type != 0) {
-				g.drawImage(t.getTileImage(), t.getTileX(), t.getTileY());
-			}
-		}
-	}
-
-	private void paintPathTiles(Graphics g) {
-		for (int i = 0; i < tilearrayPath.size(); i++) {
-			PathTile t = (PathTile) tilearrayPath.get(i);
-			if (t.type2 != 'v') {
-				g.drawImage(t.getTileImage(), t.getTileX(), t.getTileY());
-			}
-		}
-	}
-
 	public void animate() {
 		// anim.update(10);
 		// hanim.update(50);
@@ -414,13 +297,10 @@ public class GameScreen extends Screen {
 		// Set all variables to null. You will be recreating them in the
 		// constructor.
 		paintInit = null;
-		//bg1 = null;
 		level1 = null;
-		// robot = null;
-		// hb = null;
+		CurrentLevel=null;
 		// currentSprite = null;
 		// character = null;
-		// heliboy = null;
 		// anim = null;
 		// hanim = null;
 
@@ -440,13 +320,6 @@ public class GameScreen extends Screen {
 	private void drawRunningUI() {
 		Graphics g = game.getGraphics();
 		
-		// Buttons.jpg from top to bottom
-		//(Image Image, int x, int y, int srcX, int srcY, int srcWidth, int srcHeight)
-		//g.drawImage(Assets.button, 0, 285, 0, 0, 65, 65);
-		//g.drawImage(Assets.button, 0, 350, 0, 65, 65, 65);
-		//g.drawImage(Assets.button, 0, 415, 0, 130, 65, 65);
-		//g.drawImage(Assets.button, 0, 0, 0, 195, 35, 35);
-		
 		// Tower sprites
 		g.drawImage(Assets.redditTower, 735, 49);
 		g.drawImage(Assets.pencilTower, 735, 115);
@@ -458,12 +331,14 @@ public class GameScreen extends Screen {
 		
 		g.drawImage(Assets.selectItem, 49, 423);
 		g.drawString(descriptionText, 160, 439, paintDescriptionText);
+		scoreText = "" + CurrentLevel.getScore();
 		g.drawString(scoreText, 290, 26, paintHUBText);
-		livesText = "" + level1.getLivesLeft();
+		livesText = "" + CurrentLevel.getLivesLeft();
 		g.drawString(livesText, 516, 26, paintHUBText);
+		cashText = "$" + CurrentLevel.getCash(); 
 		g.drawString(cashText, 695, 26, paintHUBText);
 		
-		level1.draw(g);
+		CurrentLevel.draw(g);
 	}
 
 	private void drawPausedUI() {
@@ -511,20 +386,4 @@ public class GameScreen extends Screen {
 		game.setScreen(new MainMenuScreen(game));
 
 	}
-
-	/*
-	public static Background getBg1() {
-		// TODO Auto-generated method stub
-		return bg1;
-	}
-	*/
-
-	public ArrayList<PathTile> getTilearrayPath() {
-		return tilearrayPath;
-	}
-
-	public void setTilearrayPath(ArrayList<PathTile> tilearrayPath) {
-		this.tilearrayPath = tilearrayPath;
-	}
-
 }
