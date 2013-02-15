@@ -41,7 +41,7 @@ public class LoadingScreen extends Screen {
 		// Assets.heliboy = g.newImage("splash4_0.png", ImageFormat.ARGB4444);
 
 		// Splash Loading Animation
-		Assets.splash0 = g.newImage("splash4_0.png", ImageFormat.RGB565);
+		Assets.splash0 = g.newImage("SplashLoadingScreen/splash4_0.png", ImageFormat.RGB565);
 		
 		/* Assets.splash1 = g.newImage("splash4_1.png", ImageFormat.RGB565);
 		 * Assets.splash2 = g.newImage("splash4_2.png", ImageFormat.RGB565);
@@ -61,49 +61,49 @@ public class LoadingScreen extends Screen {
 		 */
 
 		// Border outline
-		Assets.tiledirt = g.newImage("tiledirt.png", ImageFormat.RGB565);
-		Assets.tilegrassTop = g.newImage("tilegrasstop.png", ImageFormat.RGB565);
-		Assets.tilegrassBot = g.newImage("tilegrassbot.png", ImageFormat.RGB565);
-		Assets.tilegrassLeft = g.newImage("tilegrassleft.png", ImageFormat.RGB565);
-		Assets.tilegrassRight = g.newImage("tilegrassright.png", ImageFormat.RGB565);
+		Assets.tiledirt = g.newImage("BorderTiles/tiledirt.png", ImageFormat.RGB565);
+		Assets.tilegrassTop = g.newImage("BorderTiles/tilegrasstop.png", ImageFormat.RGB565);
+		Assets.tilegrassBot = g.newImage("BorderTiles/tilegrassbot.png", ImageFormat.RGB565);
+		Assets.tilegrassLeft = g.newImage("BorderTiles/tilegrassleft.png", ImageFormat.RGB565);
+		Assets.tilegrassRight = g.newImage("BorderTiles/tilegrassright.png", ImageFormat.RGB565);
 
-		// Dirt Path Walkways
-		Assets.dirtCenter = g.newImage("dirt_center20.PNG", ImageFormat.RGB565);
+		// Dirt Path Tiles
+		Assets.dirtCenter = g.newImage("DirtPathTiles/dirt_center20.PNG", ImageFormat.RGB565);
 
-		Assets.dirtTop = g.newImage("dirt_top20.png", ImageFormat.RGB565);
-		Assets.dirtBottom = g.newImage("dirt_bottom20.PNG", ImageFormat.RGB565);
-		Assets.dirtLeft = g.newImage("dirt_left20.PNG", ImageFormat.RGB565);
-		Assets.dirtRight = g.newImage("dirt_right20.png", ImageFormat.RGB565);
+		Assets.dirtTop = g.newImage("DirtPathTiles/dirt_top20.png", ImageFormat.RGB565);
+		Assets.dirtBottom = g.newImage("DirtPathTiles/dirt_bottom20.PNG", ImageFormat.RGB565);
+		Assets.dirtLeft = g.newImage("DirtPathTiles/dirt_left20.PNG", ImageFormat.RGB565);
+		Assets.dirtRight = g.newImage("DirtPathTiles/dirt_right20.png", ImageFormat.RGB565);
 
-		Assets.dirtLBC = g.newImage("dirt_LBC20.PNG", ImageFormat.RGB565);
-		Assets.dirtLTC = g.newImage("dirt_LTC20.PNG", ImageFormat.RGB565);
-		Assets.dirtRBC = g.newImage("dirt_RBC20.png", ImageFormat.RGB565);
-		Assets.dirtRTC = g.newImage("dirt_RTC20.png", ImageFormat.RGB565);
+		Assets.dirtLBC = g.newImage("DirtPathTiles/dirt_LBC20.PNG", ImageFormat.RGB565);
+		Assets.dirtLTC = g.newImage("DirtPathTiles/dirt_LTC20.PNG", ImageFormat.RGB565);
+		Assets.dirtRBC = g.newImage("DirtPathTiles/dirt_RBC20.png", ImageFormat.RGB565);
+		Assets.dirtRTC = g.newImage("DirtPathTiles/dirt_RTC20.png", ImageFormat.RGB565);
 		
-		// Stone Path Walkways
-		Assets.stoneCenter = g.newImage("stone_center20.PNG", ImageFormat.RGB565);
+		// Stone Path Tiles
+		Assets.stoneCenter = g.newImage("StonePathTiles/stone_center20.PNG", ImageFormat.RGB565);
 
-		Assets.stoneTop = g.newImage("stone_top20.PNG", ImageFormat.RGB565);
-		Assets.stoneBottom = g.newImage("stone_bottom20.PNG", ImageFormat.RGB565);
-		Assets.stoneLeft = g.newImage("stone_left20.PNG", ImageFormat.RGB565);
-		Assets.stoneRight = g.newImage("stone_right20.PNG", ImageFormat.RGB565);
+		Assets.stoneTop = g.newImage("StonePathTiles/stone_top20.PNG", ImageFormat.RGB565);
+		Assets.stoneBottom = g.newImage("StonePathTiles/stone_bottom20.PNG", ImageFormat.RGB565);
+		Assets.stoneLeft = g.newImage("StonePathTiles/stone_left20.PNG", ImageFormat.RGB565);
+		Assets.stoneRight = g.newImage("StonePathTiles/stone_right20.PNG", ImageFormat.RGB565);
 
-		Assets.stoneLBC = g.newImage("stone_LBC20.PNG", ImageFormat.RGB565);
-		Assets.stoneLTC = g.newImage("stone_LTC20.PNG", ImageFormat.RGB565);
-		Assets.stoneRBC = g.newImage("stone_RBC20.PNG", ImageFormat.RGB565);
-		Assets.stoneRTC = g.newImage("stone_RTC20.PNG", ImageFormat.RGB565);
+		Assets.stoneLBC = g.newImage("StonePathTiles/stone_LBC20.PNG", ImageFormat.RGB565);
+		Assets.stoneLTC = g.newImage("StonePathTiles/stone_LTC20.PNG", ImageFormat.RGB565);
+		Assets.stoneRBC = g.newImage("StonePathTiles/stone_RBC20.PNG", ImageFormat.RGB565);
+		Assets.stoneRTC = g.newImage("StonePathTiles/stone_RTC20.PNG", ImageFormat.RGB565);
 		
 		// Tower Sprites
-		Assets.redditTower = g.newImage("reddit_tower.png", ImageFormat.RGB565);
-		Assets.pencilTower = g.newImage("pencil_tower.png", ImageFormat.RGB565);
-		Assets.starbucksTower = g.newImage("starbucks_tower.png", ImageFormat.RGB565);
+		Assets.redditTower = g.newImage("Towers/reddit_tower.png", ImageFormat.RGB565);
+		Assets.pencilTower = g.newImage("Towers/pencil_tower.png", ImageFormat.RGB565);
+		Assets.starbucksTower = g.newImage("Towers/starbucks_tower.png", ImageFormat.RGB565);
 
 		//Enemy Sprites
-		Assets.assignment = g.newImage("assignment.png", ImageFormat.RGB565);	//Adrian
+		Assets.assignment = g.newImage("Enemies/assignment.png", ImageFormat.RGB565);
 		
 		// Upgrade Sprites
-		Assets.sleepUp = g.newImage("sleep_upgrade.png", ImageFormat.RGB565);
-		Assets.socialUp = g.newImage("social_upgrade.png", ImageFormat.RGB565);
+		Assets.sleepUp = g.newImage("Upgrades/sleep_upgrade.png", ImageFormat.RGB565);
+		Assets.socialUp = g.newImage("Upgrades/social_upgrade.png", ImageFormat.RGB565);
 
 		//Assets.button = g.newImage("button.jpg", ImageFormat.RGB565);
 
@@ -190,6 +190,7 @@ public class LoadingScreen extends Screen {
 		// splashAnim.update(1);
 	}
 
+	//Eliminate??
 	@Override
 	public void pause() {
 

@@ -22,8 +22,6 @@ public class GameScreen extends Screen {
 	GameState state = GameState.Ready;
 
 	// Variable Setup
-
-	//private static Background bg1;
 	private String descriptionText = "";
 	private String scoreText = "0";
 	private String livesText;
@@ -32,20 +30,16 @@ public class GameScreen extends Screen {
 	private ArrayList<BorderTile> tilearrayBorder = new ArrayList<BorderTile>();
 	private ArrayList<PathTile> tilearrayPath = new ArrayList<PathTile>();
 
-	//int livesLeft = 20;
 	Paint paintInit, paintMenu, paintDescriptionText, paintHUBText;
 
-	//Enemies and Towers
-	private AssignmentEnemy a;
+	//Levels
+	private Level CurrentLevel;
 	private Level level1;
 	
 	public GameScreen(Game game) {
 		super(game);
 
 		// Initialize game objects here
-
-		//bg1 = new Background(0, 0);
-		
 
 		// anim = new Animation();
 		// anim.addFrame(character, 1250);
@@ -59,7 +53,6 @@ public class GameScreen extends Screen {
 		loadMapPath();
 
 		level1 = new Level(tilearrayPath);
-		a = new AssignmentEnemy(141, 41, tilearrayPath);		//Adrian first enemy 		
 		
 		// Defining a paint object
 		// Start Text
@@ -278,7 +271,6 @@ public class GameScreen extends Screen {
 		updateBorderTiles();
 		updatePathTiles();
 		
-		a.update();		//Adrian	
 		level1.update();
 		
 		// hb.update();
@@ -423,7 +415,6 @@ public class GameScreen extends Screen {
 		// constructor.
 		paintInit = null;
 		//bg1 = null;
-		a = null;			//Adrian
 		level1 = null;
 		// robot = null;
 		// hb = null;
