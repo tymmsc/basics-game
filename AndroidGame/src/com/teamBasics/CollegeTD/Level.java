@@ -12,6 +12,7 @@ public class Level {
 	private ArrayList<BorderTile> tilearrayBorder;
 	private ArrayList<PathTile> tilearrayPath;
 
+	private int livesLeft = 20;
 	//Later in the constructor this class can just be given the map number
 	//and it can generate the map itself. That way each level can have a
 	//different map
@@ -55,14 +56,16 @@ public class Level {
 		}
 	}
 	
-	public int draw(Graphics g) {
+	public void draw(Graphics g) {
 		int lives_lost = 0;
 		for(int i=0; i<level.size(); i++) {
 			lives_lost += level.get(i).draw(g);
-		}	
-		return lives_lost;
+		}
+		livesLeft -= lives_lost;
+		if(livesLeft < 0 ) {
+			livesLeft = 0;
+		}
 	}
-
 
 	//Will be used later on to load the map for each level
 	/*
@@ -178,4 +181,36 @@ public class Level {
 
 
 	*/	
+
+	public ArrayList<EnemyWave> getLevel() {
+		return level;
+	}
+
+	public void setLevel(ArrayList<EnemyWave> level) {
+		this.level = level;
+	}
+
+	public ArrayList<BorderTile> getTilearrayBorder() {
+		return tilearrayBorder;
+	}
+
+	public void setTilearrayBorder(ArrayList<BorderTile> tilearrayBorder) {
+		this.tilearrayBorder = tilearrayBorder;
+	}
+
+	public ArrayList<PathTile> getTilearrayPath() {
+		return tilearrayPath;
+	}
+
+	public void setTilearrayPath(ArrayList<PathTile> tilearrayPath) {
+		this.tilearrayPath = tilearrayPath;
+	}
+
+	public int getLivesLeft() {
+		return livesLeft;
+	}
+
+	public void setLivesLeft(int livesLeft) {
+		this.livesLeft = livesLeft;
+	}
 }

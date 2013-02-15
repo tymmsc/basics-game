@@ -26,14 +26,13 @@ public class GameScreen extends Screen {
 	//private static Background bg1;
 	private String descriptionText = "";
 	private String scoreText = "0";
-	private int lives = 20;
 	private String livesText;
 	private String cashText = "$0";
 
 	private ArrayList<BorderTile> tilearrayBorder = new ArrayList<BorderTile>();
 	private ArrayList<PathTile> tilearrayPath = new ArrayList<PathTile>();
 
-	int livesLeft = 20;
+	//int livesLeft = 20;
 	Paint paintInit, paintMenu, paintDescriptionText, paintHUBText;
 
 	//Enemies and Towers
@@ -249,7 +248,7 @@ public class GameScreen extends Screen {
 
 		// 2. Check miscellaneous events like death:
 
-		if (livesLeft == 0) {
+		if (level1.getLivesLeft() == 0) {
 			state = GameState.GameOver;
 		}
 
@@ -469,19 +468,11 @@ public class GameScreen extends Screen {
 		g.drawImage(Assets.selectItem, 49, 423);
 		g.drawString(descriptionText, 160, 439, paintDescriptionText);
 		g.drawString(scoreText, 290, 26, paintHUBText);
-		livesText = "" + lives;
+		livesText = "" + level1.getLivesLeft();
 		g.drawString(livesText, 516, 26, paintHUBText);
 		g.drawString(cashText, 695, 26, paintHUBText);
 		
-		lives -= level1.draw(g);
-		if(a.isVisible()) {
-			g.drawImage(Assets.assignment, a.getPosX(), a.getPosY()); //Adrian	
-		}
-		else if(a.isKamakazi()) {
-			lives--;
-			a.setKamakazi(false);
-		}
-		
+		level1.draw(g);
 	}
 
 	private void drawPausedUI() {
