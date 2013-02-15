@@ -3,23 +3,24 @@ package com.teamBasics.CollegeTD;
 import android.graphics.Rect;
 
 public class Projectile {
-
+	Enemy target;
 	private int x, y, speedX;
 	private boolean visible;
 
 	private Rect r;
 
-	public Projectile(int startX, int startY) {
+	public Projectile(Enemy target, int startX, int startY) {
+		this.target = target;
 		x = startX;
 		y = startY;
-		speedX = 7;
+		speedX = 5;
 		visible = true;
 
 		r = new Rect(0, 0, 0, 0);
 	}
 
 	/*public void update() {
-		x += speedX;
+		
 		r.set(x, y, x + 10, y + 5);
 		if (x > 800) {
 			visible = false;
