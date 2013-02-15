@@ -18,32 +18,21 @@ public class Level {
 	public Level(ArrayList<PathTile> tilearrayPath) {
 		//Instantiation of 1 wave of enemies
 		EnemyWave wave1 = new EnemyWave();
-		ArrayList<Enemy> group1 = new ArrayList<Enemy>();
-		ArrayList<Enemy> group2 = new ArrayList<Enemy>();
-		
-		Assignment b = new Assignment(tilearrayPath);
-		Assignment c = new Assignment(tilearrayPath);
-		Assignment d = new Assignment(tilearrayPath);
-		Assignment e = new Assignment(tilearrayPath);
-		Assignment f = new Assignment(tilearrayPath);
-		group1.add(b);
-		group1.add(c);
-		group1.add(d);
-		group2.add(e);
-		group2.add(f);
+		EnemyGroup group1 = new EnemyGroup(0, 8);
+		EnemyGroup group2 = new EnemyGroup(200, 20);
 		
 		for(int i=0; i<10; i++) {
-			Assignment a = new Assignment(tilearrayPath);
-			group1.add(a);
+			AssignmentEnemy a = new AssignmentEnemy(tilearrayPath);
+			group1.addEnemy(a);
 		}
-		for(int i=0; i<5; i++) {
-			Assignment a = new Assignment(tilearrayPath);
-			group2.add(a);
+		for(int i=0; i<10; i++) {
+			AssignmentEnemy a = new AssignmentEnemy(tilearrayPath);
+			group2.addEnemy(a);
 		}
 		
 		if(group1 != null && group2 != null) {
-			wave1.addEnemyGroup(group1, Integer.valueOf(0), Integer.valueOf(8));
-			wave1.addEnemyGroup(group2, Integer.valueOf(200), Integer.valueOf(20));
+			wave1.addEnemyGroup(group1);
+			wave1.addEnemyGroup(group2);
 			level.add(wave1);
 		}	
 	}
@@ -66,10 +55,12 @@ public class Level {
 		}
 	}
 	
-	public void draw(Graphics g) {
+	public int draw(Graphics g) {
+		int lives_lost = 0;
 		for(int i=0; i<level.size(); i++) {
-			level.get(i).draw(g);
+			lives_lost += level.get(i).draw(g);
 		}	
+		return lives_lost;
 	}
 
 
@@ -147,5 +138,44 @@ public class Level {
 		}
 
 	}
+	
+	
+	private void paintBorderTiles(Graphics g) {
+		for (int i = 0; i < tilearrayBorder.size(); i++) {
+			BorderTile t = (BorderTile) tilearrayBorder.get(i);
+			if (t.type != 0) {
+				g.drawImage(t.getTileImage(), t.getTileX(), t.getTileY());
+			}
+		}
+	}
+
+	private void paintPathTiles(Graphics g) {
+		for (int i = 0; i < tilearrayPath.size(); i++) {
+			PathTile t = (PathTile) tilearrayPath.get(i);
+			if (t.type2 != 'v') {
+				g.drawImage(t.getTileImage(), t.getTileX(), t.getTileY());
+			}
+		}
+	}
+
+
+	private void updateBorderTiles() {
+
+		for (int i = 0; i < tilearrayBorder.size(); i++) {
+			BorderTile t = (BorderTile) tilearrayBorder.get(i);
+			t.update();
+		}
+
+	}
+	
+	private void updatePathTiles() {
+		for (int i = 0; i < tilearrayPath.size(); i++) {
+			PathTile t = (PathTile) tilearrayPath.get(i);
+			t.update();
+		}
+
+	}
+
+
 	*/	
 }

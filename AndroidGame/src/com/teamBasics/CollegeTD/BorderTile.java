@@ -11,7 +11,7 @@ public class BorderTile {
 	public Image tileImage;
 
 	//private Robot robot = GameScreen.getRobot();
-	private Background bg = GameScreen.getBg1();
+	//private Background bg = GameScreen.getBg1();
 
 	private Rect r;
 

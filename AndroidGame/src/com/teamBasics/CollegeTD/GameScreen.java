@@ -23,7 +23,7 @@ public class GameScreen extends Screen {
 
 	// Variable Setup
 
-	private static Background bg1;
+	//private static Background bg1;
 	private String descriptionText = "";
 	private String scoreText = "0";
 	private int lives = 20;
@@ -37,7 +37,7 @@ public class GameScreen extends Screen {
 	Paint paintInit, paintMenu, paintDescriptionText, paintHUBText;
 
 	//Enemies and Towers
-	private Assignment a;
+	private AssignmentEnemy a;
 	private Level level1;
 	
 	public GameScreen(Game game) {
@@ -45,7 +45,7 @@ public class GameScreen extends Screen {
 
 		// Initialize game objects here
 
-		bg1 = new Background(0, 0);
+		//bg1 = new Background(0, 0);
 		
 
 		// anim = new Animation();
@@ -60,7 +60,7 @@ public class GameScreen extends Screen {
 		loadMapPath();
 
 		level1 = new Level(tilearrayPath);
-		a = new Assignment(141, 41, tilearrayPath);		//Adrian first enemy 		
+		a = new AssignmentEnemy(141, 41, tilearrayPath);		//Adrian first enemy 		
 		
 		// Defining a paint object
 		// Start Text
@@ -423,7 +423,7 @@ public class GameScreen extends Screen {
 		// Set all variables to null. You will be recreating them in the
 		// constructor.
 		paintInit = null;
-		bg1 = null;
+		//bg1 = null;
 		a = null;			//Adrian
 		level1 = null;
 		// robot = null;
@@ -473,7 +473,7 @@ public class GameScreen extends Screen {
 		g.drawString(livesText, 516, 26, paintHUBText);
 		g.drawString(cashText, 695, 26, paintHUBText);
 		
-		level1.draw(g);
+		lives -= level1.draw(g);
 		if(a.isVisible()) {
 			g.drawImage(Assets.assignment, a.getPosX(), a.getPosY()); //Adrian	
 		}
@@ -530,10 +530,12 @@ public class GameScreen extends Screen {
 
 	}
 
+	/*
 	public static Background getBg1() {
 		// TODO Auto-generated method stub
 		return bg1;
 	}
+	*/
 
 	public ArrayList<PathTile> getTilearrayPath() {
 		return tilearrayPath;

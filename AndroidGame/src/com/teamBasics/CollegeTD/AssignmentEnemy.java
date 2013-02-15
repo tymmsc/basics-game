@@ -2,8 +2,8 @@ package com.teamBasics.CollegeTD;
 
 import java.util.ArrayList;
 
-public class Assignment extends Enemy {
-	public Assignment(ArrayList<PathTile> tilearrayPath) {
+public class AssignmentEnemy extends Enemy {
+	public AssignmentEnemy(ArrayList<PathTile> tilearrayPath) {
 		super(141, 41, tilearrayPath);
 		setSpeed(3);
 		setHealth(5);
@@ -12,7 +12,7 @@ public class Assignment extends Enemy {
 		size = 20;
 	}
 	
-	public Assignment(int posX, int posY, ArrayList<PathTile> tilearrayPath) {
+	public AssignmentEnemy(int posX, int posY, ArrayList<PathTile> tilearrayPath) {
 		super(posX, posY, tilearrayPath);
 		setSpeed(3);
 		setHealth(5);
