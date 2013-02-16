@@ -6,11 +6,13 @@
 
 package com.teamBasics.CollegeTD;
 
+
 import com.teamBasics.framework.Game;
 import com.teamBasics.framework.Graphics;
 import com.teamBasics.framework.Image;
 import com.teamBasics.framework.Screen;
 import com.teamBasics.framework.Graphics.ImageFormat;
+import com.teamBasics.framework.Animation;
 
 public class LoadingScreen extends Screen {
 
@@ -18,6 +20,8 @@ public class LoadingScreen extends Screen {
 			splash6T, splash7T, splash8T, splash9T, splash10T, splash11T,
 			splash12T, splash13T, splash14T, splash15T;
 	private Animation splashAnim;
+	private boolean init = false; 
+	private Image currentSprite;
 
 	public LoadingScreen(Game game) {
 		super(game);
@@ -25,7 +29,9 @@ public class LoadingScreen extends Screen {
 
 	@Override
 	public void update(float deltaTime) {
+		System.out.println("UPDATE");
 		Graphics g = game.getGraphics();
+		if(!init){
 		Assets.mainmenu = g.newImage("mainMenu_stare.png", ImageFormat.RGB565);
 		Assets.gamescreen = g.newImage("GameScreen_Layout_example2.png", ImageFormat.RGB565);
 		Assets.menubackground = g.newImage("menu_background.png", ImageFormat.RGB565);
@@ -43,22 +49,22 @@ public class LoadingScreen extends Screen {
 		// Splash Loading Animation
 		Assets.splash0 = g.newImage("SplashLoadingScreen/splash4_0.png", ImageFormat.RGB565);
 		
-		/* Assets.splash1 = g.newImage("splash4_1.png", ImageFormat.RGB565);
-		 * Assets.splash2 = g.newImage("splash4_2.png", ImageFormat.RGB565);
-		 * Assets.splash3 = g.newImage("splash4_3.png", ImageFormat.RGB565);
-		 * Assets.splash4 = g.newImage("splash4_4.png", ImageFormat.RGB565);
-		 * Assets.splash5 = g.newImage("splash4_5.png", ImageFormat.RGB565);
-		 * Assets.splash6 = g.newImage("splash4_6.png", ImageFormat.RGB565);
-		 * Assets.splash7 = g.newImage("splash4_7.png", ImageFormat.RGB565);
-		 * Assets.splash8 = g.newImage("splash4_8.png", ImageFormat.RGB565);
-		 * Assets.splash9 = g.newImage("splash4_9.png", ImageFormat.RGB565);
-		 * Assets.splash10 = g.newImage("splash4_10.png", ImageFormat.RGB565);
-		 * Assets.splash11 = g.newImage("splash4_11.png", ImageFormat.RGB565);
-		 * Assets.splash12 = g.newImage("splash4_12.png", ImageFormat.RGB565);
-		 * Assets.splash13 = g.newImage("splash4_13.png", ImageFormat.RGB565);
-		 * Assets.splash14 = g.newImage("splash4_14.png", ImageFormat.RGB565);
-		 * Assets.splash15 = g.newImage("splash4_15.png", ImageFormat.RGB565);
-		 */
+		Assets.splash1 = g.newImage("SplashLoadingScreen/splash4_1.png", ImageFormat.RGB565);
+		 Assets.splash2 = g.newImage("SplashLoadingScreen/splash4_2.png", ImageFormat.RGB565);
+		  Assets.splash3 = g.newImage("SplashLoadingScreen/splash4_3.png", ImageFormat.RGB565);
+		  Assets.splash4 = g.newImage("SplashLoadingScreen/splash4_4.png", ImageFormat.RGB565);
+		  Assets.splash5 = g.newImage("SplashLoadingScreen/splash4_5.png", ImageFormat.RGB565);
+		  Assets.splash6 = g.newImage("SplashLoadingScreen/splash4_6.png", ImageFormat.RGB565);
+		  Assets.splash7 = g.newImage("SplashLoadingScreen/splash4_7.png", ImageFormat.RGB565);
+		  Assets.splash8 = g.newImage("SplashLoadingScreen/splash4_8.png", ImageFormat.RGB565);
+		  Assets.splash9 = g.newImage("SplashLoadingScreen/splash4_9.png", ImageFormat.RGB565);
+		  Assets.splash10 = g.newImage("SplashLoadingScreen/splash4_10.png", ImageFormat.RGB565);
+		  Assets.splash11 = g.newImage("SplashLoadingScreen/splash4_11.png", ImageFormat.RGB565);
+		  Assets.splash12 = g.newImage("SplashLoadingScreen/splash4_12.png", ImageFormat.RGB565);
+		  Assets.splash13 = g.newImage("SplashLoadingScreen/splash4_13.png", ImageFormat.RGB565);
+		  Assets.splash14 = g.newImage("SplashLoadingScreen/splash4_14.png", ImageFormat.RGB565);
+		  Assets.splash15 = g.newImage("SplashLoadingScreen/splash4_15.png", ImageFormat.RGB565);
+		 
 
 		// Border outline
 		Assets.tiledirt = g.newImage("BorderTiles/tiledirt.png", ImageFormat.RGB565);
@@ -111,7 +117,7 @@ public class LoadingScreen extends Screen {
 		// Assets.click = game.getAudio().createSound("explode.ogg");
 
 		splash0T = Assets.splash0;
-		/*splash1T = Assets.splash1;
+		splash1T = Assets.splash1;
 		splash2T = Assets.splash2;
 		splash3T = Assets.splash3;
 		splash4T = Assets.splash4;
@@ -125,8 +131,20 @@ public class LoadingScreen extends Screen {
 		splash12T = Assets.splash12;
 		splash13T = Assets.splash13;
 		splash14T = Assets.splash14;
-		splash15T = Assets.splash15;*/
-
+		splash15T = Assets.splash15;
+		splashAnim = new Animation();
+		splashAnim.addFrame(splash0T, 50); splashAnim.addFrame(splash1T, 50);
+		  splashAnim.addFrame(splash2T, 50); splashAnim.addFrame(splash3T, 50);
+		  splashAnim.addFrame(splash4T, 50); splashAnim.addFrame(splash5T, 50);
+		  splashAnim.addFrame(splash6T, 50); splashAnim.addFrame(splash7T, 50);
+		  splashAnim.addFrame(splash8T, 50); splashAnim.addFrame(splash9T, 50);
+		  splashAnim.addFrame(splash10T, 50); splashAnim.addFrame(splash11T,
+		  50); splashAnim.addFrame(splash12T, 50);
+		  splashAnim.addFrame(splash13T, 50); splashAnim.addFrame(splash14T,
+		 50); splashAnim.addFrame(splash15T, 50);
+		currentSprite=splashAnim.getImage();
+		init=true;
+		}
 		/*
 		 * for (int j = 0; j < 2000; j++) { for (int i = 0; i < 2000; i++) { if
 		 * (i == 1999) { g.drawImage(splash0T, 0, 0); } } for (int i = 0; i <
@@ -136,7 +154,7 @@ public class LoadingScreen extends Screen {
 		 * g.drawImage(splash12T, 0, 0); } } }
 		 */
 
-		game.setScreen(new MainMenuScreen(game));
+		//game.setScreen(new MainMenuScreen(game));
 		/*
 		 * Thread thread = new Thread(); try { Thread.sleep(5000); } catch
 		 * (InterruptedException e) { // TODO Auto-generated catch block
@@ -147,22 +165,19 @@ public class LoadingScreen extends Screen {
 
 	@Override
 	public void paint(float deltaTime) {
+		System.out.println("PAINT");
 		Graphics g = game.getGraphics();
-		// splashAnim = new Animation();
+		 //splashAnim = new Animation();
+		// currentSprite = splashAnim.getImage();
+		splashAnim.update(10);
 
-		/*
-		 * splashAnim.addFrame(splash0T, 50); splashAnim.addFrame(splash1T, 50);
-		 * splashAnim.addFrame(splash2T, 50); splashAnim.addFrame(splash3T, 50);
-		 * splashAnim.addFrame(splash4T, 50); splashAnim.addFrame(splash5T, 50);
-		 * splashAnim.addFrame(splash6T, 50); splashAnim.addFrame(splash7T, 50);
-		 * splashAnim.addFrame(splash8T, 50); splashAnim.addFrame(splash9T, 50);
-		 * splashAnim.addFrame(splash10T, 50); splashAnim.addFrame(splash11T,
-		 * 50); splashAnim.addFrame(splash12T, 50);
-		 * splashAnim.addFrame(splash13T, 50); splashAnim.addFrame(splash14T,
-		 * 50); splashAnim.addFrame(splash15T, 50);
-		 */
-
-		g.drawImage(splash0T, 0, 0);
+		
+		 
+		 currentSprite = splashAnim.getImage();
+		 if(currentSprite==splash15T){
+			 game.setScreen(new MainMenuScreen(game));
+		 }
+		g.drawImage(splashAnim.getImage(), 0, 0);
 
 		// for(int i = 0; i < 32; i++){
 		// g.drawImage(splashAnim.getImage(), 0, 0);
@@ -198,16 +213,18 @@ public class LoadingScreen extends Screen {
 
 	@Override
 	public void resume() {
-
+		game.setScreen(new MainMenuScreen(game));
 	}
 
+	//@Override
+	
+	
 	@Override
 	public void dispose() {
 
 	}
 
-	@Override
 	public void backButton() {
-
+		game.setScreen(new MainMenuScreen(game));
 	}
 }
