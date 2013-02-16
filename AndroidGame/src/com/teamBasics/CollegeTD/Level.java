@@ -9,7 +9,7 @@ import com.teamBasics.framework.Graphics;
 
 public class Level {
 	//GamePlay Level Info
-	private ArrayList<EnemyWave> level = new ArrayList<EnemyWave>();;
+	private ArrayList<EnemyWave> waves = new ArrayList<EnemyWave>();;
 	private ArrayList<BorderTile> tilearrayBorder = new ArrayList<BorderTile>();
 	private ArrayList<PathTile> tilearrayPath = new ArrayList<PathTile>();
 	private ArrayList<Tower> towers = new ArrayList<Tower>();
@@ -26,7 +26,7 @@ public class Level {
 	//Later in the constructor this class can just be given the level number
 	//That way each level can have a different map
 	public Level() {
-		//Instantiation of 1 wave of enemies
+		//Instantiation of 1 wave of enemies and 1 tower
 		level_number=1;
 		
 		loadMapBorder();
@@ -48,23 +48,43 @@ public class Level {
 		if(group1 != null && group2 != null) {
 			wave1.addEnemyGroup(group1);
 			wave1.addEnemyGroup(group2);
-			level.add(wave1);
-		}	
+			waves.add(wave1);
+		}
+		
+		PencilTower tower1 = new PencilTower(200, 180);
+		towers.add(tower1);
 	}
 	
 	//Adds a wave to the level
 	public void addWave(EnemyWave wave) {
-		level.add(wave);
+		waves.add(wave);
 	}
 	
 	//Update 1 wave of the level at a time. Update the first wave you
 	//come to that is not complete.
 	public void update() {
+		//update enemies
 		EnemyWave waveToUpdate = null;
-		for(int i=0; i<level.size(); i++) {
-			if(!(level.get(i).isComplete())) {
-				waveToUpdate = level.get(i);
+		for(int i=0; i<waves.size(); i++) {
+			if(!(waves.get(i).isComplete())) {
+				waveToUpdate = waves.get(i);
 				break;
+			}
+		}
+		//update towers
+		for(int i=0; i<towers.size(); i++) {
+			Projectile projectile = towers.get(i).update(waveToUpdate);
+			if(projectile != null) {
+				projectiles.add(projectile);
+			}
+		}
+		//update projectiles
+		for(int i=0; i<projectiles.size(); i++) {
+			if(!(projectiles.get(i).isVisible())) {
+				projectiles.remove(i);
+			}
+			else {
+				projectiles.get(i).update();
 			}
 		}
 		if(waveToUpdate != null) {
@@ -76,9 +96,19 @@ public class Level {
 	}
 	
 	public void draw(Graphics g) {
+		//drawing of map happens in gameScreen class
 		int lives_lost = 0;
-		for(int i=0; i<level.size(); i++) {
-			lives_lost += level.get(i).draw(g);
+		//draw enemies
+		for(int i=0; i<waves.size(); i++) {
+			lives_lost += waves.get(i).draw(g);
+		}
+		//set up for when towers get animations
+		for(int i=0; i<towers.size(); i++) {
+			towers.get(i).draw(g);
+		}
+		//draw projectiles
+		for(int i=0; i<projectiles.size(); i++) {
+			projectiles.get(i).draw(g);
 		}
 		livesLeft -= lives_lost;
 		if(livesLeft < 0 ) {
@@ -198,11 +228,11 @@ public class Level {
 	}
 
 	public ArrayList<EnemyWave> getLevel() {
-		return level;
+		return waves;
 	}
 
 	public void setLevel(ArrayList<EnemyWave> level) {
-		this.level = level;
+		this.waves = level;
 	}
 
 	public ArrayList<BorderTile> getTilearrayBorder() {

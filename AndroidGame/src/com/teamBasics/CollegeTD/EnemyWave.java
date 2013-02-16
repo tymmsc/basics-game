@@ -50,6 +50,25 @@ public class EnemyWave {
 		
 	}
 	
+	/*
+	 * Returns a list of all the enemies who are alive in the wave
+	 */
+	public ArrayList<Enemy> activeEnemies() {
+		ArrayList<Enemy> activeEnemies = new ArrayList<Enemy>();
+		EnemyGroup group;
+		for(int i=0; i<wave.size(); i++) {
+			group = wave.get(i);
+			ArrayList<Enemy> currentGroup = group.getGroup();
+			for(int j=0; j<currentGroup.size(); j++) {
+				Enemy e = currentGroup.get(j);
+				if(e.isVisible()) {
+					activeEnemies.add(e);
+				}
+			}
+		}
+		return activeEnemies;
+	}
+	
 	public ArrayList<EnemyGroup> getWave() {
 		return wave;
 	}

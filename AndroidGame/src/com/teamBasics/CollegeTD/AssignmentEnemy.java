@@ -2,6 +2,8 @@ package com.teamBasics.CollegeTD;
 
 import java.util.ArrayList;
 
+import com.teamBasics.framework.Graphics;
+
 public class AssignmentEnemy extends Enemy {
 	public AssignmentEnemy(ArrayList<PathTile> tilearrayPath) {
 		super(141, 41, tilearrayPath);
@@ -19,5 +21,23 @@ public class AssignmentEnemy extends Enemy {
 		movementY = speed;
 		movementX = 0;
 		size = 20;
+	}
+
+	@Override
+	public void draw(Graphics g) {
+		g.drawImage(Assets.assignment, x, y);
+	}
+
+	//Check to see if any projectiles hit it???
+	@Override
+	public void checkCollision() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update() {
+		super.pathMove();
+		checkCollision();
 	}
 }

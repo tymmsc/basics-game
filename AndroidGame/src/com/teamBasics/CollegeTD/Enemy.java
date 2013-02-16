@@ -5,18 +5,18 @@ package com.teamBasics.CollegeTD;
 
 import java.util.ArrayList;
 
+import com.teamBasics.framework.Graphics;
+
 import android.graphics.Rect;
 
-public class Enemy {
+public abstract class Enemy {
 	//posX, posY=top left corner of enemy sprite
-	protected int posX, posY, speed;  					// add power later on
+	protected int x, y, speed;  					// add power later on
 	protected int movementX;
 	protected int movementY;
 	protected int size;
-	
-	public static Rect rect = new Rect(0, 0, 0, 0);
-	public static Rect yellowRed = new Rect(0, 0, 0, 0);
-	//private Robot robot = GameScreen.getRobot();		//later will need to get towers??
+	protected int score;							//score enemy gives to player when it dies
+	protected int cash;								//cash enemy gives to user when it dies
 	public Rect r = new Rect(0, 0, 0, 0);				//collision box
 	protected int health;
 	protected boolean visible, kamakazi, dead;			//kamakazi means enemy reached end of map
@@ -24,17 +24,19 @@ public class Enemy {
 	
 	
 	public Enemy(int posX, int posY, ArrayList<PathTile> tilearrayPath) {
-		setPosX(posX);
-		setPosY(posY);
+		this.x = posX;
+		this.y = posY;
 		setVisible(false);
+		r.set(posX, posY, posX+size, posY+size);
 		kamakazi = false;
+		dead = false;
 		this.tilearrayPath = tilearrayPath;
 	}
 	
 	// Behavioral Methods
-	public void update() {
+	public void pathMove() {
 		int next_tileY, next_tileX;
-		if(posY+(size/2) >= 360 || posX+(size/2) >= 680) {
+		if(y+(size/2) >= 360 || x+(size/2) >= 680) {
 			if(visible==true) {		//means its the first time through
 				kamakazi = true;
 			}
@@ -45,20 +47,20 @@ public class Enemy {
 		else {
 			visible = true;
 			if(movementY > 0) {
-				next_tileY = posY+speed+size;	
-				next_tileX = posX+(size/2);
+				next_tileY = y+speed+size;	
+				next_tileX = x+(size/2);
 			}
 			else if(movementY < 0) {
-				next_tileY = posY+speed-size;	
-				next_tileX = posX+(size/2);
+				next_tileY = y+speed-size;	
+				next_tileX = x+(size/2);
 			}
 			else if(movementX < 0 ){
-				next_tileY = posY+(size/2);
-				next_tileX = posX+speed-size;			
+				next_tileY = y+(size/2);
+				next_tileX = x+speed-size;			
 			}
 			else {
-				next_tileY = posY+(size/2);
-				next_tileX = posX+speed+size;
+				next_tileY = y+(size/2);
+				next_tileX = x+speed+size;
 			}
 			
 			if(next_tileX <680 && next_tileY < 360) {
@@ -78,16 +80,10 @@ public class Enemy {
 					}
 				}
 			}
-			posY+=movementY;
-			posX+=movementX;
+			y+=movementY;
+			x+=movementX;
+			r.set(x, y, x+size, y+size);
 		}
-	
-		// set collision box
-		//r.set(posX, posY, posX + 40, posY + 40);
-
-		//if (Rect.intersects(r, Robot.yellowRed)) {
-		//	checkCollision();
-		//}
 
 	}
 	
@@ -105,11 +101,11 @@ public class Enemy {
 	}
 	
 	public int horizantal_Search() {
-		int left_tiles = posX-20;
-		int right_tiles = posX+20;
+		int left_tiles = x-20;
+		int right_tiles = x+20;
 		while(left_tiles >=0 && right_tiles <=680) {
-			PathTile left = searchArray(left_tiles, posY);
-			PathTile right = searchArray(right_tiles, posY);
+			PathTile left = searchArray(left_tiles, y);
+			PathTile right = searchArray(right_tiles, y);
 			if(left.type2 != 's') {
 				return speed;
 			}
@@ -123,11 +119,11 @@ public class Enemy {
 	}
 	
 	public int vertical_Search() {
-		int above_tiles = posY-20;
-		int below_tiles = posY+20;
+		int above_tiles = y-20;
+		int below_tiles = y+20;
 		while(above_tiles >= 40 && below_tiles <=360) {
-			PathTile above = searchArray(posX, above_tiles);
-			PathTile below = searchArray(posX, below_tiles);
+			PathTile above = searchArray(x, above_tiles);
+			PathTile below = searchArray(x, below_tiles);
 			if(above.type2 != 's') {
 				return speed;
 			}
@@ -140,17 +136,13 @@ public class Enemy {
 		return 0;
 	}
 	
-/*
-	private void checkCollision() {
-		if (Rect.intersects(r, Robot.rect) || Rect.intersects(r, Robot.rect2)
-				|| Rect.intersects(r, Robot.rect3)
-				|| Rect.intersects(r, Robot.rect4)) {
-
-		}
-	}
-*/
+	public abstract void draw(Graphics g);
+	public abstract void checkCollision();
+	public abstract void update();
 
 	public void die() {
+		visible = false;
+		dead = true;
 		// Remove from screen
 		// Increase User Cash Value
 	}
@@ -160,19 +152,19 @@ public class Enemy {
 	}
 
 	public int getPosX() {
-		return posX;
+		return x;
 	}
 
 	public void setPosX(int posX) {
-		this.posX = posX;
+		this.x = posX;
 	}
 
 	public int getPosY() {
-		return posY;
+		return y;
 	}
 
 	public void setPosY(int posY) {
-		this.posY = posY;
+		this.y = posY;
 	}
 
 	public int getSpeed() {
@@ -213,6 +205,14 @@ public class Enemy {
 
 	public void setDead(boolean dead) {
 		this.dead = dead;
+	}
+
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
 	}
 	
 }

@@ -33,6 +33,9 @@ public class Assets {
     //Enemy Sprites
     public static Image assignment;
     
+    //Projectile Sprites
+    public static Image pencilProjectile;
+    
     //Options Menu Sprites
     public static Image soundFX, soundFX_on, soundFX_off;
     

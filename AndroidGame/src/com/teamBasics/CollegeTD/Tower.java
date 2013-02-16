@@ -3,42 +3,78 @@ package com.teamBasics.CollegeTD;
 import java.util.ArrayList;
 
 import com.teamBasics.CollegeTD.Projectile;
+import com.teamBasics.framework.Graphics;
 
+import android.graphics.Point;
 import android.graphics.Rect;
 
-public class Tower {
 
-	private int posX, posY;  			// x and y position of tower
-	private int fire_rate, damage;
-	private int range;					//range of tower would be relative to the tiles surrounding it.
-										//Could have tower with range covering all these squares, just 4 of the squares, etc.
-	private int level;					//Keep track of how much tower has been upgraded. Will augment towers initial stats
-										//Also will change the sprite of the tower
-	private int cost, levelup_cost;		//cost of tower and cost to level up tower
-	private int cash_back;				//how much tower is worth to sell (also augmented by level)
-	private boolean readyToFire = true;
+public abstract class Tower {
 
+	protected int posX, posY;  // x and y position of tower
+	protected Point center;		//
+	protected int cooldown, damage;				//cooldown should be in milliseconds
+	protected int range;						//Radius of tower
+	protected int level;						//Keep track of how much tower has been upgraded. Will augment towers initial stats
+											//Also will change the sprite of the tower
+	protected int size;						//Tells you the dimensions of the tower. Ex: size=20 means tower is 20 x 20 pixels
+	
+	protected int cost, levelup_cost;		//cost of tower and cost to level up tower
+	protected int cash_back;				//how much tower is worth to sell (also augmented by level)
+	protected boolean readyToFire;
+	
+	protected long TimeFired;
 	//In each Tower subclass there can be boolean special abilities of the towers that are unlocked by reaching certain level
 	//Or could add them all here and it might make management of towers easier???
 	//private boolean splash, slow, poison;
 	
-	//public static Rect rect = new Rect(0, 0, 0, 0);		
-	public static Rect yellowRed = new Rect(0, 0, 0, 0);
-	//public Rect r = new Rect(0, 0, 0, 0);\
-	
-	private ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
+	public Tower(int posX, int posY) {
+		this.posX = posX;
+		this.posY = posY;
+		center = new Point(posX+(size/2),  posY+(size/2));
+		readyToFire = true;
+	}
 	
 	public void upgrade() {
 		level++;
 	}
 	
-	public void update() {
-		//???
+	public Projectile update(EnemyWave wave) {
+		Projectile projectile = null;
+		if(TimeFired <= System.currentTimeMillis()-cooldown) {
+			readyToFire = true;
+		}
+		if(readyToFire) {
+			ArrayList<Enemy> activeEnemies = wave.activeEnemies();
+			for(int i=0; i<activeEnemies.size(); i++) {
+				if(withinRange(activeEnemies.get(i))) {
+					projectile = fire(activeEnemies.get(i));
+					TimeFired = System.currentTimeMillis();
+				}
+			}
+		}
+		return projectile;
 	}
+
+	//Sees if the enemy passed you are checking to see if it is within range
+	private boolean withinRange(Enemy e) {
+		Rect r = e.r; //Get the collision box from the 
+		Point rectCenter = new Point((int) r.exactCenterX(), (int) r.exactCenterY());
+		if (Math.abs(center.x - rectCenter.x) <= (e.getSize()/2 + range))  {
+			if (Math.abs(center.y - rectCenter.y) <= (e.getSize()/2 + range))  {
+				return true;
+			}
+		}
+		return false;	
+	}
+
+	public abstract Projectile fire(Enemy e);
 	
 	public void print_stats() {
 		//???
 	}
+	
+	public abstract void draw(Graphics g);
 	
 	public int getPosX() {
 		return posX;
@@ -57,12 +93,12 @@ public class Tower {
 	}
 	
 	//Example of Attribute being augmented by level??
-	public int getFire_rate() {
-		return fire_rate + ((int) 0.5*level);
+	public int getCooldown() {
+		return cooldown + ((int) 0.5*level);
 	}
 	
-	public void setFire_rate(int fire_rate) {
-		this.fire_rate = fire_rate;
+	public void setCooldown(int cooldown) {
+		this.cooldown = cooldown;
 	}
 	
 	public int getDamage() { //this number should be augmented by level
@@ -103,14 +139,6 @@ public class Tower {
 	
 	public void setReadyToFire(boolean readyToFire) {
 		this.readyToFire = readyToFire;
-	}
-	
-	public ArrayList<Projectile> getProjectiles() {
-		return projectiles;
-	}
-	
-	public void setProjectiles(ArrayList<Projectile> projectiles) {
-		this.projectiles = projectiles;
 	}
 
 	public int getCost() {

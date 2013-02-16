@@ -107,6 +107,9 @@ public class LoadingScreen extends Screen {
 		//Enemy Sprites
 		Assets.assignment = g.newImage("Enemies/assignment.png", ImageFormat.RGB565);
 		
+		//Projectile Sprites
+		Assets.pencilProjectile = g.newImage("Projectiles/pencilProjectile.png", ImageFormat.RGB565);
+		
 		// Upgrade Sprites
 		Assets.sleepUp = g.newImage("Upgrades/sleep_upgrade.png", ImageFormat.RGB565);
 		Assets.socialUp = g.newImage("Upgrades/social_upgrade.png", ImageFormat.RGB565);

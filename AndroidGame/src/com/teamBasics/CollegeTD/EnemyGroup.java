@@ -63,7 +63,7 @@ public class EnemyGroup {
 		for(int j=0; j<group.size(); j++) {
 			Enemy e = group.get(j);
 			if(e.isVisible()) {
-				g.drawImage(Assets.assignment, e.getPosX(), e.getPosY());	
+				e.draw(g);	
 			}
 			else if(e.isKamakazi()) {
 				lives_lost++;
