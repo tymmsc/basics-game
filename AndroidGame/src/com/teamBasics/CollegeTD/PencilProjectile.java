@@ -8,13 +8,15 @@ public class PencilProjectile extends Projectile {
 		super(target, tower, startX, startY);
 		size = 5;
 		speed = 5;
-		maxRange = 50;
+		maxRange = 275;
 	}
 
 	@Override
 	public void update() {
+		if(visible){
 		super.move();
 		super.checkCollision();
+		}
 	}
 
 	@Override

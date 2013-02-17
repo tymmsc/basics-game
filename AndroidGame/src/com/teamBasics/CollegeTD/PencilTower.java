@@ -8,7 +8,7 @@ public class PencilTower extends Tower {
 		super(posX, posY);
 		size = 40;
 		cooldown = 1000;
-		damage = 3;
+		damage = 20;
 		range = 75;
 		level = 1;
 		cost = 50;

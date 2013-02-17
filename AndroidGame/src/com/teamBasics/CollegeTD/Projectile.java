@@ -64,11 +64,14 @@ public abstract class Projectile {
 	
 	//Might want to move into individual projectile classes later
 	public void checkCollision() {
+		if(null != target){
 		if (Rect.intersects(r, target.r)) {
 			visible = false;
 			int health_remaining = target.getHealth();
+			//System.out.println(target.getHealth());
+			//System.out.println(tower.getDamage());
 			if(health_remaining > 0) {
-				health_remaining -= tower.getDamage();
+				health_remaining -= 5;//tower.getDamage();
 			}
 			if(health_remaining <= 0) {
 				target.die();
@@ -77,7 +80,9 @@ public abstract class Projectile {
 				target.setHealth(health_remaining);
 			}
 		}
+		}
 	}
+		
 
 	public int getX() {
 		return x;
