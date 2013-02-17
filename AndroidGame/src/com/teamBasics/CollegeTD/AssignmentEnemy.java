@@ -25,7 +25,9 @@ public class AssignmentEnemy extends Enemy {
 
 	@Override
 	public void draw(Graphics g) {
-		g.drawImage(Assets.assignment, x, y);
+		if(visible) {
+			g.drawImage(Assets.assignment, x, y);		
+		}
 	}
 
 	//Check to see if any projectiles hit it???

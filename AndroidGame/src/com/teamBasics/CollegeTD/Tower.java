@@ -48,9 +48,10 @@ public abstract class Tower {
 		if(readyToFire) {
 			ArrayList<Enemy> activeEnemies = wave.activeEnemies();
 			for(int i=0; i<activeEnemies.size(); i++) {
-				if(withinRange(activeEnemies.get(i))) {
+				if(withinRange(activeEnemies.get(i)) && readyToFire) {
 					projectile = fire(activeEnemies.get(i));
 					TimeFired = System.currentTimeMillis();
+					readyToFire = false;
 				}
 			}
 		}
