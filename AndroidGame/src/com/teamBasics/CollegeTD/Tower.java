@@ -33,6 +33,7 @@ public abstract class Tower {
 		this.posY = posY;
 		center = new Point(posX+(size/2),  posY+(size/2));
 		readyToFire = true;
+		TimeFired = 0;
 	}
 	
 	public void upgrade() {

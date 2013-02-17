@@ -49,6 +49,9 @@ public abstract class Projectile {
 			if(health_remaining <= 0) {
 				target.die();
 			}
+			else {
+				target.setHealth(health_remaining);
+			}
 		}
 	}
 
