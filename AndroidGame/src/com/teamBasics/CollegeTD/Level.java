@@ -51,7 +51,7 @@ public class Level {
 			waves.add(wave1);
 		}
 		
-		PencilTower tower1 = new PencilTower(200, 180);
+		PencilTower tower1 = new PencilTower(200, 160);
 		towers.add(tower1);
 	}
 	

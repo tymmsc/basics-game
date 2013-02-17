@@ -7,7 +7,7 @@ public class PencilTower extends Tower {
 	public PencilTower(int posX, int posY) {
 		super(posX, posY);
 		size = 40;
-		cooldown = 2000;
+		cooldown = 20000;
 		damage = 3;
 		range = 75;
 		level = 1;

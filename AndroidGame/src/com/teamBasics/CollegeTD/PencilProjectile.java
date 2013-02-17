@@ -8,6 +8,7 @@ public class PencilProjectile extends Projectile {
 		super(target, tower, startX, startY);
 		size = 5;
 		speed = 5;
+		maxRange = 50;
 	}
 
 	@Override

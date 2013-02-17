@@ -10,6 +10,8 @@ public abstract class Projectile {
 	protected int x, y;
 	protected double speed;
 	protected boolean visible;
+	protected int maxRange;
+	protected int distanceTraveled;
 	protected int size;
 	protected Tower tower;
 	public Rect r;
@@ -18,21 +20,43 @@ public abstract class Projectile {
 		this.target = target;
 		x = startX;
 		y = startY;
+		distanceTraveled = 0;
 		visible = true;
 		r = new Rect(0, 0, 0, 0);
 	}
 
 	public void move() {
-		int posX = target.getPosX();
-		int posY = target.getPosY();
-		int deltaX = x - posX;
-		int deltaY = y - posY;
-		double distance = Math.sqrt((deltaX)*(deltaX) + (deltaY)*(deltaY));
-		int moveX = (int) ((speed*deltaX)/distance);
-		int moveY = (int) ((speed*deltaY)/distance);
-		x +=moveX;
-		y +=moveY;
-		r.set(x, y, x+size, y+size);
+		if(distanceTraveled > maxRange) {
+			int posX = target.getPosX();
+			int posY = target.getPosY();
+			int deltaX = Math.abs(x - posX);
+			int deltaY = Math.abs(y - posY);
+			double distance = Math.sqrt((deltaX)*(deltaX) + (deltaY)*(deltaY));
+			int moveX = (int) ((speed*deltaX)/distance);
+			int moveY = (int) ((speed*deltaY)/distance);
+			if(posX > x && posY > y) {
+				x += moveX;
+				y += moveY;
+			}
+			else if(posX > x && posY < y) {
+				x += moveX;
+				y -= moveY;	
+			}
+			else if(posX < x && posY > y) {
+				x -= moveX;
+				y += moveY;
+			}
+			else {
+				x -= moveX;
+				y -= moveY;
+			}
+			distanceTraveled += speed;
+			r.set(x, y, x+size, y+size);
+		}
+		else {
+			visible = false;
+		}
+		
 	}
 	
 	public abstract void update();
