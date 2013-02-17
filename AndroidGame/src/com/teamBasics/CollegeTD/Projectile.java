@@ -26,7 +26,7 @@ public abstract class Projectile {
 	}
 
 	public void move() {
-		if(distanceTraveled > maxRange) {
+		if(distanceTraveled < maxRange) {
 			int posX = target.getPosX();
 			int posY = target.getPosY();
 			int deltaX = Math.abs(x - posX);
@@ -34,15 +34,15 @@ public abstract class Projectile {
 			double distance = Math.sqrt((deltaX)*(deltaX) + (deltaY)*(deltaY));
 			int moveX = (int) ((speed*deltaX)/distance);
 			int moveY = (int) ((speed*deltaY)/distance);
-			if(posX > x && posY > y) {
+			if(posX >= x && posY >= y) {
 				x += moveX;
 				y += moveY;
 			}
-			else if(posX > x && posY < y) {
+			else if(posX >= x && posY <= y) {
 				x += moveX;
 				y -= moveY;	
 			}
-			else if(posX < x && posY > y) {
+			else if(posX <= x && posY >= y) {
 				x -= moveX;
 				y += moveY;
 			}
