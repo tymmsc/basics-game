@@ -45,46 +45,50 @@ public abstract class Enemy {
 			//die but don't add to user cash
 		}
 		else {
-			visible = true;
-			if(movementY > 0) {
-				next_tileY = y+speed+size;	
-				next_tileX = x+(size/2);
-			}
-			else if(movementY < 0) {
-				next_tileY = y+speed-size;	
-				next_tileX = x+(size/2);
-			}
-			else if(movementX < 0 ){
-				next_tileY = y+(size/2);
-				next_tileX = x+speed-size;			
+			if(dead) {
+				visible = false;
 			}
 			else {
-				next_tileY = y+(size/2);
-				next_tileX = x+speed+size;
-			}
-			
-			if(next_tileX <680 && next_tileY < 360) {
-				PathTile next = searchArray(next_tileX, next_tileY);
-				if(next == null) {
-					movementY=0;
-					movementX=0;
+				visible = true;
+				if(movementY > 0) {
+					next_tileY = y+speed+size;	
+					next_tileX = x+(size/2);
 				}
-				else if(next != null && next.type2 != 's') {
-					if(movementY != 0) {
+				else if(movementY < 0) {
+					next_tileY = y+speed-size;	
+					next_tileX = x+(size/2);
+				}
+				else if(movementX < 0 ){
+					next_tileY = y+(size/2);
+					next_tileX = x+speed-size;			
+				}
+				else {
+					next_tileY = y+(size/2);
+					next_tileX = x+speed+size;
+				}
+				
+				if(next_tileX <680 && next_tileY < 360) {
+					PathTile next = searchArray(next_tileX, next_tileY);
+					if(next == null) {
 						movementY=0;
-						movementX=horizantal_Search();
-					}
-					else {
-						movementY=vertical_Search();
 						movementX=0;
 					}
+					else if(next != null && next.type2 != 's') {
+						if(movementY != 0) {
+							movementY=0;
+							movementX=horizantal_Search();
+						}
+						else {
+							movementY=vertical_Search();
+							movementX=0;
+						}
+					}
 				}
+				y+=movementY;
+				x+=movementX;
+				r.set(x, y, x+size, y+size);
 			}
-			y+=movementY;
-			x+=movementX;
-			r.set(x, y, x+size, y+size);
 		}
-
 	}
 	
 	public PathTile searchArray(int next_tileX, int next_tileY) {
