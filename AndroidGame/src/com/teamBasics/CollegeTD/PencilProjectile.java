@@ -20,7 +20,5 @@ public class PencilProjectile extends Projectile {
 	public void draw(Graphics g) {
 		g.drawImage(Assets.pencilProjectile, x, y);
 	}
-
-	
 	
 }

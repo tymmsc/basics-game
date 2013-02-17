@@ -169,38 +169,11 @@ public class GameScreen extends Screen {
 		}
 
 		// 3. Call individual update() methods here.
-		// This is where all the game updates happen.
-
-		
-		
-		// For example, robot.update();
-		// robot.update();
-		// if (robot.isJumped()) {
-		// currentSprite = Assets.characterJump;
-		// } else if (robot.isJumped() == false && robot.isDucked() == false) {
-		// currentSprite = anim.getImage();
-		// }
-
-		// ArrayList projectiles = robot.getProjectiles();
-		// for (int i = 0; i < projectiles.size(); i++) {
-		// Projectile p = (Projectile) projectiles.get(i);
-		// if (p.isVisible() == true) {
-		// p.update();
-		// } else {
-		// projectiles.remove(i);
-		// }
-		// }
+		// This is where all the game updates happens
 
 		CurrentLevel.updateBorderTiles();
 		CurrentLevel.updatePathTiles();
-		
 		CurrentLevel.update();
-		
-		// hb.update();
-		// hb2.update();
-		// bg1.update();
-		// bg2.update();
-		// animate();
 	}
 
 	private boolean inBounds(TouchEvent event, int x, int y, int width,
@@ -256,25 +229,6 @@ public class GameScreen extends Screen {
 		CurrentLevel.paintBorderTiles(g);
 		CurrentLevel.paintPathTiles(g);
 
-		// ArrayList projectiles = robot.getProjectiles();
-		// for (int i = 0; i < projectiles.size(); i++) {
-		// Projectile p = (Projectile) projectiles.get(i);
-		// g.drawRect(p.getX(), p.getY(), 10, 5, Color.YELLOW);
-		// }
-		// First draw the game elements.
-
-		// g.drawImage(currentSprite, robot.getCenterX() - 61,
-		// robot.getCenterY() - 63);
-		// g.drawImage(hanim.getImage(), hb.getCenterX() - 48,
-		// hb.getCenterY() - 48);
-		// g.drawImage(hanim.getImage(), hb2.getCenterX() - 48,
-		// hb2.getCenterY() - 48);
-
-	
-		// Example:
-		// g.drawImage(Assets.background, 0, 0);
-		// g.drawImage(Assets.character, characterX, characterY);
-
 		// Secondly, draw the UI above the game elements.
 		if (state == GameState.Ready)
 			drawReadyUI();
@@ -287,10 +241,6 @@ public class GameScreen extends Screen {
 		}
 		
 	}
-	public void animate() {
-		// anim.update(10);
-		// hanim.update(50);
-	}
 
 	private void nullify() {
 
@@ -299,14 +249,9 @@ public class GameScreen extends Screen {
 		paintInit = null;
 		level1 = null;
 		CurrentLevel=null;
-		// currentSprite = null;
-		// character = null;
-		// anim = null;
-		// hanim = null;
 
 		// Call garbage collector to clean up memory.
 		System.gc();
-
 	}
 
 	private void drawReadyUI() {
@@ -384,6 +329,5 @@ public class GameScreen extends Screen {
 	private void goToMenu() {
 		// TODO Auto-generated method stub
 		game.setScreen(new MainMenuScreen(game));
-
 	}
 }

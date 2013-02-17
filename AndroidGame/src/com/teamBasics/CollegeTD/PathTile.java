@@ -95,45 +95,4 @@ public class PathTile {
 		this.tileImage2 = tileImage2;
 	}
 
-	/*
-	public void checkVerticalCollision(Rect rtop, Rect rbot) {
-		if (Rect.intersects(rtop, r)) {
-
-		}
-
-		if (Rect.intersects(rbot, r) && type == 8) {
-			robot.setJumped(false);
-			robot.setSpeedY(0);
-			robot.setCenterY(tileY - 63);
-		}
-	}*/
-
-	/*
-	public void checkSideCollision(Rect rleft, Rect rright, Rect leftfoot,
-			Rect rightfoot) {
-		if (type != 5 && type != 2 && type != 0) {
-			if (Rect.intersects(rleft, r)) {
-				robot.setCenterX(tileX + 102);
-
-				robot.setSpeedX(0);
-
-			} else if (Rect.intersects(leftfoot, r)) {
-
-				robot.setCenterX(tileX + 85);
-				robot.setSpeedX(0);
-			}
-
-			if (Rect.intersects(rright, r)) {
-				robot.setCenterX(tileX - 62);
-
-				robot.setSpeedX(0);
-			}
-
-			else if (Rect.intersects(rightfoot, r)) {
-				robot.setCenterX(tileX - 45);
-				robot.setSpeedX(0);
-			}
-		}
-	}*/
-
 }
