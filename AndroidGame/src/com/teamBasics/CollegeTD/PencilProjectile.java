@@ -7,6 +7,7 @@ public class PencilProjectile extends Projectile {
 	public PencilProjectile(Enemy target, PencilTower tower, int startX, int startY) {
 		super(target, tower, startX, startY);
 		size = 5;
+		speed = 5;
 	}
 
 	@Override
