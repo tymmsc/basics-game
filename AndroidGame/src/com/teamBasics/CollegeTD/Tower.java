@@ -104,7 +104,7 @@ public abstract class Tower {
 	}
 	
 	public int getDamage() { //this number should be augmented by level
-		return damage + ((int) 0.5*level);
+		return damage; //+ ((int) 0.5*level);
 	}
 	
 	public void setDamage(int damage) {
