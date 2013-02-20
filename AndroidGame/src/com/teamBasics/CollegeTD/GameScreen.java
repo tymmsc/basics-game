@@ -223,9 +223,17 @@ public class GameScreen extends Screen {
 	@Override
 	public void paint(float deltaTime) {
 		Graphics g = game.getGraphics();
-
+		
+		// Draw Main Game Screen
 		g.drawImage(Assets.gamescreen, 0, 0);
-		// g.drawImage(Assets.background, bg2.getBgX(), bg2.getBgY());
+		
+		// Draw custom background
+		g.drawImage(Assets.space, 0, 41);
+		g.drawImage(Assets.space, 0, 200);
+		g.drawImage(Assets.space, 340, 41);
+		g.drawImage(Assets.space, 340, 200);
+		
+		// Paint Tiles
 		CurrentLevel.paintBorderTiles(g);
 		CurrentLevel.paintPathTiles(g);
 

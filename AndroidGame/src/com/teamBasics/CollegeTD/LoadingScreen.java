@@ -43,8 +43,8 @@ public class LoadingScreen extends Screen {
 		Assets.soundFX_off = g.newImage("sound_off.png", ImageFormat.RGB565);
 		Assets.soundFX_on = g.newImage("sound_on.png", ImageFormat.RGB565);
 
-		// Assets.character = g.newImage("character.png", ImageFormat.ARGB4444);
-		// Assets.heliboy = g.newImage("splash4_0.png", ImageFormat.ARGB4444);
+		// Background Images
+		Assets.space = g.newImage("space.png", ImageFormat.RGB565);
 
 		// Splash Loading Animation
 		Assets.splash0 = g.newImage("SplashLoadingScreen/splash4_0.png", ImageFormat.RGB565);
