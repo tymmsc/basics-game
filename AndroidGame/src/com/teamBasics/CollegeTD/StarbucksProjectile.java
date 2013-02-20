@@ -7,7 +7,7 @@ public class StarbucksProjectile extends Projectile {
 	public StarbucksProjectile(Enemy target, StarbucksTower tower, int startX, int startY) {
 		super(target, tower, startX, startY);
 		size = 5;
-		speed = 5;
+		speed = 10;
 		maxRange = 275;
 	}
 

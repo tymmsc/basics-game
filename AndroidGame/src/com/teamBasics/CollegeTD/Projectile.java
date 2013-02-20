@@ -71,7 +71,7 @@ public abstract class Projectile {
 			//System.out.println(target.getHealth());
 			//System.out.println(tower.getDamage());
 			if(health_remaining > 0) {
-				health_remaining -= 5;//tower.getDamage();
+				health_remaining -= 2;//tower.getDamage();
 			}
 			if(health_remaining <= 0) {
 				target.die();

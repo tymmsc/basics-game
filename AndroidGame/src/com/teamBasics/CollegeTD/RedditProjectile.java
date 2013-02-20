@@ -7,7 +7,7 @@ public class RedditProjectile extends Projectile {
 	public RedditProjectile(Enemy target, RedditTower tower, int startX, int startY) {
 		super(target, tower, startX, startY);
 		size = 5;
-		speed = 5;
+		speed = 8;
 		maxRange = 275;
 	}
 
