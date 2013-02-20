@@ -262,7 +262,7 @@ public class Level {
 	public ArrayList<Tower> getTowers() {
 		return towers;
 	}
-
+	
 	public void setTowers(ArrayList<Tower> towers) {
 		this.towers = towers;
 	}

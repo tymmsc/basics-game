@@ -102,6 +102,8 @@ public class LoadingScreen extends Screen {
 		Assets.redditTower = g.newImage("Towers/reddit_tower.png", ImageFormat.RGB565);
 		Assets.pencilTower = g.newImage("Towers/pencil_tower.png", ImageFormat.RGB565);
 		Assets.starbucksTower = g.newImage("Towers/starbucks_tower.png", ImageFormat.RGB565);
+		Assets.towerBox = g.newImage("Towers/box_tower.png", ImageFormat.RGB565);
+		
 
 		// Enemy Sprites
 		Assets.assignment = g.newImage("Enemies/assignment.png", ImageFormat.RGB565);

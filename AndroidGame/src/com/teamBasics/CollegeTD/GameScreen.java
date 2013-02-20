@@ -35,6 +35,8 @@ public class GameScreen extends Screen {
 	TowerType towerType = TowerType.none;
 	private int Xtower = 0;
 	private int Ytower = 0;
+	private int Xbox = -50;
+	private int Ybox = -50;
 
 	Paint paintInit, paintMenu, paintDescriptionText, paintHUBText;
 
@@ -139,24 +141,24 @@ public class GameScreen extends Screen {
 					Assets.selectItem = Assets.redditTower;
 					descriptionText = "This is the reddit tower!";
 					towerType = TowerType.reddit;
-					Xtower = -20;
-					Ytower = -20;
+					Xtower = -50;
+					Ytower = -50;
 				}
 				// Pencil Tower
 				else if(inBounds(event, 735, 115, 40, 40)){
 					Assets.selectItem = Assets.pencilTower;
 					descriptionText = "This is the pencil tower!";
 					towerType = TowerType.pencil;
-					Xtower = -20;
-					Ytower = -20;
+					Xtower = -50;
+					Ytower = -50;
 				}
 				// Starbucks Tower
 				else if(inBounds(event, 735, 181, 40, 40)){
 					Assets.selectItem = Assets.starbucksTower;
 					descriptionText = "This is the starbucks tower!";
 					towerType = TowerType.starbucks;
-					Xtower = -20;
-					Ytower = -20;
+					Xtower = -50;
+					Ytower = -50;
 				}
 				
 				// Sleep Upgrade
@@ -177,8 +179,14 @@ public class GameScreen extends Screen {
 			}
 
 			if (event.type == MotionEvent.ACTION_MOVE) {
+				// Sets the X and Y coords of the tower to the touch even ones
 				Xtower = X;
 				Ytower = Y;
+				// This section uses the same subroutine as the final drop does to display the box where the tile will be located
+				// The tower is drawn when all of the other game screen images are updated.
+				Xbox = cordFix(Xtower);
+				Ybox = cordFix(Ytower);
+				
 			}
 			
 			// Handles touch RELEASE
@@ -187,38 +195,53 @@ public class GameScreen extends Screen {
 				if(inBounds(event, 5, 1, 34, 33)){
 					pause();
 				}
-				if(Xtower > 10 && Xtower < 400 && Ytower > 50 && Ytower < 400) {  // CHANGE TO ACTUAL VALUES
-					if (towerType == TowerType.reddit) {
-						RedditTower temp = new RedditTower(Xtower, Ytower);
-						if(CurrentLevel.getCash()>=temp.cost) {
-							CurrentLevel.addTower(temp);
-							CurrentLevel.setCash(CurrentLevel.getCash()-temp.cost);
-						} else {
-							descriptionText = "You do not have enough money!";
-						}
-					}
-					else if (towerType == TowerType.starbucks) {
-					
-						StarbucksTower temp = new StarbucksTower(Xtower, Ytower);
-						if(CurrentLevel.getCash()>=temp.cost) {
-							CurrentLevel.addTower(temp);
-							CurrentLevel.setCash(CurrentLevel.getCash()-temp.cost);	
-						} else {
-							descriptionText = "You do not have enough money!";
-						}
-					}
-					else if (towerType == TowerType.pencil) {
-					
-						PencilTower temp = new PencilTower(Xtower, Ytower);
-						if(CurrentLevel.getCash()>=temp.cost) {
-							CurrentLevel.addTower(temp);
-							CurrentLevel.setCash(CurrentLevel.getCash()-temp.cost);
-						} else {
-							descriptionText = "You do not have enough money!";
-						}
-					}
-					}
+				Xbox = -50;
+				Ybox = -50;
 				
+				
+				if(Xtower > 21 && Xtower < 619 && Ytower > 61 && Ytower < 299) {  // CHANGE TO ACTUAL VALUES
+					Xtower = cordFix(Xtower);
+					Ytower = cordFix(Ytower);
+					
+					
+					if(validPlacement(Xtower, Ytower)) {
+					
+					
+						if (towerType == TowerType.reddit) {
+							RedditTower temp = new RedditTower(Xtower, Ytower);
+							if(CurrentLevel.getCash()>=temp.cost) {
+								CurrentLevel.addTower(temp);
+								CurrentLevel.setCash(CurrentLevel.getCash()-temp.cost);
+							} else {
+								descriptionText = "Insufficient funds!";
+							}
+						}
+						else if (towerType == TowerType.starbucks) {
+					
+							StarbucksTower temp = new StarbucksTower(Xtower, Ytower);
+							if(CurrentLevel.getCash()>=temp.cost) {
+								CurrentLevel.addTower(temp);
+								CurrentLevel.setCash(CurrentLevel.getCash()-temp.cost);	
+							} else {
+								descriptionText = "Insufficient funds!";
+							}
+						}
+						else if (towerType == TowerType.pencil) {
+					
+							PencilTower temp = new PencilTower(Xtower, Ytower);
+							if(CurrentLevel.getCash()>=temp.cost) {
+								CurrentLevel.addTower(temp);
+								CurrentLevel.setCash(CurrentLevel.getCash()-temp.cost);
+							} else {
+								descriptionText = "Insufficient funds!";
+							}
+						}
+						}
+				} else {
+					// invalid tower placement
+					towerType = TowerType.none;
+					descriptionText = "You cannot place a tower there!";
+				}
 				towerType = TowerType.none;
 				}
 		}
@@ -349,7 +372,10 @@ public class GameScreen extends Screen {
 		else if (towerType == TowerType.pencil) {
 			g.drawImage(Assets.pencilTower, Xtower, Ytower);
 		}
-		
+		// Draw the Highlighted box where the tower will be placed
+		if(towerType != TowerType.none){
+			g.drawImage(Assets.towerBox, Xbox, Ybox);
+		}
 		
 		// Upgrade sprites
 		g.drawImage(Assets.sleepUp, 735, 245);
@@ -366,7 +392,7 @@ public class GameScreen extends Screen {
 		
 		CurrentLevel.draw(g);
 	}
-
+	
 	private void drawPausedUI() {
 		Graphics g = game.getGraphics();
 		// Darken the entire screen so you can display the Paused screen.
@@ -375,7 +401,16 @@ public class GameScreen extends Screen {
 		g.drawString("Menu", 400, 360, paintMenu);
 
 	}
-
+	private int cordFix(int cord) {
+		int tempCord = cord/40;
+		int modCord = cord%40;
+		
+		if(modCord > 20) {
+			tempCord += 1;
+		}
+		
+		return tempCord*40;
+	}
 	private void drawGameOverUI() {
 		Graphics g = game.getGraphics();
 		g.drawRect(0, 0, 1281, 801, Color.BLACK);
@@ -384,6 +419,28 @@ public class GameScreen extends Screen {
 
 	}
 
+	private boolean validPlacement(int Xloc, int Yloc) {
+		boolean ret = true;
+		ArrayList<PathTile> tilePath = CurrentLevel.getTilearrayPath();
+		for(int i = 0; i < tilePath.size(); i++) { // check the map tiles to make sure that it is not a stone or dirt tile
+			if(tilePath.get(i).getTileX() == Xloc && tilePath.get(i).getTileY() == Yloc && (tilePath.get(i).type2 == 's' || tilePath.get(i).type2 == 'w' || tilePath.get(i).type2 == 'a' || tilePath.get(i).type2 == 'd' || tilePath.get(i).type2 == 'x')){ // check if the stone tile X and Y coords are the same
+				descriptionText = "Towers cannot be on path";
+				return false;
+			}
+		}
+		
+		ArrayList<Tower> towerList = CurrentLevel.getTowers(); // get list of already placed towers
+		for(int i = 0; i < towerList.size(); i++) { // check to make sure that the tower is not already in that location
+			if( towerList.get(i).getPosX() == Xloc && towerList.get(i).getPosY() == Yloc) {
+				descriptionText = "Towers cannot overlap.";
+				return false;				
+			}
+		}		
+		
+		
+		return ret;
+	}
+	
 	@Override
 	public void pause() {
 		if (state == GameState.Running)

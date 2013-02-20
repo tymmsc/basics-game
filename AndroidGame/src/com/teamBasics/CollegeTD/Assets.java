@@ -28,7 +28,7 @@ public class Assets {
     
     // Tower Sprites
     public static Image selectItem, description, option0, option1, option2;
-    public static Image redditTower, pencilTower, starbucksTower;
+    public static Image redditTower, pencilTower, starbucksTower, towerBox;
     public static Image sleepUp, socialUp, academicUp;
     
     //Enemy Sprites

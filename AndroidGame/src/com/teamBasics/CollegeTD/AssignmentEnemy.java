@@ -7,7 +7,7 @@ import com.teamBasics.framework.Graphics;
 public class AssignmentEnemy extends Enemy {
 	public AssignmentEnemy(ArrayList<PathTile> tilearrayPath) {
 		super(141, 41, tilearrayPath);
-		setSpeed(3);
+		setSpeed(2);
 		setHealth(5);
 		movementY = speed;
 		movementX = 0;
