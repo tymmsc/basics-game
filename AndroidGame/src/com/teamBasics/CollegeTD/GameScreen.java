@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.view.MotionEvent;
 
 import com.teamBasics.framework.Game;
 import com.teamBasics.framework.Graphics;
@@ -20,12 +21,20 @@ public class GameScreen extends Screen {
 	}
 
 	GameState state = GameState.Ready;
-
+	
+	enum TowerType {
+		reddit, starbucks, pencil, none
+	}
+	
+	
 	// Variable Setup
 	private String descriptionText = "";
 	private String scoreText = "0";
 	private String livesText;
 	private String cashText = "$0";
+	TowerType towerType = TowerType.none;
+	private int Xtower = 0;
+	private int Ytower = 0;
 
 	Paint paintInit, paintMenu, paintDescriptionText, paintHUBText;
 
@@ -118,6 +127,8 @@ public class GameScreen extends Screen {
 		int len = touchEvents.size();
 		for (int i = 0; i < len; i++) {
 			TouchEvent event = touchEvents.get(i);
+			int X = event.x;
+			int Y = event.y;
 			// Handles Touch PRESS
 			if (event.type == TouchEvent.TOUCH_DOWN) {
 						
@@ -127,16 +138,25 @@ public class GameScreen extends Screen {
 				if(inBounds(event, 735, 49, 40, 40)){
 					Assets.selectItem = Assets.redditTower;
 					descriptionText = "This is the reddit tower!";
+					towerType = TowerType.reddit;
+					Xtower = -20;
+					Ytower = -20;
 				}
 				// Pencil Tower
 				else if(inBounds(event, 735, 115, 40, 40)){
 					Assets.selectItem = Assets.pencilTower;
 					descriptionText = "This is the pencil tower!";
+					towerType = TowerType.pencil;
+					Xtower = -20;
+					Ytower = -20;
 				}
 				// Starbucks Tower
 				else if(inBounds(event, 735, 181, 40, 40)){
 					Assets.selectItem = Assets.starbucksTower;
 					descriptionText = "This is the starbucks tower!";
+					towerType = TowerType.starbucks;
+					Xtower = -20;
+					Ytower = -20;
 				}
 				
 				// Sleep Upgrade
@@ -149,17 +169,58 @@ public class GameScreen extends Screen {
 					Assets.selectItem = Assets.socialUp;
 					descriptionText = "This is the social upgrade!";
 				}
+				else {
+					towerType = TowerType.none;
+					
+				}
 
 			}
 
+			if (event.type == MotionEvent.ACTION_MOVE) {
+				Xtower = X;
+				Ytower = Y;
+			}
+			
 			// Handles touch RELEASE
 			if (event.type == TouchEvent.TOUCH_UP) {
-
+				
 				if(inBounds(event, 5, 1, 34, 33)){
 					pause();
 				}
-			}
-
+				if(Xtower > 10 && Xtower < 400 && Ytower > 50 && Ytower < 400) {  // CHANGE TO ACTUAL VALUES
+					if (towerType == TowerType.reddit) {
+						RedditTower temp = new RedditTower(Xtower, Ytower);
+						if(CurrentLevel.getCash()>=temp.cost) {
+							CurrentLevel.addTower(temp);
+							CurrentLevel.setCash(CurrentLevel.getCash()-temp.cost);
+						} else {
+							descriptionText = "You do not have enough money!";
+						}
+					}
+					else if (towerType == TowerType.starbucks) {
+					
+						StarbucksTower temp = new StarbucksTower(Xtower, Ytower);
+						if(CurrentLevel.getCash()>=temp.cost) {
+							CurrentLevel.addTower(temp);
+							CurrentLevel.setCash(CurrentLevel.getCash()-temp.cost);	
+						} else {
+							descriptionText = "You do not have enough money!";
+						}
+					}
+					else if (towerType == TowerType.pencil) {
+					
+						PencilTower temp = new PencilTower(Xtower, Ytower);
+						if(CurrentLevel.getCash()>=temp.cost) {
+							CurrentLevel.addTower(temp);
+							CurrentLevel.setCash(CurrentLevel.getCash()-temp.cost);
+						} else {
+							descriptionText = "You do not have enough money!";
+						}
+					}
+					}
+				
+				towerType = TowerType.none;
+				}
 		}
 
 		// 2. Check miscellaneous events like death:
@@ -277,6 +338,18 @@ public class GameScreen extends Screen {
 		g.drawImage(Assets.redditTower, 735, 49);
 		g.drawImage(Assets.pencilTower, 735, 115);
 		g.drawImage(Assets.starbucksTower, 735, 181);
+		
+		// Draw towers that are being dragged
+		if (towerType == TowerType.reddit) {
+			g.drawImage(Assets.redditTower, Xtower, Ytower);
+		}
+		else if (towerType == TowerType.starbucks) {
+			g.drawImage(Assets.starbucksTower, Xtower, Ytower);
+		}
+		else if (towerType == TowerType.pencil) {
+			g.drawImage(Assets.pencilTower, Xtower, Ytower);
+		}
+		
 		
 		// Upgrade sprites
 		g.drawImage(Assets.sleepUp, 735, 245);

@@ -266,6 +266,10 @@ public class Level {
 	public void setTowers(ArrayList<Tower> towers) {
 		this.towers = towers;
 	}
+	
+	public void addTower(Tower addTower) {
+		this.towers.add(addTower);
+	}
 
 	public ArrayList<Projectile> getProjectiles() {
 		return projectiles;
