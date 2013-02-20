@@ -1,45 +1,185 @@
 <class-diagram version="1.0.11" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true">  
-  <class id="1" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.CollegeTD.Assets" project="AndroidGame" 
-    file="/AndroidGame/src/com/teamBasics/CollegeTD/Assets.java" binary="false">    
-    <position height="-1" width="-1" x="880" y="399"/>    
+  <class id="1" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.CollegeTD.AssignmentEnemy" 
+    project="AndroidGame" file="/AndroidGame/src/com/teamBasics/CollegeTD/AssignmentEnemy.java" binary="false">    
+    <position height="-1" width="-1" x="285" y="403"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
-      <operations public="true" package="true" protected="true" private="true"/>    
+      <operations public="false" package="false" protected="false" private="false"/>    
     </display>  
   </class>  
   <class id="2" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.CollegeTD.Enemy" project="AndroidGame" 
     file="/AndroidGame/src/com/teamBasics/CollegeTD/Enemy.java" binary="false">    
-    <position height="-1" width="-1" x="112" y="192"/>    
+    <position height="-1" width="-1" x="284" y="331"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true"/>      
-      <operations public="true" package="true" protected="true" private="true"/>    
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
     </display>  
   </class>  
-  <class id="3" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.CollegeTD.GameScreen" project="AndroidGame" 
-    file="/AndroidGame/src/com/teamBasics/CollegeTD/GameScreen.java" binary="false">    
-    <position height="-1" width="-1" x="608" y="358"/>    
+  <class id="3" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.CollegeTD.EnemyGroup" project="AndroidGame" 
+    file="/AndroidGame/src/com/teamBasics/CollegeTD/EnemyGroup.java" binary="false">    
+    <position height="-1" width="-1" x="282" y="251"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true"/>      
-      <operations public="true" package="true" protected="true" private="true"/>    
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
     </display>  
   </class>  
-  <class id="4" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.CollegeTD.Tile" project="AndroidGame" 
-    file="/AndroidGame/src/com/teamBasics/CollegeTD/Tile.java" binary="false">    
-    <position height="-1" width="-1" x="1099" y="185"/>    
+  <class id="4" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.CollegeTD.EnemyWave" project="AndroidGame" 
+    file="/AndroidGame/src/com/teamBasics/CollegeTD/EnemyWave.java" binary="false">    
+    <position height="-1" width="-1" x="282" y="165"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true"/>      
-      <operations public="true" package="true" protected="true" private="true"/>    
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
     </display>  
   </class>  
-  <class id="5" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.CollegeTD.Projectile" project="AndroidGame" 
+  <class id="5" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.CollegeTD.Level" project="AndroidGame" 
+    file="/AndroidGame/src/com/teamBasics/CollegeTD/Level.java" binary="false">    
+    <position height="-1" width="-1" x="283" y="64"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="6" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.CollegeTD.BorderTile" project="AndroidGame" 
+    file="/AndroidGame/src/com/teamBasics/CollegeTD/BorderTile.java" binary="false">    
+    <position height="-1" width="-1" x="79" y="145"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="7" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.CollegeTD.PathTile" project="AndroidGame" 
+    file="/AndroidGame/src/com/teamBasics/CollegeTD/PathTile.java" binary="false">    
+    <position height="-1" width="-1" x="83" y="246"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="8" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.CollegeTD.Tower" project="AndroidGame" 
+    file="/AndroidGame/src/com/teamBasics/CollegeTD/Tower.java" binary="false">    
+    <position height="-1" width="-1" x="672" y="183"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="9" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.CollegeTD.StarbucksTower" 
+    project="AndroidGame" file="/AndroidGame/src/com/teamBasics/CollegeTD/StarbucksTower.java" binary="false">    
+    <position height="-1" width="-1" x="672" y="267"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="10" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.CollegeTD.StarbucksProjectile" 
+    project="AndroidGame" file="/AndroidGame/src/com/teamBasics/CollegeTD/StarbucksProjectile.java" binary="false">    
+    <position height="-1" width="-1" x="494" y="273"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="11" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.CollegeTD.Projectile" project="AndroidGame" 
     file="/AndroidGame/src/com/teamBasics/CollegeTD/Projectile.java" binary="false">    
-    <position height="-1" width="-1" x="328" y="534"/>    
+    <position height="-1" width="-1" x="481" y="187"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true"/>      
-      <operations public="true" package="true" protected="true" private="true"/>    
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
     </display>  
   </class>  
+  <generalization id="12">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="11"/>  
+  </generalization>  
+  <association id="13">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="14" name="towers"/>      
+      <multiplicity id="15" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="16">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="17" name="tilearrayPath"/>      
+      <multiplicity id="18" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="19">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="20" name="projectiles"/>      
+      <multiplicity id="21" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="22">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <association id="23">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="24" name="tilearrayPath"/>      
+      <multiplicity id="25" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="26">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="27" name="target"/>      
+      <multiplicity id="28" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="29">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="30" name="waves"/>      
+      <multiplicity id="31" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="32">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
+  <association id="33">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="34" name="tower"/>      
+      <multiplicity id="35" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="36">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="37" name="group"/>      
+      <multiplicity id="38" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="39">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="40" name="tilearrayBorder"/>      
+      <multiplicity id="41" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="42">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="43" name="wave"/>      
+      <multiplicity id="44" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     visibility="true">    
     <attributes public="true" package="true" protected="true" private="true"/>    

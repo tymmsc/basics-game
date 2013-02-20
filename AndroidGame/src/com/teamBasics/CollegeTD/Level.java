@@ -33,8 +33,8 @@ public class Level {
 		loadMapPath();
 				
 		EnemyWave wave1 = new EnemyWave();
-		EnemyGroup group1 = new EnemyGroup(0, 8);
-		EnemyGroup group2 = new EnemyGroup(200, 20);
+		EnemyGroup group1 = new EnemyGroup(300, 8);
+		EnemyGroup group2 = new EnemyGroup(600, 20);
 		
 		for(int i=0; i<10; i++) {
 			AssignmentEnemy a = new AssignmentEnemy(tilearrayPath);
@@ -51,8 +51,8 @@ public class Level {
 			waves.add(wave1);
 		}
 		
-		PencilTower tower1 = new PencilTower(200, 160);
-		towers.add(tower1);
+		//PencilTower tower1 = new PencilTower(200, 160);
+		//towers.add(tower1);
 	}
 	
 	//Adds a wave to the level
