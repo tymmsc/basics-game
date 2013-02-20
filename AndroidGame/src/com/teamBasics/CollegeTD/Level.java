@@ -33,8 +33,8 @@ public class Level {
 		loadMapPath();
 				
 		EnemyWave wave1 = new EnemyWave();
-		EnemyGroup group1 = new EnemyGroup(300, 8);
-		EnemyGroup group2 = new EnemyGroup(600, 20);
+		EnemyGroup group1 = new EnemyGroup(400, 12);
+		EnemyGroup group2 = new EnemyGroup(800, 25);
 		
 		for(int i=0; i<10; i++) {
 			AssignmentEnemy a = new AssignmentEnemy(tilearrayPath);

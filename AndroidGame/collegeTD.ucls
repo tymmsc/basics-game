@@ -88,96 +88,160 @@
       <operations public="false" package="false" protected="false" private="false"/>    
     </display>  
   </class>  
-  <generalization id="12">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="11"/>  
-  </generalization>  
-  <association id="13">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="14" name="towers"/>      
-      <multiplicity id="15" minimum="0" maximum="2147483647"/>    
+  <enumeration id="12" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.CollegeTD.GameScreen.GameState" 
+    project="AndroidGame" file="/AndroidGame/src/com/teamBasics/CollegeTD/GameScreen.java" binary="false">    
+    <position height="-1" width="-1" x="83" y="-7"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </enumeration>  
+  <enumeration id="13" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.CollegeTD.GameScreen.TowerType" 
+    project="AndroidGame" file="/AndroidGame/src/com/teamBasics/CollegeTD/GameScreen.java" binary="false">    
+    <position height="-1" width="-1" x="493" y="-13"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </enumeration>  
+  <class id="14" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.CollegeTD.GameScreen" project="AndroidGame" 
+    file="/AndroidGame/src/com/teamBasics/CollegeTD/GameScreen.java" binary="false">    
+    <position height="-1" width="-1" x="284" y="-18"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <association id="15">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="16" name="towerType"/>      
+      <multiplicity id="17" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
+    <end type="TARGET" refId="13" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="16">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="17" name="tilearrayPath"/>      
-      <multiplicity id="18" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="19">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="20" name="projectiles"/>      
-      <multiplicity id="21" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="22">    
+  <generalization id="18">    
     <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="2"/>  
   </generalization>  
-  <association id="23">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="24" name="tilearrayPath"/>      
-      <multiplicity id="25" minimum="0" maximum="2147483647"/>    
+  <association id="19">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="20" name="wave"/>      
+      <multiplicity id="21" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="26">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="27" name="target"/>      
-      <multiplicity id="28" minimum="0" maximum="1"/>    
+  <association id="22">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="23" name="CurrentLevel"/>      
+      <multiplicity id="24" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
+    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="29">    
+  <association id="25">    
     <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="30" name="waves"/>      
-      <multiplicity id="31" minimum="0" maximum="2147483647"/>    
+      <attribute id="26" name="waves"/>      
+      <multiplicity id="27" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="32">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="8"/>  
-  </generalization>  
-  <association id="33">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="34" name="tower"/>      
-      <multiplicity id="35" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="36">    
+  <association id="28">    
     <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="37" name="group"/>      
-      <multiplicity id="38" minimum="0" maximum="2147483647"/>    
+      <attribute id="29" name="group"/>      
+      <multiplicity id="30" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="39">    
+  <association id="31">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="32" name="level1"/>      
+      <multiplicity id="33" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="34">    
     <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="40" name="tilearrayBorder"/>      
-      <multiplicity id="41" minimum="0" maximum="2147483647"/>    
+      <attribute id="35" name="towers"/>      
+      <multiplicity id="36" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="37">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="13"/>  
+  </nesting>  
+  <association id="38">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="39" name="tilearrayBorder"/>      
+      <multiplicity id="40" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="42">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="43" name="wave"/>      
-      <multiplicity id="44" minimum="0" maximum="2147483647"/>    
+  <association id="41">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="42" name="state"/>      
+      <multiplicity id="43" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="44">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="45" name="tilearrayPath"/>      
+      <multiplicity id="46" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="47">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="48" name="tilearrayPath"/>      
+      <multiplicity id="49" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="50">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="51" name="projectiles"/>      
+      <multiplicity id="52" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="53">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="54" name="target"/>      
+      <multiplicity id="55" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="56">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
+  <generalization id="57">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="11"/>  
+  </generalization>  
+  <nesting id="58">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="12"/>  
+  </nesting>  
+  <association id="59">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="60" name="tower"/>      
+      <multiplicity id="61" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

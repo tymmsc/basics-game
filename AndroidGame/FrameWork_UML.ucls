@@ -1,0 +1,187 @@
+<class-diagram version="1.0.11" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true">  
+  <class id="1" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.framework.Animation.AnimFrame" 
+    project="AndroidGame" file="/AndroidGame/src/com/teamBasics/framework/Animation.java" binary="false">    
+    <position height="-1" width="-1" x="354" y="370"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="2" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.framework.Animation" project="AndroidGame" 
+    file="/AndroidGame/src/com/teamBasics/framework/Animation.java" binary="false">    
+    <position height="-1" width="-1" x="352" y="247"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="true" protected="false" private="false"/>      
+      <operations public="false" package="true" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <enumeration id="3" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.framework.Graphics.ImageFormat" 
+    project="AndroidGame" file="/AndroidGame/src/com/teamBasics/framework/Graphics.java" binary="false">    
+    <position height="-1" width="-1" x="531" y="359"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="true" protected="false" private="false"/>      
+      <operations public="false" package="true" protected="false" private="false"/>    
+    </display>  
+  </enumeration>  
+  <interface id="4" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.framework.Graphics" project="AndroidGame" 
+    file="/AndroidGame/src/com/teamBasics/framework/Graphics.java" binary="false">    
+    <position height="-1" width="-1" x="530" y="259"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="true" protected="false" private="false"/>      
+      <operations public="false" package="true" protected="false" private="false"/>    
+    </display>  
+  </interface>  
+  <class id="5" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.framework.Screen" project="AndroidGame" 
+    file="/AndroidGame/src/com/teamBasics/framework/Screen.java" binary="false">    
+    <position height="-1" width="-1" x="196" y="250"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="true" protected="false" private="false"/>      
+      <operations public="false" package="true" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <interface id="6" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.framework.Game" project="AndroidGame" 
+    file="/AndroidGame/src/com/teamBasics/framework/Game.java" binary="false">    
+    <position height="-1" width="-1" x="200" y="350"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="true" protected="false" private="false"/>      
+      <operations public="false" package="true" protected="false" private="false"/>    
+    </display>  
+  </interface>  
+  <interface id="7" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.framework.Image" project="AndroidGame" 
+    file="/AndroidGame/src/com/teamBasics/framework/Image.java" binary="false">    
+    <position height="-1" width="-1" x="346" y="467"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="true" protected="false" private="false"/>      
+      <operations public="false" package="true" protected="false" private="false"/>    
+    </display>  
+  </interface>  
+  <class id="8" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.framework.implementation.AndroidGame" 
+    project="AndroidGame" file="/AndroidGame/src/com/teamBasics/framework/implementation/AndroidGame.java" 
+    binary="false">    
+    <position height="-1" width="-1" x="294" y="106"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="9" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.framework.implementation.AndroidGraphics" 
+    project="AndroidGame" file="/AndroidGame/src/com/teamBasics/framework/implementation/AndroidGraphics.java" 
+    binary="false">    
+    <position height="-1" width="-1" x="529" y="104"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="10" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.framework.implementation.MultiTouchHandler" 
+    project="AndroidGame" file="/AndroidGame/src/com/teamBasics/framework/implementation/MultiTouchHandler.java" 
+    binary="false">    
+    <position height="-1" width="-1" x="865" y="320"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="true" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="11" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.framework.implementation.SingleTouchHandler" 
+    project="AndroidGame" file="/AndroidGame/src/com/teamBasics/framework/implementation/SingleTouchHandler.java" 
+    binary="false">    
+    <position height="-1" width="-1" x="726" y="255"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="true" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <interface id="12" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.framework.implementation.TouchHandler" 
+    project="AndroidGame" file="/AndroidGame/src/com/teamBasics/framework/implementation/TouchHandler.java" 
+    binary="false">    
+    <position height="-1" width="-1" x="792" y="155"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="true" protected="false" private="false"/>      
+      <operations public="false" package="true" protected="false" private="false"/>    
+    </display>  
+  </interface>  
+  <class id="13" corner="BOTTOM_RIGHT" language="java" name="com.teamBasics.framework.implementation.AndroidImage" 
+    project="AndroidGame" file="/AndroidGame/src/com/teamBasics/framework/implementation/AndroidImage.java" 
+    binary="false">    
+    <position height="-1" width="-1" x="546" y="471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="true" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <nesting id="14">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="1"/>  
+  </nesting>  
+  <association id="15">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="16" name="screen"/>      
+      <multiplicity id="17" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="18">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="19" name="game"/>      
+      <multiplicity id="20" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="21">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
+  <association id="22">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="23" name="format"/>      
+      <multiplicity id="24" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="25">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="4"/>  
+  </realization>  
+  <realization id="26">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="12"/>  
+  </realization>  
+  <realization id="27">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="7"/>  
+  </realization>  
+  <association id="28">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="29" name="graphics"/>      
+      <multiplicity id="30" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="31">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="3"/>  
+  </nesting>  
+  <association id="32">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="33" name="image"/>      
+      <multiplicity id="34" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="35">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="12"/>  
+  </realization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    visibility="true">    
+    <attributes public="false" package="true" protected="false" private="false"/>    
+    <operations public="false" package="true" protected="false" private="false"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

@@ -27,8 +27,8 @@ public abstract class Projectile {
 
 	public void move() {
 		if(distanceTraveled < maxRange) {
-			int posX = target.getPosX();
-			int posY = target.getPosY();
+			int posX = target.getPosX() + (target.getSize()/2);
+			int posY = target.getPosY() + (target.getSize()/2);
 			int deltaX = Math.abs(x - posX);
 			int deltaY = Math.abs(y - posY);
 			double distance = Math.sqrt((deltaX)*(deltaX) + (deltaY)*(deltaY));
@@ -71,7 +71,7 @@ public abstract class Projectile {
 			//System.out.println(target.getHealth());
 			//System.out.println(tower.getDamage());
 			if(health_remaining > 0) {
-				health_remaining -= 2;//tower.getDamage();
+				health_remaining -= 3;//tower.getDamage();
 			}
 			if(health_remaining <= 0) {
 				target.die();
