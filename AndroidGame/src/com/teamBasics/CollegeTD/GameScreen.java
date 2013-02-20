@@ -171,6 +171,11 @@ public class GameScreen extends Screen {
 					Assets.selectItem = Assets.socialUp;
 					descriptionText = "This is the social upgrade!";
 				}
+				// Academic Upgrade
+				else if(inBounds(event, 735, 373, 40, 40)){
+					Assets.selectItem = Assets.academicUp;
+					descriptionText = "This is the academic upgrade!";
+				}
 				else {
 					towerType = TowerType.none;
 					
@@ -240,7 +245,6 @@ public class GameScreen extends Screen {
 				} else {
 					// invalid tower placement
 					towerType = TowerType.none;
-					descriptionText = "You cannot place a tower there!";
 				}
 				towerType = TowerType.none;
 				}
@@ -373,13 +377,14 @@ public class GameScreen extends Screen {
 			g.drawImage(Assets.pencilTower, Xtower, Ytower);
 		}
 		// Draw the Highlighted box where the tower will be placed
-		if(towerType != TowerType.none){
+		if(towerType != TowerType.none && (Xtower > 21 && Xtower < 619 && Ytower > 61 && Ytower < 299)){
 			g.drawImage(Assets.towerBox, Xbox, Ybox);
 		}
 		
 		// Upgrade sprites
 		g.drawImage(Assets.sleepUp, 735, 245);
 		g.drawImage(Assets.socialUp, 735, 309);
+		g.drawImage(Assets.academicUp, 735, 373);
 		
 		g.drawImage(Assets.selectItem, 49, 423);
 		g.drawString(descriptionText, 160, 439, paintDescriptionText);
