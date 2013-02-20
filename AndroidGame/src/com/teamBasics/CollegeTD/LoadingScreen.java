@@ -112,6 +112,7 @@ public class LoadingScreen extends Screen {
 		// Upgrade Sprites
 		Assets.sleepUp = g.newImage("Upgrades/sleep_upgrade.png", ImageFormat.RGB565);
 		Assets.socialUp = g.newImage("Upgrades/social_upgrade.png", ImageFormat.RGB565);
+		Assets.academicUp = g.newImage("Upgrades/academic_upgrade.png", ImageFormat.RGB565);
 
 		// This is how you would load a sound if you had one.
 		// Assets.click = game.getAudio().createSound("explode.ogg");
