@@ -1,0 +1,21 @@
+! Team Basics
+! CollegeTD Level1
+! Length = 20 tiles
+! Width = 12 tiles
+! # = Border Tile Legend 
+! 5 = TileDirt
+! 8 = GrassTop
+! 2 = GrassBot
+! 4 = GrassLeft
+! 6 = GrassRight 
+! y = 40-360 pixels (8 tiles)
+! x = 0-680 pixels (17 tiles)
+                 
+522__222222222225
+6_______________4
+6_______________4
+6_______________4
+6_______________4
+6_______________4
+6_______________4
+588__888888888885

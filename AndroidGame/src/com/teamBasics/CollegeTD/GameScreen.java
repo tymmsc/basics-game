@@ -41,24 +41,20 @@ public class GameScreen extends Screen {
 	Paint paintInit, paintMenu, paintDescriptionText, paintHUBText;
 
 	//Levels
-	private Level CurrentLevel;
-	private Level level1;
+	private static Level CurrentLevel;
+	private ArrayList<Level> levelArray = new ArrayList<Level>(20);
+	//private Level level1;
 	
 	public GameScreen(Game game) {
 		super(game);
 
-		// Initialize game objects here
-
-		// anim = new Animation();
-		// anim.addFrame(character, 1250);
-		// anim.addFrame(character2, 50);
-
-		// hanim = new Animation();
-		// hanim.addFrame(heliboy, 100);
-		// currentSprite = anim.getImage();
-
-		level1 = new Level();
-		CurrentLevel = level1;	
+		for(int i = 0; i < 20; i++){
+			levelArray.add(i, ( new Level() ));
+			levelArray.get(i).setLevel_number(i+1);
+		}
+		//level1 = new Level();
+		// Must update CurrentLevel to next level when user has defeated all enemies.
+		CurrentLevel = levelArray.get(0);	
 		
 		// Defining a paint object
 		// Start Text
@@ -343,7 +339,7 @@ public class GameScreen extends Screen {
 		// Set all variables to null. You will be recreating them in the
 		// constructor.
 		paintInit = null;
-		level1 = null;
+		//level1 = null;
 		CurrentLevel=null;
 
 		// Call garbage collector to clean up memory.
@@ -472,5 +468,9 @@ public class GameScreen extends Screen {
 	private void goToMenu() {
 		// TODO Auto-generated method stub
 		game.setScreen(new MainMenuScreen(game));
+	}
+	
+	public static Level getCurrentLevel(){
+		return CurrentLevel;
 	}
 }

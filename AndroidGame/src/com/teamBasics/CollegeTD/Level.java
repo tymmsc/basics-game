@@ -27,7 +27,7 @@ public class Level {
 	//That way each level can have a different map
 	public Level() {
 		//Instantiation of 1 wave of enemies and 1 tower
-		level_number=1;
+		level_number = 1;
 		
 		loadMapBorder();
 		loadMapPath();
