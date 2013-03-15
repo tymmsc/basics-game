@@ -424,7 +424,7 @@ public class GameScreen extends Screen {
 		boolean ret = true;
 		ArrayList<PathTile> tilePath = CurrentLevel.getTilearrayPath();
 		for(int i = 0; i < tilePath.size(); i++) { // check the map tiles to make sure that it is not a stone or dirt tile
-			if(tilePath.get(i).getTileX() == Xloc && tilePath.get(i).getTileY() == Yloc && (tilePath.get(i).type2 == 's' || tilePath.get(i).type2 == 'w' || tilePath.get(i).type2 == 'a' || tilePath.get(i).type2 == 'd' || tilePath.get(i).type2 == 'x')){ // check if the stone tile X and Y coords are the same
+			if(tilePath.get(i).getTileX() == Xloc && tilePath.get(i).getTileY() == Yloc && (tilePath.get(i).type2 == 's' || tilePath.get(i).type2 == 'w' || tilePath.get(i).type2 == 'a' || tilePath.get(i).type2 == 'd' || tilePath.get(i).type2 == 'x' || tilePath.get(i).type2 == 'z' || tilePath.get(i).type2 == 'q' || tilePath.get(i).type2 == 'c' || tilePath.get(i).type2 == 'e' || tilePath.get(i).type2 == 'r' && towerType != TowerType.none)){ // check if the stone tile X and Y coords are the same
 				descriptionText = "Towers cannot be on path";
 				return false;
 			}
@@ -432,7 +432,7 @@ public class GameScreen extends Screen {
 		
 		ArrayList<Tower> towerList = CurrentLevel.getTowers(); // get list of already placed towers
 		for(int i = 0; i < towerList.size(); i++) { // check to make sure that the tower is not already in that location
-			if( towerList.get(i).getPosX() == Xloc && towerList.get(i).getPosY() == Yloc) {
+			if( towerList.get(i).getPosX() == Xloc && towerList.get(i).getPosY() == Yloc && towerType != TowerType.none) {
 				descriptionText = "Towers cannot overlap.";
 				return false;				
 			}
