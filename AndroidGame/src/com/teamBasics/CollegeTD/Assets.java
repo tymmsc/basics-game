@@ -7,7 +7,7 @@ import com.teamBasics.framework.Sound;
 
 public class Assets {
    
-    public static Image mainmenu, splash, gamescreen, menubackground;
+    public static Image mainmenu, splash, gamescreen, menubackground, blank;
     
     // Background Images
     public static Image optionsbackground, highscoresbackground, resumebackground, creditsbackground;
@@ -29,7 +29,7 @@ public class Assets {
     // Tower Sprites
     public static Image selectItem, description, option0, option1, option2;
     public static Image redditTower, pencilTower, starbucksTower, towerBox;
-    public static Image sleepUp, socialUp, academicUp;
+    public static Image sleepUp, socialUp, academicUp, lowCost, rangeExtend, lowCooldown;
     
     //Enemy Sprites
     public static Image assignment;

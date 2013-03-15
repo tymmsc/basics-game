@@ -42,6 +42,10 @@ public class LoadingScreen extends Screen {
 		Assets.selectItem = g.newImage("blank.png", ImageFormat.RGB565);
 		Assets.soundFX_off = g.newImage("sound_off.png", ImageFormat.RGB565);
 		Assets.soundFX_on = g.newImage("sound_on.png", ImageFormat.RGB565);
+		Assets.blank = g.newImage("blank.png", ImageFormat.RGB565);
+		
+		
+
 
 		// Background Images
 		Assets.space = g.newImage("space.png", ImageFormat.RGB565);
@@ -115,7 +119,10 @@ public class LoadingScreen extends Screen {
 		Assets.sleepUp = g.newImage("Upgrades/sleep_upgrade.png", ImageFormat.RGB565);
 		Assets.socialUp = g.newImage("Upgrades/social_upgrade.png", ImageFormat.RGB565);
 		Assets.academicUp = g.newImage("Upgrades/academic_upgrade.png", ImageFormat.RGB565);
-
+		Assets.lowCost = g.newImage("Upgrades/lowCost.png", ImageFormat.RGB565);
+		Assets.rangeExtend = g.newImage("Upgrades/rangeExtender.png", ImageFormat.RGB565);
+		Assets.lowCooldown = g.newImage("Upgrades/coolDownLower.png", ImageFormat.RGB565);
+		
 		// This is how you would load a sound if you had one.
 		// Assets.click = game.getAudio().createSound("explode.ogg");
 
