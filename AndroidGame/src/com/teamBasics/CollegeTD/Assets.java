@@ -35,7 +35,9 @@ public class Assets {
     public static Image assignment, teacher, georgiaBulldog;
     
     //Projectile Sprites
-    public static Image pencilProjectile;
+    public static Image pencilProjectile, pencilProjectile2, pencilProjectile3, pencilProjectile4, pencilProjectile5, pencilProjectile6;
+    public static Image redditProjectile, redditProjectile2, redditProjectile3;
+    public static Image starbucksProjectile, starbucksProjectile2, starbucksProjectile3, starbucksProjectile4, starbucksProjectile5, starbucksProjectile6;
     
     //Options Menu Sprites
     public static Image soundFX, soundFX_on, soundFX_off;
