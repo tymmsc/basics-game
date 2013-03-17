@@ -338,6 +338,7 @@ public class GameScreen extends Screen {
 		CurrentLevel.updateBorderTiles();
 		CurrentLevel.updatePathTiles();
 		CurrentLevel.update();
+		CurrentLevel.checkCash();
 	}
 
 	private int validTowerUpgrade(int Xloc, int Yloc) { // WILL RETURN THE INDEX OF THE TOWER
