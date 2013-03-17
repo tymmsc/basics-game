@@ -36,7 +36,7 @@ public abstract class Enemy {
 	// Behavioral Methods
 	public void pathMove() {
 		int next_tileY, next_tileX;
-		if(y+(size/2) >= 360 || x+(size/2) >= 680) {
+		if(y+(size/2) >= 380 || x+(size/2) >= 721) {
 			if(visible==true) {		//means its the first time through
 				kamakazi = true;
 			}
@@ -67,7 +67,7 @@ public abstract class Enemy {
 					next_tileX = x+speed+size;
 				}
 				
-				if(next_tileX <680 && next_tileY < 360) {
+				if(next_tileX < 721 && next_tileY < 380) {
 					PathTile next = searchArray(next_tileX, next_tileY);
 					if(next == null) {
 						movementY=0;
@@ -107,7 +107,7 @@ public abstract class Enemy {
 	public int horizantal_Search() {
 		int left_tiles = x-20;
 		int right_tiles = x+20;
-		while(left_tiles >=0 && right_tiles <=680) {
+		while(left_tiles >=0 && right_tiles <=720) {
 			PathTile left = searchArray(left_tiles, y);
 			PathTile right = searchArray(right_tiles, y);
 			if(left.type2 != 's') {
@@ -125,7 +125,7 @@ public abstract class Enemy {
 	public int vertical_Search() {
 		int above_tiles = y-20;
 		int below_tiles = y+20;
-		while(above_tiles >= 40 && below_tiles <=360) {
+		while(above_tiles >= 40 && below_tiles <=380) {
 			PathTile above = searchArray(x, above_tiles);
 			PathTile below = searchArray(x, below_tiles);
 			if(above.type2 != 's') {
