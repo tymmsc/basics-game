@@ -35,19 +35,26 @@ public class Level {
 		EnemyWave wave1 = new EnemyWave();
 		EnemyGroup group1 = new EnemyGroup(400, 12);
 		EnemyGroup group2 = new EnemyGroup(800, 25);
+		EnemyGroup group3 = new EnemyGroup(1200, 25);
+
 		
 		for(int i=0; i<10; i++) {
 			AssignmentEnemy a = new AssignmentEnemy(tilearrayPath);
 			group1.addEnemy(a);
 		}
 		for(int i=0; i<10; i++) {
-			AssignmentEnemy a = new AssignmentEnemy(tilearrayPath);
-			group2.addEnemy(a);
+			TeacherEnemy t = new TeacherEnemy(tilearrayPath);
+			group2.addEnemy(t);
+		}
+		for(int i=0; i<10; i++) {
+			GeorgiaBulldogEnemy g = new GeorgiaBulldogEnemy(tilearrayPath);
+			group3.addEnemy(g);
 		}
 		
-		if(group1 != null && group2 != null) {
+		if(group1 != null && group2 != null && group3 != null) {
 			wave1.addEnemyGroup(group1);
 			wave1.addEnemyGroup(group2);
+			wave1.addEnemyGroup(group3);
 			waves.add(wave1);
 		}
 		

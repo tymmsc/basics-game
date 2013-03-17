@@ -116,7 +116,21 @@ public class LoadingScreen extends Screen {
 		
 		// Projectile Sprites
 		Assets.pencilProjectile = g.newImage("Projectiles/pencilProjectile.png", ImageFormat.RGB565);
-		
+		Assets.pencilProjectile2 = g.newImage("Projectiles/pencilProjectile2.png", ImageFormat.RGB565);
+		Assets.pencilProjectile3 = g.newImage("Projectiles/pencilProjectile3.png", ImageFormat.RGB565);
+		Assets.pencilProjectile4 = g.newImage("Projectiles/pencilProjectile4.png", ImageFormat.RGB565);
+		Assets.pencilProjectile5 = g.newImage("Projectiles/pencilProjectile5.png", ImageFormat.RGB565);
+		Assets.pencilProjectile6 = g.newImage("Projectiles/pencilProjectile6.png", ImageFormat.RGB565);
+		Assets.redditProjectile = g.newImage("Projectiles/redditProjectile.png", ImageFormat.RGB565);
+		Assets.redditProjectile2 = g.newImage("Projectiles/redditProjectile2.png", ImageFormat.RGB565);
+		Assets.redditProjectile3 = g.newImage("Projectiles/redditProjectile3.png", ImageFormat.RGB565);
+		Assets.starbucksProjectile = g.newImage("Projectiles/starbucksProjectile.png", ImageFormat.RGB565);
+		Assets.starbucksProjectile2 = g.newImage("Projectiles/starbucksProjectile2.png", ImageFormat.RGB565);
+		Assets.starbucksProjectile3 = g.newImage("Projectiles/starbucksProjectile3.png", ImageFormat.RGB565);
+		Assets.starbucksProjectile4 = g.newImage("Projectiles/starbucksProjectile4.png", ImageFormat.RGB565);
+		Assets.starbucksProjectile5 = g.newImage("Projectiles/starbucksProjectile5.png", ImageFormat.RGB565);
+		Assets.starbucksProjectile6 = g.newImage("Projectiles/starbucksProjectile6.png", ImageFormat.RGB565);
+	
 		// Upgrade Sprites
 		Assets.sleepUp = g.newImage("Upgrades/sleep_upgrade.png", ImageFormat.RGB565);
 		Assets.socialUp = g.newImage("Upgrades/social_upgrade.png", ImageFormat.RGB565);
