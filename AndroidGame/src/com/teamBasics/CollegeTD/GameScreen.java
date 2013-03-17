@@ -1,6 +1,8 @@
 package com.teamBasics.CollegeTD;
 
 import java.util.ArrayList;
+import java.io.*;
+import android.content.Context;
 import java.util.List;
 import java.util.Scanner;
 
@@ -37,7 +39,6 @@ public class GameScreen extends Screen {
 	private int Ytower = 0;
 	private int Xbox = -50;
 	private int Ybox = -50;
-
 	Paint paintInit, paintMenu, paintDescriptionText, paintHUBText;
 
 	//Levels
@@ -63,7 +64,6 @@ public class GameScreen extends Screen {
 		paintInit.setTextAlign(Paint.Align.CENTER);
 		paintInit.setAntiAlias(true);
 		paintInit.setColor(Color.GRAY);
-
 		// Back button (options menu)
 		paintMenu = new Paint();
 		paintMenu.setTextSize(100);
@@ -283,7 +283,9 @@ public class GameScreen extends Screen {
 
 				if (inBounds(event, 0, 240, 800, 240)) {
 					nullify();
+					int[] trial = {1,3,4};
 					goToMenu();
+				
 				}
 			}
 		}

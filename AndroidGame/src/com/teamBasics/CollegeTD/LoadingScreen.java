@@ -7,6 +7,8 @@
 package com.teamBasics.CollegeTD;
 
 
+import android.util.Log;
+
 import com.teamBasics.framework.Game;
 import com.teamBasics.framework.Graphics;
 import com.teamBasics.framework.Image;
@@ -29,7 +31,7 @@ public class LoadingScreen extends Screen {
 
 	@Override
 	public void update(float deltaTime) {
-		System.out.println("UPDATE");
+		
 		Graphics g = game.getGraphics();
 		if(!init){
 		Assets.mainmenu = g.newImage("mainMenu_stare.png", ImageFormat.RGB565);
@@ -152,7 +154,10 @@ public class LoadingScreen extends Screen {
 
 	@Override
 	public void paint(float deltaTime) {
-		System.out.println("PAINT");
+		System.out.println("paint");
+		Log.d("MyApp", "work");
+		Log.i("MyApp", "work i");
+		
 		Graphics g = game.getGraphics();
 		splashAnim.update(10);
 
