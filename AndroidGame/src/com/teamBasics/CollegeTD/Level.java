@@ -115,6 +115,31 @@ public class Level {
 			livesLeft = 0;
 		}
 	}
+	
+	//Updates the cash when an update is called in GameScreen
+	
+	int num=0;
+	public void checkCash(){
+		ArrayList<Enemy> enemies;
+		ArrayList<Enemy> totalenemies;
+		int size=0;
+		for(int i=0; i<waves.size(); i++) {
+			enemies = waves.get(i).killedEnemies();
+			totalenemies = waves.get(i).allEnemies();
+			size=enemies.size();
+			if(size!=num){
+				num=size;
+				cash+=5;
+				score+=20;
+			}
+			for(int j=0; j<totalenemies.size();j++){
+				if(totalenemies.get(j).isKamakazi()){
+					cash-=5;
+					score-=20;
+				}
+			}
+		}
+	}
 
 	//Will be used later on to load the map for each level
 	// Load map border
