@@ -50,6 +50,37 @@ public class EnemyWave {
 		
 	}
 	
+	public ArrayList<Enemy> allEnemies() {
+		ArrayList<Enemy> allEnemies = new ArrayList<Enemy>();
+		EnemyGroup group;
+		for(int i=0; i<wave.size(); i++) {
+			group = wave.get(i);
+			ArrayList<Enemy> currentGroup = group.getGroup();
+			for(int j=0; j<currentGroup.size(); j++) {
+				Enemy e = currentGroup.get(j);
+				allEnemies.add(e);
+			}
+		}
+		return allEnemies;
+	}
+	
+	//List of all enemies that have been killed
+	public ArrayList<Enemy> killedEnemies() {
+		ArrayList<Enemy> killedEnemies = new ArrayList<Enemy>();
+		EnemyGroup group;
+		for(int i=0; i<wave.size(); i++) {
+			group = wave.get(i);
+			ArrayList<Enemy> currentGroup = group.getGroup();
+			for(int j=0; j<currentGroup.size(); j++) {
+				Enemy e = currentGroup.get(j);
+				if(e.isDead() && !e.isVisible() && !e.isKamakazi()) {
+					killedEnemies.add(e);
+				}
+			}
+		}
+		return killedEnemies;
+	}
+	
 	/*
 	 * Returns a list of all the enemies who are alive in the wave
 	 */
