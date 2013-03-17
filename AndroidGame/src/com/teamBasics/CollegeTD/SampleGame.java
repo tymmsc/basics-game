@@ -28,6 +28,7 @@ public class SampleGame extends AndroidGame {
 		if (firstTimeCreate) {
 			Assets.load(this);
 			SaveState.load(getFileIO());
+			//currentLevel=SaveState.currentLevel;
 			firstTimeCreate = false;
 		}
 

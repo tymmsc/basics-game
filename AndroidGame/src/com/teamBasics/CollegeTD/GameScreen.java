@@ -14,6 +14,7 @@ import com.teamBasics.framework.Image;
 import com.teamBasics.framework.Graphics.ImageFormat;
 import com.teamBasics.framework.Input.TouchEvent;
 import com.teamBasics.framework.Screen;
+import com.teamBasics.CollegeTD.SaveState;
 
 public class GameScreen extends Screen {
 	enum GameState {
@@ -47,6 +48,10 @@ public class GameScreen extends Screen {
 	
 	public GameScreen(Game game) {
 		super(game);
+	//	SaveState.scoreTest=5000;
+	//	SaveState.save(game.getFileIO());
+	//	SaveState.scoreTest=1000;
+	//	SaveState.load(game.getFileIO());
 		Assets.option0 = Assets.blank;
 		Assets.option1 = Assets.blank;
 		Assets.option2 = Assets.blank;
@@ -57,7 +62,7 @@ public class GameScreen extends Screen {
 		//level1 = new Level();
 		// Must update CurrentLevel to next level when user has defeated all enemies.
 		CurrentLevel = levelArray.get(0);	
-		
+	//	CurrentLevel.setScore(SaveState.scoreTest);
 		// Defining a paint object
 		// Start Text
 		paintInit = new Paint();
@@ -557,7 +562,6 @@ public class GameScreen extends Screen {
 	public void pause() {
 		if (state == GameState.Running)
 			state = GameState.Paused;
-
 	}
 
 	@Override
