@@ -223,14 +223,14 @@ public class Level {
 	}
 	
 	
-	public void paintBorderTiles(Graphics g) {
+	/*public void paintBorderTiles(Graphics g) {
 		for (int i = 0; i < tilearrayBorder.size(); i++) {
 			BorderTile t = (BorderTile) tilearrayBorder.get(i);
 			if (t.type != 0) {
 				g.drawImage(t.getTileImage(), t.getTileX(), t.getTileY());
 			}
 		}
-	}
+	}*/
 
 	public void paintPathTiles(Graphics g) {
 		for (int i = 0; i < tilearrayPath.size(); i++) {
@@ -242,14 +242,14 @@ public class Level {
 	}
 
 
-	public void updateBorderTiles() {
+	/*public void updateBorderTiles() {
 
 		for (int i = 0; i < tilearrayBorder.size(); i++) {
 			BorderTile t = (BorderTile) tilearrayBorder.get(i);
 			t.update();
 		}
 
-	}
+	}*/
 	
 	public void updatePathTiles() {
 		for (int i = 0; i < tilearrayPath.size(); i++) {
