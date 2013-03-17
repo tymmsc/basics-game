@@ -21,7 +21,7 @@ public class RedditProjectile extends Projectile {
 
 	@Override
 	public void draw(Graphics g) {
-		g.drawImage(Assets.pencilProjectile, x, y); // Change this line
+		g.drawImage(Assets.redditProjectile, x, y); // Change this line
 	}
 	
 }
