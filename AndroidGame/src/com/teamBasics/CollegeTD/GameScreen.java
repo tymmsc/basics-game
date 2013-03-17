@@ -454,9 +454,9 @@ public class GameScreen extends Screen {
 		Graphics g = game.getGraphics();
 		
 		// Tower sprites
-		g.drawImage(Assets.redditTower, leftSideTowerPixel, 49);
-		g.drawImage(Assets.pencilTower, leftSideTowerPixel, 115);
-		g.drawImage(Assets.starbucksTower, leftSideTowerPixel, 181);
+		g.drawImage(Assets.redditTower, leftSideTowerPixel, 103);
+		g.drawImage(Assets.pencilTower, leftSideTowerPixel, 163);
+		g.drawImage(Assets.starbucksTower, leftSideTowerPixel, 223);
 		
 		// Draw towers that are being dragged
 		// 
@@ -473,9 +473,9 @@ public class GameScreen extends Screen {
 		
 		
 		// Upgrade sprites
-		g.drawImage(Assets.sleepUp, leftSideTowerPixel, 245);
-		g.drawImage(Assets.socialUp, leftSideTowerPixel, 309);
-		g.drawImage(Assets.academicUp, leftSideTowerPixel, 373);
+		g.drawImage(Assets.sleepUp, leftSideTowerPixel, 283);
+		g.drawImage(Assets.socialUp, leftSideTowerPixel, 343);
+		g.drawImage(Assets.academicUp, leftSideTowerPixel, 403);
 		
 		g.drawImage(Assets.selectItem, 49, 423);
 		g.drawImage(Assets.option0, 468, 418);
@@ -491,7 +491,7 @@ public class GameScreen extends Screen {
 		g.drawString(cashText, 695, 26, paintHUBText);
 		
 		CurrentLevel.draw(g);
-		if(towerType != TowerType.none && (Xtower > 21 && Xtower < 619 && Ytower > 61 && Ytower < 299)){
+		if(towerType != TowerType.none && (Xtower > 0 && Xtower < 701 && Ytower > 21 && Ytower < 339)){
 			g.drawImage(Assets.towerBox, Xbox, Ybox);
 		}
 	}
