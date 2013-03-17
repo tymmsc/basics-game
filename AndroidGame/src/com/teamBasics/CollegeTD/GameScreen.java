@@ -338,7 +338,7 @@ public class GameScreen extends Screen {
 		// 3. Call individual update() methods here.
 		// This is where all the game updates happens
 
-		CurrentLevel.updateBorderTiles();
+		//CurrentLevel.updateBorderTiles();
 		CurrentLevel.updatePathTiles();
 		CurrentLevel.update();
 	}
@@ -414,7 +414,7 @@ public class GameScreen extends Screen {
 		//g.drawImage(Assets.space, 340, 200);
 		
 		// Paint Tiles
-		CurrentLevel.paintBorderTiles(g);
+		//CurrentLevel.paintBorderTiles(g);
 		CurrentLevel.paintPathTiles(g);
 
 		// Secondly, draw the UI above the game elements.
