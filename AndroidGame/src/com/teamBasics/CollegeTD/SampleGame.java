@@ -12,6 +12,7 @@ import com.teamBasics.CollegeTD.R;
 import com.teamBasics.CollegeTD.GameScreen;
 import com.teamBasics.framework.Screen;
 import com.teamBasics.framework.implementation.AndroidGame;
+import com.teamBasics.CollegeTD.SaveState;
 
 public class SampleGame extends AndroidGame {
 
@@ -19,15 +20,17 @@ public class SampleGame extends AndroidGame {
 	public ArrayList<InputStream> inputSB, inputSP; 
 	boolean firstTimeCreate = true;
 	private int currentLevel;
+	
 
 	@Override
 	public Screen getInitScreen() {
 
 		if (firstTimeCreate) {
 			Assets.load(this);
+			SaveState.load(getFileIO());
 			firstTimeCreate = false;
 		}
-		
+
 		inputSB = new ArrayList<InputStream>(20);
 		inputSP = new ArrayList<InputStream>(20);
 		
