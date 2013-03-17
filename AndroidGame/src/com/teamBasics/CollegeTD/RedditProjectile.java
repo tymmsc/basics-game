@@ -20,8 +20,9 @@ public class RedditProjectile extends Projectile {
 	}
 
 	@Override
+	// add checks for which projectile to shoot
 	public void draw(Graphics g) {
-		g.drawImage(Assets.redditProjectile, x, y); // Change this line
+		g.drawImage(Assets.redditProjectile, x, y); 
 	}
 	
 }
