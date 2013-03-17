@@ -32,7 +32,7 @@ public class Assets {
     public static Image sleepUp, socialUp, academicUp, lowCost, rangeExtend, lowCooldown;
     
     //Enemy Sprites
-    public static Image assignment;
+    public static Image assignment, teacher, georgiaBulldog;
     
     //Projectile Sprites
     public static Image pencilProjectile;
