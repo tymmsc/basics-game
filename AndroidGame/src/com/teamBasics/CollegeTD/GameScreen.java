@@ -413,6 +413,12 @@ public class GameScreen extends Screen {
 		//g.drawImage(Assets.space, 0, 200);
 		//g.drawImage(Assets.space, 340, 41);
 		//g.drawImage(Assets.space, 340, 200);
+		g.drawImage(Assets.ltDirtCenter, 0, 41);
+		g.drawImage(Assets.ltDirtCenter, 256, 41);
+		g.drawImage(Assets.ltDirtCenter, 0, 210);
+		g.drawImage(Assets.ltDirtCenter, 256, 210);
+		g.drawImage(Assets.ltDirtRight, 512, 41);
+		g.drawImage(Assets.ltDirtRight, 512, 210);
 		
 		// Paint Tiles
 		//CurrentLevel.paintBorderTiles(g);
