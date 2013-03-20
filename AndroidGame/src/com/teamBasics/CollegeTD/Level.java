@@ -171,13 +171,11 @@ public class Level {
 	int num=0;
 	public void checkCash(){
 		ArrayList<Enemy> enemies;
-		ArrayList<Enemy> totalenemies;
 		int size=0;
 		for(int i=0; i<waves.size(); i++) {
 			enemies = waves.get(i).killedEnemies();
-			totalenemies = waves.get(i).allEnemies();
 			size=enemies.size();
-			if(size!=num && isKama(totalenemies)!=true){
+			if(size!=num){
 				num=size;
 				cash+=5;
 				score+=20;
