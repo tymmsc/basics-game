@@ -144,7 +144,9 @@ public class LoadingScreen extends Screen {
 		Assets.lowCost = g.newImage("Upgrades/lowCost.png", ImageFormat.RGB565);
 		Assets.rangeExtend = g.newImage("Upgrades/rangeExtender.png", ImageFormat.RGB565);
 		Assets.lowCooldown = g.newImage("Upgrades/coolDownLower.png", ImageFormat.RGB565);
-		
+		Assets.sell = g.newImage("Upgrades/sell.png", ImageFormat.RGB565);
+		Assets.upgrade = g.newImage("Upgrades/upgrade.png", ImageFormat.RGB565);
+		Assets.downgrade = g.newImage("Upgrades/downgrade.png", ImageFormat.RGB565);
 		// This is how you would load a sound if you had one.
 		// Assets.click = game.getAudio().createSound("explode.ogg");
 
