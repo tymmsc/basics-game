@@ -16,11 +16,20 @@ import com.teamBasics.CollegeTD.SaveState;
 
 public class SampleGame extends AndroidGame {
 
-	public static String mapBorder, mapPath;
-	public ArrayList<InputStream> inputSB, inputSP; 
+	public static String mapPath;
+	public ArrayList<InputStream> inputSB;
+	public static ArrayList<InputStream> inputSP; 
 	boolean firstTimeCreate = true;
-	private int currentLevel;
+	private static int currentLevel;
 	
+
+	public int getCurrentLevel() {
+		return currentLevel;
+	}
+
+	public static void setCurrentLevel(int currentLevelNew) {
+		currentLevel = currentLevelNew;
+	}
 
 	@Override
 	public Screen getInitScreen() {
@@ -31,34 +40,11 @@ public class SampleGame extends AndroidGame {
 			firstTimeCreate = false;
 		}
 
-		inputSB = new ArrayList<InputStream>(20);
-		inputSP = new ArrayList<InputStream>(20);
+		//inputSB = new ArrayList<InputStream>(20);
+		inputSP = new ArrayList<InputStream>(12);
 		
 		// Need to set new level number when user has defeated all enemies on selected map.
 		currentLevel = 2; 
-				//GameScreen.getCurrentLevel().getLevel_number();
-
-		// Adding Border Map Tile Conversions
-		inputSB.add(0, getResources().openRawResource(R.raw.bordermap1));
-		inputSB.add(1, getResources().openRawResource(R.raw.bordermap2));
-		//inputSB.add(2, getResources().openRawResource(R.raw.bordermap3));
-		//inputSB.add(3, getResources().openRawResource(R.raw.bordermap4));
-		//inputSB.add(4, getResources().openRawResource(R.raw.bordermap5));
-		//inputSB.add(5, getResources().openRawResource(R.raw.bordermap6));
-		//inputSB.add(6, getResources().openRawResource(R.raw.bordermap7));
-		//inputSB.add(7, getResources().openRawResource(R.raw.bordermap8));
-		//inputSB.add(8, getResources().openRawResource(R.raw.bordermap9));
-		//inputSB.add(9, getResources().openRawResource(R.raw.bordermap10));
-		//inputSB.add(10, getResources().openRawResource(R.raw.bordermap11));
-		//inputSB.add(11, getResources().openRawResource(R.raw.bordermap12));
-		//inputSB.add(12, getResources().openRawResource(R.raw.bordermap13));
-		//inputSB.add(13, getResources().openRawResource(R.raw.bordermap14));
-		//inputSB.add(14, getResources().openRawResource(R.raw.bordermap15));
-		//inputSB.add(15, getResources().openRawResource(R.raw.bordermap16));
-		//inputSB.add(16, getResources().openRawResource(R.raw.bordermap17));
-		//inputSB.add(17, getResources().openRawResource(R.raw.bordermap18));
-		//inputSB.add(18, getResources().openRawResource(R.raw.bordermap19));
-		//inputSB.add(19, getResources().openRawResource(R.raw.bordermap20));
 		
 		// Adding Path Map Tile Conversions
 		inputSP.add(0, getResources().openRawResource(R.raw.pathmap1));
@@ -73,22 +59,19 @@ public class SampleGame extends AndroidGame {
 		//inputSP.add(9, getResources().openRawResource(R.raw.pathmap10));
 		//inputSP.add(10, getResources().openRawResource(R.raw.pathmap11));
 		//inputSP.add(11, getResources().openRawResource(R.raw.pathmap12));
-		//inputSP.add(12, getResources().openRawResource(R.raw.pathmap13));
-		//inputSP.add(13, getResources().openRawResource(R.raw.pathmap14);
-		//inputSP.add(14, getResources().openRawResource(R.raw.pathmap15));
-		//inputSP.add(15, getResources().openRawResource(R.raw.pathmap16));
-		//inputSP.add(16, getResources().openRawResource(R.raw.pathmap17));
-		//inputSP.add(17, getResources().openRawResource(R.raw.pathmap18));
-		//inputSP.add(18, getResources().openRawResource(R.raw.pathmap19));
-		//inputSP.add(19, getResources().openRawResource(R.raw.pathmap20));
+
 		
 		// Border and Path Tile Selection based on Level
-		mapBorder = convertStreamToString(inputSB.get(currentLevel-1));
-		mapPath = convertStreamToString(inputSP.get(currentLevel-1));		
+		//mapBorder = convertStreamToString(inputSB.get(currentLevel-1));
+		loadMapPath();		
 
 		return new SplashLoadingScreen(this);
 	}
 
+	public static void loadMapPath(){
+		mapPath = convertStreamToString(inputSP.get(currentLevel-1));
+	}
+	
 	@Override
 	public void onBackPressed() {
 		getCurrentScreen().backButton();

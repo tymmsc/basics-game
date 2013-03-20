@@ -6,11 +6,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.teamBasics.framework.Graphics;
+import com.teamBasics.CollegeTD.SampleGame;
 
 public class Level {
 	//GamePlay Level Info
 	private ArrayList<EnemyWave> waves = new ArrayList<EnemyWave>();;
-	private ArrayList<BorderTile> tilearrayBorder = new ArrayList<BorderTile>();
+	//private ArrayList<BorderTile> tilearrayBorder = new ArrayList<BorderTile>();
 	private ArrayList<PathTile> tilearrayPath = new ArrayList<PathTile>();
 	private ArrayList<Tower> towers = new ArrayList<Tower>();
 	private ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
@@ -22,49 +23,84 @@ public class Level {
 	
 	//Will later be used to tell which map to load
 	private int level_number;
+	private boolean levelComplete;
 	
 	//Later in the constructor this class can just be given the level number
 	//That way each level can have a different map
-	public Level() {
-		//Instantiation of 1 wave of enemies and 1 tower
-		level_number = 1;
-		
-		loadMapBorder();
+	public Level(int level_number) {		
+		//loadMapBorder();
 		loadMapPath();
-				
-		EnemyWave wave1 = new EnemyWave();
-		EnemyGroup group1 = new EnemyGroup(400, 12);
-		EnemyGroup group2 = new EnemyGroup(800, 25);
-		EnemyGroup group3 = new EnemyGroup(1200, 25);
-
-		
-		for(int i=0; i<10; i++) {
-			AssignmentEnemy a = new AssignmentEnemy(tilearrayPath);
-			group1.addEnemy(a);
-		}
-		for(int i=0; i<10; i++) {
-			TeacherEnemy t = new TeacherEnemy(tilearrayPath);
-			group2.addEnemy(t);
-		}
-		for(int i=0; i<10; i++) {
-			GeorgiaBulldogEnemy g = new GeorgiaBulldogEnemy(tilearrayPath);
-			group3.addEnemy(g);
-		}
-		
-		if(group1 != null && group2 != null && group3 != null) {
-			wave1.addEnemyGroup(group1);
-			wave1.addEnemyGroup(group2);
-			wave1.addEnemyGroup(group3);
-			waves.add(wave1);
-		}
-		
-		//PencilTower tower1 = new PencilTower(200, 160);
-		//towers.add(tower1);
+		loadLevel(level_number);	
+		levelComplete = false;
 	}
 	
 	//Adds a wave to the level
 	public void addWave(EnemyWave wave) {
 		waves.add(wave);
+	}
+	
+	//Update to next level.
+	public void loadLevel(int level_number){
+		
+		if( level_number == 1 ){
+			EnemyWave wave1 = new EnemyWave();
+			EnemyGroup group1 = new EnemyGroup(400, 12);
+			EnemyGroup group2 = new EnemyGroup(800, 25);
+			EnemyGroup group3 = new EnemyGroup(1200, 25);
+
+			// Add enemies to group
+			for(int i=0; i<10; i++) {
+				AssignmentEnemy a = new AssignmentEnemy(tilearrayPath);
+				group1.addEnemy(a);
+			}
+			for(int i=0; i<10; i++) {
+				TeacherEnemy t = new TeacherEnemy(tilearrayPath);
+				group2.addEnemy(t);
+			}
+			for(int i=0; i<10; i++) {
+				GeorgiaBulldogEnemy g = new GeorgiaBulldogEnemy(tilearrayPath);
+				group3.addEnemy(g);
+			}
+		
+			// Add groups to wave
+			if(group1 != null && group2 != null && group3 != null) {
+				wave1.addEnemyGroup(group1);
+				wave1.addEnemyGroup(group2);
+				wave1.addEnemyGroup(group3);
+				waves.add(wave1);
+			}
+		} // End Level_1
+
+		
+		if( level_number == 2 ){
+			EnemyWave wave1 = new EnemyWave();
+			EnemyGroup group1 = new EnemyGroup(400, 12);
+			EnemyGroup group2 = new EnemyGroup(800, 25);
+			EnemyGroup group3 = new EnemyGroup(1200, 25);
+
+			// Add enemies to group
+			for(int i=0; i<10; i++) {
+				AssignmentEnemy a = new AssignmentEnemy(tilearrayPath);
+				group1.addEnemy(a);
+			}
+			for(int i=0; i<10; i++) {
+				TeacherEnemy t = new TeacherEnemy(tilearrayPath);
+				group2.addEnemy(t);
+			}
+			for(int i=0; i<10; i++) {
+				GeorgiaBulldogEnemy g = new GeorgiaBulldogEnemy(tilearrayPath);
+				group3.addEnemy(g);
+			}
+		
+			// Add groups to wave
+			if(group1 != null && group2 != null && group3 != null) {
+				wave1.addEnemyGroup(group1);
+				wave1.addEnemyGroup(group2);
+				wave1.addEnemyGroup(group3);
+				waves.add(wave1);
+			}
+		} // End Level_2
+
 	}
 	
 	//Update 1 wave of the level at a time. Update the first wave you
@@ -73,9 +109,16 @@ public class Level {
 		//update enemies
 		EnemyWave waveToUpdate = null;
 		for(int i=0; i<waves.size(); i++) {
+			// Enemy waves not complete
 			if(!(waves.get(i).isComplete())) {
 				waveToUpdate = waves.get(i);
-				break;
+				//break;
+			}
+			// Enemy waves complete
+			else if( i == waves.size()-1 ){
+				SampleGame.setCurrentLevel(level_number+1);
+				SampleGame.loadMapPath();
+				setLevelComplete(true);
 			}
 		}
 		//update towers
@@ -153,7 +196,7 @@ public class Level {
 
 	//Will be used later on to load the map for each level
 	// Load map border
-	public void loadMapBorder() {
+	/*public void loadMapBorder() {
 		ArrayList<String> lines = new ArrayList<String>();
 		int width = 0;
 		int height = 0;
@@ -185,7 +228,7 @@ public class Level {
 				}
 			}
 		}
-	}
+	}*/
 
 
 	// Load walkway-path
@@ -270,13 +313,13 @@ public class Level {
 		this.waves = level;
 	}
 
-	public ArrayList<BorderTile> getTilearrayBorder() {
+	/*public ArrayList<BorderTile> getTilearrayBorder() {
 		return tilearrayBorder;
 	}
 
 	public void setTilearrayBorder(ArrayList<BorderTile> tilearrayBorder) {
 		this.tilearrayBorder = tilearrayBorder;
-	}
+	}*/
 
 	public ArrayList<PathTile> getTilearrayPath() {
 		return tilearrayPath;
@@ -336,6 +379,14 @@ public class Level {
 
 	public void setLevel_number(int level_number) {
 		this.level_number = level_number;
+	}
+
+	public boolean isLevelComplete() {
+		return levelComplete;
+	}
+
+	public void setLevelComplete(boolean levelComplete) {
+		this.levelComplete = levelComplete;
 	}
 	
 }

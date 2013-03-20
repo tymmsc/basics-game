@@ -46,18 +46,16 @@ public class GameScreen extends Screen {
 	
 	private int leftSideTowerPixel = 734 + 8;
 	private int rightSideTowerPixel = leftSideTowerPixel + 40;
-	//private Level level1;
 	
 	public GameScreen(Game game) {
 		super(game);
 		Assets.option0 = Assets.blank;
 		Assets.option1 = Assets.blank;
 		Assets.option2 = Assets.blank;
-		for(int i = 0; i < 20; i++){
-			levelArray.add(i, ( new Level() ));
-			levelArray.get(i).setLevel_number(i+1);
+		for(int i = 0; i < 12; i++){
+			levelArray.add(i, ( new Level(i+1) ));
 		}
-		//level1 = new Level();
+	
 		// Must update CurrentLevel to next level when user has defeated all enemies.
 		CurrentLevel = levelArray.get(0);	
 		
@@ -112,19 +110,19 @@ public class GameScreen extends Screen {
 	}
 
 	private void updateReady(List<TouchEvent> touchEvents) {
-
 		// This example starts with a "Ready" screen.
 		// When the user touches the screen, the game begins.
 		// state now becomes GameState.Running.
 		// Now the updateRunning() method will be called!
-
 		if (touchEvents.size() > 0)
 			state = GameState.Running;
 	}
 
 	private void updateRunning(List<TouchEvent> touchEvents, float deltaTime) {
+		if(CurrentLevel.isLevelComplete() == true){
+			CurrentLevel = levelArray.get(CurrentLevel.getLevel_number()-1);
+		}
 		Graphics sel = game.getGraphics();
-		// This is identical to the update() method from our Unit 2/3 game.
 
 		// 1. All touch input is handled here:
 		int len = touchEvents.size();
@@ -324,13 +322,11 @@ public class GameScreen extends Screen {
 					Assets.selectItem = Assets.blank;
 				}
 				
-				
 				towerType = TowerType.none;
-				}
+			}
 		}
 
 		// 2. Check miscellaneous events like death:
-
 		if (CurrentLevel.getLivesLeft() == 0) {
 			state = GameState.GameOver;
 		}
