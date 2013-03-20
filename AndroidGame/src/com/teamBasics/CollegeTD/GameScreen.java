@@ -157,8 +157,8 @@ public class GameScreen extends Screen {
 				}
 				// Starbucks Tower
 				else if(inBounds(event, leftSideTowerPixel, 223, 40, 40)){
-					Assets.selectItem = Assets.starbucksTower;
-					descriptionText = "This is the starbucks tower!";
+					Assets.selectItem = Assets.cokeTower;
+					descriptionText = "This is the coke tower!";
 					towerType = TowerType.starbucks;
 					Xtower = -50;
 					Ytower = -50;
@@ -270,7 +270,7 @@ public class GameScreen extends Screen {
 							Assets.option1 = Assets.rangeExtend;
 							Assets.option2 = Assets.lowCooldown;
 						} else if (towerList.get(towerNumber) instanceof StarbucksTower) {
-							Assets.selectItem = Assets.starbucksTower;
+							Assets.selectItem = Assets.cokeTower;
 							Assets.option0 = Assets.lowCost;
 							Assets.option1 = Assets.rangeExtend;
 							Assets.option2 = Assets.lowCooldown;
@@ -463,7 +463,7 @@ public class GameScreen extends Screen {
 		// Tower sprites
 		g.drawImage(Assets.redditTower, leftSideTowerPixel, 103);
 		g.drawImage(Assets.pencilTower, leftSideTowerPixel, 163);
-		g.drawImage(Assets.starbucksTower, leftSideTowerPixel, 223);
+		g.drawImage(Assets.cokeTower, leftSideTowerPixel, 223);
 		
 		// Draw towers that are being dragged
 		// 
@@ -471,7 +471,7 @@ public class GameScreen extends Screen {
 			g.drawImage(Assets.redditTower, Xtower, Ytower);
 		}
 		else if (towerType == TowerType.starbucks) {
-			g.drawImage(Assets.starbucksTower, Xtower, Ytower);
+			g.drawImage(Assets.cokeTower, Xtower, Ytower);
 		}
 		else if (towerType == TowerType.pencil) {
 			g.drawImage(Assets.pencilTower, Xtower, Ytower);

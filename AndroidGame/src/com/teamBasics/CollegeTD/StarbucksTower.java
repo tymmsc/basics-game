@@ -17,7 +17,7 @@ public class StarbucksTower extends Tower {
 	}
 	
 	public void draw(Graphics g) {
-		g.drawImage(Assets.starbucksTower, posX, posY);
+		g.drawImage(Assets.cokeTower, posX, posY);
 	}
 
 	@Override

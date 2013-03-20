@@ -103,9 +103,15 @@ public class LoadingScreen extends Screen {
 		Assets.stoneRTC = g.newImage("StonePathTiles/stone_RTC20.PNG", ImageFormat.RGB565);
 		
 		// Tower Sprites
+		//Assets.facebookTower = g.newImage("Towers/facebook_tower.png", ImageFormat.RGB565);
 		Assets.redditTower = g.newImage("Towers/reddit_tower.png", ImageFormat.RGB565);
+		//Assets.netflixTower = g.newImage("Towers/netflix_tower.png", ImageFormat.RGB565);
 		Assets.pencilTower = g.newImage("Towers/pencil_tower.png", ImageFormat.RGB565);
+		//Assets.mechanicalPencilTower = g.newImage("Towers/mechanical_pencil_tower.png", ImageFormat.RGB565);
+		//Assets.penTower = g.newImage("Towers/pen_tower.png", ImageFormat.RGB565);
+		Assets.cokeTower = g.newImage("Towers/coke_tower.png", ImageFormat.RGB565);
 		Assets.starbucksTower = g.newImage("Towers/starbucks_tower.png", ImageFormat.RGB565);
+		Assets.redbullTower = g.newImage("Towers/redbull_tower.png", ImageFormat.RGB565);
 		Assets.towerBox = g.newImage("Towers/box_tower.png", ImageFormat.RGB565);
 		
 
