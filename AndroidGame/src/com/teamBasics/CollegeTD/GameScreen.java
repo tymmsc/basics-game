@@ -202,130 +202,16 @@ public class GameScreen extends Screen {
 					pause();
 				}
 				
+				//towerNumber = -1; Messed up the code for some reason haha
+				towerPlacement(X, Y);
+				touchTowerSel(X, Y); // Checks if the touch was on top of a tower.
+				upgradeTowerSel(X, Y); // THIS PART WILL TAKE CARE OF SELECTING THE UPGRADES //
 				
-				if(Xtower > 0 && Xtower < 701 && Ytower > 21 && Ytower < 339) {  // CHANGE TO ACTUAL VALUES
-					Xtower = cordFix(Xtower);
-					Ytower = cordFix(Ytower);
-					Xbox = -50;
-					Ybox = -50;
-					
-					if(validPlacement(Xtower, Ytower)) {
-					
-					
-						if (towerType == TowerType.reddit) {
-							RedditTower temp = new RedditTower(Xtower, Ytower);
-							if(CurrentLevel.getCash()>=temp.cost) {
-								CurrentLevel.addTower(temp);
-								CurrentLevel.setCash(CurrentLevel.getCash()-temp.cost);
-							} else {
-								descriptionText = "Insufficient funds!";
-							}
-						}
-						else if (towerType == TowerType.starbucks) {
-					
-							StarbucksTower temp = new StarbucksTower(Xtower, Ytower);
-							if(CurrentLevel.getCash()>=temp.cost) {
-								CurrentLevel.addTower(temp);
-								CurrentLevel.setCash(CurrentLevel.getCash()-temp.cost);	
-							} else {
-								descriptionText = "Insufficient funds!";
-							}
-						}
-						else if (towerType == TowerType.pencil) {
-					
-							PencilTower temp = new PencilTower(Xtower, Ytower);
-							if(CurrentLevel.getCash()>=temp.cost) {
-								CurrentLevel.addTower(temp);
-								CurrentLevel.setCash(CurrentLevel.getCash()-temp.cost);
-							} else {
-								descriptionText = "Insufficient funds!";
-							}
-						}
-						}
-				} else {
-					// invalid tower placement
-					towerType = TowerType.none;
-				}
-				
-				// THIS WILL BE THE SECTION FOR TOWER UPGRADES BASED ON THE TOUCH_SCREEN
-				// FIRST TAKE THE TOUCH AND SEE IF IT IS LET UP ON TOP OF A TOWER
-				if(towerType == TowerType.none) { // only run if the tower is not being placed.
-					if(X > 468 && X < 528 && Y > 418 && Y < 468 || X > 548 && X < 608 && Y > 418 && Y < 468 || X > 628 && X < 688 && Y > 418 && Y < 468) {
-						// do nothing, touch was inside the upgrade. Code for this part is below.
-					} else {
-					towerNumber = validTowerUpgrade(cordFixTow(X), cordFixTow(Y));
-					if(towerNumber >= 0) {
-						ArrayList<Tower> towerList = CurrentLevel.getTowers();
-						descriptionText = "Select upgrade for tower# " + (towerNumber+1);
-						if(towerList.get(towerNumber) instanceof RedditTower) { // MAKE SURE TO UPDATE ACTUAL UPGRADE IMAGES
-							Assets.selectItem = Assets.redditTower;
-							Assets.option0 = Assets.lowCost;
-							Assets.option1 = Assets.rangeExtend;
-							Assets.option2 = Assets.lowCooldown;
-						} else if (towerList.get(towerNumber) instanceof PencilTower) {
-							Assets.selectItem = Assets.pencilTower;
-							Assets.option0 = Assets.lowCost;
-							Assets.option1 = Assets.rangeExtend;
-							Assets.option2 = Assets.lowCooldown;
-						} else if (towerList.get(towerNumber) instanceof StarbucksTower) {
-							Assets.selectItem = Assets.cokeTower;
-							Assets.option0 = Assets.lowCost;
-							Assets.option1 = Assets.rangeExtend;
-							Assets.option2 = Assets.lowCooldown;
-						}
-					} else {
-						Assets.selectItem = Assets.blank;
-						Assets.option0 = Assets.blank;
-						Assets.option1 = Assets.blank;
-						Assets.option2 = Assets.blank;
-					}
-					}
-					towerType = TowerType.none;
-				}
-				
-				
-				// THIS PART WILL TAKE CARE OF SELECTING THE UPGRADES //
-				if(X > 468 && X < 528 && Y > 418 && Y < 468 || X > 548 && X < 608 && Y > 418 && Y < 468 || X > 628 && X < 688 && Y > 418 && Y < 468 && towerNumber >= 0) {
-					
-					ArrayList<Tower> towerList = CurrentLevel.getTowers();
-					towerList.get(towerNumber).setLevel(towerList.get(towerNumber).getLevel()+1);
-					if(X > 468 && X < 528 && Y > 418 && Y < 468) {
-						// Cash Down upgrade
-							towerList.get(towerNumber).setDamage(towerList.get(towerNumber).getDamage()+5); // update to reflect not allowing to go past 0;
-							descriptionText = "The damage has been upped.";
-							// Cash subtracted from game screen
-							CurrentLevel.setCash(CurrentLevel.getCash()-towerList.get(towerNumber).getLevelup_cost());
-						
-					}
-					else if(X > 548 && X < 608 && Y > 418 && Y < 468) {
-						// Longer Range
-						towerList.get(towerNumber).setRange(towerList.get(towerNumber).getRange()+10);
-						descriptionText = "Range has been extended.";
-						// Cash subtracted from game screen
-						CurrentLevel.setCash(CurrentLevel.getCash()-towerList.get(towerNumber).getLevelup_cost());
-					}
-					else if(X > 628 && X < 688 && Y > 418 && Y < 468) {
-						// Lower cooldown
-						if(towerList.get(towerNumber).getCooldown() >= 100) {
-						towerList.get(towerNumber).setCooldown(towerList.get(towerNumber).getCooldown()-100);
-						descriptionText = "Cooldown has been lowered.";
-						// Cash subtracted from game screen
-						CurrentLevel.setCash(CurrentLevel.getCash()-towerList.get(towerNumber).getLevelup_cost());
-						} else {
-							descriptionText = "Max Level Achieved";
-						}
-					}				
-					towerNumber = -1;
-					Assets.option0 = Assets.blank;
-					Assets.option1 = Assets.blank;
-					Assets.option2 = Assets.blank;
-					Assets.selectItem = Assets.blank;
-				}
 				
 				towerType = TowerType.none;
 			}
 		}
-
+		
 		// 2. Check miscellaneous events like death:
 		if (CurrentLevel.getLivesLeft() == 0) {
 			state = GameState.GameOver;
@@ -591,4 +477,144 @@ public class GameScreen extends Screen {
 	public static Level getCurrentLevel(){
 		return CurrentLevel;
 	}
+	
+	private void touchTowerSel(int X, int Y) {
+		// THIS WILL BE THE SECTION FOR TOWER UPGRADES BASED ON THE TOUCH_SCREEN
+		// FIRST TAKE THE TOUCH AND SEE IF IT IS LET UP ON TOP OF A TOWER
+		if(towerType == TowerType.none) { // only run if the tower is not being placed.
+			if((X > 468 && X < 528 && Y > 418 && Y < 468 || X > 548 && X < 608 && Y > 418 && Y < 468 || X > 628 && X < 688 && Y > 418 && Y < 468) && towerNumber >= 0) {
+				// do nothing, touch was inside the upgrade. Code for this part is below.
+				descriptionText = "It gets here";
+			} else {
+			towerNumber = validTowerUpgrade(cordFixTow(X), cordFixTow(Y));
+			if(towerNumber >= 0) {
+				ArrayList<Tower> towerList = CurrentLevel.getTowers();
+				descriptionText = "Select upgrade for tower# " + (towerNumber+1);
+				if(towerList.get(towerNumber) instanceof RedditTower) { // MAKE SURE TO UPDATE ACTUAL UPGRADE IMAGES
+					Assets.selectItem = Assets.redditTower;
+					Assets.option0 = Assets.lowCost;
+					Assets.option1 = Assets.rangeExtend;
+					Assets.option2 = Assets.lowCooldown;
+				} else if (towerList.get(towerNumber) instanceof PencilTower) {
+					Assets.selectItem = Assets.pencilTower;
+					Assets.option0 = Assets.lowCost;
+					Assets.option1 = Assets.rangeExtend;
+					Assets.option2 = Assets.lowCooldown;
+				} else if (towerList.get(towerNumber) instanceof StarbucksTower) {
+					Assets.selectItem = Assets.starbucksTower;
+					Assets.option0 = Assets.lowCost;
+					Assets.option1 = Assets.rangeExtend;
+					Assets.option2 = Assets.lowCooldown;
+				}
+			} else {
+				Assets.selectItem = Assets.blank;
+				Assets.option0 = Assets.blank;
+				Assets.option1 = Assets.blank;
+				Assets.option2 = Assets.blank;
+				descriptionText = ""; // clear description text when nothing is selected.
+				towerNumber = -50;
+			}
+			}
+			towerType = TowerType.none;
+		}
+	}
+
+	private void upgradeTowerSel(int X, int Y) {
+	if(towerNumber >= 0) {
+		if((X > 468 && X < 528 && Y > 418 && Y < 468 || X > 548 && X < 608 && Y > 418 && Y < 468 || X > 628 && X < 688 && Y > 418 && Y < 468)) {
+			ArrayList<Tower> towerList = CurrentLevel.getTowers();
+			towerList.get(towerNumber).setLevel(towerList.get(towerNumber).getLevel()+1);
+			if(X > 468 && X < 528 && Y > 418 && Y < 468) {
+				// Cash Down upgrade
+				if(towerList.get(towerNumber).getLevelup_cost() >= CurrentLevel.getCash()){
+					towerList.get(towerNumber).setDamage(towerList.get(towerNumber).getDamage()+5); // update to reflect not allowing to go past 0;
+					descriptionText = "The damage has increased.";
+					// Cash subtracted from game screen
+					CurrentLevel.setCash(CurrentLevel.getCash()-towerList.get(towerNumber).getLevelup_cost());
+				} else {
+					descriptionText = "Insufficient funds!";
+				}
+			}
+			else if(X > 548 && X < 608 && Y > 418 && Y < 468) {
+				// Longer Range
+			if(towerList.get(towerNumber).getLevelup_cost() <= CurrentLevel.getCash()){
+				towerList.get(towerNumber).setRange(towerList.get(towerNumber).getRange()+10);
+				descriptionText = "Range has been extended.";
+				// Cash subtracted from game screen
+				CurrentLevel.setCash(CurrentLevel.getCash()-towerList.get(towerNumber).getLevelup_cost());
+			} else {
+				descriptionText = "Insufficient funds!";
+			}
+		}
+		else if(X > 628 && X < 688 && Y > 418 && Y < 468) {
+				// Lower cooldown
+			if(towerList.get(towerNumber).getLevelup_cost() <= CurrentLevel.getCash()){
+				if(towerList.get(towerNumber).getCooldown() >= 100) {
+				towerList.get(towerNumber).setCooldown(towerList.get(towerNumber).getCooldown()-100);
+				descriptionText = "Cooldown has been lowered.";
+				// Cash subtracted from game screen
+				CurrentLevel.setCash(CurrentLevel.getCash()-towerList.get(towerNumber).getLevelup_cost());
+				} else {
+					descriptionText = "Max Level Achieved";
+				}
+			} else {
+				descriptionText = "Insufficient funds!";
+			}
+		}				
+			towerNumber = -1;
+			Assets.option0 = Assets.blank;
+			Assets.option1 = Assets.blank;
+			Assets.option2 = Assets.blank;
+			Assets.selectItem = Assets.blank;
+			//descriptionText = "Upgrade should have happened";
+		}
+	}
+	}
+	private void towerPlacement(int X, int Y) {
+		if(Xtower > 0 && Xtower < 701 && Ytower > 21 && Ytower < 339) {  // CHANGE TO ACTUAL VALUES
+			// THIS SECTION OF THE CODE WILL ALLOW THE TOWERS TO BE DRAGGED AND PLACED.
+			//placeTower(Xtower, Ytower);
+			Xtower = cordFix(Xtower);
+			Ytower = cordFix(Ytower);
+			Xbox = -50;
+			Ybox = -50;
+			
+			if(towerType != TowerType.none && validPlacement(Xtower, Ytower)) {
+			
+				if (towerType == TowerType.reddit) {
+					RedditTower temp = new RedditTower(Xtower, Ytower);
+					if(CurrentLevel.getCash()>=temp.cost) {
+						CurrentLevel.addTower(temp);
+						CurrentLevel.setCash(CurrentLevel.getCash()-temp.cost);
+					} else {
+						descriptionText = "Insufficient funds!";
+					}
+				}
+				else if (towerType == TowerType.starbucks) {
+			
+					StarbucksTower temp = new StarbucksTower(Xtower, Ytower);
+					if(CurrentLevel.getCash()>=temp.cost) {
+						CurrentLevel.addTower(temp);
+						CurrentLevel.setCash(CurrentLevel.getCash()-temp.cost);	
+					} else {
+						descriptionText = "Insufficient funds!";
+					}
+				}
+				else if (towerType == TowerType.pencil) {
+			
+					PencilTower temp = new PencilTower(Xtower, Ytower);
+					if(CurrentLevel.getCash()>=temp.cost) {
+						CurrentLevel.addTower(temp);
+						CurrentLevel.setCash(CurrentLevel.getCash()-temp.cost);
+					} else {
+						descriptionText = "Insufficient funds!";
+					}
+				}
+			}
+		} else {
+			// invalid tower placement
+			towerType = TowerType.none;
+		}
+	}
 }
+
