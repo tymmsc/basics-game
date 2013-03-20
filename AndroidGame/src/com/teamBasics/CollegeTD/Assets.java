@@ -11,7 +11,7 @@ public class Assets {
     
     // Background Images
     public static Image optionsbackground, highscoresbackground, resumebackground, creditsbackground;
-    public static Image space;
+    public static Image space, ltDirtCenter, ltDirtRight;
  
     // Splash Loading Images
     public static Image splash0, splash1, splash2, splash3, splash4, splash5, splash6, splash7, 

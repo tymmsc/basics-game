@@ -21,7 +21,7 @@ public class StarbucksProjectile extends Projectile {
 
 	@Override
 	public void draw(Graphics g) {
-		g.drawImage(Assets.pencilProjectile, x, y); // Change this line
+		g.drawImage(Assets.starbucksProjectile, x, y); // Change this line
 	}
 	
 }

@@ -33,7 +33,7 @@ public class LoadingScreen extends Screen {
 		Graphics g = game.getGraphics();
 		if(!init){
 		Assets.mainmenu = g.newImage("mainMenu_stare.png", ImageFormat.RGB565);
-		Assets.gamescreen = g.newImage("GameScreen_Layout_example3.png", ImageFormat.RGB565);
+		Assets.gamescreen = g.newImage("GameScreen_Layout_example4.png", ImageFormat.RGB565);
 		Assets.menubackground = g.newImage("menu_background.png", ImageFormat.RGB565);
 		Assets.optionsbackground = g.newImage("options_background.png", ImageFormat.RGB565);
 		Assets.highscoresbackground = g.newImage("highscores_background.png", ImageFormat.RGB565);
@@ -43,12 +43,12 @@ public class LoadingScreen extends Screen {
 		Assets.soundFX_off = g.newImage("sound_off.png", ImageFormat.RGB565);
 		Assets.soundFX_on = g.newImage("sound_on.png", ImageFormat.RGB565);
 		Assets.blank = g.newImage("blank.png", ImageFormat.RGB565);
-		
-		
 
-
+		
 		// Background Images
 		Assets.space = g.newImage("space.png", ImageFormat.RGB565);
+		Assets.ltDirtCenter = g.newImage("LevelBackgrounds/lt_dirtcenter.png", ImageFormat.RGB565);
+		Assets.ltDirtRight = g.newImage("LevelBackgrounds/lt_dirtright.png", ImageFormat.RGB565);
 
 		// Splash Loading Animation
 		Assets.splash0 = g.newImage("SplashLoadingScreen/splash4_0.png", ImageFormat.RGB565);

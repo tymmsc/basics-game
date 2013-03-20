@@ -44,6 +44,9 @@ public class GameScreen extends Screen {
 	//Levels
 	private static Level CurrentLevel;
 	private ArrayList<Level> levelArray = new ArrayList<Level>(20);
+	
+	private int leftSideTowerPixel = 734 + 8;
+	private int rightSideTowerPixel = leftSideTowerPixel + 40;
 	//private Level level1;
 	
 	public GameScreen(Game game) {
@@ -142,7 +145,7 @@ public class GameScreen extends Screen {
 				// Display Selected Item on touch_down(press)
 				
 				// Reddit Tower
-				if(inBounds(event, 735, 49, 40, 40)){
+				if(inBounds(event, leftSideTowerPixel, 103, 40, 40)){
 					Assets.selectItem = Assets.redditTower;
 					descriptionText = "This is the reddit tower!";
 					towerType = TowerType.reddit;
@@ -150,7 +153,7 @@ public class GameScreen extends Screen {
 					Ytower = -50;
 				}
 				// Pencil Tower
-				else if(inBounds(event, 735, 115, 40, 40)){
+				else if(inBounds(event, leftSideTowerPixel, 163, 40, 40)){
 					Assets.selectItem = Assets.pencilTower;
 					descriptionText = "This is the pencil tower!";
 					towerType = TowerType.pencil;
@@ -158,7 +161,7 @@ public class GameScreen extends Screen {
 					Ytower = -50;
 				}
 				// Starbucks Tower
-				else if(inBounds(event, 735, 181, 40, 40)){
+				else if(inBounds(event, leftSideTowerPixel, 223, 40, 40)){
 					Assets.selectItem = Assets.starbucksTower;
 					descriptionText = "This is the starbucks tower!";
 					towerType = TowerType.starbucks;
@@ -167,17 +170,17 @@ public class GameScreen extends Screen {
 				}
 				
 				// Sleep Upgrade
-				else if(inBounds(event, 735, 245, 40, 40)){
+				else if(inBounds(event, leftSideTowerPixel, 283, 40, 40)){
 					Assets.selectItem = Assets.sleepUp;
 					descriptionText = "This is the sleep upgrade!";
 				}
 				// Social Upgrade
-				else if(inBounds(event, 735, 309, 40, 40)){
+				else if(inBounds(event, leftSideTowerPixel, 343, 40, 40)){
 					Assets.selectItem = Assets.socialUp;
 					descriptionText = "This is the social upgrade!";
 				}
 				// Academic Upgrade
-				else if(inBounds(event, 735, 373, 40, 40)){
+				else if(inBounds(event, leftSideTowerPixel, 403, 40, 40)){
 					Assets.selectItem = Assets.academicUp;
 					descriptionText = "This is the academic upgrade!";
 				}
@@ -207,7 +210,7 @@ public class GameScreen extends Screen {
 				}
 				
 				
-				if(Xtower > 21 && Xtower < 619 && Ytower > 61 && Ytower < 299) {  // CHANGE TO ACTUAL VALUES
+				if(Xtower > 0 && Xtower < 701 && Ytower > 21 && Ytower < 339) {  // CHANGE TO ACTUAL VALUES
 					Xtower = cordFix(Xtower);
 					Ytower = cordFix(Ytower);
 					Xbox = -50;
@@ -340,7 +343,7 @@ public class GameScreen extends Screen {
 		// 3. Call individual update() methods here.
 		// This is where all the game updates happens
 
-		CurrentLevel.updateBorderTiles();
+		//CurrentLevel.updateBorderTiles();
 		CurrentLevel.updatePathTiles();
 		CurrentLevel.update();
 		CurrentLevel.checkCash();
@@ -411,13 +414,19 @@ public class GameScreen extends Screen {
 		g.drawImage(Assets.gamescreen, 0, 0);
 		
 		// Draw custom background
-		g.drawImage(Assets.space, 0, 41);
-		g.drawImage(Assets.space, 0, 200);
-		g.drawImage(Assets.space, 340, 41);
-		g.drawImage(Assets.space, 340, 200);
+		//g.drawImage(Assets.space, 0, 41);
+		//g.drawImage(Assets.space, 0, 200);
+		//g.drawImage(Assets.space, 340, 41);
+		//g.drawImage(Assets.space, 340, 200);
+		g.drawImage(Assets.ltDirtCenter, 0, 41);
+		g.drawImage(Assets.ltDirtCenter, 256, 41);
+		g.drawImage(Assets.ltDirtCenter, 0, 210);
+		g.drawImage(Assets.ltDirtCenter, 256, 210);
+		g.drawImage(Assets.ltDirtRight, 512, 41);
+		g.drawImage(Assets.ltDirtRight, 512, 210);
 		
 		// Paint Tiles
-		CurrentLevel.paintBorderTiles(g);
+		//CurrentLevel.paintBorderTiles(g);
 		CurrentLevel.paintPathTiles(g);
 
 		// Secondly, draw the UI above the game elements.
@@ -457,9 +466,9 @@ public class GameScreen extends Screen {
 		Graphics g = game.getGraphics();
 		
 		// Tower sprites
-		g.drawImage(Assets.redditTower, 735, 49);
-		g.drawImage(Assets.pencilTower, 735, 115);
-		g.drawImage(Assets.starbucksTower, 735, 181);
+		g.drawImage(Assets.redditTower, leftSideTowerPixel, 103);
+		g.drawImage(Assets.pencilTower, leftSideTowerPixel, 163);
+		g.drawImage(Assets.starbucksTower, leftSideTowerPixel, 223);
 		
 		// Draw towers that are being dragged
 		// 
@@ -476,15 +485,16 @@ public class GameScreen extends Screen {
 		
 		
 		// Upgrade sprites
-		g.drawImage(Assets.sleepUp, 735, 245);
-		g.drawImage(Assets.socialUp, 735, 309);
-		g.drawImage(Assets.academicUp, 735, 373);
+		g.drawImage(Assets.sleepUp, leftSideTowerPixel, 283);
+		g.drawImage(Assets.socialUp, leftSideTowerPixel, 343);
+		g.drawImage(Assets.academicUp, leftSideTowerPixel, 403);
 		
 		g.drawImage(Assets.selectItem, 49, 423);
 		g.drawImage(Assets.option0, 468, 418);
 		g.drawImage(Assets.option1, 548, 418);
 		g.drawImage(Assets.option2, 628, 418);
 		g.drawString(descriptionText, 160, 439, paintDescriptionText);
+		
 		scoreText = "" + CurrentLevel.getScore();
 		g.drawString(scoreText, 290, 26, paintHUBText);
 		livesText = "" + CurrentLevel.getLivesLeft();
@@ -493,7 +503,7 @@ public class GameScreen extends Screen {
 		g.drawString(cashText, 695, 26, paintHUBText);
 		
 		CurrentLevel.draw(g);
-		if(towerType != TowerType.none && (Xtower > 21 && Xtower < 619 && Ytower > 61 && Ytower < 299)){
+		if(towerType != TowerType.none && (Xtower > 0 && Xtower < 701 && Ytower > 21 && Ytower < 339)){
 			g.drawImage(Assets.towerBox, Xbox, Ybox);
 		}
 	}
