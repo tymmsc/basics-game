@@ -522,7 +522,7 @@ public class GameScreen extends Screen {
 					towerList.remove(towerNumber); // remove tower from the array
 				} else if (X > 548 && X < 608 && Y > 418 && Y < 468) {
 					// If the second option is selected then the tower should be upgraded.
-					if ((towerList.get(towerNumber).getLevelup_cost() <= CurrentLevel.getCash()) && (levelNumber <= 3)) {
+					if ((towerList.get(towerNumber).getLevelup_cost() <= CurrentLevel.getCash()) && (levelNumber < 3)) {
 						towerList.get(towerNumber).setLevel(towerList.get(towerNumber).getLevel() + 1); // this is how the tower level is upgraded.
 						CurrentLevel.setCash(CurrentLevel.getCash() - towerList.get(towerNumber).getLevelup_cost());
 					} else {
