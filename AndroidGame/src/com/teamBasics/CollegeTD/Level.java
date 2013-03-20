@@ -134,18 +134,21 @@ public class Level {
 			enemies = waves.get(i).killedEnemies();
 			totalenemies = waves.get(i).allEnemies();
 			size=enemies.size();
-			if(size!=num){
+			if(size!=num && isKama(totalenemies)!=true){
 				num=size;
 				cash+=5;
 				score+=20;
 			}
-			for(int j=0; j<totalenemies.size();j++){
-				if(totalenemies.get(j).isKamakazi()){
-					cash-=5;
-					score-=20;
-				}
+		}
+	}
+	
+	public boolean isKama(ArrayList<Enemy> totalenemies){
+		for(int j=0; j<totalenemies.size();j++){
+			if(totalenemies.get(j).isKamakazi()){
+				return true;
 			}
 		}
+		return false;
 	}
 
 	//Will be used later on to load the map for each level
