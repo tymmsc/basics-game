@@ -23,12 +23,12 @@ public class PencilTower extends Tower {
 			damage = 20;	// cannot just change these values in the constructor because thats only for when the object is made
 			range = 75;
 		} else if(level == 2) {
-			g.drawImage(Assets.pencilTower, posX, posY);
+			g.drawImage(Assets.mechanicalPencilTower, posX, posY);
 			cooldown = 500;
 			damage = 40;
 			range = 150;
 		} else {
-			g.drawImage(Assets.pencilTower, posX, posY);
+			g.drawImage(Assets.penTower, posX, posY);
 			cooldown = 300;
 			damage = 60;
 			range = 225;

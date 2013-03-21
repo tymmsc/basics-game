@@ -138,8 +138,8 @@ public class GameScreen extends Screen {
 
 				// Reddit Tower
 				if (inBounds(event, leftSideTowerPixel, 103, 40, 40)) {
-					Assets.selectItem = Assets.redditTower;
-					descriptionText = "This is the reddit tower!";
+					Assets.selectItem = Assets.facebookTower;
+					descriptionText = "This is the Facebook tower!";
 					towerType = TowerType.reddit;
 					Xtower = -50;
 					Ytower = -50;
@@ -155,7 +155,7 @@ public class GameScreen extends Screen {
 				// Starbucks Tower
 				else if (inBounds(event, leftSideTowerPixel, 223, 40, 40)) {
 					Assets.selectItem = Assets.cokeTower;
-					descriptionText = "This is the coke tower!";
+					descriptionText = "This is the Coke tower!";
 					towerType = TowerType.starbucks;
 					Xtower = -50;
 					Ytower = -50;
@@ -338,14 +338,14 @@ public class GameScreen extends Screen {
 		Graphics g = game.getGraphics();
 
 		// Tower sprites
-		g.drawImage(Assets.redditTower, leftSideTowerPixel, 103);
+		g.drawImage(Assets.facebookTower, leftSideTowerPixel, 103);
 		g.drawImage(Assets.pencilTower, leftSideTowerPixel, 163);
 		g.drawImage(Assets.cokeTower, leftSideTowerPixel, 223);
 
 		// Draw towers that are being dragged
 		//
 		if (towerType == TowerType.reddit) {
-			g.drawImage(Assets.redditTower, Xtower, Ytower);
+			g.drawImage(Assets.facebookTower, Xtower, Ytower);
 		} else if (towerType == TowerType.starbucks) {
 			g.drawImage(Assets.cokeTower, Xtower, Ytower);
 		} else if (towerType == TowerType.pencil) {
