@@ -67,7 +67,6 @@ public class LoadingScreen extends Screen {
 		Assets.splash13 = g.newImage("SplashLoadingScreen/splash4_13.png", ImageFormat.RGB565);
 		Assets.splash14 = g.newImage("SplashLoadingScreen/splash4_14.png", ImageFormat.RGB565);
 		Assets.splash15 = g.newImage("SplashLoadingScreen/splash4_15.png", ImageFormat.RGB565);
-		 
 
 		// Border outline
 		Assets.tiledirt = g.newImage("BorderTiles/tiledirt.png", ImageFormat.RGB565);
@@ -103,9 +102,15 @@ public class LoadingScreen extends Screen {
 		Assets.stoneRTC = g.newImage("StonePathTiles/stone_RTC20.PNG", ImageFormat.RGB565);
 		
 		// Tower Sprites
+		Assets.facebookTower = g.newImage("Towers/facebook_tower.png", ImageFormat.RGB565);
 		Assets.redditTower = g.newImage("Towers/reddit_tower.png", ImageFormat.RGB565);
+		Assets.netflixTower = g.newImage("Towers/netflix_tower.png", ImageFormat.RGB565);
 		Assets.pencilTower = g.newImage("Towers/pencil_tower.png", ImageFormat.RGB565);
+		Assets.mechanicalPencilTower = g.newImage("Towers/mechanical_pencil_tower.png", ImageFormat.RGB565);
+		Assets.penTower = g.newImage("Towers/pen_tower.png", ImageFormat.RGB565);
+		Assets.cokeTower = g.newImage("Towers/coke_tower.png", ImageFormat.RGB565);
 		Assets.starbucksTower = g.newImage("Towers/starbucks_tower.png", ImageFormat.RGB565);
+		Assets.redbullTower = g.newImage("Towers/redbull_tower.png", ImageFormat.RGB565);
 		Assets.towerBox = g.newImage("Towers/box_tower.png", ImageFormat.RGB565);
 		
 
@@ -138,7 +143,9 @@ public class LoadingScreen extends Screen {
 		Assets.lowCost = g.newImage("Upgrades/lowCost.png", ImageFormat.RGB565);
 		Assets.rangeExtend = g.newImage("Upgrades/rangeExtender.png", ImageFormat.RGB565);
 		Assets.lowCooldown = g.newImage("Upgrades/coolDownLower.png", ImageFormat.RGB565);
-		
+		Assets.sell = g.newImage("Upgrades/sell.png", ImageFormat.RGB565);
+		Assets.upgrade = g.newImage("Upgrades/upgrade.png", ImageFormat.RGB565);
+		Assets.downgrade = g.newImage("Upgrades/downgrade.png", ImageFormat.RGB565);
 		// This is how you would load a sound if you had one.
 		// Assets.click = game.getAudio().createSound("explode.ogg");
 

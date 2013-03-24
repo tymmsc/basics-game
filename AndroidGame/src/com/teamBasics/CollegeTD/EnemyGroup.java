@@ -68,6 +68,8 @@ public class EnemyGroup {
 			else if(e.isKamakazi()) {
 				lives_lost++;
 				e.setKamakazi(false);
+				e.setKamaother(true);
+				e.setDead(false);
 			}
 		}
 		return lives_lost;

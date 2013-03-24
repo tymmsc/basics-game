@@ -21,7 +21,7 @@ public abstract class Enemy {
 	protected int health;
 	protected boolean visible, kamakazi, dead;			//kamakazi means enemy reached end of map
 	private ArrayList<PathTile> tilearrayPath;
-	
+	boolean kamaother;
 	
 	public Enemy(int posX, int posY, ArrayList<PathTile> tilearrayPath) {
 		this.x = posX;
@@ -149,6 +149,14 @@ public abstract class Enemy {
 		dead = true;
 		// Remove from screen
 		// Increase User Cash Value
+	}
+	
+	public boolean isKamaother() {
+		return kamaother;
+	}
+
+	public void setKamaother(boolean kamaother) {
+		this.kamaother = kamaother;
 	}
 
 	public void attack() {
