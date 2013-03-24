@@ -50,16 +50,16 @@ public class SampleGame extends AndroidGame {
 		// Adding Path Map Tile Conversions
 		inputSP.add(0, getResources().openRawResource(R.raw.pathmap1));
 		inputSP.add(1, getResources().openRawResource(R.raw.pathmap2));
-		//inputSP.add(2, getResources().openRawResource(R.raw.pathmap3));
-		//inputSP.add(3, getResources().openRawResource(R.raw.pathmap4));
-		//inputSP.add(4, getResources().openRawResource(R.raw.pathmap5));
-		//inputSP.add(5, getResources().openRawResource(R.raw.pathmap6));
-		//inputSP.add(6, getResources().openRawResource(R.raw.pathmap7));
-		//inputSP.add(7, getResources().openRawResource(R.raw.pathmap8));
-		//inputSP.add(8, getResources().openRawResource(R.raw.pathmap9));
-		//inputSP.add(9, getResources().openRawResource(R.raw.pathmap10));
-		//inputSP.add(10, getResources().openRawResource(R.raw.pathmap11));
-		//inputSP.add(11, getResources().openRawResource(R.raw.pathmap12));
+		inputSP.add(2, getResources().openRawResource(R.raw.pathmap3));
+		inputSP.add(3, getResources().openRawResource(R.raw.pathmap4));
+		inputSP.add(4, getResources().openRawResource(R.raw.pathmap5));
+		inputSP.add(5, getResources().openRawResource(R.raw.pathmap6));
+		inputSP.add(6, getResources().openRawResource(R.raw.pathmap7));
+		inputSP.add(7, getResources().openRawResource(R.raw.pathmap8));
+		inputSP.add(8, getResources().openRawResource(R.raw.pathmap9));
+		inputSP.add(9, getResources().openRawResource(R.raw.pathmap10));
+		inputSP.add(10, getResources().openRawResource(R.raw.pathmap11));
+		inputSP.add(11, getResources().openRawResource(R.raw.pathmap12));
 
 		
 		// Border and Path Tile Selection based on Level
