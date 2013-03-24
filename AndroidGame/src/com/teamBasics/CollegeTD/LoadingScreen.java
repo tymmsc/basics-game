@@ -43,7 +43,7 @@ public class LoadingScreen extends Screen {
 		Assets.soundFX_off = g.newImage("sound_off.png", ImageFormat.RGB565);
 		Assets.soundFX_on = g.newImage("sound_on.png", ImageFormat.RGB565);
 		Assets.blank = g.newImage("blank.png", ImageFormat.RGB565);
-
+		Assets.levelSelect_box = g.newImage("levelSelect_box.png", ImageFormat.RGB565);
 		
 		// Background Images
 		Assets.space = g.newImage("space.png", ImageFormat.RGB565);

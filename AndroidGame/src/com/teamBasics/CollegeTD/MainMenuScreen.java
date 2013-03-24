@@ -24,7 +24,7 @@ public class MainMenuScreen extends Screen {
 
 				// New Game Button
 				if (inBounds(event, 54, 204, 225, 50)) {
-					game.setScreen(new GameScreen(game));
+					game.setScreen(new GameScreen(game, 1));
 				}
 				
 				// Resume Game Button

@@ -117,7 +117,7 @@ public class Level {
 			// Enemy waves complete
 			else if( i == waves.size()-1 ){
 				SampleGame.setCurrentLevel(level_number+1);
-				SampleGame.loadMapPath();
+				SampleGame.loadMapPath(level_number+1);
 				setLevelComplete(true);
 			}
 		}
@@ -235,6 +235,8 @@ public class Level {
 		int width = 0;
 		int height = 0;
 
+		//SampleGame.setCurrentLevel(level_number);
+		//SampleGame.loadMapPath(level_number);
 		Scanner scanner = new Scanner(SampleGame.mapPath);
 		while (scanner.hasNextLine()) {
 			String line = scanner.nextLine();

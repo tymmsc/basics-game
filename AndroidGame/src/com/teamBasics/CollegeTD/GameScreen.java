@@ -47,7 +47,7 @@ public class GameScreen extends Screen {
 	private int leftSideTowerPixel = 734 + 8;
 	private int rightSideTowerPixel = leftSideTowerPixel + 40;
 
-	public GameScreen(Game game) {
+	public GameScreen(Game game, int currentL) {
 		super(game);
 		//	SaveState.scoreTest=5000;
 	//	SaveState.save(game.getFileIO());
@@ -64,7 +64,7 @@ public class GameScreen extends Screen {
 		}
 
 		// Must update CurrentLevel to next level when user has defeated all enemies.
-		CurrentLevel = levelArray.get(0);
+		CurrentLevel = levelArray.get(currentL-1);
 
 		// Defining a paint object
 		// Start Text

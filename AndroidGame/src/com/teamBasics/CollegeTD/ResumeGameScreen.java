@@ -37,7 +37,26 @@ public class ResumeGameScreen extends Screen {
 
 	@Override
 	public void update(float deltaTime) {
+		Graphics g = game.getGraphics();
 		List<TouchEvent> touchEvents = game.getInput().getTouchEvents();
+
+		int len = touchEvents.size();
+		for (int i = 0; i < len; i++) {
+			TouchEvent event = touchEvents.get(i);
+			if (event.type == TouchEvent.TOUCH_UP) {
+
+				// Level 1 Select
+				if (inBounds(event, 50, 200, 100, 100)) {
+					game.setScreen(new GameScreen(game, 1));
+				}
+				
+				// Level 2 Select
+				else if (inBounds(event, 200, 200, 100, 100)) {
+					game.setScreen(new GameScreen(game, 2));
+				}				
+				
+			}
+		}
 	}
 
 	private boolean inBounds(TouchEvent event, int x, int y, int width, int height) {
@@ -52,6 +71,10 @@ public class ResumeGameScreen extends Screen {
 	public void paint(float deltaTime) {
 		Graphics g = game.getGraphics();
 		g.drawImage(Assets.resumebackground, 0, 0);
+		g.drawImage(Assets.levelSelect_box, 50, 200);
+		g.drawImage(Assets.levelSelect_box, 200, 200);
+		g.drawString("Level 1", 100, 325, paint);
+		g.drawString("Level 2", 250, 325, paint);
 	}
 
 

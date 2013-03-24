@@ -43,7 +43,7 @@ public class Assets {
     public static Image starbucksProjectile, starbucksProjectile2, starbucksProjectile3, starbucksProjectile4, starbucksProjectile5, starbucksProjectile6;
     
     //Options Menu Sprites
-    public static Image soundFX, soundFX_on, soundFX_off;
+    public static Image soundFX, soundFX_on, soundFX_off, levelSelect_box;
     
     //public static Image button;
     public static Sound click;
