@@ -45,7 +45,7 @@ public class SampleGame extends AndroidGame {
 		inputSP = new ArrayList<InputStream>(12);
 		
 		// Need to set new level number when user has defeated all enemies on selected map.
-		currentLevel = 2; 
+		currentLevel = 10; 
 		
 		// Adding Path Map Tile Conversions
 		inputSP.add(0, getResources().openRawResource(R.raw.pathmap1));

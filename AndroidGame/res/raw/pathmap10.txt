@@ -11,23 +11,24 @@
 ! d = DirtRight
 ! q = LTC, e = RTC
 ! z = LBC, c = RBC 
-! y = 40-360 pixels (16 tiles)
-! x = 0-680 pixels (34 tiles)
-wwwwwwwwwwwwwwwwwwe_______________
-ssssssssssssssssssd_______________
-xxxxxxxxxxxxxxxzssd_______________
-_______________assd_______________
-_______________assd_______________
-_______________assd_______________
-_______________assd_______________
-_______________assd_______________
-_______________assewwwwwwwwwwwwwww
-_______________assssssssssssssssss
-_______________asscxxxxxxxxxxxxxxx
-_______________assd_______________
-_______________assd_______________
-_______________assd_______________
-_______________assd_______________ 
-wwwwwwwwwwwwwwwqssd_______________
-ssssssssssssssssssd_______________
-xxxxxxxxxxxxxxxxxxc_______________
+! y = 40-360 pixels (19 tiles)
+! x = 0-680 pixels (36 tiles)
+____________________________________
+____________________________________
+wwwwwwwwwwwwwwwwwwe_________________
+ssssssssssssssssssd_________________
+xxxxxxxxxxxxxxxzssd_________________
+_______________assd_________________
+_______________assd_________________
+_______________assd_________________
+_______________assd_________________
+_______________assd_________________
+_______________assewwwwwwwwwwwwwwwww
+_______________assssssssssssssssssss
+_______________asscxxxxxxxxxxxxxxxxx
+_______________assd_________________
+_______________assd_________________
+_______________assd_________________
+wwwwwwwwwwwwwwwqssd_________________
+ssssssssssssssssssd_________________
+xxxxxxxxxxxxxxxxxxc_________________
