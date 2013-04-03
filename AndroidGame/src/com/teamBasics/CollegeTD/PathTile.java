@@ -25,7 +25,7 @@ public class PathTile {
 		r = new Rect();
 		
 		// Center Tile
-		if (type2 == 's' ||type2 == 'b' ||type2 == 'B' || type2 =='g' || type2 =='G' || type2 =='e' || type2 =='E' || type2 =='f' || type2 =='F') {
+		if (type2 == 's' ||type2 == 'b' ||type2 == 'B' || type2 =='g' || type2 =='G') {
 			tileImage2 = Assets.stoneCenter;
 			
 		// Side Tiles

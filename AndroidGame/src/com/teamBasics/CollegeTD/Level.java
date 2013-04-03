@@ -33,6 +33,8 @@ public class Level {
 		//loadMapBorder();
 		loadMapPath();
 		startTiles = startPoints();
+		System.out.println("Start tile is: " + startTiles.get(0).getType2());
+		System.out.println("Start tile is: " + startTiles.get(2).getType2());
 		endTiles = endPoints();
 		loadLevel(level_number);	
 		levelComplete = false;
@@ -45,6 +47,7 @@ public class Level {
 	
 	//Update to next level.
 	public void loadLevel(int level_number){
+		/*
 		if( level_number == 1 ){
 			EnemyWave wave1 = new EnemyWave();
 			EnemyGroup group1 = new EnemyGroup(400, 12);
@@ -104,10 +107,10 @@ public class Level {
 			}
 		} // End Level_2
 
+		*/
 		
 		
-		/*
-		if( level_number == 1){
+		if( level_number == 1 || level_number == 3){
 			EnemyWave wave1 = new EnemyWave();
 			EnemyGroup group1 = new EnemyGroup(400, 12);
 			EnemyGroup group2 = new EnemyGroup(800, 25);
@@ -184,7 +187,7 @@ public class Level {
 				waves.add(wave1);
 			}
 		} // End Level_2
-		*/
+		
 	}
 	
 	//Update 1 wave of the level at a time. Update the first wave you
