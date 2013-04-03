@@ -15,6 +15,8 @@ public class Level {
 	private ArrayList<PathTile> tilearrayPath = new ArrayList<PathTile>();
 	private ArrayList<Tower> towers = new ArrayList<Tower>();
 	private ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
+	ArrayList<PathTile> startTiles = new ArrayList<PathTile>(); 
+	ArrayList<PathTile> endTiles = new ArrayList<PathTile>();
 	
 	//User Info
 	private int livesLeft = 20;
@@ -30,6 +32,8 @@ public class Level {
 	public Level(int level_number) {		
 		//loadMapBorder();
 		loadMapPath();
+		startTiles = startPoints();
+		endTiles = endPoints();
 		loadLevel(level_number);	
 		levelComplete = false;
 	}
@@ -41,7 +45,6 @@ public class Level {
 	
 	//Update to next level.
 	public void loadLevel(int level_number){
-		
 		if( level_number == 1 ){
 			EnemyWave wave1 = new EnemyWave();
 			EnemyGroup group1 = new EnemyGroup(400, 12);
@@ -101,6 +104,87 @@ public class Level {
 			}
 		} // End Level_2
 
+		
+		
+		/*
+		if( level_number == 1){
+			EnemyWave wave1 = new EnemyWave();
+			EnemyGroup group1 = new EnemyGroup(400, 12);
+			EnemyGroup group2 = new EnemyGroup(800, 25);
+			EnemyGroup group3 = new EnemyGroup(1200, 25);
+			
+			startTiles = startPoints();
+			endTiles = endPoints();
+			if(startTiles.size() >= 4) {
+				// Add enemies to group
+				for(int i=0; i<10; i++) {
+					AssignmentEnemy a = new AssignmentEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group1.addEnemy(a);
+				}
+				for(int i=0; i<10; i++) {
+					TeacherEnemy t = new TeacherEnemy(tilearrayPath, startTiles.get(2), endTiles);
+					group2.addEnemy(t);
+				}
+				for(int i=0; i<10; i++) {
+					GeorgiaBulldogEnemy g = new GeorgiaBulldogEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group3.addEnemy(g);
+				}
+			}
+			else {
+				// Add enemies to group
+				for(int i=0; i<10; i++) {
+					AssignmentEnemy a = new AssignmentEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group1.addEnemy(a);
+				}
+				for(int i=0; i<10; i++) {
+					TeacherEnemy t = new TeacherEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group2.addEnemy(t);
+				}
+				for(int i=0; i<10; i++) {
+					GeorgiaBulldogEnemy g = new GeorgiaBulldogEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group3.addEnemy(g);
+				}
+			}
+			// Add groups to wave
+			if(group1 != null && group2 != null && group3 != null) {
+				wave1.addEnemyGroup(group1);
+				wave1.addEnemyGroup(group2);
+				wave1.addEnemyGroup(group3);
+				waves.add(wave1);
+			}
+			
+		} // End Level_1
+
+		
+		if( level_number == 2 ){
+			EnemyWave wave1 = new EnemyWave();
+			EnemyGroup group1 = new EnemyGroup(400, 12);
+			EnemyGroup group2 = new EnemyGroup(800, 25);
+			EnemyGroup group3 = new EnemyGroup(1200, 25);
+
+			// Add enemies to group
+			for(int i=0; i<10; i++) {
+				AssignmentEnemy a = new AssignmentEnemy(tilearrayPath);
+				group1.addEnemy(a);
+			}
+			for(int i=0; i<10; i++) {
+				TeacherEnemy t = new TeacherEnemy(tilearrayPath);
+				group2.addEnemy(t);
+			}
+			for(int i=0; i<10; i++) {
+				GeorgiaBulldogEnemy g = new GeorgiaBulldogEnemy(tilearrayPath);
+				group3.addEnemy(g);
+			}
+		
+			// Add groups to wave
+			if(group1 != null && group2 != null && group3 != null) {
+				wave1.addEnemyGroup(group1);
+				wave1.addEnemyGroup(group2);
+				wave1.addEnemyGroup(group3);
+				waves.add(wave1);
+			}
+		} // End Level_2
+		*/
 	}
 	
 	//Update 1 wave of the level at a time. Update the first wave you
@@ -166,8 +250,31 @@ public class Level {
 		}
 	}
 	
-	//Updates the cash when an update is called in GameScreen
+	//searches the path to find all the possible start points
+		public ArrayList<PathTile> startPoints() {
+			ArrayList<PathTile> start = new ArrayList<PathTile>();
+			for(int i=0; i<tilearrayPath.size(); i++) {
+				PathTile tile = tilearrayPath.get(i);
+				if(tile.getType2() == 'b' || tile.getType2() == 'B' || tile.getType2() == 'g' || tile.getType2() == 'G') {
+					start.add(tile);
+				}
+			}
+			return start;
+		}
+		
+		//search the path to find all the possible end points
+		public ArrayList<PathTile> endPoints() {
+			ArrayList<PathTile> end = new ArrayList<PathTile>();
+			for(int i=0; i<tilearrayPath.size(); i++) {
+				PathTile tile = tilearrayPath.get(i);
+				if(tile.getType2() == 'e' || tile.getType2() == 'E' || tile.getType2() == 'f' || tile.getType2() == 'F') {
+					end.add(tile);
+				}
+			}
+			return end;
+		}
 	
+	//Updates the cash when an update is called in GameScreen
 	int num=0;
 	public void checkCash(){
 		ArrayList<Enemy> enemies;

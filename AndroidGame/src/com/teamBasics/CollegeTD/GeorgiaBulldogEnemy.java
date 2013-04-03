@@ -5,6 +5,29 @@ import com.teamBasics.framework.Graphics;
 
 
 public class GeorgiaBulldogEnemy extends Enemy{
+	public GeorgiaBulldogEnemy(ArrayList<PathTile> tilearrayPath, PathTile start, ArrayList<PathTile> endPoints) {
+		super(tilearrayPath, start, endPoints);
+		setSpeed(2);
+		setHealth(5);
+		if(start.getType2() == 'b') {
+			movementY = speed;
+			movementX = 0;	
+		}
+		else if(start.getType2() == 'B') {
+			movementY = -1 * speed;
+			movementX = 0;
+		}
+		else if(start.getType2() == 'g') {
+			movementY = 0;
+			movementX = speed;
+		}
+		else {
+			movementY = 0;
+			movementX = -1*speed;
+		}
+		size = 19;
+	}
+	
 	public GeorgiaBulldogEnemy(ArrayList<PathTile> tilearrayPath) {
 		super(141, 41, tilearrayPath);
 		setSpeed(2);

@@ -23,9 +23,9 @@ public class PathTile {
 		type2 = typeChar;
 
 		r = new Rect();
-
+		
 		// Center Tile
-		if (type2 == 's') {
+		if (type2 == 's' ||type2 == 'b' ||type2 == 'B' || type2 =='g' || type2 =='G' || type2 =='e' || type2 =='E' || type2 =='f' || type2 =='F') {
 			tileImage2 = Assets.stoneCenter;
 			
 		// Side Tiles
@@ -93,6 +93,14 @@ public class PathTile {
 
 	public void setTileImage(Image tileImage2) {
 		this.tileImage2 = tileImage2;
+	}
+
+	public char getType2() {
+		return type2;
+	}
+
+	public void setType2(char type2) {
+		this.type2 = type2;
 	}
 
 }

@@ -4,7 +4,7 @@
 package com.teamBasics.CollegeTD;
 
 import java.util.ArrayList;
-
+import java.util.Random;
 import com.teamBasics.framework.Graphics;
 
 import android.graphics.Rect;
@@ -21,7 +21,29 @@ public abstract class Enemy {
 	protected int health;
 	protected boolean visible, kamakazi, dead;			//kamakazi means enemy reached end of map
 	private ArrayList<PathTile> tilearrayPath;
+	private ArrayList<PathTile> endPoints;
 	boolean kamaother;
+	
+	public Enemy(ArrayList<PathTile> tilearrayPath, PathTile start, ArrayList<PathTile> endPoints) {
+		Random rnd = new Random();
+		int posX = start.getTileX();
+		int posY = start.getTileY();
+		if(start.getType2() == 'b' || start.getType2() == 'B') {
+			this.x =  rnd.nextInt(25) + posX;
+			this.y = posY;
+		}
+		else {
+			this.x = posX; //random number + starting tile position + offset to make sure they are not on the edge.
+			this.y = rnd.nextInt(20) + posY + 5;
+			
+		}
+		setVisible(false);
+		r.set(posX, posY, posX+size, posY+size);
+		kamakazi = false;
+		dead = false;
+		this.tilearrayPath = tilearrayPath;
+		this.endPoints = endPoints;
+	}
 	
 	public Enemy(int posX, int posY, ArrayList<PathTile> tilearrayPath) {
 		this.x = posX;
@@ -36,7 +58,7 @@ public abstract class Enemy {
 	// Behavioral Methods
 	public void pathMove() {
 		int next_tileY, next_tileX;
-		if(y+(size/2) >= 380 || x+(size/2) >= 721) {
+		if(atEnd()) {
 			if(visible==true) {		//means its the first time through
 				kamakazi = true;
 			}
@@ -67,7 +89,7 @@ public abstract class Enemy {
 					next_tileX = x+speed+size;
 				}
 				
-				if(next_tileX < 721 && next_tileY < 380) {
+				if(next_tileX < 720 && next_tileY < 380) {
 					PathTile next = searchArray(next_tileX, next_tileY);
 					if(next == null) {
 						movementY=0;
@@ -89,6 +111,16 @@ public abstract class Enemy {
 				r.set(x, y, x+size, y+size);
 			}
 		}
+	}
+	
+	public boolean atEnd() {
+		if(y+(size/2) >= 380 || x+(size/2) >= 720) {
+			return true;
+		}
+		else if(y+(size/2) <= 40 || x == 0 ) {
+			return true;
+		}
+		return false;
 	}
 	
 	public PathTile searchArray(int next_tileX, int next_tileY) {
