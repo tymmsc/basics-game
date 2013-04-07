@@ -58,7 +58,25 @@ public abstract class Enemy {
 	// Behavioral Methods
 	public void pathMove() {
 		int next_tileY, next_tileX;
-		if(atEnd()) {
+		
+		if(movementY > 0) {
+			next_tileY = y+speed+size;	
+			next_tileX = x+(size/2);
+		}
+		else if(movementY < 0) {
+			next_tileY = y-speed;	
+			next_tileX = x+(size/2);
+		}
+		else if(movementX < 0 ){
+			next_tileY = y+(size/2);
+			next_tileX = x-speed;			
+		}
+		else {
+			next_tileY = y+(size/2);
+			next_tileX = x+speed+size;
+		}
+		PathTile next = searchArray(next_tileX, next_tileY);
+		if(atEnd(next)) {
 			if(visible==true) {		//means its the first time through
 				kamakazi = true;
 			}
@@ -72,25 +90,7 @@ public abstract class Enemy {
 			}
 			else {
 				visible = true;
-				if(movementY > 0) {
-					next_tileY = y+speed+size;	
-					next_tileX = x+(size/2);
-				}
-				else if(movementY < 0) {
-					next_tileY = y+speed-size;	
-					next_tileX = x+(size/2);
-				}
-				else if(movementX < 0 ){
-					next_tileY = y+(size/2);
-					next_tileX = x+speed-size;			
-				}
-				else {
-					next_tileY = y+(size/2);
-					next_tileX = x+speed+size;
-				}
-				
 				if(next_tileX < 720 && next_tileY < 380) {
-					PathTile next = searchArray(next_tileX, next_tileY);
 					if(next == null) {
 						movementY=0;
 						movementX=0;
@@ -113,12 +113,18 @@ public abstract class Enemy {
 		}
 	}
 	
-	public boolean atEnd() {
+	public boolean atEnd(PathTile next) {
+		
 		if(y+(size/2) >= 380 || x+(size/2) >= 720) {
 			return true;
 		}
-		else if(y+(size/2) <= 40 || x == 0 ) {
+		else if(y+(size/2) <= 40) {
 			return true;
+		}
+		else if(next != null) {
+			if(next.getType2() == 'f') {
+				return true;
+			}
 		}
 		return false;
 	}

@@ -25,7 +25,7 @@ public class GeorgiaBulldogEnemy extends Enemy{
 			movementY = 0;
 			movementX = -1*speed;
 		}
-		size = 19;
+		size = 18;
 	}
 	
 	public GeorgiaBulldogEnemy(ArrayList<PathTile> tilearrayPath) {

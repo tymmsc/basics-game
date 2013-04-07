@@ -1,5 +1,5 @@
 ! Team Basics
-! CollegeTD Level1
+! CollegeTD Level5
 ! Length = 40 tiles
 ! Width = 24 tiles
 ! Tiles = 20 pi x 20 pi
@@ -11,14 +11,19 @@
 ! d = DirtRight
 ! q = LTC, e = RTC
 ! z = LBC, c = RBC 
+! b = Starting tileY down
+! B = Starting tileY up
+! g = Starting tileX right
+! G = Starting tileX left
+! f = end tile
 ! y = 40-360 pixels (16 tiles)
 ! x = 0-680 pixels (34 tiles)
 ____________________________________
 ____________________________________
 wwwwwwwwwe______________qwwwwwwwwwww
-sssssssssd______________asssssssssss
-xxxxxxzssd______________asscxxxxxxxx
-______assd______________assd________
+gssssssssd______________asssssssssss
+gssssssssd______________asscxxxxxxxx
+xxxxxxzssd______________assd________
 ______assd______________assd________
 ______assexxxxxxxxxxxxxxqssd________
 ______assssssssssssssssssssd________
@@ -28,7 +33,7 @@ ____________________________________
 ______qwwwwwwwwwwwwwwwwwwwwe________
 ______assssssssssssssssssssd________
 ______asscxxxxxxxxxxxxxxzssd________
-______assd______________assd________  
-wwwwwwqssd______________assewwwwwwww
-sssssssssd______________asssssssssss
-xxxxxxxxxc______________zxxxxxxxxxxx
+______assd______________assewwwwwwww  
+_wwwwwqssd______________assssssssssG
+fssssssssd______________assssssssssG
+_xxxxxxxxc______________zxxxxxxxxxxx
