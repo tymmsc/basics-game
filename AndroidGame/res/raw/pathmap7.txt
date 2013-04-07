@@ -11,14 +11,21 @@
 ! d = DirtRight
 ! q = LTC, e = RTC
 ! z = LBC, c = RBC 
+! b = Starting tileY down
+! B = Starting tileY up
+! g = Starting tileX right
+! G = Starting tileX left
+! f = end tile
 ! y = 40-360 pixels (16 tiles)
 ! x = 0-680 pixels (34 tiles)
 ____________________________________
 ____________________________________
+____________________________________
+____________________________________
 ______qwwwwwwwwwwwwwwwwwwwwwwwwwwwww
-______asssssssssssssssssssssssssssss
-______asscxxxxxxxxxxxxxxxxxxxxxxxxx
-______assd__________________________
+______assssssssssssssssssssssssssssG
+______assssssssssssssssssssssssssssG
+______asscxxxxxxxxxxxxxxxxxxxxxxxxxx
 ______assd__________________________
 ______assd__________________________
 ______assd__________________________
@@ -28,5 +35,3 @@ ______assd__________________________
 ______assewwwwwwwwwwwwwwwwwwwwwwwwww
 ______asssssssssssssssssssssssssssss
 ______zxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-____________________________________
-____________________________________
