@@ -34,7 +34,7 @@ public abstract class Enemy {
 		}
 		else {
 			this.x = posX+1; //random number + starting tile position + offset to make sure they are not on the edge.
-			this.y = rnd.nextInt(20) + posY + 5;
+			this.y = rnd.nextInt(30) + posY;
 			
 		}
 		setVisible(false);

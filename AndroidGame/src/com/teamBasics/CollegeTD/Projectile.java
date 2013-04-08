@@ -18,6 +18,7 @@ public abstract class Projectile {
 
 	public Projectile(Enemy target, Tower tower, int startX, int startY) {
 		this.target = target;
+		this.tower = tower;
 		x = startX;
 		y = startY;
 		distanceTraveled = 0;
@@ -68,10 +69,8 @@ public abstract class Projectile {
 		if (Rect.intersects(r, target.r)) {
 			visible = false;
 			int health_remaining = target.getHealth();
-			//System.out.println(target.getHealth());
-			//System.out.println(tower.getDamage());
 			if(health_remaining > 0) {
-				health_remaining -= 3;//tower.getDamage();
+				health_remaining -= tower.getDamage();
 			}
 			if(health_remaining <= 0) {
 				target.die();
