@@ -16,20 +16,20 @@ import com.teamBasics.CollegeTD.SaveState;
 
 public class SampleGame extends AndroidGame {
 
-	public static String mapPath;
-	public ArrayList<InputStream> inputSB;
+	/*public static String mapPath;
+	public ArrayList<InputStream> inputSB;*/
 	public static ArrayList<InputStream> inputSP; 
 	boolean firstTimeCreate = true;
-	private static int currentLevel;
+	//private static int currentLevel;
 	
 
-	public int getCurrentLevel() {
+	/*public int getCurrentLevel() {
 		return currentLevel;
 	}
 
 	public static void setCurrentLevel(int currentLevelNew) {
 		currentLevel = currentLevelNew;
-	}
+	}*/
 
 	@Override
 	public Screen getInitScreen() {
@@ -45,7 +45,7 @@ public class SampleGame extends AndroidGame {
 		inputSP = new ArrayList<InputStream>(12);
 		
 		// Need to set new level number when user has defeated all enemies on selected map.
-		currentLevel = 10; 
+		//currentLevel = 10; 
 		
 		// Adding Path Map Tile Conversions
 		inputSP.add(0, getResources().openRawResource(R.raw.pathmap1));
@@ -64,21 +64,25 @@ public class SampleGame extends AndroidGame {
 		
 		// Border and Path Tile Selection based on Level
 		//mapBorder = convertStreamToString(inputSB.get(currentLevel-1));
-		loadMapPath(currentLevel);		
-
+		//loadMapPath(currentLevel);		
+		
 		return new SplashLoadingScreen(this);
 	}
 
-	public static void loadMapPath(int currentL){
-		mapPath = convertStreamToString(inputSP.get(currentL-1));
+	public static InputStream getInputSP(int level) {
+		return inputSP.get(level-1);
 	}
+	
+	/*public static void loadMapPath(int currentL){
+		mapPath = convertStreamToString(inputSP.get(currentL-1));
+	}*/
 	
 	@Override
 	public void onBackPressed() {
 		getCurrentScreen().backButton();
 	}
 
-	private static String convertStreamToString(InputStream is) {
+	/*private static String convertStreamToString(InputStream is) {
 
 		BufferedReader reader = new BufferedReader(new InputStreamReader(is));
 		StringBuilder sb = new StringBuilder();
@@ -98,7 +102,7 @@ public class SampleGame extends AndroidGame {
 			}
 		}
 		return sb.toString();
-	}
+	}*/
 
 	@Override
 	public void onResume() {

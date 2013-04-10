@@ -10,8 +10,11 @@ public class Assets {
     public static Image mainmenu, splash, gamescreen, menubackground, blank;
     
     // Background Images
-    public static Image optionsbackground, highscoresbackground, resumebackground, creditsbackground;
+    public static Image optionsbackground, highscoresbackground, resumebackground, creditsbackground, levelbackground;
     public static Image space, ltDirtCenter, ltDirtRight;
+    
+    // Level Select Sprites
+    public static Image level1, level2, level3, level4, level5, level6, level7, level8, level9, level10, level11, level12;
  
     // Splash Loading Images
     public static Image splash0, splash1, splash2, splash3, splash4, splash5, splash6, splash7, 

@@ -24,12 +24,14 @@ public class MainMenuScreen extends Screen {
 
 				// New Game Button
 				if (inBounds(event, 54, 204, 225, 50)) {
+					LevelSelectScreen.loadMapPath(1);
 					game.setScreen(new GameScreen(game, 1));
 				}
 				
 				// Resume Game Button
 				else if (inBounds(event, 296, 204, 225, 50)) {
-					game.setScreen(new ResumeGameScreen(game));
+					//game.setScreen(new ResumeGameScreen(game));
+					game.setScreen(new LevelSelectScreen(game));
 				}				
 				
 				// High Scores Button
