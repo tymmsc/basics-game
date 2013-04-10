@@ -42,7 +42,7 @@ public class GameScreen extends Screen {
 
 	// Levels
 	private static Level CurrentLevel;
-	private ArrayList<Level> levelArray = new ArrayList<Level>(20);
+	//private ArrayList<Level> levelArray = new ArrayList<Level>(12);
 
 	private int leftSideTowerPixel = 734 + 8;
 	private int rightSideTowerPixel = leftSideTowerPixel + 40;
@@ -59,12 +59,13 @@ public class GameScreen extends Screen {
 		Assets.option0 = Assets.blank;
 		Assets.option1 = Assets.blank;
 		Assets.option2 = Assets.blank;
-		for (int i = 0; i < 12; i++) {
+		/*for (int i = 0; i < 12; i++) {
 			levelArray.add(i, (new Level(i + 1)));
-		}
+		}*/
 
 		// Must update CurrentLevel to next level when user has defeated all enemies.
-		CurrentLevel = levelArray.get(currentL-1);
+		//CurrentLevel = levelArray.get(currentL-1);
+		CurrentLevel = new Level(currentL);
 
 		// Defining a paint object
 		// Start Text
@@ -127,7 +128,8 @@ public class GameScreen extends Screen {
 
 	private void updateRunning(List<TouchEvent> touchEvents, float deltaTime) {
 		if (CurrentLevel.isLevelComplete() == true) {
-			CurrentLevel = levelArray.get(CurrentLevel.getLevel_number() - 1);
+			CurrentLevel = new Level(CurrentLevel.getLevel_number()+1); 
+					//levelArray.get(CurrentLevel.getLevel_number() - 1);
 		}
 		Graphics sel = game.getGraphics();
 

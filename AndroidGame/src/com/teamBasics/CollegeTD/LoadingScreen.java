@@ -43,7 +43,22 @@ public class LoadingScreen extends Screen {
 		Assets.soundFX_off = g.newImage("sound_off.png", ImageFormat.RGB565);
 		Assets.soundFX_on = g.newImage("sound_on.png", ImageFormat.RGB565);
 		Assets.blank = g.newImage("blank.png", ImageFormat.RGB565);
-		Assets.levelSelect_box = g.newImage("levelSelect_box.png", ImageFormat.RGB565);
+		
+		// Level Select Sprites
+		Assets.levelbackground = g.newImage("levelSelect_background.png", ImageFormat.RGB565);
+		Assets.levelSelect_box = g.newImage("LevelSelect/levelSelect_box.png", ImageFormat.RGB565);
+		Assets.level1 = g.newImage("LevelSelect/level1_sml.png", ImageFormat.RGB565);
+		Assets.level2 = g.newImage("LevelSelect/level2_sml.png", ImageFormat.RGB565);
+		Assets.level3 = g.newImage("LevelSelect/level3_sml.png", ImageFormat.RGB565);
+		Assets.level4 = g.newImage("LevelSelect/level4_sml.png", ImageFormat.RGB565);
+		Assets.level5 = g.newImage("LevelSelect/level5_sml.png", ImageFormat.RGB565);
+		Assets.level6 = g.newImage("LevelSelect/level6_sml.png", ImageFormat.RGB565);
+		Assets.level7 = g.newImage("LevelSelect/level7_sml.png", ImageFormat.RGB565);
+		Assets.level8 = g.newImage("LevelSelect/level8_sml.png", ImageFormat.RGB565);
+		Assets.level9 = g.newImage("LevelSelect/level9_sml.png", ImageFormat.RGB565);
+		Assets.level10 = g.newImage("LevelSelect/level10_sml.png", ImageFormat.RGB565);
+		Assets.level11 = g.newImage("LevelSelect/level11_sml.png", ImageFormat.RGB565);
+		//Assets.level10 = g.newImage("LevelSelect/level10_sml.png", ImageFormat.RGB565);
 		
 		// Background Images
 		Assets.space = g.newImage("space.png", ImageFormat.RGB565);
