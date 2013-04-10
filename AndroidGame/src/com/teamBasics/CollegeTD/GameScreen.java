@@ -240,6 +240,26 @@ public class GameScreen extends Screen {
 				return i;
 
 			}
+			/*
+			if (towerList.get(i).getPosX() == (Xloc) && towerList.get(i).getPosY() == (Yloc+20)) {
+				descriptionText = "Select the upgrade to the right.";
+				towerType = TowerType.none;
+				return i;
+
+			}
+			if (towerList.get(i).getPosX() == (Xloc+20) && towerList.get(i).getPosY() == (Yloc)) {
+				descriptionText = "Select the upgrade to the right.";
+				towerType = TowerType.none;
+				return i;
+
+			}
+			if (towerList.get(i).getPosX() == (Xloc+20) && towerList.get(i).getPosY() == (Yloc+20)) {
+				descriptionText = "Select the upgrade to the right.";
+				towerType = TowerType.none;
+				return i;
+
+			}
+			*/
 		}
 		return -1;
 	}
@@ -395,25 +415,26 @@ public class GameScreen extends Screen {
 	}
 
 	private int cordFix(int cord) {
-		int tempCord = cord / 40;
-		int modCord = cord % 40;
+		cord = cord+20;
+		int tempCord = cord / 20;
+		int modCord = cord % 20;
 
-		if (modCord > 20) {
-			tempCord += 1;
-		}
+		// if (modCord > 10) {
+		//	tempCord += 1;
+		// }
 
-		return tempCord * 40;
+		return tempCord * 20;
 	}
 
 	private int cordFixTow(int cord) {
-		int tempCord = (cord - 20) / 40;
-		int modCord = (cord - 20) % 40;
+		int tempCord = (cord - 10) / 20;
+		int modCord = (cord - 10) % 20;
 
-		if (modCord > 20) {
+		if (modCord > 10) {
 			tempCord += 1;
 		}
 
-		return tempCord * 40;
+		return tempCord * 20;
 	}
 
 	private void drawGameOverUI() {
@@ -433,7 +454,25 @@ public class GameScreen extends Screen {
 				return false;
 			}
 		}
-
+		for (int i = 0; i < tilePath.size(); i++) { // check the map tiles to make sure that it is not a stone or dirt tile
+			if (tilePath.get(i).getTileX() == (Xloc+20) && tilePath.get(i).getTileY() == (Yloc+20) && (tilePath.get(i).type2 == 's' || tilePath.get(i).type2 == 'w' || tilePath.get(i).type2 == 'a' || tilePath.get(i).type2 == 'd' || tilePath.get(i).type2 == 'x' || tilePath.get(i).type2 == 'z' || tilePath.get(i).type2 == 'q' || tilePath.get(i).type2 == 'c' || tilePath.get(i).type2 == 'e' || tilePath.get(i).type2 == 'r' && towerType != TowerType.none)) { // check if the stone tile X and Y coords are the same
+				descriptionText = "Towers cannot be on path";
+				return false;
+			}
+		}
+		for (int i = 0; i < tilePath.size(); i++) { // check the map tiles to make sure that it is not a stone or dirt tile
+			if (tilePath.get(i).getTileX() == (Xloc+20) && tilePath.get(i).getTileY() == (Yloc) && (tilePath.get(i).type2 == 's' || tilePath.get(i).type2 == 'w' || tilePath.get(i).type2 == 'a' || tilePath.get(i).type2 == 'd' || tilePath.get(i).type2 == 'x' || tilePath.get(i).type2 == 'z' || tilePath.get(i).type2 == 'q' || tilePath.get(i).type2 == 'c' || tilePath.get(i).type2 == 'e' || tilePath.get(i).type2 == 'r' && towerType != TowerType.none)) { // check if the stone tile X and Y coords are the same
+				descriptionText = "Towers cannot be on path";
+				return false;
+			}
+		}
+		for (int i = 0; i < tilePath.size(); i++) { // check the map tiles to make sure that it is not a stone or dirt tile
+			if (tilePath.get(i).getTileX() == (Xloc) && tilePath.get(i).getTileY() == (Yloc+20) && (tilePath.get(i).type2 == 's' || tilePath.get(i).type2 == 'w' || tilePath.get(i).type2 == 'a' || tilePath.get(i).type2 == 'd' || tilePath.get(i).type2 == 'x' || tilePath.get(i).type2 == 'z' || tilePath.get(i).type2 == 'q' || tilePath.get(i).type2 == 'c' || tilePath.get(i).type2 == 'e' || tilePath.get(i).type2 == 'r' && towerType != TowerType.none)) { // check if the stone tile X and Y coords are the same
+				descriptionText = "Towers cannot be on path";
+				return false;
+			}
+		}
+		
 		ArrayList<Tower> towerList = CurrentLevel.getTowers(); // get list of already placed towers
 		for (int i = 0; i < towerList.size(); i++) { // check to make sure that the tower is not already in that location
 			if (towerList.get(i).getPosX() == Xloc && towerList.get(i).getPosY() == Yloc && towerType != TowerType.none) {
@@ -441,7 +480,26 @@ public class GameScreen extends Screen {
 				return false;
 			}
 		}
-
+		for (int i = 0; i < towerList.size(); i++) { // check to make sure that the tower is not already in that location
+			if (towerList.get(i).getPosX() == (Xloc) && towerList.get(i).getPosY() == (Yloc+20) && towerType != TowerType.none) {
+				descriptionText = "Towers cannot overlap.";
+				return false;
+			}
+		}
+		for (int i = 0; i < towerList.size(); i++) { // check to make sure that the tower is not already in that location
+			if (towerList.get(i).getPosX() == (Xloc+20) && towerList.get(i).getPosY() == (Yloc) && towerType != TowerType.none) {
+				descriptionText = "Towers cannot overlap.";
+				return false;
+			}
+		}
+		for (int i = 0; i < towerList.size(); i++) { // check to make sure that the tower is not already in that location
+			if (towerList.get(i).getPosX() == (Xloc+20) && towerList.get(i).getPosY() == (Yloc+20) && towerType != TowerType.none) {
+				descriptionText = "Towers cannot overlap.";
+				return false;
+			}
+		}
+		
+		// now for if its on a path size of 20.
 		return ret;
 	}
 

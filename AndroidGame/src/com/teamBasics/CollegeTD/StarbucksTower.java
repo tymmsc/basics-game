@@ -17,21 +17,25 @@ public class StarbucksTower extends Tower {
 	}
 	
 	public void draw(Graphics g) {
+		int cooldownInit = 1000;
+		int damageInit = 20;
+		int rangeInit = 75; 
+
 		if(level == 1) {
 			g.drawImage(Assets.cokeTower, posX, posY);
-			cooldown = 1000; // probably bad form to put this here, but its easier than updating 3 times elsewhere
-			damage = 20;	// cannot just change these values in the constructor because thats only for when the object is made
-			range = 75;
+			cooldown = cooldownInit/1; // probably bad form to put this here, but its easier than updating 3 times elsewhere
+			damage = damageInit*1;	// cannot just change these values in the constructor because thats only for when the object is made
+			range = rangeInit*1;
 		} else if(level == 2) {
 			g.drawImage(Assets.starbucksTower, posX, posY);
-			cooldown = 500;
-			damage = 40;
-			range = 150;
+			cooldown = cooldownInit*2/3;
+			damage = damageInit*3/2;
+			range = rangeInit*3/2;
 		} else {
 			g.drawImage(Assets.redbullTower, posX, posY);
-			cooldown = 300;
-			damage = 60;
-			range = 225;
+			cooldown = cooldownInit*2/5;
+			damage = damageInit*5/2;
+			range = rangeInit*5/2;
 		}
 	}
 
