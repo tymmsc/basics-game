@@ -3,6 +3,7 @@ package com.teamBasics.CollegeTD;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Timer;
 
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -20,8 +21,10 @@ public class GameScreen extends Screen {
 	enum GameState {
 		Ready, Running, Paused, GameOver
 	}
-
 	GameState state = GameState.Ready;
+	enum powerUp {
+		Achedemic, Sleep, Social, none
+	}
 
 	enum TowerType {
 		reddit, starbucks, pencil, none
@@ -38,6 +41,7 @@ public class GameScreen extends Screen {
 	private int Xbox = -50;
 	private int Ybox = -50;
 	private int towerNumber = -10;
+	private int powerUpTrue = 0;
 	Paint paintInit, paintMenu, paintDescriptionText, paintHUBText;
 
 	// Levels
@@ -175,20 +179,25 @@ public class GameScreen extends Screen {
 				else if (inBounds(event, leftSideTowerPixel, 283, 40, 40)) {
 					Assets.selectItem = Assets.sleepUp;
 					descriptionText = "This is the sleep upgrade!";
+					powerUp(powerUp.Sleep);
 				}
 				// Social Upgrade
 				else if (inBounds(event, leftSideTowerPixel, 343, 40, 40)) {
 					Assets.selectItem = Assets.socialUp;
 					descriptionText = "This is the social upgrade!";
+					powerUp(powerUp.Social);
 				}
 				// Academic Upgrade
 				else if (inBounds(event, leftSideTowerPixel, 403, 40, 40)) {
 					Assets.selectItem = Assets.academicUp;
 					descriptionText = "This is the academic upgrade!";
+					powerUp(powerUp.Achedemic);
 				} else {
 					towerType = TowerType.none;
 
 				}
+				
+				// power up time!
 
 			}
 
@@ -214,7 +223,8 @@ public class GameScreen extends Screen {
 				towerPlacement(X, Y);
 				touchTowerSel(X, Y); // Checks if the touch was on top of a tower.
 				// upgradeTowerSel(X, Y); Now this is done in the tower select one
-
+				// select the powerups
+				
 				towerType = TowerType.none;
 			}
 		}
@@ -405,6 +415,13 @@ public class GameScreen extends Screen {
 		if (towerType != TowerType.none && (Xtower > 0 && Xtower < 701 && Ytower > 21 && Ytower < 339)) {
 			g.drawImage(Assets.towerBox, Xbox, Ybox);
 		}
+		// draw box towers around all of the powerup towers!
+		if(powerUpTrue == 1) {
+			ArrayList<Tower> towerList = CurrentLevel.getTowers();
+			for (int i = 0; i < towerList.size(); i++) { // check to make sure that the tower is not already in that location
+				g.drawImage(Assets.towerBox, towerList.get(i).getPosX(), towerList.get(i).getPosY());
+			}
+		}
 	}
 
 	private void drawPausedUI() {
@@ -479,6 +496,7 @@ public class GameScreen extends Screen {
 		for (int i = 0; i < towerList.size(); i++) { // check to make sure that the tower is not already in that location
 			if (towerList.get(i).getPosX() == Xloc && towerList.get(i).getPosY() == Yloc && towerType != TowerType.none) {
 				descriptionText = "Towers cannot overlap.";
+				
 				return false;
 			} // ALL OF THESE ARE FOR YOU PATRICK </3
 			else if (towerList.get(i).getPosX() == Xloc-20  && towerList.get(i).getPosY() == Yloc && towerType != TowerType.none) {
@@ -686,4 +704,69 @@ public class GameScreen extends Screen {
 			towerType = TowerType.none;
 		}
 	}
+
+
+void powerUp(powerUp powerUp1) {
+	int powerUpCost = 25;
+	if(powerUp1 == powerUp.Sleep) {
+		// towers do more damage 10 seconds
+		// loop through towers and set powerup to 1
+		// descriptionText = "yay for sleep!";
+		if (CurrentLevel.getCash() >= powerUpCost) {
+			CurrentLevel.setCash(CurrentLevel.getCash() - powerUpCost);
+		powerUpTrue = 1;
+		ArrayList<Tower> towerList = CurrentLevel.getTowers();
+		for (int i = 0; i < towerList.size(); i++) { // check to make sure that the tower is not already in that location
+			towerList.get(i).setPowerUpTime(1);
+		}
+		// sleep for 10 seconds or w/e
+		for (int i = 0; i < towerList.size(); i++) { // check to make sure that the tower is not already in that location
+			towerList.get(i).setPowerUpTime(0);
+		}
+		powerUpTrue = 0;
+		} else {
+			descriptionText = "Insufficient Funds";
+		}
+	} else if (powerUp1 == powerUp.Achedemic) {
+		// tower shoot faster for 10 seconds
+		// loop through towers and set powerup to 2
+		if (CurrentLevel.getCash() >= powerUpCost) {
+			CurrentLevel.setCash(CurrentLevel.getCash() - powerUpCost);
+		powerUpTrue = 1;
+
+		ArrayList<Tower> towerList = CurrentLevel.getTowers();
+		for (int i = 0; i < towerList.size(); i++) { // check to make sure that the tower is not already in that location
+			towerList.get(i).setPowerUpTime(2);
+		}
+		// sleep for 10 seconds or whatever
+		for (int i = 0; i < towerList.size(); i++) { // check to make sure that the tower is not already in that location
+			towerList.get(i).setPowerUpTime(0);
+		}
+		powerUpTrue = 0;
+		} else {
+			descriptionText = "Insufficient Funds";
+		}
+	} else if (powerUp1 == powerUp.Social) {
+		// towers have longer range 10 seconds
+		// loop through towers and set powerup to 3
+		if (CurrentLevel.getCash() >= powerUpCost) {
+			CurrentLevel.setCash(CurrentLevel.getCash() - powerUpCost);
+			powerUpTrue = 1;
+			ArrayList<Tower> towerList = CurrentLevel.getTowers();
+			for (int i = 0; i < towerList.size(); i++) { // check to make sure that the tower is not already in that location
+				towerList.get(i).setPowerUpTime(3);
+			}
+			// sleep for 10 seconds or w/e
+
+			for (int i = 0; i < towerList.size(); i++) { // check to make sure that the tower is not already in that location
+				towerList.get(i).setPowerUpTime(0);
+			}
+			
+			powerUpTrue = 0;
+		} else {
+			descriptionText = "Insufficient Funds";
+		}
+	}
 }
+}
+

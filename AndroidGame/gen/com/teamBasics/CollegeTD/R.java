@@ -20,14 +20,15 @@ public final class R {
         public static final int pathmap1=0x7f030002;
         public static final int pathmap10=0x7f030003;
         public static final int pathmap11=0x7f030004;
-        public static final int pathmap2=0x7f030005;
-        public static final int pathmap3=0x7f030006;
-        public static final int pathmap4=0x7f030007;
-        public static final int pathmap5=0x7f030008;
-        public static final int pathmap6=0x7f030009;
-        public static final int pathmap7=0x7f03000a;
-        public static final int pathmap8=0x7f03000b;
-        public static final int pathmap9=0x7f03000c;
+        public static final int pathmap12=0x7f030005;
+        public static final int pathmap2=0x7f030006;
+        public static final int pathmap3=0x7f030007;
+        public static final int pathmap4=0x7f030008;
+        public static final int pathmap5=0x7f030009;
+        public static final int pathmap6=0x7f03000a;
+        public static final int pathmap7=0x7f03000b;
+        public static final int pathmap8=0x7f03000c;
+        public static final int pathmap9=0x7f03000d;
     }
     public static final class string {
         public static final int app_name=0x7f040000;

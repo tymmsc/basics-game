@@ -37,6 +37,14 @@ public class RedditTower extends Tower {
 			damage = damageInit*5/2;
 			range = rangeInit*5/2;
 		}
+		if(powerUpTime == 1) { // sleep
+			damage = damageInit*7/2;
+		} else if(powerUpTime == 2) { // achedemic
+			cooldown = cooldownInit*1/5;
+		} else if(powerUpTime == 3) { // social
+			range = rangeInit*7/2;
+		}
+		
 	}
 
 	@Override

@@ -16,7 +16,7 @@ public abstract class Tower {
 	protected int cooldown, damage;				//cooldown should be in milliseconds
 	protected int range;						//Radius of tower
 	protected int level;						//Keep track of how much tower has been upgraded. Will augment towers initial stats
-											//Also will change the sprite of the tower
+	protected int powerUpTime;									//Also will change the sprite of the tower
 	protected int size;						//Tells you the dimensions of the tower. Ex: size=20 means tower is 20 x 20 pixels
 	
 	protected int cost, levelup_cost;		//cost of tower and cost to level up tower
@@ -141,6 +141,13 @@ public abstract class Tower {
 	
 	public void setLevel(int level) {
 		this.level = level;
+	}
+	public int getPowerUpTime() {
+		return powerUpTime;
+	}
+	
+	public void setPowerUpTime(int powerUpTime) {
+		this.powerUpTime = powerUpTime;
 	}
 	
 	public int getCash_back() {
