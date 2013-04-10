@@ -59,7 +59,7 @@ public class SampleGame extends AndroidGame {
 		inputSP.add(8, getResources().openRawResource(R.raw.pathmap9));
 		inputSP.add(9, getResources().openRawResource(R.raw.pathmap10));
 		inputSP.add(10, getResources().openRawResource(R.raw.pathmap11));
-		//inputSP.add(11, getResources().openRawResource(R.raw.pathmap12));
+		inputSP.add(11, getResources().openRawResource(R.raw.pathmap12));
 
 		
 		// Border and Path Tile Selection based on Level

@@ -94,7 +94,7 @@ public class LevelSelectScreen extends Screen {
 				}
 				
 				// Level 6 Select
-				else if (inBounds(event, 675-12, 325, 100, 100)) {
+				else if (inBounds(event, 675-12, 200, 100, 100)) {
 					loadMapPath(6);
 					game.setScreen(new GameScreen(game, 6));
 				}	
@@ -131,8 +131,8 @@ public class LevelSelectScreen extends Screen {
 				
 				// Level 12 Select
 				else if (inBounds(event, 675-12, 325, 100, 100)) {
-					loadMapPath(11);
-					game.setScreen(new GameScreen(game, 11));
+					loadMapPath(12);
+					game.setScreen(new GameScreen(game, 12));
 				}
 				
 			}
@@ -228,7 +228,7 @@ public class LevelSelectScreen extends Screen {
 			
 		// Level 12
 		g.drawImage(Assets.levelSelect_box, 675-12, row2);
-		g.drawImage(Assets.level11, 680-12, 345);
+		g.drawImage(Assets.level12, 680-12, 345);
 		
 		// Text
 		g.drawString("Level 1", 100-12, 290, paint);
