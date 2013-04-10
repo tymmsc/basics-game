@@ -480,26 +480,41 @@ public class GameScreen extends Screen {
 			if (towerList.get(i).getPosX() == Xloc && towerList.get(i).getPosY() == Yloc && towerType != TowerType.none) {
 				descriptionText = "Towers cannot overlap.";
 				return false;
+			} // ALL OF THESE ARE FOR YOU PATRICK </3
+			else if (towerList.get(i).getPosX() == Xloc-20  && towerList.get(i).getPosY() == Yloc && towerType != TowerType.none) {
+				descriptionText = "Towers cannot overlap.";
+				return false;
 			}
-		}
-		for (int i = 0; i < towerList.size(); i++) { // check to make sure that the tower is not already in that location
-			if (towerList.get(i).getPosX() == (Xloc) && towerList.get(i).getPosY() == (Yloc+20) && towerType != TowerType.none) {
+			else if (towerList.get(i).getPosX() == Xloc  && towerList.get(i).getPosY() == Yloc+20 && towerType != TowerType.none) {
+				descriptionText = "Towers cannot overlap.";
+				return false;
+			}
+			else if (towerList.get(i).getPosX() == Xloc  && towerList.get(i).getPosY() == Yloc-20 && towerType != TowerType.none) {
+				descriptionText = "Towers cannot overlap.";
+				return false;
+			}
+			else if (towerList.get(i).getPosX() == Xloc-20  && towerList.get(i).getPosY() == Yloc-20 && towerType != TowerType.none) {
+				descriptionText = "Towers cannot overlap.";
+				return false;
+			}
+			else if (towerList.get(i).getPosX() == Xloc-20  && towerList.get(i).getPosY() == Yloc+20 && towerType != TowerType.none) {
+				descriptionText = "Towers cannot overlap.";
+				return false;
+			}
+			else if (towerList.get(i).getPosX() == Xloc+20  && towerList.get(i).getPosY() == Yloc && towerType != TowerType.none) {
+				descriptionText = "Towers cannot overlap.";
+				return false;
+			}
+			else if (towerList.get(i).getPosX() == Xloc+20  && towerList.get(i).getPosY() == Yloc+20 && towerType != TowerType.none) {
+				descriptionText = "Towers cannot overlap.";
+				return false;
+			}
+			else if (towerList.get(i).getPosX() == Xloc+20  && towerList.get(i).getPosY() == Yloc-20 && towerType != TowerType.none) {
 				descriptionText = "Towers cannot overlap.";
 				return false;
 			}
 		}
-		for (int i = 0; i < towerList.size(); i++) { // check to make sure that the tower is not already in that location
-			if (towerList.get(i).getPosX() == (Xloc+20) && towerList.get(i).getPosY() == (Yloc) && towerType != TowerType.none) {
-				descriptionText = "Towers cannot overlap.";
-				return false;
-			}
-		}
-		for (int i = 0; i < towerList.size(); i++) { // check to make sure that the tower is not already in that location
-			if (towerList.get(i).getPosX() == (Xloc+20) && towerList.get(i).getPosY() == (Yloc+20) && towerType != TowerType.none) {
-				descriptionText = "Towers cannot overlap.";
-				return false;
-			}
-		}
+
 		
 		// now for if its on a path size of 20.
 		return ret;

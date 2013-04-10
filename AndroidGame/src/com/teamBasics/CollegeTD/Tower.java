@@ -11,7 +11,7 @@ import android.graphics.Rect;
 
 public abstract class Tower {
 
-	protected int posX, posY;  // x and y position of tower
+	protected int posX, posY, posX_right, posY_bottom;  // x and y position of tower
 	protected Point center;		//
 	protected int cooldown, damage;				//cooldown should be in milliseconds
 	protected int range;						//Radius of tower
@@ -31,6 +31,8 @@ public abstract class Tower {
 	public Tower(int posX, int posY) {
 		this.posX = posX;
 		this.posY = posY;
+		posX_right = posX+40;
+		posY_bottom = posY+40;
 		center = new Point(posX+(size/2),  posY+(size/2));
 		readyToFire = true;
 		TimeFired = 0;
@@ -93,7 +95,21 @@ public abstract class Tower {
 	public void setPosY(int posY) {
 		this.posY = posY;
 	}
+	public int getPosX_right() {
+		return posX_right;
+	}
 	
+	public void setPosX_right(int posX_right) {
+		this.posX_right = posX_right;
+	}
+	
+	public int getPosY_bottom() {
+		return posY_bottom;
+	}
+	
+	public void setPosY_bottom(int posY_bottom) {
+		this.posY = posY_bottom;
+	}
 	//Example of Attribute being augmented by level??
 	public int getCooldown() {
 		return cooldown + ((int) 0.5*level);
