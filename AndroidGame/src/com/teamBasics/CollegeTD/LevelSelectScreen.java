@@ -64,73 +64,73 @@ public class LevelSelectScreen extends Screen {
 			if (event.type == TouchEvent.TOUCH_UP) {
 
 				// Level 1 Select
-				if (inBounds(event, 50, 200, 100, 100)) {
+				if (inBounds(event, 50-12, 200, 100, 100)) {
 					loadMapPath(1);
 					game.setScreen(new GameScreen(game, 1));
 				}
 				
 				// Level 2 Select
-				else if (inBounds(event, 175, 200, 100, 100)) {
+				else if (inBounds(event, 175-12, 200, 100, 100)) {
 					loadMapPath(2);
 					game.setScreen(new GameScreen(game, 2));
 				}				
 
 				// Level 3 Select
-				else if (inBounds(event, 300, 200, 100, 100)) {
+				else if (inBounds(event, 300-12, 200, 100, 100)) {
 					loadMapPath(3);
 					game.setScreen(new GameScreen(game, 3));
 				}
 				
 				// Level 4 Select
-				else if (inBounds(event, 425, 200, 100, 100)) {
+				else if (inBounds(event, 425-12, 200, 100, 100)) {
 					loadMapPath(4);
 					game.setScreen(new GameScreen(game, 4));
 				}	
 				
 				// Level 5 Select
-				else if (inBounds(event, 550, 200, 100, 100)) {
+				else if (inBounds(event, 550-12, 200, 100, 100)) {
 					loadMapPath(5);
 					game.setScreen(new GameScreen(game, 5));
 				}
 				
 				// Level 6 Select
-				else if (inBounds(event, 675, 325, 100, 100)) {
+				else if (inBounds(event, 675-12, 325, 100, 100)) {
 					loadMapPath(6);
 					game.setScreen(new GameScreen(game, 6));
 				}	
 				
 				// Level 7 Select
-				else if (inBounds(event, 50, 325, 100, 100)) {
+				else if (inBounds(event, 50-12, 325, 100, 100)) {
 					loadMapPath(7);
 					game.setScreen(new GameScreen(game, 7));
 				}
 				
 				// Level 8 Select
-				else if (inBounds(event, 175, 325, 100, 100)) {
+				else if (inBounds(event, 175-12, 325, 100, 100)) {
 					loadMapPath(8);
 					game.setScreen(new GameScreen(game, 8));
 				}
 				
 				// Level 9 Select
-				else if (inBounds(event, 300, 325, 100, 100)) {
+				else if (inBounds(event, 300-12, 325, 100, 100)) {
 					loadMapPath(9);
 					game.setScreen(new GameScreen(game, 9));
 				}
 				
 				// Level 10 Select
-				else if (inBounds(event, 425, 325, 100, 100)) {
+				else if (inBounds(event, 425-12, 325, 100, 100)) {
 					loadMapPath(10);
 					game.setScreen(new GameScreen(game, 10));
 				}					
 				
 				// Level 11 Select
-				else if (inBounds(event, 550, 325, 100, 100)) {
+				else if (inBounds(event, 550-12, 325, 100, 100)) {
 					loadMapPath(11);
 					game.setScreen(new GameScreen(game, 11));
 				}
 				
 				// Level 12 Select
-				else if (inBounds(event, 675, 325, 100, 100)) {
+				else if (inBounds(event, 675-12, 325, 100, 100)) {
 					loadMapPath(11);
 					game.setScreen(new GameScreen(game, 11));
 				}
@@ -182,68 +182,68 @@ public class LevelSelectScreen extends Screen {
 		
 		// Row 1
 		// Level 1
-		g.drawImage(Assets.levelSelect_box, 50, row1);
-		g.drawImage(Assets.level1, 55, 220);
+		g.drawImage(Assets.levelSelect_box, 50-12, row1);
+		g.drawImage(Assets.level1, 55-12, 220);
 		
 		// Level 2
-		g.drawImage(Assets.levelSelect_box, 175, row1);
-		g.drawImage(Assets.level2, 180, 220);
+		g.drawImage(Assets.levelSelect_box, 175-12, row1);
+		g.drawImage(Assets.level2, 180-12, 220);
 		
 		// Level 3
-		g.drawImage(Assets.levelSelect_box, 300, row1);
-		g.drawImage(Assets.level3, 305, 220);
+		g.drawImage(Assets.levelSelect_box, 300-12, row1);
+		g.drawImage(Assets.level3, 305-12, 220);
 			
 		// Level 4
-		g.drawImage(Assets.levelSelect_box, 425, row1);
-		g.drawImage(Assets.level4, 430, 220);
+		g.drawImage(Assets.levelSelect_box, 425-12, row1);
+		g.drawImage(Assets.level4, 430-12, 220);
 				
 		// Level 5
-		g.drawImage(Assets.levelSelect_box, 550, row1);
-		g.drawImage(Assets.level5, 555, 220);
+		g.drawImage(Assets.levelSelect_box, 550-12, row1);
+		g.drawImage(Assets.level5, 555-12, 220);
 				
 		// Level 6
-		g.drawImage(Assets.levelSelect_box, 675, row1);
-		g.drawImage(Assets.level6, 680, 220);
+		g.drawImage(Assets.levelSelect_box, 675-12, row1);
+		g.drawImage(Assets.level6, 680-12, 220);
 
 		// Row 2
 		// Level 7
-		g.drawImage(Assets.levelSelect_box, 50, row2);
-		g.drawImage(Assets.level7, 55, 345);
+		g.drawImage(Assets.levelSelect_box, 50-12, row2);
+		g.drawImage(Assets.level7, 55-12, 345);
 		
 		// Level 8
-		g.drawImage(Assets.levelSelect_box, 175, row2);
-		g.drawImage(Assets.level8, 180, 345);
+		g.drawImage(Assets.levelSelect_box, 175-12, row2);
+		g.drawImage(Assets.level8, 180-12, 345);
 		
 		// Level 9
-		g.drawImage(Assets.levelSelect_box, 300, row2);
-		g.drawImage(Assets.level9, 305, 345);
+		g.drawImage(Assets.levelSelect_box, 300-12, row2);
+		g.drawImage(Assets.level9, 305-12, 345);
 		
 		// Level 10
-		g.drawImage(Assets.levelSelect_box, 425, row2);
-		g.drawImage(Assets.level10, 430, 345);
+		g.drawImage(Assets.levelSelect_box, 425-12, row2);
+		g.drawImage(Assets.level10, 430-12, 345);
 		
 		// Level 11
-		g.drawImage(Assets.levelSelect_box, 550, row2);
-		g.drawImage(Assets.level11, 555, 345);
+		g.drawImage(Assets.levelSelect_box, 550-12, row2);
+		g.drawImage(Assets.level11, 555-12, 345);
 			
 		// Level 12
-		g.drawImage(Assets.levelSelect_box, 675, row2);
-		g.drawImage(Assets.level11, 680, 345);
+		g.drawImage(Assets.levelSelect_box, 675-12, row2);
+		g.drawImage(Assets.level11, 680-12, 345);
 		
 		// Text
-		g.drawString("Level 1", 100, 290, paint);
-		g.drawString("Level 2", 225, 290, paint);
-		g.drawString("Level 3", 350, 290, paint);
-		g.drawString("Level 4", 475, 290, paint);
-		g.drawString("Level 5", 600, 290, paint);
-		g.drawString("Level 6", 725, 290, paint);
+		g.drawString("Level 1", 100-12, 290, paint);
+		g.drawString("Level 2", 225-12, 290, paint);
+		g.drawString("Level 3", 350-12, 290, paint);
+		g.drawString("Level 4", 475-12, 290, paint);
+		g.drawString("Level 5", 600-12, 290, paint);
+		g.drawString("Level 6", 725-12, 290, paint);
 		
-		g.drawString("Level 7", 100, 415, paint);
-		g.drawString("Level 8", 225, 415, paint);
-		g.drawString("Level 9", 350, 415, paint);
-		g.drawString("Level 10", 475, 415, paint);
-		g.drawString("Level 11", 600, 415, paint);
-		g.drawString("Level 12", 725, 415, paint);
+		g.drawString("Level 7", 100-12, 415, paint);
+		g.drawString("Level 8", 225-12, 415, paint);
+		g.drawString("Level 9", 350-12, 415, paint);
+		g.drawString("Level 10", 475-12, 415, paint);
+		g.drawString("Level 11", 600-12, 415, paint);
+		g.drawString("Level 12", 725-12, 415, paint);
 	}
 
 
