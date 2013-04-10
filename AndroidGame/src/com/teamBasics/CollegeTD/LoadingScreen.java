@@ -58,7 +58,7 @@ public class LoadingScreen extends Screen {
 		Assets.level9 = g.newImage("LevelSelect/level9_sml.png", ImageFormat.RGB565);
 		Assets.level10 = g.newImage("LevelSelect/level10_sml.png", ImageFormat.RGB565);
 		Assets.level11 = g.newImage("LevelSelect/level11_sml.png", ImageFormat.RGB565);
-		//Assets.level10 = g.newImage("LevelSelect/level10_sml.png", ImageFormat.RGB565);
+		Assets.level12 = g.newImage("LevelSelect/level12_sml.png", ImageFormat.RGB565);
 		
 		// Background Images
 		Assets.space = g.newImage("space.png", ImageFormat.RGB565);
