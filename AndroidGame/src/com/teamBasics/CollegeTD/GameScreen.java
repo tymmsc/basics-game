@@ -21,6 +21,7 @@ public class GameScreen extends Screen {
 	enum GameState {
 		Ready, Running, Paused, GameOver
 	}
+	long powerUpTime = 0;
 	GameState state = GameState.Ready;
 	enum powerUp {
 		Achedemic, Sleep, Social, none
@@ -392,6 +393,10 @@ public class GameScreen extends Screen {
 			g.drawImage(Assets.pencilTower, Xtower, Ytower);
 		}
 		// Draw the Highlighted box where the tower will be placed
+		// check power up time
+		if(powerUpTime <= System.currentTimeMillis()-5000) {
+			powerUpTrue = 0;
+		}
 
 		// Upgrade sprites
 		g.drawImage(Assets.sleepUp, leftSideTowerPixel, 283);
@@ -715,6 +720,7 @@ void powerUp(powerUp powerUp1) {
 		if (CurrentLevel.getCash() >= powerUpCost) {
 			CurrentLevel.setCash(CurrentLevel.getCash() - powerUpCost);
 		powerUpTrue = 1;
+		powerUpTime = System.currentTimeMillis();
 		ArrayList<Tower> towerList = CurrentLevel.getTowers();
 		for (int i = 0; i < towerList.size(); i++) { // check to make sure that the tower is not already in that location
 			towerList.get(i).setPowerUpTime(1);
@@ -723,7 +729,6 @@ void powerUp(powerUp powerUp1) {
 		for (int i = 0; i < towerList.size(); i++) { // check to make sure that the tower is not already in that location
 			towerList.get(i).setPowerUpTime(0);
 		}
-		powerUpTrue = 0;
 		} else {
 			descriptionText = "Insufficient Funds";
 		}
@@ -733,7 +738,7 @@ void powerUp(powerUp powerUp1) {
 		if (CurrentLevel.getCash() >= powerUpCost) {
 			CurrentLevel.setCash(CurrentLevel.getCash() - powerUpCost);
 		powerUpTrue = 1;
-
+		powerUpTime = System.currentTimeMillis();
 		ArrayList<Tower> towerList = CurrentLevel.getTowers();
 		for (int i = 0; i < towerList.size(); i++) { // check to make sure that the tower is not already in that location
 			towerList.get(i).setPowerUpTime(2);
@@ -742,7 +747,7 @@ void powerUp(powerUp powerUp1) {
 		for (int i = 0; i < towerList.size(); i++) { // check to make sure that the tower is not already in that location
 			towerList.get(i).setPowerUpTime(0);
 		}
-		powerUpTrue = 0;
+
 		} else {
 			descriptionText = "Insufficient Funds";
 		}
@@ -752,6 +757,7 @@ void powerUp(powerUp powerUp1) {
 		if (CurrentLevel.getCash() >= powerUpCost) {
 			CurrentLevel.setCash(CurrentLevel.getCash() - powerUpCost);
 			powerUpTrue = 1;
+			powerUpTime = System.currentTimeMillis();
 			ArrayList<Tower> towerList = CurrentLevel.getTowers();
 			for (int i = 0; i < towerList.size(); i++) { // check to make sure that the tower is not already in that location
 				towerList.get(i).setPowerUpTime(3);
@@ -762,7 +768,7 @@ void powerUp(powerUp powerUp1) {
 				towerList.get(i).setPowerUpTime(0);
 			}
 			
-			powerUpTrue = 0;
+
 		} else {
 			descriptionText = "Insufficient Funds";
 		}
