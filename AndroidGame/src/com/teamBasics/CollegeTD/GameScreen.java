@@ -587,18 +587,42 @@ public class GameScreen extends Screen {
 				if (towerNumber >= 0) {
 					ArrayList<Tower> towerList = CurrentLevel.getTowers(); // get the current tower list
 					descriptionText = "Select upgrade for tower# " + (towerNumber + 1); // After the tower has been selected display the number, it starts at 0 so add one.
-					if (towerList.get(towerNumber) instanceof RedditTower) { // check for instanceof to see which class to see which piuctures to display
-						Assets.selectItem = Assets.blank; // put anything in the selectedItem area of the screen
+					if (towerList.get(towerNumber) instanceof RedditTower) { // check for instanceof to see which class to see which pictures to display
+						if (towerList.get(towerNumber).getLevel() == 1) {
+							Assets.selectItem = Assets.facebookTower;
+						}
+						else if (towerList.get(towerNumber).getLevel() == 2) {
+							Assets.selectItem = Assets.redditTower;
+						}
+						else if (towerList.get(towerNumber).getLevel() == 3) {
+							Assets.selectItem = Assets.netflixTower;
+						}
 						Assets.option0 = Assets.sell; // level one tower
 						Assets.option1 = Assets.upgrade; // level two tower
 						Assets.option2 = Assets.downgrade; // level three tower
 					} else if (towerList.get(towerNumber) instanceof PencilTower) { // same as reddit tower
-						Assets.selectItem = Assets.blank; // change this to the picture of the selected tower
+						if (towerList.get(towerNumber).getLevel() == 1) { 
+							Assets.selectItem = Assets.pencilTower;
+						}
+						else if (towerList.get(towerNumber).getLevel() == 2) {
+							Assets.selectItem = Assets.mechanicalPencilTower;
+						}
+						else if (towerList.get(towerNumber).getLevel() == 3) {
+							Assets.selectItem = Assets.penTower;
+						}
 						Assets.option0 = Assets.sell;
 						Assets.option1 = Assets.upgrade;
 						Assets.option2 = Assets.downgrade;
 					} else if (towerList.get(towerNumber) instanceof StarbucksTower) { // same as reddit tower
-						Assets.selectItem = Assets.blank;
+						if (towerList.get(towerNumber).getLevel() == 1) {
+							Assets.selectItem = Assets.cokeTower;
+						}
+						else if (towerList.get(towerNumber).getLevel() == 2) {
+							Assets.selectItem = Assets.starbucksTower;
+						}
+						else if (towerList.get(towerNumber).getLevel() == 3) {
+							Assets.selectItem = Assets.redbullTower;
+						}
 						Assets.option0 = Assets.sell;
 						Assets.option1 = Assets.upgrade;
 						Assets.option2 = Assets.downgrade;
