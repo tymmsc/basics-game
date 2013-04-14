@@ -411,7 +411,7 @@ public class GameScreen extends Screen {
 
 		scoreText = "" + CurrentLevel.getScore();
 		g.drawString(scoreText, 290, 26, paintHUBText);
-		livesText = "" + CurrentLevel.getLivesLeft();
+	    livesText = "" + CurrentLevel.getLivesLeft()/10+"."+CurrentLevel.getLivesLeft()%10;
 		g.drawString(livesText, 516, 26, paintHUBText);
 		cashText = "$" + CurrentLevel.getCash();
 		g.drawString(cashText, 695, 26, paintHUBText);

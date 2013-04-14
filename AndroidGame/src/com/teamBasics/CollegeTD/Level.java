@@ -19,7 +19,7 @@ public class Level {
 	ArrayList<PathTile> endTiles = new ArrayList<PathTile>();
 	
 	//User Info
-	private int livesLeft = 20;
+	private int livesLeft = 40;
 	private int cash = 200;
 	private int score = 0;
 	
@@ -247,7 +247,7 @@ public class Level {
 		for(int i=0; i<projectiles.size(); i++) {
 			projectiles.get(i).draw(g);
 		}
-		livesLeft -= lives_lost;
+		livesLeft -= lives_lost*2;
 		if(livesLeft < 0 ) {
 			livesLeft = 0;
 		}
