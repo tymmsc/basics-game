@@ -278,20 +278,23 @@ public class Level {
 		}
 	
 	//Updates the cash when an update is called in GameScreen
-	int num=0;
-	public void checkCash(){
-		ArrayList<Enemy> enemies;
-		int size=0;
-		for(int i=0; i<waves.size(); i++) {
-			enemies = waves.get(i).killedEnemies();
-			size=enemies.size();
-			if(size!=num){
-				num=size;
-				cash+=5;
-				score+=20;
+		int num=0;
+		public void checkCash(){
+			ArrayList<Enemy> enemies;
+			ArrayList<Enemy> allenemies;
+			int size=0;
+			for(int i=0; i<waves.size(); i++) {
+				enemies = waves.get(i).killedEnemies();
+				allenemies = waves.get(i).allEnemies();
+				//cash=waves.size();
+				size=waves.get(i).killedEnemies().size();
+				if(num!=size){
+					num=size; 
+					cash+=5;
+					score+=20;
+				}
 			}
 		}
-	}
 	
 	public boolean isKama(ArrayList<Enemy> totalenemies){
 		for(int j=0; j<totalenemies.size();j++){

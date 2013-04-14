@@ -40,6 +40,7 @@ public abstract class Enemy {
 		setVisible(false);
 		r.set(posX, posY, posX+size, posY+size);
 		kamakazi = false;
+		kamaother=false; 
 		dead = false;
 		this.tilearrayPath = tilearrayPath;
 		this.endPoints = endPoints;
@@ -79,6 +80,7 @@ public abstract class Enemy {
 		if(atEnd(next)) {
 			if(visible==true) {		//means its the first time through
 				kamakazi = true;
+				kamaother= true;
 			}
 			visible = false;
 			dead = true;
@@ -185,6 +187,8 @@ public abstract class Enemy {
 	public void die() {
 		visible = false;
 		dead = true;
+		kamaother=false;
+		kamakazi=false;
 		// Remove from screen
 		// Increase User Cash Value
 	}
@@ -266,3 +270,4 @@ public abstract class Enemy {
 	}
 	
 }
+

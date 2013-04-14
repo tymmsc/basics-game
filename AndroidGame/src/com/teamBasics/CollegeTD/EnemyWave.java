@@ -73,7 +73,7 @@ public class EnemyWave {
 			ArrayList<Enemy> currentGroup = group.getGroup();
 			for(int j=0; j<currentGroup.size(); j++) {
 				Enemy e = currentGroup.get(j);
-				if(e.isDead() && !e.isVisible() && !e.isKamakazi()) {
+				if(e.isDead() && !e.isVisible() && !e.isKamaother()) {
 					killedEnemies.add(e);
 				}
 			}
