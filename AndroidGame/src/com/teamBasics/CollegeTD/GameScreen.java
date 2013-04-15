@@ -325,6 +325,9 @@ public class GameScreen extends Screen {
 
 		// Draw Main Game Screen
 		g.drawImage(Assets.gamescreen, 0, 0);
+		
+		//****************************************
+		// check level here then draw background
 
 		// Draw custom background
 		// g.drawImage(Assets.space, 0, 41);
