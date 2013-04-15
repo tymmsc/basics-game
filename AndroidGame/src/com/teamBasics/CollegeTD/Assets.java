@@ -51,11 +51,19 @@ public class Assets {
     //public static Image button;
     public static Sound click;
     public static Sound laser, pencil, coffee, upgradeT;
-    public static Music theme;
+    public static Music theme, even, odd;
    
     public static void load(SampleGame sampleGame) {
         // Method for creating a looping game theme @ 85% max vol.
-        theme = sampleGame.getAudio().createMusic("menutheme.mp3");
+    	even = sampleGame.getAudio().createMusic("MusicBackgrounds/Even.mp3");
+    	even.setLooping(true);
+        even.setVolume(0.85f);
+        
+    	odd = sampleGame.getAudio().createMusic("MusicBackgrounds/Odd.mp3");
+    	odd.setLooping(true);
+        odd.setVolume(0.85f);
+        
+        theme = sampleGame.getAudio().createMusic("MusicBackgrounds/Start.mp3");
         theme.setLooping(true);
         theme.setVolume(0.85f);
         theme.play();
