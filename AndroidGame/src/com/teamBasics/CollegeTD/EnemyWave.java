@@ -5,10 +5,7 @@ package com.teamBasics.CollegeTD;
  */
 
 import java.util.ArrayList;
-
 import com.teamBasics.framework.Graphics;
-
-import android.graphics.Rect;
 
 public class EnemyWave {
 	//wave is an arrayList of all the groups of enemies that make up this wave

@@ -34,7 +34,11 @@ public class OptionScreen extends Screen {
 		paint2.setAntiAlias(true);
 		paint2.setColor(Color.LTGRAY);
 
-		Assets.soundFX = Assets.soundFX_off;
+		if( SampleGame.sound == true ){
+			Assets.soundFX = Assets.soundFX_on;
+		} else {
+			Assets.soundFX = Assets.soundFX_off;
+		}
 	}
 
 	@Override
@@ -53,9 +57,13 @@ public class OptionScreen extends Screen {
 						if(inBounds(event, 100, 200, 250, 25)){
 							if(Assets.soundFX == Assets.soundFX_off){
 								Assets.soundFX = Assets.soundFX_on;
+								Assets.theme.play();
+								SampleGame.sound = true;
 							}
 							else{
 								Assets.soundFX = Assets.soundFX_off;
+								Assets.theme.pause();
+								SampleGame.sound = false;
 							}
 						}			
 					}

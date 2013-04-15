@@ -9,6 +9,7 @@ public class RedditProjectile extends Projectile {
 		size = 5;
 		speed = 8;
 		maxRange = 275;
+		Assets.laser.play(.5f);
 	}
 
 	@Override

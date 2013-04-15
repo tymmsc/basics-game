@@ -161,8 +161,15 @@ public class LoadingScreen extends Screen {
 		Assets.sell = g.newImage("Upgrades/sell.png", ImageFormat.RGB565);
 		Assets.upgrade = g.newImage("Upgrades/upgrade.png", ImageFormat.RGB565);
 		Assets.downgrade = g.newImage("Upgrades/downgrade.png", ImageFormat.RGB565);
+		
+		
 		// This is how you would load a sound if you had one.
 		// Assets.click = game.getAudio().createSound("explode.ogg");
+		Assets.pencil = game.getAudio().createSound("SoundEffects/Bow_Fire_Arrow.wav");
+		Assets.laser = game.getAudio().createSound("SoundEffects/Laser_Cannon.wav");
+		Assets.coffee = game.getAudio().createSound("SoundEffects/Starbucks.wav");
+		//Assets.sellT = game.getAudio().createSound("SoundEffects/Tower_sell.mp3");
+		Assets.upgradeT = game.getAudio().createSound("SoundEffects/Tower_Upgrade.wav");
 
 		splash0T = Assets.splash0;
 		splash1T = Assets.splash1;

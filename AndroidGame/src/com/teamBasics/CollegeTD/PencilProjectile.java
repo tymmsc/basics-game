@@ -9,6 +9,7 @@ public class PencilProjectile extends Projectile {
 		size = 5;
 		speed = 5;
 		maxRange = 275;
+		Assets.pencil.play(.5f);
 	}
 
 	@Override

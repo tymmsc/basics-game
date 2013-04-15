@@ -1,9 +1,7 @@
 package com.teamBasics.CollegeTD;
 
 import com.teamBasics.framework.Game;
-import com.teamBasics.framework.Graphics;
 import com.teamBasics.framework.Screen;
-import com.teamBasics.framework.Graphics.ImageFormat;
 
 public class SplashLoadingScreen extends Screen {
 	public SplashLoadingScreen(Game game) {
@@ -12,7 +10,6 @@ public class SplashLoadingScreen extends Screen {
 
 	@Override
 	public void update(float deltaTime) {
-		Graphics g = game.getGraphics();
 		game.setScreen(new LoadingScreen(game));
 
 	}

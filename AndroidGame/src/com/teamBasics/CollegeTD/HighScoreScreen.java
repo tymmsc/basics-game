@@ -7,7 +7,6 @@ import android.graphics.Paint;
 
 import com.teamBasics.framework.Game;
 import com.teamBasics.framework.Graphics;
-import com.teamBasics.framework.Image;
 import com.teamBasics.framework.Input.TouchEvent;
 import com.teamBasics.framework.Screen;
 

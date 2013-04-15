@@ -50,6 +50,7 @@ public class Assets {
     
     //public static Image button;
     public static Sound click;
+    public static Sound laser, pencil, coffee, upgradeT;
     public static Music theme;
    
     public static void load(SampleGame sampleGame) {

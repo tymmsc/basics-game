@@ -8,7 +8,6 @@ import com.teamBasics.framework.Graphics;
 import android.graphics.Point;
 import android.graphics.Rect;
 
-
 public abstract class Tower {
 
 	protected int posX, posY, posX_right, posY_bottom;  // x and y position of tower
@@ -40,6 +39,7 @@ public abstract class Tower {
 	
 	public void upgrade() {
 		level++;
+		Assets.upgradeT.play(.5f);
 	}
 	
 	public Projectile update(EnemyWave wave) {
@@ -151,6 +151,7 @@ public abstract class Tower {
 	}
 	
 	public int getCash_back() {
+		//Assets.sellT.play(.5f);
 		return cash_back;
 	}
 	

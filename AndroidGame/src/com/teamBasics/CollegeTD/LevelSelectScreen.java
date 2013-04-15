@@ -23,8 +23,6 @@ public class LevelSelectScreen extends Screen {
 	Paint paint, paint2;
 	public static String mapPath;
 	public int row1, row2;
-	//row1 = 200;
-	//row2 = 325;
 
 	public LevelSelectScreen(Game game) {
 		super(game);
@@ -72,7 +70,7 @@ public class LevelSelectScreen extends Screen {
 				// Level 2 Select
 				else if (inBounds(event, 175-12, 200, 100, 100)) {
 					loadMapPath(2);
-					game.setScreen(new GameScreen(game, 2));
+					game.setScreen( new GameScreen(game, 2) );
 				}				
 
 				// Level 3 Select
