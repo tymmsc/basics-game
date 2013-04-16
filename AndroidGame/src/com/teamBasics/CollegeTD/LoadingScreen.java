@@ -133,6 +133,10 @@ public class LoadingScreen extends Screen {
 		Assets.assignment = g.newImage("Enemies/assignment.png", ImageFormat.RGB565);
 		Assets.teacher = g.newImage("Enemies/teacher.png", ImageFormat.RGB565);
 		Assets.georgiaBulldog = g.newImage("Enemies/georgiaBulldog.png", ImageFormat.RGB565);
+		Assets.tennesseeVols = g.newImage("Enemies/tennesseeVols.png", ImageFormat.RGB565);
+		Assets.maleTeacher = g.newImage("Enemies/maleTeacher.png", ImageFormat.RGB565);
+		Assets.lsuTiger = g.newImage("Enemies/lsuTiger.png", ImageFormat.RGB565);
+
 		
 		// Projectile Sprites
 		Assets.pencilProjectile = g.newImage("Projectiles/pencilProjectile.png", ImageFormat.RGB565);

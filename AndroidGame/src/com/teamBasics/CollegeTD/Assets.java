@@ -38,7 +38,7 @@ public class Assets {
     public static Image sleepUp, socialUp, academicUp, lowCost, rangeExtend, lowCooldown, sell, upgrade, downgrade;
     
     //Enemy Sprites
-    public static Image assignment, teacher, georgiaBulldog;
+    public static Image assignment, teacher, georgiaBulldog, lsuTiger, tennesseeVols, maleTeacher;
     
     //Projectile Sprites
     public static Image pencilProjectile, pencilProjectile2, pencilProjectile3, pencilProjectile4, pencilProjectile5, pencilProjectile6;
