@@ -112,15 +112,44 @@ public class Level {
 		
 		if( level_number == 1 || level_number >= 3){
 			EnemyWave wave1 = new EnemyWave();
-			EnemyGroup group1 = new EnemyGroup(400, 12);
-			EnemyGroup group2 = new EnemyGroup(800, 25);
-			EnemyGroup group3 = new EnemyGroup(1200, 25);
+			EnemyGroup group1 = new EnemyGroup(700, 10);
+			EnemyGroup group2 = new EnemyGroup(1100, 10);
+			EnemyGroup group3 = new EnemyGroup(1700, 5);
+			EnemyGroup group4 = new EnemyGroup(1750, 5);
+			EnemyGroup group5 = new EnemyGroup(2500, 10);
+			EnemyGroup group6 = new EnemyGroup(2550, 10);
+			EnemyGroup group7 = new EnemyGroup(2600, 10);
+			// Break for new groups
+			EnemyGroup group8 = new EnemyGroup(3200, 10);
+			EnemyGroup group9 = new EnemyGroup(3300, 10);
+			EnemyGroup group10 = new EnemyGroup(4000, 10);
+			EnemyGroup group11 = new EnemyGroup(4100, 10);
+			EnemyGroup group12 = new EnemyGroup(4600, 10);
+			EnemyGroup group13 = new EnemyGroup(4700, 10);
+			EnemyGroup group14 = new EnemyGroup(5400, 10);
+			EnemyGroup group15 = new EnemyGroup(5500, 10);
+			EnemyGroup group16 = new EnemyGroup(6400, 5);
+			EnemyGroup group17 = new EnemyGroup(6500, 5);
+			EnemyGroup group18 = new EnemyGroup(6600, 5);
+			EnemyGroup group19 = new EnemyGroup(7500, 10);
+			EnemyGroup group20 = new EnemyGroup(7600, 10);
+			EnemyGroup group21 = new EnemyGroup(7700, 10);
+			EnemyGroup group22 = new EnemyGroup(8600, 5);
+			EnemyGroup group23 = new EnemyGroup(8750, 5);
+			EnemyGroup group24 = new EnemyGroup(8900, 5);
+			EnemyGroup group25 = new EnemyGroup(9800, 5);
+			EnemyGroup group26 = new EnemyGroup(9900, 5);
+			EnemyGroup group27 = new EnemyGroup(10000, 5);
+			EnemyGroup group28 = new EnemyGroup(10900, 5);
+			EnemyGroup group29 = new EnemyGroup(11000, 5);
+			EnemyGroup group30 = new EnemyGroup(11100, 5);
+			EnemyGroup group31 = new EnemyGroup(11200, 5);
 			
 			startTiles = startPoints();
 			endTiles = endPoints();
 			if(startTiles.size() >= 4) {
 				// Add enemies to group
-				for(int i=0; i<10; i++) {
+				for(int i=0; i<5; i++) {
 					AssignmentEnemy a = new AssignmentEnemy(tilearrayPath, startTiles.get(0), endTiles);
 					group1.addEnemy(a);
 				}
@@ -128,14 +157,129 @@ public class Level {
 					TeacherEnemy t = new TeacherEnemy(tilearrayPath, startTiles.get(2), endTiles);
 					group2.addEnemy(t);
 				}
-				for(int i=0; i<10; i++) {
+				for(int i=0; i<5; i++) {
 					GeorgiaBulldogEnemy g = new GeorgiaBulldogEnemy(tilearrayPath, startTiles.get(0), endTiles);
 					group3.addEnemy(g);
+				}
+				for(int i=0; i<10; i++) {
+					TeacherEnemy t = new TeacherEnemy(tilearrayPath, startTiles.get(2), endTiles);
+					group4.addEnemy(t);
+				}
+				for(int i=0; i< 10; i++){
+					AssignmentEnemy a = new AssignmentEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group5.addEnemy(a);
+				}
+				for(int i=0; i< 5; i++){
+					GeorgiaBulldogEnemy g = new GeorgiaBulldogEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group6.addEnemy(g);
+				}
+
+				for(int i=0; i<5; i++) {
+					TeacherEnemy t = new TeacherEnemy(tilearrayPath, startTiles.get(2), endTiles);
+					group7.addEnemy(t);
+				}
+				//start new groups
+				for(int i=0; i<10; i++) {
+					AssignmentEnemy a = new AssignmentEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group8.addEnemy(a);
+				}
+				for(int i=0; i<10; i++) {
+					TeacherEnemy t = new TeacherEnemy(tilearrayPath, startTiles.get(2), endTiles);
+					group9.addEnemy(t);
+				}
+				for(int i=0; i<15; i++) {
+					GeorgiaBulldogEnemy g = new GeorgiaBulldogEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group10.addEnemy(g);
+				}
+				for(int i=0; i<15; i++) {
+					TeacherEnemy t = new TeacherEnemy(tilearrayPath, startTiles.get(2), endTiles);
+					group11.addEnemy(t);
+				}
+				for(int i=0; i< 10; i++){
+					AssignmentEnemy a = new AssignmentEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group12.addEnemy(a);
+				}
+				for(int i=0; i< 10; i++){
+					GeorgiaBulldogEnemy g = new GeorgiaBulldogEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group13.addEnemy(g);
+				}
+
+				for(int i=0; i<15; i++) {
+					TeacherEnemy t = new TeacherEnemy(tilearrayPath, startTiles.get(2), endTiles);
+					group14.addEnemy(t);
+				}
+				for(int i=0; i<10; i++) {
+					AssignmentEnemy a = new AssignmentEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group15.addEnemy(a);
+				}
+				for(int i=0; i<15; i++) {
+					TeacherEnemy t = new TeacherEnemy(tilearrayPath, startTiles.get(2), endTiles);
+					group16.addEnemy(t);
+				}
+				for(int i=0; i<10; i++) {
+					GeorgiaBulldogEnemy g = new GeorgiaBulldogEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group17.addEnemy(g);
+				}
+				for(int i=0; i<15; i++) {
+					TeacherEnemy t = new TeacherEnemy(tilearrayPath, startTiles.get(2), endTiles);
+					group18.addEnemy(t);
+				}
+				for(int i=0; i< 15; i++){
+					AssignmentEnemy a = new AssignmentEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group19.addEnemy(a);
+				}
+				for(int i=0; i< 10; i++){
+					GeorgiaBulldogEnemy g = new GeorgiaBulldogEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group20.addEnemy(g);
+				}
+				for(int i=0; i<10; i++) {
+					TeacherEnemy t = new TeacherEnemy(tilearrayPath, startTiles.get(2), endTiles);
+					group21.addEnemy(t);
+				}
+				for(int i=0; i<15; i++) {
+					AssignmentEnemy a = new AssignmentEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group22.addEnemy(a);
+				}
+				for(int i=0; i<10; i++) {
+					TeacherEnemy t = new TeacherEnemy(tilearrayPath, startTiles.get(2), endTiles);
+					group23.addEnemy(t);
+				}
+				for(int i=0; i<15; i++) {
+					GeorgiaBulldogEnemy g = new GeorgiaBulldogEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group24.addEnemy(g);
+				}
+				for(int i=0; i<15; i++) {
+					TeacherEnemy t = new TeacherEnemy(tilearrayPath, startTiles.get(2), endTiles);
+					group25.addEnemy(t);
+				}
+				for(int i=0; i< 15; i++){
+					AssignmentEnemy a = new AssignmentEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group26.addEnemy(a);
+				}
+				for(int i=0; i< 15; i++){
+					GeorgiaBulldogEnemy g = new GeorgiaBulldogEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group27.addEnemy(g);
+				}
+				for(int i=0; i<10; i++) {
+					TeacherEnemy t = new TeacherEnemy(tilearrayPath, startTiles.get(2), endTiles);
+					group28.addEnemy(t);
+				}
+				for(int i=0; i<15; i++) {
+					AssignmentEnemy a = new AssignmentEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group29.addEnemy(a);
+				}
+				for(int i=0; i<15; i++) {
+					TeacherEnemy t = new TeacherEnemy(tilearrayPath, startTiles.get(2), endTiles);
+					group30.addEnemy(t);
+				}
+				for(int i=0; i<10; i++) {
+					GeorgiaBulldogEnemy g = new GeorgiaBulldogEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group31.addEnemy(g);
 				}
 			}
 			else {
 				// Add enemies to group
-				for(int i=0; i<10; i++) {
+				for(int i=0; i<5; i++) {
 					AssignmentEnemy a = new AssignmentEnemy(tilearrayPath, startTiles.get(0), endTiles);
 					group1.addEnemy(a);
 				}
@@ -143,20 +287,163 @@ public class Level {
 					TeacherEnemy t = new TeacherEnemy(tilearrayPath, startTiles.get(0), endTiles);
 					group2.addEnemy(t);
 				}
-				for(int i=0; i<10; i++) {
+				for(int i=0; i<5; i++) {
 					GeorgiaBulldogEnemy g = new GeorgiaBulldogEnemy(tilearrayPath, startTiles.get(0), endTiles);
 					group3.addEnemy(g);
 				}
+				for(int i=0; i<10; i++) {
+					TeacherEnemy t = new TeacherEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group4.addEnemy(t);
+				}
+				for(int i=0; i< 10; i++){
+					AssignmentEnemy a = new AssignmentEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group5.addEnemy(a);
+				}
+				for(int i=0; i< 5; i++){
+					GeorgiaBulldogEnemy g = new GeorgiaBulldogEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group6.addEnemy(g);
+				}
+
+				for(int i=0; i<5; i++) {
+					TeacherEnemy t = new TeacherEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group7.addEnemy(t);
+				}
+				//start new groups
+				for(int i=0; i<10; i++) {
+					AssignmentEnemy a = new AssignmentEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group8.addEnemy(a);
+				}
+				for(int i=0; i<10; i++) {
+					TeacherEnemy t = new TeacherEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group9.addEnemy(t);
+				}
+				for(int i=0; i<15; i++) {
+					GeorgiaBulldogEnemy g = new GeorgiaBulldogEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group10.addEnemy(g);
+				}
+				for(int i=0; i<15; i++) {
+					TeacherEnemy t = new TeacherEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group11.addEnemy(t);
+				}
+				for(int i=0; i< 10; i++){
+					AssignmentEnemy a = new AssignmentEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group12.addEnemy(a);
+				}
+				for(int i=0; i< 10; i++){
+					GeorgiaBulldogEnemy g = new GeorgiaBulldogEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group13.addEnemy(g);
+				}
+
+				for(int i=0; i<15; i++) {
+					TeacherEnemy t = new TeacherEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group14.addEnemy(t);
+				}
+				for(int i=0; i<10; i++) {
+					AssignmentEnemy a = new AssignmentEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group15.addEnemy(a);
+				}
+				for(int i=0; i<15; i++) {
+					TeacherEnemy t = new TeacherEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group16.addEnemy(t);
+				}
+				for(int i=0; i<10; i++) {
+					GeorgiaBulldogEnemy g = new GeorgiaBulldogEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group17.addEnemy(g);
+				}
+				for(int i=0; i<15; i++) {
+					TeacherEnemy t = new TeacherEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group18.addEnemy(t);
+				}
+				for(int i=0; i< 15; i++){
+					AssignmentEnemy a = new AssignmentEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group19.addEnemy(a);
+				}
+				for(int i=0; i< 10; i++){
+					GeorgiaBulldogEnemy g = new GeorgiaBulldogEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group20.addEnemy(g);
+				}
+				for(int i=0; i<10; i++) {
+					TeacherEnemy t = new TeacherEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group21.addEnemy(t);
+				}
+				for(int i=0; i<15; i++) {
+					AssignmentEnemy a = new AssignmentEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group22.addEnemy(a);
+				}
+				for(int i=0; i<10; i++) {
+					TeacherEnemy t = new TeacherEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group23.addEnemy(t);
+				}
+				for(int i=0; i<15; i++) {
+					GeorgiaBulldogEnemy g = new GeorgiaBulldogEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group24.addEnemy(g);
+				}
+				for(int i=0; i<15; i++) {
+					TeacherEnemy t = new TeacherEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group25.addEnemy(t);
+				}
+				for(int i=0; i< 15; i++){
+					AssignmentEnemy a = new AssignmentEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group26.addEnemy(a);
+				}
+				for(int i=0; i< 15; i++){
+					GeorgiaBulldogEnemy g = new GeorgiaBulldogEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group27.addEnemy(g);
+				}
+				for(int i=0; i<10; i++) {
+					TeacherEnemy t = new TeacherEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group28.addEnemy(t);
+				}
+				for(int i=0; i<15; i++) {
+					AssignmentEnemy a = new AssignmentEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group29.addEnemy(a);
+				}
+				for(int i=0; i<15; i++) {
+					TeacherEnemy t = new TeacherEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group30.addEnemy(t);
+				}
+				for(int i=0; i<10; i++) {
+					GeorgiaBulldogEnemy g = new GeorgiaBulldogEnemy(tilearrayPath, startTiles.get(0), endTiles);
+					group31.addEnemy(g);
+				}
 			}
 			// Add groups to wave
-			if(group1 != null && group2 != null && group3 != null) {
+			if(group1 != null && group2 != null && group3 != null && group4 != null && group5 != null) {
 				wave1.addEnemyGroup(group1);
 				wave1.addEnemyGroup(group2);
 				wave1.addEnemyGroup(group3);
+				wave1.addEnemyGroup(group4);
+				wave1.addEnemyGroup(group5);
+				wave1.addEnemyGroup(group6);
+				wave1.addEnemyGroup(group7);
+				wave1.addEnemyGroup(group8);
+				wave1.addEnemyGroup(group9);
+				wave1.addEnemyGroup(group10);
+				wave1.addEnemyGroup(group11);
+				wave1.addEnemyGroup(group12);
+				wave1.addEnemyGroup(group13);
+				wave1.addEnemyGroup(group14);
+				wave1.addEnemyGroup(group15);
+				wave1.addEnemyGroup(group16);
+				wave1.addEnemyGroup(group17);
+				wave1.addEnemyGroup(group18);
+				wave1.addEnemyGroup(group19);
+				wave1.addEnemyGroup(group20);
+				wave1.addEnemyGroup(group21);
+				wave1.addEnemyGroup(group22);
+				wave1.addEnemyGroup(group23);
+				wave1.addEnemyGroup(group24);
+				wave1.addEnemyGroup(group25);
+				wave1.addEnemyGroup(group26);
+				wave1.addEnemyGroup(group27);
+				wave1.addEnemyGroup(group28);
+				wave1.addEnemyGroup(group29);
+				wave1.addEnemyGroup(group30);
+				wave1.addEnemyGroup(group31);
 				waves.add(wave1);
 			}
 			
-		} // End Level_1
+		} // End Level_1 // End Level_1
 
 		
 		if( level_number == 2 ){
