@@ -64,6 +64,7 @@ public class LoadingScreen extends Screen {
 		Assets.space = g.newImage("space.png", ImageFormat.RGB565);
 		Assets.ltDirtCenter = g.newImage("LevelBackgrounds/lt_dirtcenter.png", ImageFormat.RGB565);
 		Assets.ltDirtRight = g.newImage("LevelBackgrounds/lt_dirtright.png", ImageFormat.RGB565);
+		Assets.map1 = g.newImage("LevelBackgrounds/map1.png", ImageFormat.RGB565);
 
 		// Splash Loading Animation
 		Assets.splash0 = g.newImage("SplashLoadingScreen/splash4_0.png", ImageFormat.RGB565);

@@ -22,15 +22,15 @@ public class PencilProjectile extends Projectile {
 
 	@Override
 	public void draw(Graphics g) {
-		if((target.getPosX())>x && (target.getPosY()>y))
+		if((target.getPosX())>x-10 && (target.getPosY()>y-10))
 			g.drawImage(Assets.pencilProjectile3,x,y);
-		else if((target.getPosX())>x && (target.getPosY()<y))
+		else if((target.getPosX())>x-10 && (target.getPosY()<y+10))
 			g.drawImage(Assets.pencilProjectile2,x,y);
-		else if((target.getPosX())<x && (target.getPosY()>y))
+		else if((target.getPosX())<x+10 && (target.getPosY()>y-10))
 			g.drawImage(Assets.pencilProjectile4,x,y);
-		else if((target.getPosX())==x && (target.getPosY()>y))
+		else if((target.getPosX())==x && (target.getPosY()>y-10))
 			g.drawImage(Assets.pencilProjectile5, x, y);
-		else if((target.getPosX())==x && (target.getPosY()<y))
+		else if((target.getPosX())==x && (target.getPosY()<y+10))
 			g.drawImage(Assets.pencilProjectile6, x, y);
 		else
 			g.drawImage(Assets.pencilProjectile, x, y);
