@@ -327,14 +327,23 @@ public class GameScreen extends Screen {
 		// Draw Main Game Screen
 		g.drawImage(Assets.gamescreen, 0, 0);
 		
-		
 		//****************************************
 		// check level here then draw background
-		
-		//if(CurrentLevel.getLevel_number() == 1){
+		/*
+		if((CurrentLevel.getLevel_number() == 1) || (CurrentLevel.getLevel_number() == 5) || (CurrentLevel.getLevel_number() == 9)){
+			g.drawImage(Assets.map3,0,41);
+		}
+		else if((CurrentLevel.getLevel_number() == 2) || (CurrentLevel.getLevel_number() == 6) || (CurrentLevel.getLevel_number() == 10)){
+			g.drawImage(Assets.map2,0,41);
+		}
+		else if((CurrentLevel.getLevel_number() == 3) || (CurrentLevel.getLevel_number() == 7) || (CurrentLevel.getLevel_number() == 11)){
+			g.drawImage(Assets.map4,0,41);
+		}
+		else{
 			g.drawImage(Assets.map1,0,41);
-		//}
-		 
+		}
+		*/
+		g.drawImage(Assets.map1,0,41);
 		/*
 		//else{
 		// Draw custom background
