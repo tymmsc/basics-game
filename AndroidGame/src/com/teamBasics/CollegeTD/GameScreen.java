@@ -7,6 +7,7 @@ import java.util.Timer;
 
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.util.Log;
 import android.view.MotionEvent;
 
 import com.teamBasics.framework.Game;
@@ -329,21 +330,22 @@ public class GameScreen extends Screen {
 		
 		//****************************************
 		// check level here then draw background
-		/*
+		Log.i("gamescreen", "CurrentLevel: " + CurrentLevel.getLevel_number());
+		
 		if((CurrentLevel.getLevel_number() == 1) || (CurrentLevel.getLevel_number() == 5) || (CurrentLevel.getLevel_number() == 9)){
-			g.drawImage(Assets.map3,0,41);
-		}
-		else if((CurrentLevel.getLevel_number() == 2) || (CurrentLevel.getLevel_number() == 6) || (CurrentLevel.getLevel_number() == 10)){
-			g.drawImage(Assets.map2,0,41);
-		}
-		else if((CurrentLevel.getLevel_number() == 3) || (CurrentLevel.getLevel_number() == 7) || (CurrentLevel.getLevel_number() == 11)){
-			g.drawImage(Assets.map4,0,41);
-		}
-		else{
 			g.drawImage(Assets.map1,0,41);
 		}
-		*/
-		g.drawImage(Assets.map1,0,41);
+		else if((CurrentLevel.getLevel_number() == 2) || (CurrentLevel.getLevel_number() == 6) || (CurrentLevel.getLevel_number() == 10)){
+			g.drawImage(Assets.map3,0,41);
+		}
+		else if((CurrentLevel.getLevel_number() == 3) || (CurrentLevel.getLevel_number() == 7) || (CurrentLevel.getLevel_number() == 11)){
+			g.drawImage(Assets.map2,0,41);
+		}
+		else{
+			g.drawImage(Assets.map4,0,41);
+		}
+		
+		//g.drawImage(Assets.map1,0,41);
 		/*
 		//else{
 		// Draw custom background

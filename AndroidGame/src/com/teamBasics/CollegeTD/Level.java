@@ -36,7 +36,8 @@ public class Level {
 		//System.out.println("Start tile is: " + startTiles.get(0).getType2());
 		//System.out.println("Start tile is: " + startTiles.get(2).getType2());
 		endTiles = endPoints();
-		loadLevel(level_number);	
+		loadLevel(level_number);
+		setLevel_number(level_number);
 		levelComplete = false;
 	}
 	
