@@ -9,6 +9,7 @@ public class RedditProjectile extends Projectile {
 		size = 5;
 		speed = 8;
 		maxRange = 275;
+		Assets.laser.play(.5f);
 	}
 
 	@Override
@@ -22,7 +23,12 @@ public class RedditProjectile extends Projectile {
 	@Override
 	// add checks for which projectile to shoot
 	public void draw(Graphics g) {
-		g.drawImage(Assets.redditProjectile, x, y); 
+		if((target.getPosX()>x-15 && target.getPosY()>y-15) || (target.getPosX()<x+15 && target.getPosY()<y+15))
+			g.drawImage(Assets.redditProjectile2,x,y);
+		else if((target.getPosX()<x+15 && target.getPosY()>y-15) || (target.getPosX()>x-15 && target.getPosY()<y+15))
+			g.drawImage(Assets.redditProjectile,x,y);
+		else
+			g.drawImage(Assets.redditProjectile3,x,y);
 	}
 	
 }

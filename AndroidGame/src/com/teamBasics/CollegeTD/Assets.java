@@ -12,6 +12,7 @@ public class Assets {
     // Background Images
     public static Image optionsbackground, highscoresbackground, resumebackground, creditsbackground, levelbackground;
     public static Image space, ltDirtCenter, ltDirtRight;
+    public static Image map1;
     
     // Level Select Sprites
     public static Image level1, level2, level3, level4, level5, level6, level7, level8, level9, level10, level11, level12;
@@ -38,7 +39,7 @@ public class Assets {
     public static Image sleepUp, socialUp, academicUp, lowCost, rangeExtend, lowCooldown, sell, upgrade, downgrade;
     
     //Enemy Sprites
-    public static Image assignment, teacher, georgiaBulldog;
+    public static Image assignment, teacher, georgiaBulldog, lsuTiger, tennesseeVols, maleTeacher;
     
     //Projectile Sprites
     public static Image pencilProjectile, pencilProjectile2, pencilProjectile3, pencilProjectile4, pencilProjectile5, pencilProjectile6;
@@ -50,11 +51,20 @@ public class Assets {
     
     //public static Image button;
     public static Sound click;
-    public static Music theme;
+    public static Sound laser, pencil, coffee, upgradeT;
+    public static Music theme, even, odd;
    
     public static void load(SampleGame sampleGame) {
         // Method for creating a looping game theme @ 85% max vol.
-        theme = sampleGame.getAudio().createMusic("menutheme.mp3");
+    	even = sampleGame.getAudio().createMusic("MusicBackgrounds/Even.mp3");
+    	even.setLooping(true);
+        even.setVolume(0.85f);
+        
+    	odd = sampleGame.getAudio().createMusic("MusicBackgrounds/Odd.mp3");
+    	odd.setLooping(true);
+        odd.setVolume(0.85f);
+        
+        theme = sampleGame.getAudio().createMusic("MusicBackgrounds/Start.mp3");
         theme.setLooping(true);
         theme.setVolume(0.85f);
         theme.play();

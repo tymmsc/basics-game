@@ -64,6 +64,7 @@ public class LoadingScreen extends Screen {
 		Assets.space = g.newImage("space.png", ImageFormat.RGB565);
 		Assets.ltDirtCenter = g.newImage("LevelBackgrounds/lt_dirtcenter.png", ImageFormat.RGB565);
 		Assets.ltDirtRight = g.newImage("LevelBackgrounds/lt_dirtright.png", ImageFormat.RGB565);
+		Assets.map1 = g.newImage("LevelBackgrounds/map1.png", ImageFormat.RGB565);
 
 		// Splash Loading Animation
 		Assets.splash0 = g.newImage("SplashLoadingScreen/splash4_0.png", ImageFormat.RGB565);
@@ -133,6 +134,10 @@ public class LoadingScreen extends Screen {
 		Assets.assignment = g.newImage("Enemies/assignment.png", ImageFormat.RGB565);
 		Assets.teacher = g.newImage("Enemies/teacher.png", ImageFormat.RGB565);
 		Assets.georgiaBulldog = g.newImage("Enemies/georgiaBulldog.png", ImageFormat.RGB565);
+		Assets.tennesseeVols = g.newImage("Enemies/tennesseeVols.png", ImageFormat.RGB565);
+		Assets.maleTeacher = g.newImage("Enemies/maleTeacher.png", ImageFormat.RGB565);
+		Assets.lsuTiger = g.newImage("Enemies/lsuTiger.png", ImageFormat.RGB565);
+
 		
 		// Projectile Sprites
 		Assets.pencilProjectile = g.newImage("Projectiles/pencilProjectile.png", ImageFormat.RGB565);
@@ -161,8 +166,15 @@ public class LoadingScreen extends Screen {
 		Assets.sell = g.newImage("Upgrades/sell.png", ImageFormat.RGB565);
 		Assets.upgrade = g.newImage("Upgrades/upgrade.png", ImageFormat.RGB565);
 		Assets.downgrade = g.newImage("Upgrades/downgrade.png", ImageFormat.RGB565);
+		
+		
 		// This is how you would load a sound if you had one.
 		// Assets.click = game.getAudio().createSound("explode.ogg");
+		Assets.pencil = game.getAudio().createSound("SoundEffects/Bow_Fire_Arrow.wav");
+		Assets.laser = game.getAudio().createSound("SoundEffects/Laser_Cannon.wav");
+		Assets.coffee = game.getAudio().createSound("SoundEffects/Starbucks.wav");
+		//Assets.sellT = game.getAudio().createSound("SoundEffects/Tower_sell.mp3");
+		Assets.upgradeT = game.getAudio().createSound("SoundEffects/Tower_Upgrade.wav");
 
 		splash0T = Assets.splash0;
 		splash1T = Assets.splash1;

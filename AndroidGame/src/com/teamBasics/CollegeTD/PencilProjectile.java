@@ -9,19 +9,31 @@ public class PencilProjectile extends Projectile {
 		size = 5;
 		speed = 5;
 		maxRange = 275;
+		Assets.pencil.play(.5f);
 	}
 
 	@Override
 	public void update() {
 		if(visible){
-		super.move();
-		super.checkCollision();
+			super.move();
+			super.checkCollision();
 		}
 	}
 
 	@Override
 	public void draw(Graphics g) {
-		g.drawImage(Assets.pencilProjectile, x, y);
+		if((target.getPosX())>x-10 && (target.getPosY()>y-10))
+			g.drawImage(Assets.pencilProjectile3,x,y);
+		else if((target.getPosX())>x-10 && (target.getPosY()<y+10))
+			g.drawImage(Assets.pencilProjectile2,x,y);
+		else if((target.getPosX())<x+10 && (target.getPosY()>y-10))
+			g.drawImage(Assets.pencilProjectile4,x,y);
+		else if((target.getPosX())==x && (target.getPosY()>y-10))
+			g.drawImage(Assets.pencilProjectile5, x, y);
+		else if((target.getPosX())==x && (target.getPosY()<y+10))
+			g.drawImage(Assets.pencilProjectile6, x, y);
+		else
+			g.drawImage(Assets.pencilProjectile, x, y);
 	}
 	
 }

@@ -136,6 +136,7 @@ public class GameScreen extends Screen {
 			CurrentLevel = new Level(CurrentLevel.getLevel_number()+1); 
 					//levelArray.get(CurrentLevel.getLevel_number() - 1);
 		}
+		
 		Graphics sel = game.getGraphics();
 
 		// 1. All touch input is handled here:
@@ -322,22 +323,36 @@ public class GameScreen extends Screen {
 	@Override
 	public void paint(float deltaTime) {
 		Graphics g = game.getGraphics();
-
+		
 		// Draw Main Game Screen
 		g.drawImage(Assets.gamescreen, 0, 0);
-
+		
+		
+		//****************************************
+		// check level here then draw background
+		
+		//if(CurrentLevel.getLevel_number() == 1){
+			g.drawImage(Assets.map1,0,41);
+		//}
+		 
+		/*
+		//else{
 		// Draw custom background
 		// g.drawImage(Assets.space, 0, 41);
 		// g.drawImage(Assets.space, 0, 200);
 		// g.drawImage(Assets.space, 340, 41);
 		// g.drawImage(Assets.space, 340, 200);
+			
 		g.drawImage(Assets.ltDirtCenter, 0, 41);
 		g.drawImage(Assets.ltDirtCenter, 256, 41);
 		g.drawImage(Assets.ltDirtCenter, 0, 210);
 		g.drawImage(Assets.ltDirtCenter, 256, 210);
 		g.drawImage(Assets.ltDirtRight, 512, 41);
 		g.drawImage(Assets.ltDirtRight, 512, 210);
-
+		//}
+		*/
+	
+		
 		// Paint Tiles
 		// CurrentLevel.paintBorderTiles(g);
 		CurrentLevel.paintPathTiles(g);
@@ -360,11 +375,21 @@ public class GameScreen extends Screen {
 		// Set all variables to null. You will be recreating them in the
 		// constructor.
 		paintInit = null;
-		// level1 = null;
 		CurrentLevel = null;
+		if( Assets.theme.isPlaying() == true ){
+			Assets.theme.stop();
+		} else if ( Assets.even.isPlaying() == true ){
+			Assets.even.stop();
+		} else if ( Assets.odd.isPlaying() == true ){
+			Assets.odd.stop();
+		}
 
 		// Call garbage collector to clean up memory.
 		System.gc();
+		
+		if( SampleGame.sound == true ){
+			Assets.theme.play();
+		}
 	}
 
 	private void drawReadyUI() {
@@ -372,6 +397,25 @@ public class GameScreen extends Screen {
 
 		g.drawARGB(80, 0, 0, 0);
 		g.drawString("Tap to Start!", 400, 240, paintInit);
+		
+		// Play different music depending on the level selected
+		if( SampleGame.sound == true ){
+			if( CurrentLevel.getLevel_number()%2 == 1 ){
+				if( Assets.theme.isPlaying() == true ){
+					Assets.theme.stop();
+				} else if ( Assets.even.isPlaying() == true ){
+					Assets.even.stop();
+				}
+				Assets.odd.play();
+			} else {
+				if( Assets.theme.isPlaying() == true ){
+					Assets.theme.stop();
+				} else if ( Assets.odd.isPlaying() == true ){
+					Assets.odd.stop();
+				}
+				Assets.even.play();
+			}
+		}
 
 	}
 
@@ -585,6 +629,7 @@ public class GameScreen extends Screen {
 			} else {
 				towerNumber = validTowerUpgrade(cordFixTow(X), cordFixTow(Y));
 				if (towerNumber >= 0) {
+					
 					ArrayList<Tower> towerList = CurrentLevel.getTowers(); // get the current tower list
 					descriptionText = "Select upgrade for tower# " + (towerNumber + 1); // After the tower has been selected display the number, it starts at 0 so add one.
 					if (towerList.get(towerNumber) instanceof RedditTower) { // check for instanceof to see which class to see which pictures to display
@@ -648,10 +693,14 @@ public class GameScreen extends Screen {
 				if (X > 468 && X < 528 && Y > 418 && Y < 468) { // if option1
 					// If the first button is selected then the tower should be sold
 					// Option to sell the tower
+					Assets.upgradeT.play(.5f);
 					CurrentLevel.setCash(CurrentLevel.getCash() + towerList.get(towerNumber).getLevelup_cost()*levelNumber/2); // give them some money back for selling the tower
 					towerList.remove(towerNumber); // remove tower from the array
 				} else if (X > 548 && X < 608 && Y > 418 && Y < 468) {
 					// If the second option is selected then the tower should be upgraded.
+					// Upgrade Tower Sound
+					Assets.upgradeT.play(.5f);
+					
 					if ((towerList.get(towerNumber).getLevelup_cost() <= CurrentLevel.getCash()) && (levelNumber < 3)) {
 						towerList.get(towerNumber).setLevel(towerList.get(towerNumber).getLevel() + 1); // this is how the tower level is upgraded.
 						CurrentLevel.setCash(CurrentLevel.getCash() - towerList.get(towerNumber).getLevelup_cost());
@@ -664,6 +713,7 @@ public class GameScreen extends Screen {
 					}
 				} else {
 					// If the third option is selected then the tower should be down graded
+					Assets.upgradeT.play(.5f);
 					if(levelNumber > 1) {
 						towerList.get(towerNumber).setLevel(towerList.get(towerNumber).getLevel() - 1);
 						CurrentLevel.setCash(CurrentLevel.getCash() + towerList.get(towerNumber).getLevelup_cost()/2);

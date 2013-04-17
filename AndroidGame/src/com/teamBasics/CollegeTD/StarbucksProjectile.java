@@ -9,6 +9,7 @@ public class StarbucksProjectile extends Projectile {
 		size = 5;
 		speed = 10;
 		maxRange = 275;
+		Assets.coffee.play(.5f);
 	}
 
 	@Override
@@ -21,7 +22,19 @@ public class StarbucksProjectile extends Projectile {
 
 	@Override
 	public void draw(Graphics g) {
-		g.drawImage(Assets.starbucksProjectile, x, y); // Change this line
+		if((target.getPosX())>x-10 && (target.getPosY()>y-10))
+			g.drawImage(Assets.starbucksProjectile,x,y);
+		else if((target.getPosX())<x+10 && (target.getPosY()>y-10))
+			g.drawImage(Assets.starbucksProjectile2,x,y);
+		else if((target.getPosX())<x+10 && (target.getPosY()<y+10))
+			g.drawImage(Assets.starbucksProjectile3,x,y);
+		else if((target.getPosX())>x-10 && (target.getPosY()>y-10))
+			g.drawImage(Assets.starbucksProjectile4,x,y);
+		else if((target.getPosX())==x && (target.getPosY()<y-10))
+			g.drawImage(Assets.starbucksProjectile5,x,y);
+		else
+			g.drawImage(Assets.starbucksProjectile6,x,y);
+
 	}
 	
 }
