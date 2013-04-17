@@ -12,7 +12,7 @@ public class RedditTower extends Tower {
 		damage = 10;
 		range = 75;
 		cost = 50;
-		levelup_cost= 25;
+		levelup_cost= 125;
 		cash_back=(int) (cost*0.8);
 	}
 	
@@ -28,21 +28,21 @@ public class RedditTower extends Tower {
 			range = rangeInit*1;
 		} else if(level == 2) {
 			g.drawImage(Assets.redditTower, posX, posY);
-			cooldown = cooldownInit*4/5;
+			cooldown = cooldownInit*2/3;
 			damage = damageInit*6/5;
 			range = rangeInit*6/5;
 		} else {
 			g.drawImage(Assets.netflixTower, posX, posY);
-			cooldown = cooldownInit*3/5;
+			cooldown = cooldownInit*2/5;
 			damage = damageInit*7/5;
 			range = rangeInit*7/5;
 		}
 		if(powerUpTime == 1) { // sleep
-			damage = damageInit*7/5;
+			damage = damageInit*4/3;
 		} else if(powerUpTime == 2) { // achedemic
-			cooldown = cooldownInit*3/5;
+			cooldown = cooldownInit*4/5;
 		} else if(powerUpTime == 3) { // social
-			range = rangeInit*7/5;
+			range = rangeInit*4/3;
 		}
 		
 	}
