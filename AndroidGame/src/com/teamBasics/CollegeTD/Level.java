@@ -280,7 +280,7 @@ public class Level {
 				}
 				for (int i=0; i<1; i++){
 					TennesseeEnemy t = new TennesseeEnemy(tilearrayPath, startTiles.get(0), endTiles);
-					t.setHealth(450);
+					t.setHealth(350);
 					boss.addEnemy(t);
 				}
 			}
@@ -415,7 +415,7 @@ public class Level {
 				}
 				for (int i=0; i<1; i++){
 					TennesseeEnemy t = new TennesseeEnemy(tilearrayPath, startTiles.get(0), endTiles);
-					t.setHealth(450);
+					t.setHealth(400);
 					boss.addEnemy(t);
 				}
 			}
