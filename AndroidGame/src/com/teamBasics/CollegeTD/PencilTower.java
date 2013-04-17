@@ -34,8 +34,8 @@ public class PencilTower extends Tower {
 		} else {
 			g.drawImage(Assets.penTower, posX, posY);
 			cooldown = cooldownInit*2/5;
-			damage = damageInit*8/5;
-			range = rangeInit*8/5;
+			damage = damageInit*7/5;
+			range = rangeInit*7/5;
 		}
 		
 		if(powerUpTime == 1) { // sleep
