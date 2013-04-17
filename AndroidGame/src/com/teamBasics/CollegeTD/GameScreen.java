@@ -20,7 +20,7 @@ import com.teamBasics.CollegeTD.SaveState;
 
 public class GameScreen extends Screen {
 	enum GameState {
-		Ready, Running, Paused, GameOver, Prompt0
+		Ready, Running, Paused, GameOver, Prompt0, Prompt1
 	}
 	long powerUpTime = 0;
 	GameState state = GameState.Ready;
@@ -119,6 +119,8 @@ public class GameScreen extends Screen {
 			updateReady(touchEvents);
 		if(state == GameState.Prompt0)
 			updatePrompt0(touchEvents);
+		if(state == GameState.Prompt1)
+			updatePrompt1(touchEvents);
 		if (state == GameState.Running)
 			updateRunning(touchEvents, deltaTime);
 		if (state == GameState.Paused)
@@ -149,9 +151,19 @@ public class GameScreen extends Screen {
 		// state now becomes GameState.Running.
 		// Now the updateRunning() method will be called!
 		if (touchEvents.size() > 1)
-			state = GameState.Running;
+			state = GameState.Prompt1;
 	}
 
+	private void updatePrompt1(List<TouchEvent> touchEvents) {
+		//List<TouchEvent> touchEvents0 = game.getInput().getTouchEvents();
+		// This example starts with a "Ready" screen.
+		// When the user touches the screen, the game begins.
+		// state now becomes GameState.Running.
+		// Now the updateRunning() method will be called!
+		if (touchEvents.size() > 1)
+			state = GameState.Running;
+	}
+	
 	private void updateRunning(List<TouchEvent> touchEvents, float deltaTime) {
 		if (CurrentLevel.isLevelComplete() == true) {
 			CurrentLevel = new Level(CurrentLevel.getLevel_number()+1); 
@@ -393,6 +405,8 @@ public class GameScreen extends Screen {
 			drawReadyUI();
 		if(state == GameState.Prompt0)
 			drawPrompt0UI();
+		if(state == GameState.Prompt1)
+			drawPrompt1UI();
 		if (state == GameState.Running)
 			drawRunningUI();
 		if (state == GameState.Paused)
@@ -452,7 +466,7 @@ public class GameScreen extends Screen {
 
 	}
 
-	private void drawPrompt0UI(){
+	private void drawPrompt0UI() {
 		Graphics g = game.getGraphics();
 		Paint prompt = new Paint();
 		prompt.setColor(Color.WHITE);
@@ -472,6 +486,21 @@ public class GameScreen extends Screen {
 		g.drawString(str3, 370, 285-40, prompt);
 		g.drawString(str4, 370, 310-40, prompt);
 		g.drawString(str5, 370, 335-40, prompt);
+	}
+	
+	private void drawPrompt1UI() {
+		Graphics g = game.getGraphics();
+		Paint prompt = new Paint();
+		prompt.setColor(Color.WHITE);
+		prompt.setTextSize(25);
+		prompt.setTextAlign(Paint.Align.CENTER);
+		prompt.setAntiAlias(true);
+		String str0 = new String("You can destroy the enemies using");
+		String str1 = new String("these 'towers.' Click and hold to");
+		String str2 = new String("drag a 'tower' onto the map.");
+		g.drawString(str0, 600, 100-40, prompt);
+		g.drawString(str1, 600, 125-40, prompt);
+		g.drawString(str2, 600, 150-40, prompt);
 	}
 	
 	private void drawRunningUI() {
