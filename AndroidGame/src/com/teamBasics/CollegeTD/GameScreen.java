@@ -19,7 +19,7 @@ import com.teamBasics.CollegeTD.SaveState;
 
 public class GameScreen extends Screen {
 	enum GameState {
-		Ready, Running, Paused, GameOver
+		Ready, Running, Paused, GameOver, Prompt0
 	}
 	long powerUpTime = 0;
 	GameState state = GameState.Ready;
@@ -43,6 +43,7 @@ public class GameScreen extends Screen {
 	private int Ybox = -50;
 	private int towerNumber = -10;
 	private int powerUpTrue = 0;
+	private int lvl;
 	Paint paintInit, paintMenu, paintDescriptionText, paintHUBText;
 
 	// Levels
@@ -61,6 +62,7 @@ public class GameScreen extends Screen {
 
 	//	CurrentLevel.setScore(SaveState.scoreTest);
 		
+		lvl = currentL;
 		Assets.option0 = Assets.blank;
 		Assets.option1 = Assets.blank;
 		Assets.option2 = Assets.blank;
@@ -114,6 +116,8 @@ public class GameScreen extends Screen {
 
 		if (state == GameState.Ready)
 			updateReady(touchEvents);
+		if(state == GameState.Prompt0)
+			updatePrompt0(touchEvents);
 		if (state == GameState.Running)
 			updateRunning(touchEvents, deltaTime);
 		if (state == GameState.Paused)
@@ -127,7 +131,23 @@ public class GameScreen extends Screen {
 		// When the user touches the screen, the game begins.
 		// state now becomes GameState.Running.
 		// Now the updateRunning() method will be called!
-		if (touchEvents.size() > 0)
+		if (touchEvents.size() > 0){
+			if( lvl == 1 ){
+				state = GameState.Prompt0;
+			}
+			else {
+				state = GameState.Running;
+			}
+		}
+	}
+	
+	private void updatePrompt0(List<TouchEvent> touchEvents) {
+		//List<TouchEvent> touchEvents0 = game.getInput().getTouchEvents();
+		// This example starts with a "Ready" screen.
+		// When the user touches the screen, the game begins.
+		// state now becomes GameState.Running.
+		// Now the updateRunning() method will be called!
+		if (touchEvents.size() > 1)
 			state = GameState.Running;
 	}
 
@@ -349,6 +369,8 @@ public class GameScreen extends Screen {
 		// Secondly, draw the UI above the game elements.
 		if (state == GameState.Ready)
 			drawReadyUI();
+		if(state == GameState.Prompt0)
+			drawPrompt0UI();
 		if (state == GameState.Running)
 			drawRunningUI();
 		if (state == GameState.Paused)
@@ -408,6 +430,28 @@ public class GameScreen extends Screen {
 
 	}
 
+	private void drawPrompt0UI(){
+		Graphics g = game.getGraphics();
+		Paint prompt = new Paint();
+		prompt.setColor(Color.WHITE);
+		prompt.setTextSize(25);
+		prompt.setTextAlign(Paint.Align.CENTER);
+		prompt.setAntiAlias(true);
+		String str0 = new String("Welcome to College TD! The");
+		String str1 = new String("objective of this game is ");
+		String str2 = new String("to destroy all of the enemies");
+		String str3 = new String("before they reach the end of");
+		String str4 = new String("the path. Touch the Screen");
+		String str5 = new String("to Continue.");
+		//g.drawRect(180, 190-25, 300, 175, Color.LTGRAY);
+		g.drawString(str0, 370, 210-40, prompt);
+		g.drawString(str1, 370, 235-40, prompt);
+		g.drawString(str2, 370, 260-40, prompt);
+		g.drawString(str3, 370, 285-40, prompt);
+		g.drawString(str4, 370, 310-40, prompt);
+		g.drawString(str5, 370, 335-40, prompt);
+	}
+	
 	private void drawRunningUI() {
 		Graphics g = game.getGraphics();
 

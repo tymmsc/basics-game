@@ -9,7 +9,7 @@ public class StarbucksProjectile extends Projectile {
 		size = 5;
 		speed = 10;
 		maxRange = 275;
-		Assets.coffee.play(.5f);
+		Assets.coffee.play(.8f);
 	}
 
 	@Override
