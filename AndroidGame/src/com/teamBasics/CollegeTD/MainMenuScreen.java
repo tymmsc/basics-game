@@ -36,7 +36,7 @@ public class MainMenuScreen extends Screen {
 				
 				// High Scores Button
 				else if (inBounds(event, 54, 286, 225, 50)) {
-					game.setScreen(new HighScoreScreen(game));
+					game.setScreen(new HighScoreSelectScreen(game));
 				}				
 				
 				// Options Button

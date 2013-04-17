@@ -64,6 +64,10 @@ public class LoadingScreen extends Screen {
 		Assets.space = g.newImage("space.png", ImageFormat.RGB565);
 		Assets.ltDirtCenter = g.newImage("LevelBackgrounds/lt_dirtcenter.png", ImageFormat.RGB565);
 		Assets.ltDirtRight = g.newImage("LevelBackgrounds/lt_dirtright.png", ImageFormat.RGB565);
+		Assets.map1 = g.newImage("LevelBackgrounds/map1.png", ImageFormat.RGB565);
+		Assets.map2 = g.newImage("LevelBackgrounds/map2.png", ImageFormat.RGB565);
+		Assets.map3 = g.newImage("LevelBackgrounds/map3.png", ImageFormat.RGB565);
+		Assets.map4 = g.newImage("LevelBackgrounds/map4.png", ImageFormat.RGB565);
 
 		// Splash Loading Animation
 		Assets.splash0 = g.newImage("SplashLoadingScreen/splash4_0.png", ImageFormat.RGB565);
@@ -133,6 +137,10 @@ public class LoadingScreen extends Screen {
 		Assets.assignment = g.newImage("Enemies/assignment.png", ImageFormat.RGB565);
 		Assets.teacher = g.newImage("Enemies/teacher.png", ImageFormat.RGB565);
 		Assets.georgiaBulldog = g.newImage("Enemies/georgiaBulldog.png", ImageFormat.RGB565);
+		Assets.tennesseeVols = g.newImage("Enemies/tennesseeVols.png", ImageFormat.RGB565);
+		Assets.maleTeacher = g.newImage("Enemies/maleTeacher.png", ImageFormat.RGB565);
+		Assets.lsuTiger = g.newImage("Enemies/lsuTiger.png", ImageFormat.RGB565);
+
 		
 		// Projectile Sprites
 		Assets.pencilProjectile = g.newImage("Projectiles/pencilProjectile.png", ImageFormat.RGB565);

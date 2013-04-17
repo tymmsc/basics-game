@@ -23,11 +23,11 @@ public class RedditProjectile extends Projectile {
 	@Override
 	// add checks for which projectile to shoot
 	public void draw(Graphics g) {
-		if((target.getPosX()>x && target.getPosY()>y) || (target.getPosX()<x && target.getPosY()<y))
+		if((target.getPosX()>x-15 && target.getPosY()>y-15) || (target.getPosX()<x+15 && target.getPosY()<y+15))
 			g.drawImage(Assets.redditProjectile2,x,y);
-		else if((target.getPosX()<x && target.getPosY()>y) || (target.getPosX()>x && target.getPosY()<y))
+		else if((target.getPosX()<x+15 && target.getPosY()>y-15) || (target.getPosX()>x-15 && target.getPosY()<y+15))
 			g.drawImage(Assets.redditProjectile,x,y);
-		else if((target.getPosX()==x && target.getPosY()>y))
+		else
 			g.drawImage(Assets.redditProjectile3,x,y);
 	}
 	

@@ -12,6 +12,7 @@ public class Assets {
     // Background Images
     public static Image optionsbackground, highscoresbackground, resumebackground, creditsbackground, levelbackground;
     public static Image space, ltDirtCenter, ltDirtRight;
+    public static Image map1, map2, map3, map4;
     
     // Level Select Sprites
     public static Image level1, level2, level3, level4, level5, level6, level7, level8, level9, level10, level11, level12;
@@ -38,7 +39,7 @@ public class Assets {
     public static Image sleepUp, socialUp, academicUp, lowCost, rangeExtend, lowCooldown, sell, upgrade, downgrade;
     
     //Enemy Sprites
-    public static Image assignment, teacher, georgiaBulldog;
+    public static Image assignment, teacher, georgiaBulldog, lsuTiger, tennesseeVols, maleTeacher;
     
     //Projectile Sprites
     public static Image pencilProjectile, pencilProjectile2, pencilProjectile3, pencilProjectile4, pencilProjectile5, pencilProjectile6;

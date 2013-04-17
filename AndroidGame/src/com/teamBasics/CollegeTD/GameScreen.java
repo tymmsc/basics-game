@@ -7,6 +7,7 @@ import java.util.Timer;
 
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.util.Log;
 import android.view.MotionEvent;
 
 import com.teamBasics.framework.Game;
@@ -343,25 +344,46 @@ public class GameScreen extends Screen {
 	@Override
 	public void paint(float deltaTime) {
 		Graphics g = game.getGraphics();
-
+		
 		// Draw Main Game Screen
 		g.drawImage(Assets.gamescreen, 0, 0);
 		
 		//****************************************
 		// check level here then draw background
-
+		Log.i("gamescreen", "CurrentLevel: " + CurrentLevel.getLevel_number());
+		
+		if((CurrentLevel.getLevel_number() == 1) || (CurrentLevel.getLevel_number() == 5) || (CurrentLevel.getLevel_number() == 9)){
+			g.drawImage(Assets.map1,0,41);
+		}
+		else if((CurrentLevel.getLevel_number() == 2) || (CurrentLevel.getLevel_number() == 6) || (CurrentLevel.getLevel_number() == 10)){
+			g.drawImage(Assets.map3,0,41);
+		}
+		else if((CurrentLevel.getLevel_number() == 3) || (CurrentLevel.getLevel_number() == 7) || (CurrentLevel.getLevel_number() == 11)){
+			g.drawImage(Assets.map2,0,41);
+		}
+		else{
+			g.drawImage(Assets.map4,0,41);
+		}
+		
+		//g.drawImage(Assets.map1,0,41);
+		/*
+		//else{
 		// Draw custom background
 		// g.drawImage(Assets.space, 0, 41);
 		// g.drawImage(Assets.space, 0, 200);
 		// g.drawImage(Assets.space, 340, 41);
 		// g.drawImage(Assets.space, 340, 200);
+			
 		g.drawImage(Assets.ltDirtCenter, 0, 41);
 		g.drawImage(Assets.ltDirtCenter, 256, 41);
 		g.drawImage(Assets.ltDirtCenter, 0, 210);
 		g.drawImage(Assets.ltDirtCenter, 256, 210);
 		g.drawImage(Assets.ltDirtRight, 512, 41);
 		g.drawImage(Assets.ltDirtRight, 512, 210);
-
+		//}
+		*/
+	
+		
 		// Paint Tiles
 		// CurrentLevel.paintBorderTiles(g);
 		CurrentLevel.paintPathTiles(g);
