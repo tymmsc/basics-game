@@ -492,7 +492,7 @@ public class Level {
 			EnemyGroup group29 = new EnemyGroup(11000, 5);
 			EnemyGroup group30 = new EnemyGroup(11100, 5);
 			EnemyGroup group31 = new EnemyGroup(11200, 5);
-			EnemyGroup boss = new EnemyGroup(12500, 10);
+			EnemyGroup boss = new EnemyGroup(12500, 10); 
 
 			// Add enemies to group
 				for(int i=0; i<5; i++) {

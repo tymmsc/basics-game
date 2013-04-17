@@ -33,7 +33,7 @@ public class LsuEnemy extends Enemy{
 		setSpeed(2);
 		setHealth(5);
 		movementY = speed;
-		movementX = 0;
+		movementX = 0; 
 		size = 20;
 	}
 	

@@ -10,7 +10,7 @@ public class TennesseeEnemy extends Enemy{
 		setSpeed(2);
 		setHealth(5);
 		if(start.getType2() == 'b') {
-			movementY = speed;
+			movementY = speed; 
 			movementX = 0;	
 		}
 		else if(start.getType2() == 'B') {
