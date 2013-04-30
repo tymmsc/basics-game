@@ -20,7 +20,7 @@ import com.teamBasics.framework.Screen;
 public class LevelSelectScreen extends Screen {
 
 	// Variable Setup
-	Paint paint, paint2;
+	Paint paintInit, paint, paint2;
 	public static String mapPath;
 	public int row1, row2;
 
@@ -28,6 +28,12 @@ public class LevelSelectScreen extends Screen {
 		super(game);
 		
 		// Defining a paint object
+		paintInit = new Paint();
+		paintInit.setTextSize(30);
+		paintInit.setTextAlign(Paint.Align.CENTER);
+		paintInit.setAntiAlias(true);
+		paintInit.setColor(Color.rgb(0, 145, 145));
+		
 		paint = new Paint();
 		paint.setTextSize(25);
 		paint.setTextAlign(Paint.Align.CENTER);
@@ -61,78 +67,157 @@ public class LevelSelectScreen extends Screen {
 			TouchEvent event = touchEvents.get(i);
 			if (event.type == TouchEvent.TOUCH_UP) {
 
+				// Get rid of exitPrompt if currently showing
+				if( SampleGame.exitPrompt == true ){
+					if (inBounds(event, 0, 0, 800, 480)) {
+						SampleGame.exitPrompt = false;
+					}
+				}
+				else{
 				// Level 1 Select
 				if (inBounds(event, 50-12, 200-60, 100, 100)) {
-					loadMapPath(1);
-					game.setScreen(new GameScreen(game, 1));
+					if( SampleGame.lvl1 == false ){
+						SampleGame.lvl1 = true;
+						loadMapPath(1);
+						game.setScreen(new GameScreen(game, 1));
+					}
+					else{
+						SampleGame.exitPrompt = true;
+					}
 				}
 				
 				// Level 2 Select
 				else if (inBounds(event, 175-12, 200-60, 100, 100)) {
-					loadMapPath(2);
-					game.setScreen( new GameScreen(game, 2) );
+					if( SampleGame.lvl2 == false ){
+						SampleGame.lvl2 = true;
+						loadMapPath(2);
+						game.setScreen(new GameScreen(game, 2));
+					}
+					else{
+						SampleGame.exitPrompt = true;
+					}
 				}				
 
 				// Level 3 Select
 				else if (inBounds(event, 300-12, 200-60, 100, 100)) {
-					loadMapPath(3);
-					game.setScreen(new GameScreen(game, 3));
+					if( SampleGame.lvl3 == false ){
+						SampleGame.lvl3 = true;
+						loadMapPath(3);
+						game.setScreen(new GameScreen(game, 3));
+					}
+					else{
+						SampleGame.exitPrompt = true;
+					}
 				}
 				
 				// Level 4 Select
 				else if (inBounds(event, 425-12, 200-60, 100, 100)) {
-					loadMapPath(4);
-					game.setScreen(new GameScreen(game, 4));
+					if( SampleGame.lvl4 == false ){
+						SampleGame.lvl4 = true;
+						loadMapPath(4);
+						game.setScreen(new GameScreen(game, 4));
+					}
+					else{
+						SampleGame.exitPrompt = true;
+					}
 				}	
 				
 				// Level 5 Select
 				else if (inBounds(event, 550-12, 200-60, 100, 100)) {
-					loadMapPath(5);
-					game.setScreen(new GameScreen(game, 5));
+					if( SampleGame.lvl5 == false ){
+						SampleGame.lvl5 = true;
+						loadMapPath(5);
+						game.setScreen(new GameScreen(game, 5));
+					}
+					else{
+						SampleGame.exitPrompt = true;
+					}
 				}
 				
 				// Level 6 Select
 				else if (inBounds(event, 675-12, 200-60, 100, 100)) {
-					loadMapPath(6);
-					game.setScreen(new GameScreen(game, 6));
+					if( SampleGame.lvl6 == false ){
+						SampleGame.lvl6 = true;
+						loadMapPath(6);
+						game.setScreen(new GameScreen(game, 6));
+					}
+					else{
+						SampleGame.exitPrompt = true;
+					}
 				}	
 				
 				// Level 7 Select
 				else if (inBounds(event, 50-12, 325-50, 100, 100)) {
-					loadMapPath(7);
-					game.setScreen(new GameScreen(game, 7));
+					if( SampleGame.lvl7 == false ){
+						SampleGame.lvl7 = true;
+						loadMapPath(7);
+						game.setScreen(new GameScreen(game, 7));
+					}
+					else{
+						SampleGame.exitPrompt = true;
+					}
 				}
 				
 				// Level 8 Select
 				else if (inBounds(event, 175-12, 325-50, 100, 100)) {
-					loadMapPath(8);
-					game.setScreen(new GameScreen(game, 8));
+					if( SampleGame.lvl8 == false ){
+						SampleGame.lvl8 = true;
+						loadMapPath(8);
+						game.setScreen(new GameScreen(game, 8));
+					}
+					else{
+						SampleGame.exitPrompt = true;
+					}
 				}
 				
 				// Level 9 Select
 				else if (inBounds(event, 300-12, 325-50, 100, 100)) {
-					loadMapPath(9);
-					game.setScreen(new GameScreen(game, 9));
+					if( SampleGame.lvl9 == false ){
+						SampleGame.lvl9 = true;
+						loadMapPath(9);
+						game.setScreen(new GameScreen(game, 9));
+					}
+					else{
+						SampleGame.exitPrompt = true;
+					}
 				}
 				
 				// Level 10 Select
 				else if (inBounds(event, 425-12, 325-50, 100, 100)) {
-					loadMapPath(10);
-					game.setScreen(new GameScreen(game, 10));
+					if( SampleGame.lvl10 == false ){
+						SampleGame.lvl10 = true;
+						loadMapPath(10);
+						game.setScreen(new GameScreen(game, 10));
+					}
+					else{
+						SampleGame.exitPrompt = true;
+					}
 				}					
 				
 				// Level 11 Select
 				else if (inBounds(event, 550-12, 325-50, 100, 100)) {
-					loadMapPath(11);
-					game.setScreen(new GameScreen(game, 11));
+					if( SampleGame.lvl11 == false ){
+						SampleGame.lvl11 = true;
+						loadMapPath(11);
+						game.setScreen(new GameScreen(game, 11));
+					}
+					else{
+						SampleGame.exitPrompt = true;
+					}
 				}
 				
 				// Level 12 Select
 				else if (inBounds(event, 675-12, 325-50, 100, 100)) {
-					loadMapPath(12);
-					game.setScreen(new GameScreen(game, 12));
+					if( SampleGame.lvl12 == false ){
+						SampleGame.lvl12 = true;
+						loadMapPath(12);
+						game.setScreen(new GameScreen(game, 12));
+					}
+					else{
+						SampleGame.exitPrompt = true;
+					}
 				}
-				
+				} // End of If Prompt Check
 			}
 		}
 	}
@@ -243,6 +328,13 @@ public class LevelSelectScreen extends Screen {
 		g.drawString("Level 10", 475-12, 415-50, paint);
 		g.drawString("Level 11", 600-12, 415-50, paint);
 		g.drawString("Level 12", 725-12, 415-50, paint);
+		
+		if( SampleGame.exitPrompt == true ){
+			g.drawImage(Assets.exitPrompt, 90, 155);
+			g.drawARGB(50, 0, 0, 0);
+			g.drawString("Cannot Access an Already Played Level!", 400, 200, paintInit);
+			g.drawString("Please Select a Different Level to Play.", 400, 230, paintInit);
+		}
 	}
 
 

@@ -70,15 +70,19 @@ public class OptionScreen extends Screen {
 						// Difficulty Select Option
 						if(inBounds(event, 60, 200, 300, 30)){
 							SampleGame.difficulty = 1;
+							SampleGame.D = SampleGame.D1;
 						}
 						else if(inBounds(event, 60, 230, 300, 30)){
 							SampleGame.difficulty = 2;
+							SampleGame.D = SampleGame.D2;
 						}
 						else if(inBounds(event, 60, 260, 300, 30)){
 							SampleGame.difficulty = 3;
+							SampleGame.D = SampleGame.D3;
 						}
 						else if(inBounds(event, 60, 290, 300, 30)){
 							SampleGame.difficulty = 4;
+							SampleGame.D = SampleGame.D4;
 						}
 					}
 				}

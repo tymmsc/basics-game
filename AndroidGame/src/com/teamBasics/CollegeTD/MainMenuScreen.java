@@ -2,14 +2,27 @@ package com.teamBasics.CollegeTD;
 
 import java.util.List;
 
+import android.graphics.Color;
+import android.graphics.Paint;
+
 import com.teamBasics.framework.Game;
 import com.teamBasics.framework.Graphics;
 import com.teamBasics.framework.Screen;
 import com.teamBasics.framework.Input.TouchEvent;
 
 public class MainMenuScreen extends Screen {
+	
+	Paint paintInit; 
+	
 	public MainMenuScreen(Game game) {
 		super(game);
+		
+		// Defining a paint object
+		paintInit = new Paint();
+		paintInit.setTextSize(30);
+		paintInit.setTextAlign(Paint.Align.CENTER);
+		paintInit.setAntiAlias(true);
+		paintInit.setColor(Color.rgb(0, 145, 145));
 	}
 
 	@Override
@@ -22,10 +35,23 @@ public class MainMenuScreen extends Screen {
 			TouchEvent event = touchEvents.get(i);
 			if (event.type == TouchEvent.TOUCH_UP) {
 
+				// Get rid of exitPrompt if currently showing
+				if( SampleGame.exitPrompt == true ){
+					if (inBounds(event, 0, 0, 800, 480)) {
+						SampleGame.exitPrompt = false;
+					}
+				}
+				else{
 				// New Game Button
 				if (inBounds(event, 54, 204, 225, 50)) {
-					LevelSelectScreen.loadMapPath(1);
-					game.setScreen(new GameScreen(game, 1));
+					if( SampleGame.lvl1 == false ){
+						SampleGame.lvl1 = true;
+						LevelSelectScreen.loadMapPath(1);
+						game.setScreen(new GameScreen(game, 1));
+					}
+					else{
+						SampleGame.exitPrompt = true;
+					}
 				}
 				
 				// Resume Game Button
@@ -53,6 +79,7 @@ public class MainMenuScreen extends Screen {
 				else if (inBounds(event, 296, 368, 225, 50)) {
 					android.os.Process.killProcess(android.os.Process.myPid());
 				}
+				} // End of If Prompt Check
 			}
 		}
 	}
@@ -71,6 +98,13 @@ public class MainMenuScreen extends Screen {
 	public void paint(float deltaTime) {
 		Graphics g = game.getGraphics();
 		g.drawImage(Assets.mainmenu, 0, 0);
+		
+		if( SampleGame.exitPrompt == true ){
+			g.drawImage(Assets.exitPrompt, 90, 155);
+			g.drawARGB(50, 0, 0, 0);
+			g.drawString("Cannot Access an Already Played Level!", 400, 200, paintInit);
+			g.drawString("Please Go to Resume Game/Level Select.", 400, 230, paintInit);
+		}
 	}
 
 	@Override

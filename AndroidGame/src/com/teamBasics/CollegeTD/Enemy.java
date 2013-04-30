@@ -226,7 +226,7 @@ public abstract class Enemy {
 	}
 
 	public void setSpeed(int speed) {
-		this.speed = speed;
+		this.speed = speed * (SampleGame.D) * (SampleGame.FFinit);
 	}
 
 	public int getHealth() {
@@ -234,7 +234,7 @@ public abstract class Enemy {
 	}
 
 	public void setHealth(int health) {
-		this.health = health;
+		this.health = health * (SampleGame.D);
 	}
 	
 	public boolean isVisible() {

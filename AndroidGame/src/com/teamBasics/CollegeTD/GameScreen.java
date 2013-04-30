@@ -250,9 +250,20 @@ public class GameScreen extends Screen {
 			// Handles touch RELEASE
 			if (event.type == TouchEvent.TOUCH_UP) {
 
+				// Pause button
 				if (inBounds(event, 5, 1, 34, 33)) {
 					pause();
 				}
+				// Fast-forward button
+				/*else if (inBounds(event, 45, 1, 34, 33)) {
+					SampleGame.FF = !(SampleGame.FF);
+					if( SampleGame.FF == true ){
+						SampleGame.FFinit = SampleGame.FF1;
+					}
+					else{
+						SampleGame.FFinit = SampleGame.FF0;
+					}
+				}*/
 
 				// towerNumber = -1; Messed up the code for some reason haha
 				towerPlacement(X, Y);

@@ -57,6 +57,7 @@ public class LoadingScreen extends Screen {
 		Assets.diff4S = g.newImage("DifficultySel/engineerSel.png", ImageFormat.RGB565);		
 		
 		// Level Select Sprites
+		Assets.exitPrompt = g.newImage("exitPrompt.png", ImageFormat.RGB565);
 		Assets.levelbackground = g.newImage("levelSelect_background0.png", ImageFormat.RGB565);
 		Assets.levelSelect_box = g.newImage("LevelSelect/levelSelect_box.png", ImageFormat.RGB565);
 		Assets.level1 = g.newImage("LevelSelect/level1_sml.png", ImageFormat.RGB565);

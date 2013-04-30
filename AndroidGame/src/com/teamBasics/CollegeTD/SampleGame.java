@@ -20,6 +20,10 @@ public class SampleGame extends AndroidGame {
 	boolean firstTimeCreate = true;
 	public static boolean sound;
 	public static int difficulty;
+	public static int D, D1, D2, D3, D4;
+	public static boolean lvl1, lvl2, lvl3, lvl4, lvl5, lvl6, lvl7, lvl8, lvl9, lvl10, lvl11, lvl12, exitPrompt;
+	public static boolean FF;
+	public static int FFinit, FF0, FF1;
 
 	@Override
 	public Screen getInitScreen() {
@@ -50,6 +54,33 @@ public class SampleGame extends AndroidGame {
 		Assets.theme.play();
 		sound = true;
 		difficulty = 1;
+		FF = false;
+		
+		// Difficulty Variable
+		D1 = 1;
+		D2 = 1;
+		D3 = 2;
+		D4 = 2;
+		D = D1;
+		
+		// Fast-forward speed
+		FF0 = 1;
+		FF1 = 2;
+		FFinit = FF0;
+		
+		lvl1 = false;
+		lvl2 = false;
+		lvl3 = false;
+		lvl4 = false;
+		lvl5 = false;
+		lvl6 = false;
+		lvl7 = false;
+		lvl8 = false;
+		lvl9 = false;
+		lvl10 = false;
+		lvl11 = false;
+		lvl12 = false;
+		exitPrompt = false;
 		
 		return new SplashLoadingScreen(this);
 	}

@@ -15,7 +15,7 @@ public class Assets {
     public static Image map1, map2, map3, map4;
     
     // Level Select Sprites
-    public static Image level1, level2, level3, level4, level5, level6, level7, level8, level9, level10, level11, level12;
+    public static Image level1, level2, level3, level4, level5, level6, level7, level8, level9, level10, level11, level12, exitPrompt;
  
     // Splash Loading Images
     public static Image splash0, splash1, splash2, splash3, splash4, splash5, splash6, splash7, 

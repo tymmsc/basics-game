@@ -108,7 +108,7 @@ public abstract class Projectile {
 	}
 
 	public void setSpeedX(double speed) {
-		this.speed = speed;
+		this.speed = speed * (SampleGame.D * 0.85 ) * (SampleGame.FFinit);
 	}
 
 	public void setVisible(boolean visible) {
