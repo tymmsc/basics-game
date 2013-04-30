@@ -35,7 +35,7 @@ public class Assets {
     public static Image facebookTower, redditTower, netflixTower;
     public static Image pencilTower, mechanicalPencilTower, penTower;
     public static Image cokeTower, starbucksTower, redbullTower;
-    public static Image towerBox;
+    public static Image towerBox, emptyTower;
     public static Image sleepUp, socialUp, academicUp, lowCost, rangeExtend, lowCooldown, sell, upgrade, downgrade;
     
     //Enemy Sprites
@@ -47,7 +47,8 @@ public class Assets {
     public static Image starbucksProjectile, starbucksProjectile2, starbucksProjectile3, starbucksProjectile4, starbucksProjectile5, starbucksProjectile6;
     
     //Options Menu Sprites
-    public static Image soundFX, soundFX_on, soundFX_off, levelSelect_box;
+    public static Image soundFX, soundFX_on, soundFX_off, levelSelect_box, footer, select;
+    public static Image diff1, diff1S, diff2, diff2S, diff3, diff3S, diff4, diff4S;
     
     //public static Image button;
     public static Sound click;

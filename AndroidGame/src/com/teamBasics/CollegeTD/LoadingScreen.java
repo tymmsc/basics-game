@@ -33,19 +33,31 @@ public class LoadingScreen extends Screen {
 		Graphics g = game.getGraphics();
 		if(!init){
 		Assets.mainmenu = g.newImage("mainMenu_stare.png", ImageFormat.RGB565);
-		Assets.gamescreen = g.newImage("GameScreen_Layout_example4.png", ImageFormat.RGB565);
+		Assets.gamescreen = g.newImage("GameScreen_Layout_example5.png", ImageFormat.RGB565);
 		Assets.menubackground = g.newImage("menu_background.png", ImageFormat.RGB565);
-		Assets.optionsbackground = g.newImage("options_background.png", ImageFormat.RGB565);
-		Assets.highscoresbackground = g.newImage("highscores_background.png", ImageFormat.RGB565);
-		Assets.resumebackground = g.newImage("resume_background.png", ImageFormat.RGB565);
-		Assets.creditsbackground = g.newImage("credits_background.png", ImageFormat.RGB565);
+		Assets.optionsbackground = g.newImage("options_background0.png", ImageFormat.RGB565);
+		Assets.highscoresbackground = g.newImage("highscores_background0.png", ImageFormat.RGB565);
+		Assets.resumebackground = g.newImage("levelSelect_background0.png", ImageFormat.RGB565);
+		Assets.creditsbackground = g.newImage("credits_background0.png", ImageFormat.RGB565);
 		Assets.selectItem = g.newImage("blank.png", ImageFormat.RGB565);
 		Assets.soundFX_off = g.newImage("sound_off.png", ImageFormat.RGB565);
 		Assets.soundFX_on = g.newImage("sound_on.png", ImageFormat.RGB565);
+		Assets.footer = g.newImage("footer.png", ImageFormat.RGB565);
 		Assets.blank = g.newImage("blank.png", ImageFormat.RGB565);
 		
+		// Options Difficulty Sprites
+		Assets.select = g.newImage("DifficultySel/select.png", ImageFormat.RGB565);
+		Assets.diff1 = g.newImage("DifficultySel/undeclaredM.png", ImageFormat.RGB565);
+		Assets.diff2 = g.newImage("DifficultySel/sportsM.png", ImageFormat.RGB565);
+		Assets.diff3 = g.newImage("DifficultySel/businessA.png", ImageFormat.RGB565);
+		Assets.diff4 = g.newImage("DifficultySel/engineer.png", ImageFormat.RGB565);	
+		Assets.diff1S = g.newImage("DifficultySel/undeclaredMSel.png", ImageFormat.RGB565);
+		Assets.diff2S = g.newImage("DifficultySel/sportsMSel.png", ImageFormat.RGB565);
+		Assets.diff3S = g.newImage("DifficultySel/businessASel.png", ImageFormat.RGB565);
+		Assets.diff4S = g.newImage("DifficultySel/engineerSel.png", ImageFormat.RGB565);		
+		
 		// Level Select Sprites
-		Assets.levelbackground = g.newImage("levelSelect_background.png", ImageFormat.RGB565);
+		Assets.levelbackground = g.newImage("levelSelect_background0.png", ImageFormat.RGB565);
 		Assets.levelSelect_box = g.newImage("LevelSelect/levelSelect_box.png", ImageFormat.RGB565);
 		Assets.level1 = g.newImage("LevelSelect/level1_sml.png", ImageFormat.RGB565);
 		Assets.level2 = g.newImage("LevelSelect/level2_sml.png", ImageFormat.RGB565);
@@ -121,6 +133,7 @@ public class LoadingScreen extends Screen {
 		Assets.stoneRTC = g.newImage("StonePathTiles/stone_RTC20.PNG", ImageFormat.RGB565);
 		
 		// Tower Sprites
+		Assets.emptyTower = g.newImage("Towers/emptyTower.png", ImageFormat.RGB565);
 		Assets.facebookTower = g.newImage("Towers/facebook_tower.png", ImageFormat.RGB565);
 		Assets.redditTower = g.newImage("Towers/reddit_tower.png", ImageFormat.RGB565);
 		Assets.netflixTower = g.newImage("Towers/netflix_tower.png", ImageFormat.RGB565);

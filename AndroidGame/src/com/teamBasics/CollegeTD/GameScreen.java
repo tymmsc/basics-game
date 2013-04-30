@@ -510,6 +510,7 @@ public class GameScreen extends Screen {
 		g.drawImage(Assets.facebookTower, leftSideTowerPixel, 103);
 		g.drawImage(Assets.pencilTower, leftSideTowerPixel, 163);
 		g.drawImage(Assets.cokeTower, leftSideTowerPixel, 223);
+		g.drawImage(Assets.emptyTower, 735, 35);
 
 		// Draw towers that are being dragged
 		//

@@ -67,6 +67,7 @@ public class HighScoreScreen extends Screen {
 	public void paint(float deltaTime) {
 		Graphics g = game.getGraphics();
 		g.drawImage(Assets.highscoresbackground, 0, 0);
+		g.drawImage(Assets.footer, 0, 430);
 		int numScores=SaveState.numScores[level];
 		for(int i=0;i<numScores;i++){
 			String s = SaveState.highScoreNames[level][i]+": "+SaveState.highScores[level][i];

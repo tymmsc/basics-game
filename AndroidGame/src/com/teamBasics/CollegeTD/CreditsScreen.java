@@ -52,6 +52,7 @@ public class CreditsScreen extends Screen {
 	public void paint(float deltaTime) {
 		Graphics g = game.getGraphics();
 		g.drawImage(Assets.creditsbackground, 0, 0);
+		g.drawImage(Assets.footer, 0, 430);
 	}
 
 

@@ -19,6 +19,7 @@ public class SampleGame extends AndroidGame {
 	public static ArrayList<InputStream> inputSP; 
 	boolean firstTimeCreate = true;
 	public static boolean sound;
+	public static int difficulty;
 
 	@Override
 	public Screen getInitScreen() {
@@ -48,6 +49,7 @@ public class SampleGame extends AndroidGame {
 		
 		Assets.theme.play();
 		sound = true;
+		difficulty = 1;
 		
 		return new SplashLoadingScreen(this);
 	}

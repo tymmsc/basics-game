@@ -54,7 +54,7 @@ public class OptionScreen extends Screen {
 								
 						// Display Selected Item on touch_up(release)
 						// SoundFX button
-						if(inBounds(event, 100, 200, 250, 25)){
+						if(inBounds(event, 100+365, 200, 250, 25)){
 							if(Assets.soundFX == Assets.soundFX_off){
 								Assets.soundFX = Assets.soundFX_on;
 								Assets.theme.play();
@@ -65,7 +65,21 @@ public class OptionScreen extends Screen {
 								Assets.theme.pause();
 								SampleGame.sound = false;
 							}
-						}			
+						}		
+						
+						// Difficulty Select Option
+						if(inBounds(event, 60, 200, 300, 30)){
+							SampleGame.difficulty = 1;
+						}
+						else if(inBounds(event, 60, 230, 300, 30)){
+							SampleGame.difficulty = 2;
+						}
+						else if(inBounds(event, 60, 260, 300, 30)){
+							SampleGame.difficulty = 3;
+						}
+						else if(inBounds(event, 60, 290, 300, 30)){
+							SampleGame.difficulty = 4;
+						}
 					}
 				}
 	}
@@ -82,7 +96,36 @@ public class OptionScreen extends Screen {
 	public void paint(float deltaTime) {
 		Graphics g = game.getGraphics();
 		g.drawImage(Assets.optionsbackground, 0, 0);
-		g.drawImage(Assets.soundFX, 100, 200);
+		g.drawImage(Assets.soundFX, 100+365, 200);
+		g.drawImage(Assets.footer, 0, 430);
+		if( SampleGame.difficulty == 1 ){
+			g.drawImage(Assets.diff1S, 60, 200);
+			g.drawImage(Assets.select, 64, 203);
+		}
+		else{
+			g.drawImage(Assets.diff1, 60, 200);
+		}
+		if( SampleGame.difficulty == 2 ){
+			g.drawImage(Assets.diff2S, 60, 230);
+			g.drawImage(Assets.select, 64, 232);
+		}
+		else{
+			g.drawImage(Assets.diff2, 60, 230);
+		}
+		if( SampleGame.difficulty == 3 ){
+			g.drawImage(Assets.diff3S, 60, 260);
+			g.drawImage(Assets.select, 64, 263);
+		}
+		else{
+			g.drawImage(Assets.diff3, 60, 260);
+		}
+		if( SampleGame.difficulty == 4 ){
+			g.drawImage(Assets.diff4S, 60, 290);
+			g.drawImage(Assets.select, 64, 292);
+		}
+		else{
+			g.drawImage(Assets.diff4, 60, 290);
+		}		
 	}
 
 
